@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 15:55:53 by acasper           #+#    #+#             */
-/*   Updated: 2025/03/04 20:15:46 by acasper          ###   ########.fr       */
+/*   Updated: 2025/03/04 21:59:30 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -31,7 +31,7 @@ int	ft_atoi(char *str)
 		}
 		if (str > 64)
 		{
-			
+			str
 		}
 		str++;
 	}
