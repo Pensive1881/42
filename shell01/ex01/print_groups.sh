@@ -1,1 +1,1 @@
-echo $(groups $FT_USER | cut -d: -f2 | tr ' ' ',')
+id -Gn $FT_USER | tr ' ' ',' | tr -d '\n'
