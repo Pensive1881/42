@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 15:55:53 by acasper           #+#    #+#             */
-/*   Updated: 2025/03/04 21:59:30 by acasper          ###   ########.fr       */
+/*   Updated: 2025/03/05 19:45:49 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -16,24 +16,27 @@ int	ft_atoi(char *str)
 	int	neg;
 	int	num;
 	int	temp;
+	int	i;
 
+	i = 0;
 	num = 0;
 	neg = 0;
-	while (*str)
+	while (*str[i])
 	{
-		if (str == '-')
+		if (str[i] == '+' || str[i] == '\v' || str[i] == '\f' || str[i] == ' ' || str[i] == '\t'|| str[i] == '\r')
+			i++;
+		if (str[i] == '-')
+		{
 			neg++;
-		if (str >= 48 && <= 57)
+			i++;
+		}
+		if (str[i] >= 48 && str[i] <= 57)
 		{
 			temp = 0;
-			temp = str + '0'
-			num += temp;
+			num += (str[i] - '0');
+			i++;
 		}
-		if (str > 64)
-		{
-			str
-		}
-		str++;
+		i++;
 	}
 
 	if (neg % 2 == 1)
