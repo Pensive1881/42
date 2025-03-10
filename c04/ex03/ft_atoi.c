@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 15:55:53 by acasper           #+#    #+#             */
-/*   Updated: 2025/03/06 19:20:56 by acasper          ###   ########.fr       */
+/*   Updated: 2025/03/10 12:18:52 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 int	ft_atoi(char *str)
@@ -34,7 +34,6 @@ int	ft_atoi(char *str)
 	}
 	if (neg % 2 == 1)
 		num *= -1;
-
 	return (num);
 }
 /*
