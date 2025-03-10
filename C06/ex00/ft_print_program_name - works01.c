@@ -6,19 +6,10 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:41:44 by acasper           #+#    #+#             */
-/*   Updated: 2025/03/10 18:57:16 by acasper          ###   ########.fr       */
+/*   Updated: 2025/03/10 18:19:25 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
-
-void	ft_print_program_name(char *str)
-{
-	while (*str)
-	{
-		write(1, str, 1);
-		str++;
-	}
-}
 
 int	main(int argc, char *argv[])
 {
@@ -26,6 +17,10 @@ int	main(int argc, char *argv[])
 
 	if (argc < 0)
 		stupid = 0;
-	ft_print_program_name(argv[0]);
+	while (*argv[0])
+	{
+		write (1, argv[0], 1);
+		argv[0]++;
+	}
 	return (0);
 }
