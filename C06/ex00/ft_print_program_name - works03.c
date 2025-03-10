@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/10 17:46:54 by acasper           #+#    #+#             */
-/*   Updated: 2025/03/10 19:49:27 by acasper          ###   ########.fr       */
+/*   Created: 2025/03/10 17:41:44 by acasper           #+#    #+#             */
+/*   Updated: 2025/03/10 20:28:28 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -15,24 +15,14 @@ int	main(int argc, char *argv[])
 {
 	int	stupid;
 	int	i;
-	int	j;
 
 	if (argc < 0)
 		stupid = 0;
-	i = 1;
-	while (argv[i])
+	i = 0;
+	while (argv[0][i])
 	{
-		j = 0;
-		while (argv[i][j])
-		{
-			write(1, &argv[i][j], 1);
-			j++;
-		}
-		write(1, "\n", 1);
+		write(1, &argv[0][i], 1);
 		i++;
 	}
 	return (0);
 }
-/*
-(void)argc;
-*/

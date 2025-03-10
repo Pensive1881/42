@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/10 17:46:54 by acasper           #+#    #+#             */
-/*   Updated: 2025/03/10 19:49:27 by acasper          ###   ########.fr       */
+/*   Created: 2025/03/10 17:41:44 by acasper           #+#    #+#             */
+/*   Updated: 2025/03/10 18:57:16 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 
+void	ft_print_program_name(char *str)
+{
+	while (*str)
+	{
+		write(1, str, 1);
+		str++;
+	}
+}
+
 int	main(int argc, char *argv[])
 {
 	int	stupid;
-	int	i;
-	int	j;
 
 	if (argc < 0)
 		stupid = 0;
-	i = 1;
-	while (argv[i])
-	{
-		j = 0;
-		while (argv[i][j])
-		{
-			write(1, &argv[i][j], 1);
-			j++;
-		}
-		write(1, "\n", 1);
-		i++;
-	}
+	ft_print_program_name(argv[0]);
 	return (0);
 }
-/*
-(void)argc;
-*/
