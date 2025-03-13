@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 18:56:14 by acasper           #+#    #+#             */
-/*   Updated: 2025/03/12 20:51:08 by acasper          ###   ########.fr       */
+/*   Updated: 2025/03/13 17:14:41 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -29,7 +29,7 @@ char	*ft_strdup(char *src)
 	int		i;
 
 	len = ft_strlen(src);
-	dest = (char *)malloc(sizeof(char) * (len + 1));
+	dest = (char *)malloc(sizeof(char) * len + 1);
 	if (!dest)
 	{
 		errno = ENOMEM;

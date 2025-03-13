@@ -6,11 +6,10 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 21:04:57 by acasper           #+#    #+#             */
-/*   Updated: 2025/03/12 22:02:51 by acasper          ###   ########.fr       */
+/*   Updated: 2025/03/13 17:15:18 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
-#include <errno.h>
 
 int	*ft_range(int min, int max)
 {
