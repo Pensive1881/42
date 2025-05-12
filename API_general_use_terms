@@ -1,0 +1,224 @@
+You need to sign all mandatory policies to continue.×
+API General Terms of Use
+You have 1 term(s) left to sign
+Preamble
+
+The present General Terms of Use (hereinafter referred to as the “GTU”, or “Terms”) govern access to and use of the API made available by Association 42 to the students (hereinafter referred to as the “Users” and/or designated by the pronoun “you”).
+
+The use of the API implies the acceptance of these Terms, which shall start on the date (i) you accept them or (ii) when you access for the first time to the API, until you cease using the API or the Data contained in the API.
+
+You must also comply with the applicable requirements defined in the API documentation available at the following address: https://api.intra.42.fr/apidoc and with the API User Charter.
+
+In the event of failure to comply with these Terms, the API documentation and the API User Charter, Association 42 may suspend or prohibit access to the API. Any breach may expose the User to the sanctions provided for in the Internal Rules of the Campus.
+
+Definition
+
+“API” refers to the 42 API (Application Programming Interface) containing only Data from the 42 Intranet.
+
+“Application(s)” refers to application solutions, websites and/or any tools developed by Users using Data from the API.
+
+“Data” means any information, data including Personal Data or other content obtained through the API, whether before, after or at the date of acceptance of these Terms, including anonymized, aggregated or derived data. API Data includes User tokens as well as secret keys.
+
+“Personal Data” means any information relating to an identified or identifiable natural person; an ‘identifiable natural person’ is one who can be identified, directly or indirectly, in particular by reference to an identification number or to one or more factors specific to him or her.
+
+“Regulations” means the applicable laws and regulations, in particular concerning the protection of personal data, including Regulation (EU) 2016/679 on the protection of individuals with regard to the processing of personal data and on the free movement of such data and repealing Directive 95/46/EC (the RGPD), Law No. 78/17 of January 6, 1978 relating to information technology, files and freedoms (Loi Informatique et Libertés), its implementing decree(s) and the doctrine of the competent supervisory authorities.
+
+“42 Network” refers to all 42 partner campuses.
+
+“Data Controller” refers to the natural or legal person who, alone or jointly with others, determines the purposes and means of data processing.
+
+“Processing” means any operation or set of operations performed on Data or sets of Data, whether or not by means of automated processes, and in particular collection, recording, organization, structuring, storage, adaptation or modification, extraction, consultation, use, communication by transmission, dissemination or any other form of making available, reconciliation or interconnection, as well as limitation, erasure or destruction.
+
+“Personal Data Breach” means a breach of security resulting in the accidental or unlawful destruction, loss, alteration, unauthorized disclosure of, or access to, Personal Data transmitted, stored or otherwise processed.
+
+Article 1: Purpose of the API
+
+The API allows the User to access and use limited categories of Data in order to carry out its pedagogical projects, namely ft_transcendance.
+
+In addition, the User may access the API to develop Applications that are exclusively beneficial to 42 Network, which shall in no way be prejudiced thereby. By “beneficial”, it is understood any creation that contributes positively to the improvement of pedagogy, to the efficiency of tools, or to the overall experience of 42 Network users, without harming its operation, its reputation or the security of Data.
+
+In order to ensure that the Applications comply with the present Terms, 42 may carry out an audit of the Applications. The audit may be carried out randomly or in response to reports received.
+
+If a User has developed an Application that is deemed not to comply with these Terms, access to the API may be suspended or denied.
+
+Access to and use of the API is not authorized to candidates for admission to the 42 school or to former 42 students who are not Alumni.
+
+Access to and use of the API is authorized to Alumni under the same conditions as those provided for students in the present Terms.
+
+Article 2 : License
+
+2.1. Granting of a license by 42
+
+42 grants Users a limited, non-exclusive, revocable, non-sublicensable, non-transferable and non-assignable license to use and access the API. Consequently, Users may not under any circumstances transfer and/or sublicense the use and access of the 42 API.
+
+The User is not authorized to use and access the API in any manner other than as set forth in these Terms.
+
+The User acknowledges that 42 owns all intellectual property rights in the API.
+
+2.2 Licensing by the User
+
+The User grants 42 a non-exclusive, transferable, royalty-free, worldwide license to host, modify and use any information, Data or other content made available by the User in connection with the API (referred to as “the Content”) for any educational purposes in connection with the operation or improvement of the API and tools developed by 42.
+
+This license remains in effect even if the User ceases to use the API. The license granted to 42 includes without limitation :
+
+the right to integrate the Content into other parts of the services and tools offered by 42 ;
+
+the right to attribute the source of the Content using the User's name;
+
+the right to analyze the Content (including to ensure compliance with these Terms and any other applicable conditions or policies).
+
+Article 3: Access to the API
+
+Access to the API is restricted to the 42 Network, which means that Data obtained via the API must remain strictly within the 42 Network. Any sharing of the Data obtained from the API outside the 42 Network is forbidden.
+
+3.1. Access to Data by API Users
+
+The User may access the API in read-only mode to carry out pedagogical projects and develop Applications as defined in Article 1 of these Terms. Any other use, including but not limited to storing Data locally, is strictly prohibited without the prior consent of the end-user.
+
+To this end, the User has access exclusively to the categories of Data as defined in the API documentation, the link to which is available in the Preamble hereto.
+
+3.2. Authentication to the API
+
+Access to the API requires prior authentication to the 42 Intranet in order to obtain a token. This token is valid for 2 hours, after which it must be generated again to maintain access. In addition, the API secret is automatically rotated every month for security purposes.
+
+A rate limit is applied to each token to control the volume of requests and avoid any abuse or overload of the API.
+
+Passwords are strictly confidential and must be stored securely in accordance with the Intranet Terms of Use. The same applies to tokens and API secret keys. It is strictly forbidden to share them or communicate them to third parties, whether internal or external to 42 Network. Any unauthorized use resulting from disclosure or negligence in the protection of this information will engage the responsibility of the User, and may lead to suspension of access to the API and appropriate sanctions.
+
+Article 4: Rules governing the use of Data
+
+4.1. Prohibited practices
+
+The User understands and agrees that it is prohibited to (hereinafter collectively referred to as the “Prohibited Practices”):
+
+Access or use the API in an illegal manner, in a manner inconsistent with these Terms;
+
+Deceive users or collect, store, transfer, use, modify or delete any Data without the prior written consent of the person concerned, and/or in violation of these Terms and/or the Regulations;
+
+Process the Data in order to discriminate or encourage discrimination against 42 Network users on the basis of personal characteristics, or any other category prohibited by applicable regulations;
+
+Sell or license the Data;
+
+Interfere with, circumvent or disable any feature or functionality built into or included in the API and reverse engineer the API and the Data made available;
+
+Place or make available the Data on a search engine or directory, and generally place or make available the Data outside the 42 Network;
+
+Allow a third party who is not an authorized User to access the API;
+
+Use Data from the API to promote content, products or services and/or communicate with 42 Network without obtaining prior authorization from Users or 42.
+
+4.2. Consent and information
+
+When using the API, the User undertakes to obtain the end-user's specific, free and informed consent prior to any collection, processing or use of his/her Personal Data, in accordance with the Regulations in force. Through its privacy policy, the User must inform the end-user of the category of the data collected, the purpose of its processing, and the user's rights, including the right to withdraw his/her consent at any time. It is the User's responsibility to retain evidence of such consent and to ensure that the end-user can exercise his/her rights in accordance with legal requirements.
+
+The privacy policy shall not conflict with these Terms or any other applicable policy, and the User undertakes to keep it up to date and to provide it to 42 upon request. The French authority, the CNIL, provides guidelines on its website regarding information to be provided on the privacy policy.
+
+4.3. Security of Data and Applications
+
+The User must take all necessary measures to ensure the security of Data from the API. In particular, it must protect the Data against unauthorized access or disclosure.
+
+In addition, as soon as the User makes available to the 42 Network an Application including Data from the API, the User undertakes to take all necessary measures to ensure the security of the Application, including but not limited to the following security measures:
+
+Guaranteeing data confidentiality, integrity and availability;
+
+Implementing a binding password management policy for access to Data;
+
+Regular renewal of passwords;
+
+Regular data backups;
+
+Management, identification and monitoring of access authorizations;
+
+Protection of computer network and servers;
+
+Data encryption in transit and at rest;
+
+Pseudonymization and encryption of Data ;
+
+The User must also comply with the security rules defined in the API documentation.
+
+Failure to comply with these rules may lead to suspension or prohibition of access to the API, and to possible sanctions.
+
+4.4. Access to and modification of Data
+
+The User shall use reasonable efforts to keep the Data up to date. The User shall update the Data immediately upon receiving a request to do so from the end-user or from 42.
+
+The User shall provide the end-user with an easily accessible and clearly indicated means of requesting access to, modification or deletion of their Data.
+
+4.5. Retention and deletion of Data
+
+Unless Data retention is required by Regulation, the User shall ensure that all Data is deleted as soon as reasonably possible in the following cases:
+
+When Data retention is no longer necessary;
+
+When the User ceases to operate the API through which the Data was obtained;
+
+When 42 requests the User to delete the Data, at its sole discretion;
+
+When a end-user requests that his or her Data be deleted.
+
+Article 5: Limitation of liability
+
+42 reserves the right to modify and upgrade the API at any time and without notice, and to interrupt, restrict or suspend all or part of the API functionalities at any time and without notice. 42 shall not be held liable for the consequences of such modifications and interruptions.
+
+Users are responsible for their use of the API and the Data obtained via the API. They must ensure that such use complies with the present Terms, the Regulations in force and any documentation relating to the API available at the following address: https://api.intra.42.fr/apidoc.
+
+In the event of non-compliance with these Terms, the documentation relating to the API and the API User Charter, 42 may suspend or prohibit access to the API. Any breach may expose the User to the sanctions provided for in the Internal Rules or any other applicable policy of the campus/school 42 to which the User belongs.
+
+Under no circumstances may 42 be held liable in the event of violation by a User of any Regulations in connection with the use made of the API. The User is liable to 42 and/or third parties for any material and/or immaterial, direct and/or indirect loss of any nature whatsoever caused by the User as a result of the use of the API which does not comply with these Terms.
+
+The User guarantees 42, as well as its representatives, its employees, its partners and the members of the 42 Network, against any demand, claim and/or recourse of any kind, resulting from a breach by the User of the Terms.
+
+Article 6: Notification of risks and compromise
+
+When Users identify a risk relating to the confidentiality of Data or the security of the API, they shall inform 42 as soon as possible at the following address: security@42.fr.
+
+In the event of detection or suspicion of compromission of their access keys, Users must revoke them immediately and request the generation of new keys from 42.
+
+Article 7: Modifications to the Terms
+
+42 reserves the right to modify these Terms at any time. Changes will be notified to Users by any appropriate means. Continued use of the API after notification of modifications constitutes acceptance of the terms.
+
+Article 8 : Warranties
+
+The API is provided “as is”, without express or implied warranties or conditions of any kind. Accordingly, 42 does not warrant that:
+
+the API will operate without interruption, failure, bugs or error and/or that 42 will intervene or correct any interruptions, failures, bugs or errors;
+
+that remote technical support will resolve any technical problems encountered by the User on the API and/or will intervene within a certain period of time;
+
+that the User's environment, equipment or technical and computer resources will be compatible or compliant to enable them to connect to and use the API.
+
+42 disclaims all warranties of title, merchantability or non-infringement.
+
+42 makes no warranty as to the results that may be obtained from the use of the API.
+
+Article 9: Applicable law and jurisdiction
+
+THESE TERMS ARE GOVERNED BY FRENCH LAW. ANY DISPUTE RELATING TO THEIR INTERPRETATION OR EXECUTION THAT CANNOT BE SETTLED AMICABLY SHALL BE SUBMITTED TO THE EXCLUSIVE JURISDICTION OF THE FRENCH COURTS.
+
+Last update : 08.01.2025
+
+API User Charter
+
+This User Charter sets out a list of acceptable and unacceptable behaviors in relation to the 42 API. If we believe that a violation of the policy is deliberate, repeated or presents a credible risk of harm to our students or any other user, we may suspend or deny access to the API. This User Charter may change as 42 develops and evolves, so please check for updates and changes regularly.
+
+To do :
+
+comply with the Intranet Terms and Conditions of Use and the API Terms and Conditions of Use, including the terms of this Charter;
+
+comply with all applicable laws and regulations, including all laws relating to intellectual property and data privacy;
+
+maintain the confidentiality of passwords and other login information;
+
+promptly notify us if you become aware of, or reasonably suspect, any unauthorized activity or breach of security involving your account, including any loss, theft, or unauthorized disclosure or use of a username, password or account.
+
+Do not:
+
+allow any third party who is not an Authorized User to access the API or to use any username or password to access the API;
+
+share, transfer or otherwise provide access to the account assigned to you;
+
+send unsolicited communications, promotions, advertising or spam;
+
+violate the privacy rights, defame others or share personal data without proper authorization.
