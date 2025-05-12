@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 20:58:24 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/12 21:01:05 by acasper          ###   ########.fr       */
+/*   Updated: 2025/05/12 21:25:15 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <iostd.h>
@@ -17,7 +17,10 @@ int	isdigit(char str)
 	i = 0;
 	while (str[i] != '\n')
 	{
-		if (str[i] < 
+		if (str[i] < 48)
+			return (0);
+		else if (str[i] > 57)
+			return (0);
 	}
 	return (1);
 }
