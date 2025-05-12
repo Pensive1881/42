@@ -6,12 +6,12 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 20:27:10 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/12 20:57:51 by acasper          ###   ########.fr       */
+/*   Updated: 2025/05/12 22:10:30 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 
-int	isalphaa(char *str)
+int	isalpha(char *str)
 {
 	int	i;
 
@@ -28,7 +28,7 @@ int	isalphaa(char *str)
 	}
 	return (1);
 }
-
+/*
 #include <stdio.h>
 int	main(void)
 {
@@ -38,3 +38,4 @@ int	main(void)
 	printf("m m: %d\n", isalphaa("m m"));
 	return (0);
 }
+*/

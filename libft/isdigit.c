@@ -6,10 +6,10 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 20:58:24 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/12 21:25:15 by acasper          ###   ########.fr       */
+/*   Updated: 2025/05/12 22:12:01 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <iostd.h>
+#include <unistd.h>
 
 int	isdigit(char str)
 {
@@ -24,4 +24,3 @@ int	isdigit(char str)
 	}
 	return (1);
 }
-
