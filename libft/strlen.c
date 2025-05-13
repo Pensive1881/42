@@ -6,12 +6,19 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 22:12:13 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/12 22:12:36 by acasper          ###   ########.fr       */
+/*   Updated: 2025/05/13 18:13:19 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 
-int	strlen()
+int	strlen(char str)
 {
-	return (0);
+	int	i;
+
+	i = 0;
+	while (str[i] != '\n')
+	{
+		i++;
+	}
+	return (i);
 }
