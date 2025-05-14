@@ -6,12 +6,14 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 22:17:35 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/12 22:17:50 by acasper          ###   ########.fr       */
+/*   Updated: 2025/05/14 18:27:11 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 
-int	tolower()
+int	tolower(int c)
 {
-	return (0);
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	return (c);
 }
