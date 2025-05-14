@@ -6,12 +6,12 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 22:07:10 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/12 22:11:17 by acasper          ###   ########.fr       */
+/*   Updated: 2025/05/14 17:43:12 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 
-int	isascii()
+int	isascii(char c)
 {
-	return (0);
+	return (c <= 127);
 }
