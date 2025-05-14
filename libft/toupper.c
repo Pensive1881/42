@@ -6,12 +6,14 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 22:17:07 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/12 22:17:26 by acasper          ###   ########.fr       */
+/*   Updated: 2025/05/14 18:29:49 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 
-int	toupper()
+int	toupper(int c)
 {
-	return (0);
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	return (c);
 }
