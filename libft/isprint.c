@@ -6,12 +6,12 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 22:08:01 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/12 22:10:49 by acasper          ###   ########.fr       */
+/*   Updated: 2025/05/14 18:19:32 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 
-int	isprint()
+int	isprint(int c)
 {
-	return (0);
+	return (c >= 32 && c <= 126);
 }
