@@ -6,12 +6,12 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 22:18:33 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/12 22:18:50 by acasper          ###   ########.fr       */
+/*   Updated: 2025/05/14 22:45:56 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 
-int	strncmp()
+int	strncmp(const char *str1, const char *str2, size_t n)
 {
 	return (0);
 }
