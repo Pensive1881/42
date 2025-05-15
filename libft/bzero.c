@@ -6,12 +6,12 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 22:13:49 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/12 22:14:16 by acasper          ###   ########.fr       */
+/*   Updated: 2025/05/15 18:35:18 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 
-int	bzero()
+void	bzero(void *str, size_t n)
 {
 	return (0);
 }
