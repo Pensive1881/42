@@ -1,28 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strchr.c                                           :+:      :+:    :+:   */
+/*   calloc.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/12 22:18:03 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/14 23:47:52 by acasper          ###   ########.fr       */
+/*   Created: 2025/05/15 18:48:19 by acasper           #+#    #+#             */
+/*   Updated: 2025/05/15 18:48:59 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 
-char	*strchr.c(const char *str, int c)
+int	calloc()
 {
-	int 	i;
-
-	if (c == '\0')
-		return ((char*) str);
-	i = 0;
-	while (str[i])
-	}
-		if (str[i] == c)
-			return ((char*) str[i]);
-		i++;
-	}
-	return (NULL);
+	return (0);
 }
