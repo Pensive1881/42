@@ -6,12 +6,12 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 22:13:03 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/12 22:13:25 by acasper          ###   ########.fr       */
+/*   Updated: 2025/05/15 18:54:02 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 
-int	memset()
+void	*memset(void *str, int c, size_t n)
 {
 	return (0);
 }
