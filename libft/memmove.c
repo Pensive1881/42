@@ -6,12 +6,12 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 22:15:00 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/12 22:15:19 by acasper          ###   ########.fr       */
+/*   Updated: 2025/05/15 18:56:44 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 
-int	memmove()
+void	*memmove(void *dest, const void *src, size_t n)
 {
 	return (0);
 }
