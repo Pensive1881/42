@@ -6,12 +6,12 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 22:14:29 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/12 22:14:46 by acasper          ###   ########.fr       */
+/*   Updated: 2025/05/15 18:58:50 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 
-int	memcpy()
+void	*memcpy(void *dest, const void *scr, size_t n)
 {
 	return (0);
 }
