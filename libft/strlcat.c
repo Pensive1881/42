@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
+#include <string.h>
 
 size_t	strlcat(char * restrict dest, const char * restrict scr, size_t destsize)
 {
