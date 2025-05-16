@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include <unistd.h>
 
-int	strlcat()
+size_t	strlcat(char * restrict dest, const char * restrict scr, size_t destsize)
 {
 	return (0);
 }
