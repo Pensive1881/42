@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include <unistd.h>
 
-int	strlcpy()
+size_t	strlcpy(char * restrict dest, const char * restrict src, size_t destsize)
 {
 	return (0);
 }
