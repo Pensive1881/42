@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include <unistd.h>
 
-int	calloc()
+void	*calloc(size_t count, size_t size)
 {
 	return (0);
 }
