@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include <unistd.h>
 
-int	strdup()
+char	*strdup(const char *str1)
 {
 	return (0);
 }
