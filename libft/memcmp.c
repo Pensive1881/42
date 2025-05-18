@@ -6,12 +6,12 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 22:19:39 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/12 22:19:56 by acasper          ###   ########.fr       */
+/*   Updated: 2025/05/15 19:01:33 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 
-int	memcmp()
+int	memcmp(const void *str1, const void *str2, size_t n)
 {
 	return (0);
 }
