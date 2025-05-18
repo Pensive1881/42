@@ -6,12 +6,12 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 20:34:34 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/18 20:37:08 by acasper          ###   ########.fr       */
+/*   Updated: 2025/05/18 20:37:56 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 
-char	*strchr()
+char	*strchr(const char *str, int c)
 {
 	return (0);
 }
