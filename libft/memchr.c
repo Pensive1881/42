@@ -6,12 +6,12 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 22:19:04 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/12 22:19:30 by acasper          ###   ########.fr       */
+/*   Updated: 2025/05/15 19:03:03 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 
-int	memchr()
+void	*memchr(const void *str, int c, size_t n)
 {
 	return (0);
 }
