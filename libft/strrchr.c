@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 20:44:19 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/18 20:47:08 by acasper          ###   ########.fr       */
+/*   Updated: 2025/05/18 20:55:58 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -14,13 +14,18 @@
 char	*strrchr(const char *str, int c)
 {
 	int	i;
+	char* last_char = NULL;
 
 	if (c == '\0')
 		return ((char*) str);
 	i = 0;
 	while (str[i])
 	{
-
+		if (str[i] == (char) c)
+			last_char = (char*) str;
+		i++;
 	}
-	return (0);
+	if ((char) c == '\0')
+		return ((char*) str);
+	return (last_char);
 }
