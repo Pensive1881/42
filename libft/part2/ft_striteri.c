@@ -9,9 +9,16 @@
 /*   Updated: 2025/05/18 23:50:42 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include "libft.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	return (NULL);
 }
+
+/*
+int     main()
+{
+        return (0);
+}
+*/

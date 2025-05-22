@@ -9,9 +9,16 @@
 /*   Updated: 2025/05/18 23:49:11 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include "libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	return (0);
 }
+
+/*
+int     main()
+{
+        return (0);
+}
+*/

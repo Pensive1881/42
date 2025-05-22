@@ -9,9 +9,16 @@
 /*   Updated: 2025/05/18 23:54:58 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include "libft.h"
 
 void	ft_putendl_fd(char *s, int fd)
 {
 	return (NULL);
 }
+
+/*
+int     main()
+{
+        return (0);
+}
+*/

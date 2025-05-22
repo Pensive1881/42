@@ -9,9 +9,16 @@
 /*   Updated: 2025/05/18 23:45:11 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include "libft.h"
 
 char	*ft_strtrim(char const *s1, char const *s2, char const *set)
 {
 	return (0);
 }
+
+/*
+int     main()
+{
+        return (0);
+}
+*/

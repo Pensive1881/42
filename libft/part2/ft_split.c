@@ -9,9 +9,16 @@
 /*   Updated: 2025/05/18 23:46:10 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include "libft.h"
 
 char	**ft_split(char const *s, char c)
 {
 	return (0);
 }
+
+/*
+int     main()
+{
+        return (0);
+}
+*/

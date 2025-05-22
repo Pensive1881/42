@@ -9,9 +9,16 @@
 /*   Updated: 2025/05/18 23:42:02 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	return (0)
 }
+
+/*
+int     main()
+{
+        return (0);
+}
+*/
