@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   calloc.c                                           :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/15 18:48:19 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/18 23:21:51 by acasper          ###   ########.fr       */
+/*   Created: 2025/05/12 22:14:29 by acasper           #+#    #+#             */
+/*   Updated: 2025/05/19 00:13:07 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
-#include <stdlib.h>
+#include "libft.h"
 
-void	*calloc(size_t count, size_t size)
+void	*ft_memcpy(void restricted *dst, const void restricted *src, size_t n)
 {
-	void	*ptr;
+	unsigned char *d = (unsigned char*) dst;
+	const unsigned char *s = (const unsigned char *) src;
 
-	if(size && count > SIZE_MAX / size)
-		return (NULL);
-	*ptr = malloc(count * size);
-	if (ptr)
-		memset(ptr, 0, count * size);
-
-	return (ptr);
+	while (n--)
+		*d++ = *s++;
+	return (dst);
 }
+
+/*
+int     main()
+{
+        return (0);
+}
+*/

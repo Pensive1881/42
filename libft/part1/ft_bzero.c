@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strrchr.c                                          :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/18 20:44:19 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/18 20:55:58 by acasper          ###   ########.fr       */
+/*   Created: 2025/05/12 22:13:49 by acasper           #+#    #+#             */
+/*   Updated: 2025/05/19 00:09:32 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include "libft.h"
 
-char	*strrchr(const char *str, int c)
+void	ft_bzero(void *str, size_t n)
 {
-	int	i;
-	char* last_char = NULL;
-
-	if (c == '\0')
-		return ((char*) str);
-	i = 0;
-	while (str[i])
+	unsigned char *ptr = (unsigned char*) str;
+	while (n > 0)
 	{
-		if (str[i] == (char) c)
-			last_char = (char*) str;
-		i++;
+		*ptr = 0;
+		n--;
 	}
-	if ((char) c == '\0')
-		return ((char*) str);
-	return (last_char);
+	return (0);
 }
+
+/*
+int     main()
+{
+        return (0);
+}
+*/

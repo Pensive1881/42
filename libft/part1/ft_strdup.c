@@ -1,26 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isdigit.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/12 20:58:24 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/12 22:12:01 by acasper          ###   ########.fr       */
+/*   Created: 2025/05/15 18:49:09 by acasper           #+#    #+#             */
+/*   Updated: 2025/05/19 00:14:31 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include "libft.h"
 
-int	isdigit(char str)
+char	*ft_strdup(const char *s1)
 {
+	size_t	len;
+	char	*copy;
 	int	i;
+
+	len = ft_strlen(s1);
+	*copy = malloc(len + 1);
+	if(!copy)
+		return (NULL);
 	i = 0;
-	while (str[i] != '\n')
+	while (i <= len)
 	{
-		if (str[i] < 48)
-			return (0);
-		else if (str[i] > 57)
-			return (0);
+		copy[i] = s1[i];
+		i++;
 	}
-	return (1);
+
+	return (copy);
 }
+
+/*
+int     main()
+{
+        return (0);
+}
+*/

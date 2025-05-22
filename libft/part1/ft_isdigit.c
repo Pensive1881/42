@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strnstr.c                                          :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/12 22:20:08 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/18 22:06:26 by acasper          ###   ########.fr       */
+/*   Created: 2025/05/12 20:58:24 by acasper           #+#    #+#             */
+/*   Updated: 2025/05/19 00:11:48 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include "libft.h"
 
-char	*strnstr(const char *haystack, const char *needle, size_t len)
+int	ft_isdigit(int c)
 {
 	int	i;
-	int	j;
-
-	if (!*needle)
-		return ((char*) haystack);
-
 	i = 0;
-	while ()
+	while (c != '\n')
 	{
-		j = 0;
-		while(needle[j] && hackstack[i + j] && i + j < len && haystack[i + j] == needle[j])
-			j++;
-		if (!needle[j])
-			return ((char*() haystack + i);
-		i++;
+		if (c < 48)
+			return (0);
+		else if (c > 57)
+			return (0);
 	}
-	return (NULL);
+	return (1);
 }
+
+/*
+int     main()
+{
+        return (0);
+}
+*/

@@ -1,19 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tolower.c                                          :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/12 22:17:35 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/14 18:27:11 by acasper          ###   ########.fr       */
+/*   Created: 2025/05/12 22:20:08 by acasper           #+#    #+#             */
+/*   Updated: 2025/05/19 00:20:24 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include "libft.h"
 
-int	tolower(int c)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (c + 32);
-	return (c);
+	int	i;
+	int	j;
+
+	if (!*needle)
+		return ((char*) haystack);
+
+	i = 0;
+	while (haystack[i] && i < len)
+	{
+		j = 0;
+		while(needle[j] && i + j < len && haystack[i + j] == needle[j])
+			j++;
+		if (!needle[j])
+			return ((char*) haystack + i);
+		i++;
+	}
+	return (NULL);
 }
+
+/*
+int     main()
+{
+        return (0);
+}
+*/

@@ -1,17 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isprint.c                                          :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/12 22:08:01 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/14 18:19:32 by acasper          ###   ########.fr       */
+/*   Created: 2025/05/12 22:13:03 by acasper           #+#    #+#             */
+/*   Updated: 2025/05/19 00:13:40 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include "libft.h"
 
-int	isprint(int c)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	return (c >= 32 && c <= 126);
+	unsigned char *s;
+	unsigned char value;
+
+	*s = (unsigned char*) b;
+	value = (unsigned char) value;
+	while (len > 0)
+	{
+		*s++ = value;
+		len--;
+	}
+	return (b);
 }
+
+/*
+int     main()
+{
+        return (0);
+}
+*/

@@ -1,23 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bzero.c                                            :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/12 22:13:49 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/15 18:43:18 by acasper          ###   ########.fr       */
+/*   Created: 2025/05/12 22:15:00 by acasper           #+#    #+#             */
+/*   Updated: 2025/05/19 00:13:24 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include "libft.h"
 
-void	bzero(void *str, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char *ptr = (unsigned char*) str;
-	while (n > 0)
+	unsigned char *d = (unsigned char*) dst;
+	const unsigned char *s = (const unsigned char *) src;
+
+	if (d = s || len = 0)
+		return (dst);
+	if (d < s || d >= s + len)
 	{
-		*ptr = 0;
-		n--;
+		while (len--)
+			*d++ = *s++;
 	}
-	return (0);
+	else
+	{
+		d += len;
+		s += len;
+		while (len--)
+			*(--d) = *(--s);
+			
+	}
+	return (dst);
 }
+
+/*
+int     main()
+{
+        return (0);
+}
+*/

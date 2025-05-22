@@ -1,43 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strdup.c                                           :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/15 18:49:09 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/18 23:34:11 by acasper          ###   ########.fr       */
+/*   Created: 2025/05/12 22:18:33 by acasper           #+#    #+#             */
+/*   Updated: 2025/05/19 00:17:14 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
-#include <stdlib.h>
+#include "libft.h"
 
-size_t	strlen(const char *str)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-char	*strdup(const char *str1)
-{
-	size_t	len;
-	char	*copy;
-	int	i;
-
-	len = strlen(str);
-	*copy = malloc(len + 1);
-	if(!copy)
-		return (NULL);
-	i = 0;
-	while (i <= len)
+	while(i < n)
 	{
-		copy[i] = str[i];
+		if (s1[i] != s2[i] || s1[i] == '\0' || s2[i] == '\0')
+			return ((unsigned char) s1[i] - (unsigned char) s2[i]);
 		i++;
 	}
-
-	return (copy);
+	return (0);
 }
+
+/*
+int     main()
+{
+        return (0);
+}
+*/

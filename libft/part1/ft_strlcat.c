@@ -1,41 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isalpha.c                                          :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/12 20:27:10 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/12 22:10:30 by acasper          ###   ########.fr       */
+/*   Created: 2025/05/12 22:16:34 by acasper           #+#    #+#             */
+/*   Updated: 2025/05/19 00:15:35 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include "libft.h"
 
-int	isalpha(char *str)
+size_t	ft_strlcat(char * restrict dst, const char * restric src, size_t dstsize)
 {
+	size_t	dstlen;
+	size_t	srclen;
 	int	i;
 
+	dstlen = ft_strlen(dst);
+	srclen = ft_strlen(src);
+	if(dstsize <= dstlen)
+		return (dstsize + srclen);
 	i = 0;
-	while (str[i] != '\0')
+	while (src[i] && dstlen + i < dstsize - 1)
 	{
-		if (str[i] < 65)
-			return (0);
-		else if (str[i] > 90 && str[i] < 97)
-			return (0);
-		else if (str[i] > 122)
-			return (0);
+		dst[dstlen + i] = src[i];
 		i++;
 	}
-	return (1);
+	dst[dstlen + i] = '\0';
+	return (dstlen + srclen);
 }
+
 /*
-#include <stdio.h>
-int	main(void)
+int     main()
 {
-	printf("miau: %d\n", isalphaa("miau"));
-	printf("mia0: %d\n", isalphaa("mia0"));
-	printf("123: %d\n", isalphaa("123"));
-	printf("m m: %d\n", isalphaa("m m"));
-	return (0);
+        return (0);
 }
 */

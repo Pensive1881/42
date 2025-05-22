@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   toupper.c                                          :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/12 22:17:07 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/14 18:29:49 by acasper          ###   ########.fr       */
+/*   Created: 2025/05/12 22:07:10 by acasper           #+#    #+#             */
+/*   Updated: 2025/05/19 00:11:30 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include "libft.h"
 
-int	toupper(int c)
+int	ft_isascii(int c)
 {
-	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	return (c);
+	return (c <= 127);
 }
+
+/*
+int     main()
+{
+        return (0);
+}
+*/

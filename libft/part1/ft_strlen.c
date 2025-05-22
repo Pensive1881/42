@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isalnum.c                                          :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/12 22:06:05 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/12 22:35:43 by acasper          ###   ########.fr       */
+/*   Created: 2025/05/12 22:12:13 by acasper           #+#    #+#             */
+/*   Updated: 2025/05/19 00:16:46 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include "libft.h"
 
-int	isalnum(char str)
+size_t	ft_strlen(const char s)
 {
 	int	i;
+
 	i = 0;
-	while (str[i] != '\n')
-	{
-		if (str[i] < 48)
-			return (0);
-		else if (str[i] > 57 && str[i] < 65)
-			return (0);
-		else if (str[i] > 90 && str[i] < 97)
-			return (0);
-		else if (str[i] > 122)
-			return (0);
+	while (s[i])
 		i++;
-	}
-	return (1);
+	return (i);
 }
+
+/*
+int     main()
+{
+        return (0);
+}
+*/

@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memchr.c                                           :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/12 22:19:04 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/18 21:52:58 by acasper          ###   ########.fr       */
+/*   Created: 2025/05/12 22:19:39 by acasper           #+#    #+#             */
+/*   Updated: 2025/05/19 00:12:50 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include "libft.h"
 
-void	*memchr(const void *str, int c, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	const unsigned char *ptr = str;
+	const unsigned char *ptr1 = s1;
+	const unsigned char *ptr2 = s2;
 
 	while (n--)
 	{
-		if (*ptr == (unsigned char) c)
-			return ((void *)ptr);
-		ptr++;
+		if (*ptr1 != *ptr2)
+			return (ptr1 - ptr2);
+		ptr1++;
+		ptr2++;
 	}
-	return (NULL);
+	return (0);
 }
+
+/*
+int     main()
+{
+        return (0);
+}
+*/

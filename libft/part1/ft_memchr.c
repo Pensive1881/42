@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memmove.c                                          :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/12 22:15:00 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/18 21:26:52 by acasper          ###   ########.fr       */
+/*   Created: 2025/05/12 22:19:04 by acasper           #+#    #+#             */
+/*   Updated: 2025/05/19 00:12:27 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include "libft.h"
 
-void	*memmove(void *dest, const void *src, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned char *d = (unsigned char*) dest;
-	const unsigned char *s = (const unsigned char *) src;
+	const unsigned char *ptr = s;
 
-	if (d = s || n = 0)
-		return (dest);
-	if (d < s || d >= s + n)
+	while (n--)
 	{
-		while (n--)
-			*d++ = *s++;
+		if (*ptr == (unsigned char) c)
+			return ((void *)ptr);
+		ptr++;
 	}
-	else
-	{
-		d += n;
-		s += n;
-		while (n--)
-			*(--d) = *(--s);
-			
-	}
-	return (dest);
+	return (NULL);
 }
+
+/*
+int     main()
+{
+        return (0);
+}
+*/
