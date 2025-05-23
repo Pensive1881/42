@@ -6,12 +6,19 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 00:22:44 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/19 00:23:35 by acasper          ###   ########.fr       */
+/*   Updated: 2025/05/22 19:04:49 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include "libft.h"
 
 t_list	*ft_lstlast(t_list *list)
 {
 	return (0);
 }
+
+/*
+int     main()
+{
+        return (0);
+}
+*/

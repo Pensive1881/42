@@ -6,12 +6,19 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 00:21:50 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/19 00:22:28 by acasper          ###   ########.fr       */
+/*   Updated: 2025/05/22 19:07:21 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include "libft.h"
 
 int	ft_lstsize(t_list *lst)
 {
 	return (0);
 }
+
+/*
+int     main()
+{
+        return (0);
+}
+*/

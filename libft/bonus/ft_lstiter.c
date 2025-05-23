@@ -6,12 +6,19 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 00:27:18 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/19 00:28:17 by acasper          ###   ########.fr       */
+/*   Updated: 2025/05/22 19:03:02 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
+#include "libft.h"
 
 void	ft_lstiter(t_list *lst, void(*f)(void*))
 {
 	return (NULL);
-}	
+}
+
+/*
+int     main()
+{
+        return (0);
+}
+*/
