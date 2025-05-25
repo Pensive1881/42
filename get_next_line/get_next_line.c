@@ -6,8 +6,21 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 21:57:22 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/25 21:57:37 by acasper          ###   ########.fr       */
+/*   Updated: 2025/05/25 21:59:39 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "get_next_line.h"
 
+char	*get_next_line(int_fd)
+{
+	
+	return ();
+}
 
+/*
+int	main(void)
+{
+	
+	return (0);
+}
+*/
