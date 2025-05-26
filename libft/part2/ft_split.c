@@ -6,18 +6,26 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 23:45:27 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/18 23:46:10 by acasper          ###   ########.fr       */
+/*   Updated: 2025/05/25 20:20:29 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 char	**ft_split(char const *s, char c)
 {
+	int	i;
+
+	i = 0;
+	while ()
+	{
+		
+		i++;
+	}
 	return (0);
 }
 
 /*
-int     main()
+int     main(void)
 {
         return (0);
 }
