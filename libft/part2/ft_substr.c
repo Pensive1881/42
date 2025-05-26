@@ -9,16 +9,21 @@
 /*   Updated: 2025/05/18 23:42:02 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+//#include "libft.h"
+#include <unistd.h>
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	return (0)
+	char	str;
+	
+
+	return (str)
 }
 
-/*
-int     main()
+#include <stdio.h>
+int     main(void)
 {
+	printf("miau meow, 5, 8: %p\n", ft_substr("miau meow", 5, 8));
         return (0);
 }
-*/
+
