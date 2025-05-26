@@ -6,12 +6,12 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 23:43:57 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/18 23:45:11 by acasper          ###   ########.fr       */
+/*   Updated: 2025/05/26 22:02:19 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *s2, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	return (0);
 }
