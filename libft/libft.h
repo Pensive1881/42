@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 18:49:23 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/22 19:07:15 by acasper          ###   ########.fr       */
+/*   Updated: 2025/05/26 23:42:14 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_H
@@ -21,6 +21,12 @@
 # include <ctype.h>
 # include <limits.h>
 # include <stdint.h>
+
+typedef struct s_list
+{
+	void		*content;
+	struct s_list	*next;
+} t_list;
 
 int	ft_atoi(const char *str);
 void	ft_bzero(void *str, size_t n);
