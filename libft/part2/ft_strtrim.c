@@ -6,39 +6,82 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 23:43:57 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/26 22:54:02 by acasper          ###   ########.fr       */
+/*   Updated: 2025/05/27 21:41:24 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-//#include "libft.h"
+#include "libft.h"
+/*
 #include <unistd.h>
+#include <stdlib.h>
+
+int	ft_strlen(const char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
+
+char	*ft_strncpy(char *dest, const char *src, size_t n)
+{
+	int	i;
+
+	i = 0;
+	while (i < n && src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
+	}
+	return (dest);
+}
+*/
+int	check_set(char c, const char *set)
+{
+	while (*set)
+	{
+		if (*set == c)
+			return (1);
+		set++;
+	}
+	return (0);
+}
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*str;
-	int	i;
-	int	j;
-	
-	str = (char *)malloc(sizeof(char) * ());
-	i = 0;
-	j = 0;
-	while (set[i])
-	{
-		while (s1[j] != set[i])
-		{
-			str[j] = s1[j]
-			j++;
-		}
-		i++;
-	}
-	str[i] = '\0';
+	int		len;
+	int		start;
+	int		end;
+
+	if (!s1 || !set)
+		return (NULL);
+	start = 0;
+	while (s1[start] && check_set(s1[start], set))
+		start++;
+	end = ft_strlen(s1);
+	while (end > start && check_set(s1[end - 1], set))
+		end--;
+	len = end - start;
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
+	ft_strncpy(str, s1 + start, len);
+	str[len] = '\0';
 	return (str);
 }
-
+/*
 #include <stdio.h>
 
 int     main(void)
 {
-	printf("%p\n", ft_strtrim("  miau meow  ", ' '));
+	printf("@@miau meow@@@, @a: %s\n", ft_strtrim("@@miau meow@@@", "@a"));
         return (0);
 }
-
+*/
