@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 18:49:09 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/19 00:14:31 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/01 23:30:17 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -15,10 +15,10 @@ char	*ft_strdup(const char *s1)
 {
 	size_t	len;
 	char	*copy;
-	int	i;
+	size_t	i;
 
 	len = ft_strlen(s1);
-	*copy = malloc(len + 1);
+	copy = malloc(len + 1);
 	if(!copy)
 		return (NULL);
 	i = 0;
