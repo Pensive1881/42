@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 22:20:33 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/19 00:09:15 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/01 22:23:18 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -24,7 +24,7 @@ int	ft_atoi(const char *str)
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-			sign = -1;
+			neg = -1;
 		i++;
 	}
 	num = 0;
