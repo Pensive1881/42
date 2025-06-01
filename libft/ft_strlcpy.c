@@ -6,19 +6,19 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 22:15:42 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/19 00:16:21 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/01 21:47:04 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include libft.h
+#include "libft.h"
 
-size_t  ft_strlcpy(char * restrict dst, const char * restric src, size_t dstsize);
+size_t  ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	int	i;
 
 	i = 0;
-	if (dstsize > 0)
+	if (size > 0)
 	{
-		while (src[i] && i < dstsize - 1)
+		while (src[i] && i < size - 1)
 		{
 			dst[i] = src[i];
 			i++;
