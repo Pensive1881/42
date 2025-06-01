@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 18:49:23 by acasper           #+#    #+#             */
-/*   Updated: 2025/06/01 23:37:01 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/01 23:57:32 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_H
@@ -52,7 +52,7 @@ char	*ft_strrchr(const char *s, int c);
 int	ft_tolower(int c);
 int	ft_toupper(int c);
 
-char	**ft_itoa(int n);
+char	*ft_itoa(int n);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
