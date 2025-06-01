@@ -6,14 +6,14 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 22:18:33 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/19 00:17:14 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/01 23:38:03 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while(i < n)
