@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 22:15:00 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/19 00:13:24 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/01 22:57:20 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -16,7 +16,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	unsigned char *d = (unsigned char*) dst;
 	const unsigned char *s = (const unsigned char *) src;
 
-	if (d = s || len = 0)
+	if (d == s || len == 0)
 		return (dst);
 	if (d < s || d >= s + len)
 	{
