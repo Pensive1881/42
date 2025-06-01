@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 22:13:49 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/19 00:09:32 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/01 22:45:25 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -19,7 +19,6 @@ void	ft_bzero(void *str, size_t n)
 		*ptr = 0;
 		n--;
 	}
-	return (0);
 }
 
 /*
