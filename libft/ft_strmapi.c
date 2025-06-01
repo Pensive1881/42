@@ -6,11 +6,11 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 23:48:12 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/18 23:49:11 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/01 23:58:26 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-
+/*
 int	ft_strlen(const char *s)
 {
 	int	i;
@@ -20,7 +20,7 @@ int	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
-
+*/
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char	*str;
