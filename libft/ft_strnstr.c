@@ -6,15 +6,15 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 22:20:08 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/19 00:20:24 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/01 23:54:40 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
 
 	if (!*needle)
 		return ((char*) haystack);
