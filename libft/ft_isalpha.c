@@ -13,9 +13,6 @@
 
 int	ft_isalpha(int c)
 {
-	int	i;
-
-	i = 0;
 	while (c != '\0')
 	{
 		if (c < 65)
@@ -24,7 +21,6 @@ int	ft_isalpha(int c)
 			return (0);
 		else if (c > 122)
 			return (0);
-		i++;
 	}
 	return (1);
 }
