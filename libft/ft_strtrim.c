@@ -6,14 +6,11 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 23:43:57 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/27 21:41:24 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/02 21:30:54 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 /*
-#include <unistd.h>
-#include <stdlib.h>
-
 int	ft_strlen(const char *s)
 {
 	int	i;
@@ -24,7 +21,7 @@ int	ft_strlen(const char *s)
 	return (i);
 }
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+char	*ft_strlcpy(char *dest, const char *src, size_t n)
 {
 	int	i;
 
@@ -72,7 +69,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
-	ft_strncpy(str, s1 + start, len);
+	ft_strlcpy(str, s1 + start, len);
 	str[len] = '\0';
 	return (str);
 }
