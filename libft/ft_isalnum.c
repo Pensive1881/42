@@ -13,8 +13,6 @@
 
 int	ft_isalnum(char c)
 {
-	int	i;
-	i = 0;
 	while (c != '\n')
 	{
 		if (c < 48)
@@ -25,7 +23,6 @@ int	ft_isalnum(char c)
 			return (0);
 		else if (c > 122)
 			return (0);
-		i++;
 	}
 	return (1);
 }
