@@ -6,15 +6,15 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 23:40:30 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/26 22:29:16 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/02 21:31:54 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-//#include "libft.h"
+#include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*str;
-	int	i;
+	size_t	i;
 
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	i = 0;
