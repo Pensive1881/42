@@ -6,20 +6,17 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 20:58:24 by acasper           #+#    #+#             */
-/*   Updated: 2025/06/01 22:56:16 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/03 12:46:04 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 int	ft_isdigit(int c)
 {
-	while (c != '\n')
-	{
-		if (c < 48)
-			return (0);
-		else if (c > 57)
-			return (0);
-	}
+	if (c < 48)
+		return (0);
+	else if (c > 57)
+		return (0);
 	return (1);
 }
 
