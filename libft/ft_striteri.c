@@ -11,9 +11,9 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	unsigned int i;
+	unsigned int	i;
 
 	if (!s || !f)
 		return ;
@@ -25,8 +25,8 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	}
 }
 /*
-#include <stdio.h>
 #include <ctype.h>
+#include <stdio.h>
 
 void	cap_even(unsigned int i, char *c)
 {
@@ -34,9 +34,10 @@ void	cap_even(unsigned int i, char *c)
 		*c -= 32;
 }
 
-int     main(void)
+int	main(void)
 {
-        char str[] = "miau meow";
+		char str[] = "miau meow";
+
 	ft_striteri(str, cap_even);
 	printf("%s\n", str);
 	return (0);
