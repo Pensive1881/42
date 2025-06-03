@@ -10,14 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 //#include "libft.h"
-#include <unistd.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 int	counter(const char *s, char c)
 {
 	int	count;
 	int	found;
-	
+
 	count = 0;
 	found = 0;
 	while (*s)
@@ -31,16 +31,15 @@ int	counter(const char *s, char c)
 			found = 0;
 		s++;
 	}
-
 	return (count);
 }
 
 char	*malloc_word(char const *start, int len)
 {
 	char	*word;
-	int	i;
-	word = (char *)malloc(sizeof(char) * (len + 1));
+	int		i;
 
+	word = (char *)malloc(sizeof(char) * (len + 1));
 	if (!word)
 		return (NULL);
 	i = 0;
@@ -64,10 +63,10 @@ void	free_word(char **str, int i)
 
 char	**ft_split(char const *s, char c)
 {
-	char 	**str;
-	int	word_len;
-	int	word_count;
-	int	i;
+	char	**str;
+	int		word_len;
+	int		word_count;
+	int		i;
 
 	if (!s)
 		return (NULL);
@@ -81,7 +80,7 @@ char	**ft_split(char const *s, char c)
 		if (*s == c)
 			s++;
 		if (*s == '\0')
-			break;
+			break ;
 		word_len = 0;
 		while (s[word_len] && s[word_len] != c)
 			word_len++;
@@ -94,28 +93,27 @@ char	**ft_split(char const *s, char c)
 		i++;
 		s += word_len;
 	}
-
 	str[i] = NULL;
 	return (str);
 }
 
 #include <stdio.h>
 
-int     main(void)
+int	main(void)
 {
-	char	**string = ft_split("meow miau meow", ' ');
+	char	**string;
+	int		i;
 
-	int i = 0;
+	string = ft_split("meow miau meow", ' ');
+	i = 0;
 	while (string[i])
 	{
 		printf("meow miau meow, ' ': %s\n", string[i]);
 		i++;
 	}
-//	i = 0;
-//	while (string[i])
-//		free(string[i]);
-//	free(string);
-
+	//	i = 0;
+	//	while (string[i])
+	//		free(string[i]);
+	//	free(string);
 	return (0);
 }
-
