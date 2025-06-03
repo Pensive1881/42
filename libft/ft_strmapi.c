@@ -24,8 +24,8 @@ int	ft_strlen(const char *s)
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char	*str;
-	int	i;
-	int	len;
+	int		i;
+	int		len;
 
 	if (!s || !f)
 		return (NULL);
@@ -44,8 +44,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 }
 
 /*
-#include <stdio.h>
 #include <ctype.h>
+#include <stdio.h>
 
 char	cap_odd(unsigned int i, char c)
 {
@@ -54,17 +54,18 @@ char	cap_odd(unsigned int i, char c)
 	return (c);
 }
 
-int     main(void)
+int	main(void)
 {
-	char const *str = "miau meow";
-	char *mod = ft_strmapi(str, cap_odd);
+	char const	*str;
+	char		*mod;
 
+	str = "miau meow";
+	mod = ft_strmapi(str, cap_odd);
 	if (mod)
 	{
 		printf("%s\n", mod);
 		free(mod);
 	}
-
-        return (0);
+		return (0);
 }
 */
