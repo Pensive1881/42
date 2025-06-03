@@ -13,11 +13,11 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	const unsigned char *ptr = s;
+	const unsigned char	*ptr = s;
 
 	while (n--)
 	{
-		if (*ptr == (unsigned char) c)
+		if (*ptr == (unsigned char)c)
 			return ((void *)ptr);
 		ptr++;
 	}
@@ -25,8 +25,8 @@ void	*ft_memchr(const void *s, int c, size_t n)
 }
 
 /*
-int     main()
+int	main(void)
 {
-        return (0);
+		return (0);
 }
 */
