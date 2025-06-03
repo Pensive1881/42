@@ -15,20 +15,19 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;
 
-	if(size && count > SIZE_MAX / size)
+	if (size && count > SIZE_MAX / size)
 		return (NULL);
 	ptr = malloc(count * size);
 	if (!ptr)
 		return (NULL);
 	if (ptr)
 		memset(ptr, 0, count * size);
-
 	return (ptr);
 }
 
 /*
-int     main()
+int	main(void)
 {
-        return (0);
+		return (0);
 }
 */
