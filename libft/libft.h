@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 18:49:23 by acasper           #+#    #+#             */
-/*   Updated: 2025/06/02 21:38:14 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/03 15:09:27 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_H
@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <string.h>
-# include <ctype.h>
+//# include <ctype.h>
 # include <limits.h>
 # include <stdint.h>
 
@@ -68,7 +68,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void(*f)(void*));
-t_list	*ft_lstlast(t_list *list);
+t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_list	*ft_lstnew(void *content);
 int	ft_lstsize(t_list *lst);
