@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 23:43:57 by acasper           #+#    #+#             */
-/*   Updated: 2025/06/02 21:30:54 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/03 18:05:52 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -69,16 +69,16 @@ char	*ft_strtrim(char const *s1, char const *set)
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
-	ft_strlcpy(str, s1 + start, len);
+	ft_strlcpy(str, s1 + start, len + 1);
 	str[len] = '\0';
 	return (str);
 }
 /*
 #include <stdio.h>
 
-int     main(void)
+int	main(void)
 {
 	printf("@@miau meow@@@, @a: %s\n", ft_strtrim("@@miau meow@@@", "@a"));
-        return (0);
+		return (0);
 }
 */
