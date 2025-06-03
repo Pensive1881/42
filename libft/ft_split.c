@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 23:45:27 by acasper           #+#    #+#             */
-/*   Updated: 2025/06/03 18:11:33 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/03 18:24:39 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -59,19 +59,11 @@ void	free_word(char **str, int i)
 	free(str);
 }
 
-char	**ft_split(char const *s, char c)
+int		fill_words(char **str, const char *s, char c)
 {
-	char	**str;
-	int		word_len;
-	int		word_count;
-	int		i;
+	int word_len;
+	int	i;
 
-	if (!s)
-		return (NULL);
-	word_count = counter(s, c);
-	str = (char **)malloc(sizeof(char *) * (word_count + 1));
-	if (!str)
-		return (NULL);
 	i = 0;
 	while (*s)
 	{
@@ -87,12 +79,28 @@ char	**ft_split(char const *s, char c)
 		if (!str[i])
 		{
 			free_word(str, i);
-			return (NULL);
+			return (0);
 		}
 		i++;
 		s += word_len;
 	}
 	str[i] = NULL;
+	return (1);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**str;
+	int		word_count;
+
+	if (!s)
+		return (NULL);
+	word_count = counter(s, c);
+	str = (char **)malloc(sizeof(char *) * (word_count + 1));
+	if (!str)
+		return (NULL);
+	if (!fill_words(str, s, c))
+		return (NULL);
 	return (str);
 }
 /*
