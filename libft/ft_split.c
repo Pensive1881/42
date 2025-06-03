@@ -6,12 +6,10 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 23:45:27 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/27 22:36:47 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/03 18:11:33 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-//#include "libft.h"
-#include <stdlib.h>
-#include <unistd.h>
+#include "libft.h"
 
 int	counter(const char *s, char c)
 {
@@ -78,9 +76,10 @@ char	**ft_split(char const *s, char c)
 	while (*s)
 	{
 		if (*s == c)
+		{
 			s++;
-		if (*s == '\0')
-			break ;
+			continue;
+		}
 		word_len = 0;
 		while (s[word_len] && s[word_len] != c)
 			word_len++;
@@ -96,9 +95,7 @@ char	**ft_split(char const *s, char c)
 	str[i] = NULL;
 	return (str);
 }
-
-#include <stdio.h>
-
+/*
 int	main(void)
 {
 	char	**string;
@@ -117,3 +114,4 @@ int	main(void)
 	//	free(string);
 	return (0);
 }
+*/
