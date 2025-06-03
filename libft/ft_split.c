@@ -59,9 +59,9 @@ void	free_word(char **str, int i)
 	free(str);
 }
 
-int		fill_words(char **str, const char *s, char c)
+int	fill_words(char **str, const char *s, char c)
 {
-	int word_len;
+	int	word_len;
 	int	i;
 
 	i = 0;
@@ -70,7 +70,7 @@ int		fill_words(char **str, const char *s, char c)
 		if (*s == c)
 		{
 			s++;
-			continue;
+			continue ;
 		}
 		word_len = 0;
 		while (s[word_len] && s[word_len] != c)
