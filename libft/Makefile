@@ -6,7 +6,7 @@
 #    By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/19 18:38:23 by acasper           #+#    #+#              #
-#    Updated: 2025/06/03 16:01:11 by acasper          ###   ########.fr        #
+#    Updated: 2025/06/04 14:06:34 by acasper          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ BONUS_SRCS = ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c \
 OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 
