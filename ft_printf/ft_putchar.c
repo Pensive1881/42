@@ -6,12 +6,13 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 19:27:50 by acasper           #+#    #+#             */
-/*   Updated: 2025/06/06 19:43:18 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/06 21:38:44 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
 
 int	ft_putchar(char c)
 {
-	return (0);
+	ft_putchar_fd(c, 1);
+	return (1);
 }
