@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 15:36:00 by acasper           #+#    #+#             */
-/*   Updated: 2025/06/06 18:40:19 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/06 19:07:36 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -20,15 +20,16 @@ void	find_format(char c, va_list args)
 	else if (c == 'd' || c == 'i')
 		return (ft_putnbr_fd(va_arg(args, int)));
 	else if (c == 'p')
-		return ();
-	else if (c == 'x' || c == 'X')
-		return ();
+		return (ft_putptr(va_arg(args, void *)));
+	else if (c == 'x')
+		return (ft_puthex(va_arg(args, unsigned int), 0));
+	else if (c == 'X')
+		return (ft_puthex(va_arg(args, unsigned int), 1));
 	else if (c == 'u')
-		return ();
+		return (ft_putunsig(args, unsigned int)));
 	else if (c == '%')
 		return (write(1, "%", 1));
 	return (0);
-
 }
 
 int	ft_printf(const char *format, ...)
@@ -57,7 +58,7 @@ int	ft_printf(const char *format, ...)
 
 int	main(void)
 {
-	ft_printf("Hey! call me %s because I'm at %s", "miaumeow", 42);
+	ft_printf("Hey! call me %s because I'm at %d", "miaumeow", 42);
 	return (0);
 }
 
