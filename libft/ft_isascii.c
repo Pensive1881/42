@@ -6,19 +6,19 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 22:07:10 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/19 00:11:30 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/06 13:43:31 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 int	ft_isascii(int c)
 {
-	return (c <= 127);
+	return (c >= 0 && c <= 127);
 }
 
 /*
-int     main()
+int	main(void)
 {
-        return (0);
+		return (0);
 }
 */
