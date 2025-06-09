@@ -35,13 +35,13 @@ int	find_format(char c, va_list args)
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
-	int	count;
-	int	i;
+	int		count;
+	int		i;
 
 	count = 0;
 	va_start(args, format);
 	if (!format)
-			return (-1);
+		return (-1);
 	i = 0;
 	while (format[i])
 	{
@@ -55,7 +55,6 @@ int	ft_printf(const char *format, ...)
 	return (count);
 }
 
-
 #include <stdio.h>
 
 int	main(void)
@@ -63,4 +62,3 @@ int	main(void)
 	ft_printf("Hey! call me %s because I'm at %d", "miaumeow", 42);
 	return (0);
 }
-
