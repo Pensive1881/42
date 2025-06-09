@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 19:30:24 by acasper           #+#    #+#             */
-/*   Updated: 2025/06/09 18:24:34 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/09 18:50:52 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -20,10 +20,9 @@ int	ft_putptr(unsigned long ptr)
 	int	i;
 
 	count = 0;
-	count += ft_putstr("0x");
 	if (ptr == 0)
-		return (count + ft_putchar('0'));
-
+		return (ft_putstr("0x0"));
+	count += ft_putstr("0x");
 	n = ptr;
 	base = "0123456789abcdef";
 	i = 0;
