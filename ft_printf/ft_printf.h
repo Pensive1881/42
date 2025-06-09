@@ -6,11 +6,11 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 23:51:02 by acasper           #+#    #+#             */
-/*   Updated: 2025/06/09 15:12:37 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/09 15:21:33 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef PRINTF_H
-# define PRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include "../libft/libft.h"
 # include <unistd.h>
