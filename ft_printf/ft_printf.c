@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 15:36:00 by acasper           #+#    #+#             */
-/*   Updated: 2025/06/09 15:38:26 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/09 18:00:01 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -22,9 +22,9 @@ int	find_format(char c, va_list args)
 	else if (c == 'p')
 		return (ft_putptr((unsigned long)va_arg(args, void *)));
 	else if (c == 'x')
-		return (ft_puthex(va_arg(args, unsigned int), 0));
+		return (ft_puthex((unsigned int)va_arg(args, int), 0));
 	else if (c == 'X')
-		return (ft_puthex(va_arg(args, unsigned int), 1));
+		return (ft_puthex((unsigned int)va_arg(args, int), 1));
 	else if (c == 'u')
 		return (ft_putunsign(va_arg(args, unsigned int)));
 	else if (c == '%')
