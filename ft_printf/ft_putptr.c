@@ -6,13 +6,14 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 19:30:24 by acasper           #+#    #+#             */
-/*   Updated: 2025/06/06 19:45:45 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/09 15:47:17 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
 
 int	ft_putptr(unsigned long ptr)
 {
+	(void)ptr;
+
 	return (0);
 }
-
