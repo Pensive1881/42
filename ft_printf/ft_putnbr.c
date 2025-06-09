@@ -6,12 +6,12 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 19:29:43 by acasper           #+#    #+#             */
-/*   Updated: 2025/06/09 15:15:54 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/09 15:33:15 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-int	putnbr(int n)
+int	ft_putnbr(int n)
 {
 	char	*str;
 	int		len;
