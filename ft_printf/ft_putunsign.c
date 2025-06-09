@@ -6,13 +6,14 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 19:30:40 by acasper           #+#    #+#             */
-/*   Updated: 2025/06/06 19:43:05 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/09 15:47:36 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
 
 int	ft_putunsign(unsigned int n)
 {
+	(void)n;
+
 	return (0);
 }
-
