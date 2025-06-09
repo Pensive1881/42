@@ -6,13 +6,14 @@
 #    By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/03 23:56:46 by acasper           #+#    #+#              #
-#    Updated: 2025/06/06 19:14:20 by acasper          ###   ########.fr        #
+#    Updated: 2025/06/09 15:44:49 by acasper          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-SRCS = ft_printf.c
+SRCS = ft_printf.c \ ft_putchar.c \ ft_putstr.c \ ft_putnbr.c \
+	ft_putstr.c \ ft_puthex.c \ ft_putunsign.c
 
 OBJS = $(SRCS:.c=.o)
 
