@@ -13,7 +13,7 @@
 
 int	ft_puthex(long n, const char capital)
 {
-	int	count;
+	int		count;
 	char	*base;
 
 	count = 0;
