@@ -6,7 +6,7 @@
 #    By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/03 23:56:46 by acasper           #+#    #+#              #
-#    Updated: 2025/06/06 15:29:58 by acasper          ###   ########.fr        #
+#    Updated: 2025/06/06 19:14:20 by acasper          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libftprintf.a
 
 SRCS = ft_printf.c
 
-OBJS = $(SRCS:.c=.0)
+OBJS = $(SRCS:.c=.o)
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror

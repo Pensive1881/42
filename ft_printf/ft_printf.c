@@ -6,19 +6,19 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 15:36:00 by acasper           #+#    #+#             */
-/*   Updated: 2025/06/06 19:07:36 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/09 14:59:24 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-void	find_format(char c, va_list args)
+int	find_format(char c, va_list args)
 {
 	if (c == 'c')
-		return (ft_putchar_fd(va_arg(args, int)));
+		return (ft_putchar(va_arg(args, int)));
 	else if (c == 's')
-		return (ft_putstr_fd(va_arg(args, char *)));
+		return (ft_putstr(va_arg(args, char *)));
 	else if (c == 'd' || c == 'i')
-		return (ft_putnbr_fd(va_arg(args, int)));
+		return (ft_putnbr(va_arg(args, int)));
 	else if (c == 'p')
 		return (ft_putptr(va_arg(args, void *)));
 	else if (c == 'x')
@@ -26,7 +26,7 @@ void	find_format(char c, va_list args)
 	else if (c == 'X')
 		return (ft_puthex(va_arg(args, unsigned int), 1));
 	else if (c == 'u')
-		return (ft_putunsig(args, unsigned int)));
+		return (ft_putunsign(args, unsigned int)));
 	else if (c == '%')
 		return (write(1, "%", 1));
 	return (0);
@@ -40,6 +40,8 @@ int	ft_printf(const char *format, ...)
 
 	count = 0;
 	va_start(args, format);
+	if (!format)
+			return (-1);
 	i = 0;
 	while (format[i])
 	{
