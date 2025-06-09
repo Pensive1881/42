@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 15:36:00 by acasper           #+#    #+#             */
-/*   Updated: 2025/06/09 14:59:24 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/09 15:28:17 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -26,7 +26,7 @@ int	find_format(char c, va_list args)
 	else if (c == 'X')
 		return (ft_puthex(va_arg(args, unsigned int), 1));
 	else if (c == 'u')
-		return (ft_putunsign(args, unsigned int)));
+		return (ft_putunsign(args, unsigned int));
 	else if (c == '%')
 		return (write(1, "%", 1));
 	return (0);
@@ -54,7 +54,7 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
-
+/*
 #include <stdio.h>
 
 int	main(void)
@@ -62,3 +62,4 @@ int	main(void)
 	ft_printf("Hey! call me %s because I'm at %d", "miaumeow", 42);
 	return (0);
 }
+*/
