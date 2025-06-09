@@ -13,13 +13,12 @@
 
 int	putnbr(int n)
 {
-	char *str;
-	int	len;
-   
+	char	*str;
+	int		len;
+
 	str = ft_itoa(n);
 	len = ft_strlen(str);
 	ft_putstr_fd(str, 1);
 	free(str);
 	return (len);
 }
-
