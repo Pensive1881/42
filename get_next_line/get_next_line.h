@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 22:00:59 by acasper           #+#    #+#             */
-/*   Updated: 2025/06/10 16:24:59 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/10 16:48:32 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef GET_NEXT_LINE_H
@@ -21,5 +21,6 @@ size_t	ft_strlen(const char *s);
 char	*ft_strchar(const char *s, int c);
 char	*ft_strjoin(const char *s1, const char *s2);
 char	*ft_substr(const char  *s, unsigned int start, size_t len);
+char	*ft_strdup(const char *s);
 
 #endif
