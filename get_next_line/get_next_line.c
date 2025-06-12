@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 21:57:22 by acasper           #+#    #+#             */
-/*   Updated: 2025/06/12 17:11:30 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/12 17:20:31 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,15 @@ static char	*move_stash(int_fd, char *stash)
 	if (!buffer)
 		return (NULL);
 	bytes = 1;
-	while ()
+	while (!ft_strchr(stash, '\n') && bytes > 0)
 	{
-		if (bytes)
+		BUFFER_SIZE
+		if (bytes == -1)
+		{
 			free (buffer);
+			return (NULL);
+		}
+		stash = ft_strjoin(stash, buffer);
 	}
 	free (buffer);
 
