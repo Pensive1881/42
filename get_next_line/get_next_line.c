@@ -6,12 +6,12 @@
 /*   By: acasper <acasper@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 21:57:22 by acasper           #+#    #+#             */
-/*   Updated: 2025/06/12 17:27:32 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/12 17:28:32 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-static char	*move_stash(int_fd, char *stash)
+static char	*read_stash(int_fd, char *stash)
 {
 	char	*buffer;
 	int		bytes;
@@ -54,7 +54,7 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 
-	stash = move_stash(fd, stash);
+	stash = read_stash(fd, stash);
 	if (!stash)
 		return (NULL);
 	next_line = push_line(stash);
