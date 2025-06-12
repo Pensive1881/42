@@ -6,7 +6,7 @@
 #    By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/25 22:05:30 by acasper           #+#    #+#              #
-#    Updated: 2025/06/12 18:56:14 by acasper          ###   ########.fr        #
+#    Updated: 2025/06/12 19:46:17 by acasper          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ OBJS = $(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar rcs $(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+	ar rcs $(NAME) $(OBJS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
