@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 21:57:22 by acasper           #+#    #+#             */
-/*   Updated: 2025/06/12 17:28:32 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/12 18:21:57 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,27 @@ static char	*read_stash(int_fd, char *stash)
 
 static char *push_line(char *stash)
 {
-	//
+	int	i;
+	char *line;
+
+	if (!stash)
+		return (NULL);
+	i = 0;
+	while (stash[i])
+		i++;
+	line = (char *)malloc((stash[i] + 1) * sizeof(char));
+	if (!line)
+		return (NULL);
+	i = 0;
+	while (stash[i])
+	{
+		line[i] = stash[i];
+		i++;
+	}
+	if (stash[i] == '\n')
+		line[i++] == '\n';
+	line[i] = '\0';
+	return (line)
 }
 
 static char *amend_stash(char *stash)
