@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 21:04:50 by acasper           #+#    #+#             */
-/*   Updated: 2025/06/17 21:22:09 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/17 21:31:15 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line_bonus.h"
@@ -85,4 +85,3 @@ char	*ft_strdup(const char *s1)
 	}
 	return (copy);
 }
-
