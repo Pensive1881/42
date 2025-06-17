@@ -6,10 +6,55 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 21:01:54 by acasper           #+#    #+#             */
-/*   Updated: 2025/06/17 21:29:34 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/17 22:16:08 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
+
+static t_list	*get_node(t_list **head, int fd)
+{
+	t_list	*tmp;
+
+	tmp = *head;
+	while (tmp)
+	{
+		if (tmp->fd == fd)
+			return (tmp);
+		tmp = tmp->next;
+	}
+	tmp = malloc(sizeof(*tmp));
+	if (!tmp)
+		return (NULL);
+	tmp->fd = fd;
+	tmp->stash = NULL;
+	tmp->next = *head;
+	*head = tmp;
+	return (tmp);
+}
+
+static void	remove_node(t_list **head, int fd)
+{
+	t_list	*prev;
+	t_list	*cur;
+
+	prev = NULL;
+	cur = *head;
+	while (cur)
+	{
+		if (cur->fd == fd)
+		{
+			if (prev)
+				prev->next = cur->next;
+			else
+				*head = cur->next;
+			free(cur->stash);
+			free(cur);
+			return ;
+		}
+		prev = cur;
+		cur = cur->next;
+	}
+}
 
 static char	*normilicious(char *stash)
 {
@@ -109,8 +154,9 @@ static char	*amend_stash(char *stash)
 
 char	*get_next_line(int fd)
 {
-	char		*next_line;
-	static char	*stash;
+	static t_list	*node;
+	static t_list	*head;
+	char	*next_line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);

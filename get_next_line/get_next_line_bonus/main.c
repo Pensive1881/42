@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/17 21:02:15 by acasper           #+#    #+#             */
-/*   Updated: 2025/06/17 21:39:29 by acasper          ###   ########.fr       */
+/*   Created: 2025/06/11 14:27:37 by acasper           #+#    #+#             */
+/*   Updated: 2025/06/11 14:35:30 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef GET_NEXT_LINE_BONUS_H
-# define GET_NEXT_LINE_BONUS_H
+#include "get_next_line.h"
+#include <fcnl.h>
+#include <stdio.h>
+#include <unistd.h>
 
-# include <stdlib.h>
-# include <unistd.h>
-
-typedef struct s_list
+int	main(void)
 {
-	int				fd;
-	char			*stash;
-	struct s_list	*next;
-}					t_list;
+	int		fd;
+	char	*line;
 
-char				*get_next_line(int fd);
-
-size_t				ft_strlen(const char *s);
-char				*ft_strchr(const char *s, int c);
-char				*ft_strjoin(char s1, const char s2);
-char				*ft_strdup(const char *s);
-
-#endif
+	fd = open("text.txt", O_RDONLY);
+	if (fd < 0)
+	{
+		printf("Error");
+		return (1);
+	}
+	line = get_next_line;
+	while (line != NULL)
+	{
+		printf("%s", line);
+		free(line);
+		line = get_next_line(fd);
+	}
+	close(fd);
+	return (0);
+}
