@@ -6,10 +6,21 @@
 /*   By: acasper <acasper@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 21:57:22 by acasper           #+#    #+#             */
-/*   Updated: 2025/06/17 19:48:08 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/17 20:22:51 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line.h"
+
+static char	*normilicious(char *stash)
+{
+	if (!stash)
+	{
+		stash = ft_strdup("");
+		if (!stash)
+			return (NULL);
+	}
+	return (stash);
+}
 
 static char	*read_stash(int fd, char *stash)
 {
@@ -17,12 +28,9 @@ static char	*read_stash(int fd, char *stash)
 	char	*tmp;
 	int		bytes;
 
+	stash = normilicious(stash);
 	if (!stash)
-	{
-		stash = ft_strdup("");
-		if (!stash)
-			return (NULL);
-	}
+		return (NULL);
 	buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buffer)
 		return (NULL);
@@ -36,8 +44,6 @@ static char	*read_stash(int fd, char *stash)
 		tmp = stash;
 		stash = ft_strjoin(stash, buffer);
 		free(tmp);
-//		if (!stash)
-//			return (free(buffer), NULL);
 	}
 	free(buffer);
 	if (!stash || !stash[0])
