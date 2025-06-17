@@ -6,52 +6,23 @@
 /*   By: acasper <acasper@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 21:57:22 by acasper           #+#    #+#             */
-/*   Updated: 2025/06/17 17:15:09 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/17 18:26:33 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line.h"
 
-/*
 static char	*read_stash(int fd, char *stash)
 {
 	char	*buffer;
-	int		bytes;
 	char	*tmp;
+	int		bytes;
 
-	buffer = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
-	if (!buffer)
-		return (NULL);
-	bytes = 1;
-	while ((stash == NULL || !ft_strchr(stash, '\n')) && bytes > 0)
+	if (!stash)
 	{
-		bytes = read(fd, buffer, BUFFER_SIZE);
-		if (bytes == -1)
-		{
-			free(buffer);
+		stash = ft_strdup("");
+		if (!stash)
 			return (NULL);
-		}
-		buffer[bytes] = '\0';
-		tmp = stash;
-		stash = ft_strjoin(stash, buffer);
-		free(tmp);
 	}
-	free(buffer);
-	if (stash[0] == '\0')
-	{
-		free(stash);
-		stash = NULL;
-		return (NULL);
-	}
-	return (stash);
-}
-*/
-
-static char	*read_stash(int fd, char *stash)
-{
-	char	*buffer;
-	char	*tmp;
-	int		bytes;
-
 	buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buffer)
 		return (NULL);
