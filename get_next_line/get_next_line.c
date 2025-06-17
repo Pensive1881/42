@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 21:57:22 by acasper           #+#    #+#             */
-/*   Updated: 2025/06/17 18:26:33 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/17 18:30:07 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line.h"
@@ -27,11 +27,11 @@ static char	*read_stash(int fd, char *stash)
 	if (!buffer)
 		return (NULL);
 	bytes = 1;
-	while ((!stash || !ft_strchr(stash, '\n')) && bytes > 0)
+	while ((!ft_strchr(stash, '\n')) && bytes > 0)
 	{
 		bytes = read(fd, buffer, BUFFER_SIZE);
 		if (bytes == -1)
-			return (free(buffer), NULL);
+			return (free(buffer), free(stash), NULL);
 		buffer[bytes] = '\0';
 		tmp = stash;
 		stash = ft_strjoin(stash, buffer);
