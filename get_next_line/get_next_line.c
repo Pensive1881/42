@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 21:57:22 by acasper           #+#    #+#             */
-/*   Updated: 2025/06/17 18:30:07 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/17 19:48:08 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line.h"
@@ -36,6 +36,8 @@ static char	*read_stash(int fd, char *stash)
 		tmp = stash;
 		stash = ft_strjoin(stash, buffer);
 		free(tmp);
+//		if (!stash)
+//			return (free(buffer), NULL);
 	}
 	free(buffer);
 	if (!stash || !stash[0])
@@ -90,7 +92,7 @@ static char	*amend_stash(char *stash)
 	i++;
 	return_stash = (char *)malloc((ft_strlen(stash) - i + 1) * sizeof(char));
 	if (!return_stash)
-		return (NULL);
+		return (free(stash), NULL);
 	j = 0;
 	while (stash[i])
 		return_stash[j++] = stash[i++];
@@ -109,7 +111,6 @@ char	*get_next_line(int fd)
 	stash = read_stash(fd, stash);
 	if (!stash)
 	{
-		free(stash);
 		stash = NULL;
 		return (NULL);
 	}
