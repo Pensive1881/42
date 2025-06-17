@@ -17,16 +17,17 @@
 
 typedef struct s_fd_list
 {
-	int	fd;
-	char	*stash;
+	int				fd;
+	char			*stash;
 	struct s_d_list	*next;
 }
 
-char	*get_next_list(int fd);
+char *
+get_next_list(int fd);
 
-size_t	ft_strlen(const char *s);
-char	*ft_strchr(const char *s, int c);
-char	*ft_strjoin(char s1, const char s2);
-char	*ft_strdup(cont char *s);
+size_t				ft_strlen(const char *s);
+char				*ft_strchr(const char *s, int c);
+char				*ft_strjoin(char s1, const char s2);
+char				*ft_strdup(cont char *s);
 
 #endif
