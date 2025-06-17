@@ -6,11 +6,10 @@
 /*   By: acasper <acasper@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 22:03:23 by acasper           #+#    #+#             */
-/*   Updated: 2025/06/17 20:10:57 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/17 21:21:41 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line.h"
-#include <stdlib.h>
 
 size_t	ft_strlen(const char *s)
 {
