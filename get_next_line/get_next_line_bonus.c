@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 21:01:54 by acasper           #+#    #+#             */
-/*   Updated: 2025/06/17 21:24:35 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/17 21:29:34 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line.h"
@@ -124,4 +124,3 @@ char	*get_next_line(int fd)
 	stash = amend_stash(stash);
 	return (next_line);
 }
-
