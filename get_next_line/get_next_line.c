@@ -78,7 +78,6 @@ static char	*push_line(char *stash)
 	int		j;
 	size_t	has_nl;
 	char	*line;
-	
 
 	if (!stash || !stash[0])
 		return (NULL);
