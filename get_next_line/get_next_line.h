@@ -6,11 +6,15 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 22:00:59 by acasper           #+#    #+#             */
-/*   Updated: 2025/06/12 19:44:46 by acasper          ###   ########.fr       */
+/*   Updated: 2025/06/18 16:52:06 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 100
+# endif
 
 # include <stdlib.h>
 # include <unistd.h>
