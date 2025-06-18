@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/11 14:27:37 by acasper           #+#    #+#             */
-/*   Updated: 2025/06/11 14:35:30 by acasper          ###   ########.fr       */
+/*   Created: 2025/06/17 21:02:15 by acasper           #+#    #+#             */
+/*   Updated: 2025/06/18 15:04:01 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "get_next_line.h"
-#include <fcnl.h>
-#include <stdio.h>
-#include <unistd.h>
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
-int	main(void)
-{
-	int		fd;
-	char	*line;
+# include <stdlib.h>
+# include <unistd.h>
 
-	fd = open("text.txt", O_RDONLY);
-	if (fd < 0)
-	{
-		printf("Error");
-		return (1);
-	}
-	line = get_next_line;
-	while (line != NULL)
-	{
-		printf("%s", line);
-		free(line);
-		line = get_next_line(fd);
-	}
-	close(fd);
-	return (0);
-}
+char	*get_next_line(int fd);
+
+size_t	ft_strlen(const char *s);
+char	*ft_strchr(const char *s, int c);
+char	*ft_strjoin(const char *s1, const char *s2);
+char	*ft_substr(const char *s, unsigned int start, size_t len);
+char	*ft_strdup(const char *s);
+
+#endif
