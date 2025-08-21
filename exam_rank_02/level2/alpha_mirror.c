@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 18:01:09 by acasper           #+#    #+#             */
-/*   Updated: 2025/08/21 18:06:53 by acasper          ###   ########.fr       */
+/*   Updated: 2025/08/21 18:22:43 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -19,7 +19,9 @@ void	alpha_mirror(char *str)
 	while (str[i])
 	{
 		if (str[i])
+			
 	}
+	write(1, "\n", 1);
 }
 
 int	main(int argc, char **argv)
