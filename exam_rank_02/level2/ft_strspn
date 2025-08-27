@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <string.h>
+
+size_t	ft_strspn(const char *s, const char *accept)
+{
+	while()
+	{
+		
+	}
+	return (num);
+}
+
+int	main(void)
+{
+	printf("hello123, abcdefghijklmnopqrstuvwxyz: %d"), ft_strspn("hello123", "abcdefghijklmnopqrstuvwxyz");
+	return (0);
+}
+
