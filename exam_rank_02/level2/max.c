@@ -30,6 +30,8 @@ int	main(void)
         printf("7: %d\n", max(arr3, 1));
         int arr4[] = {2, 9, 3, 3, 8, 7, 7};
         printf("2, 9, 3, 3, 8, 7, 7: %d\n", max(arr4, 7));
+        int arr5[] = {};
+        printf(" : %d\n", max(arr5, 0));
 
 	return (0);
 }
