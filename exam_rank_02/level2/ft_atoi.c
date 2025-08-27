@@ -1,4 +1,4 @@
-#include <unistd.h>
+#include <stdio.h>
 
 int	ft_atoi(const char *str)
 {
@@ -9,16 +9,16 @@ int	ft_atoi(const char *str)
 	i = 0;
 	while (str[i])
 	{
-		num += str[i] - '0';
+		num = num * 10 + (str[i] - '0');
 		i++;
 	}
 	return (num);
 }
 
-/*
+
 int	main(void)
 {
-	ft_atoi("42");
+	printf("42: %d\n", ft_atoi("42"));
 	return (0);
 }
-*/
+
