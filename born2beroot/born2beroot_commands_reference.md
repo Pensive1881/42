@@ -45,6 +45,8 @@ cut -d: -f1 /etc/group | sort
 ---
 
 ## 🔒 **PASSWORD POLICY**
+PROS: Better security, forced rotation, prevents weak passwords.
+CONS: Can annoy users, too frequent changes may lead to bad habits (e.g., writing passwords down).
 
 ### **Password Aging Settings**
 ```bash
