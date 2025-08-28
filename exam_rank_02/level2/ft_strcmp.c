@@ -1,6 +1,14 @@
-#include <stdio.h>
-#include <string.h>
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/28 14:22:06 by acasper           #+#    #+#             */
+/*   Updated: 2025/08/28 14:22:50 by acasper          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
@@ -13,6 +21,9 @@ int	ft_strcmp(char *s1, char *s2)
 	return (s1[i] - s2[i]);
 }
 
+/*
+#include <stdio.h>
+#include <string.h>
 
 int	main(void)
 {
@@ -22,4 +33,4 @@ int	main(void)
 
 	return (0);
 }
-
+*/
