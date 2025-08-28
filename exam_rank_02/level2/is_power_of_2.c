@@ -1,5 +1,14 @@
-#include <stdio.h>
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   is_power_of_2.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/28 14:25:39 by acasper           #+#    #+#             */
+/*   Updated: 2025/08/28 14:26:05 by acasper          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 int	is_power_of_2(unsigned int n)
 {
 	unsigned int p;
@@ -13,6 +22,8 @@ int	is_power_of_2(unsigned int n)
 	return (p == n);
 }
 
+/*
+#include <stdio.h>
 
 int	main(void)
 {
@@ -24,4 +35,4 @@ int	main(void)
 
 	return (0);
 }
-
+*/
