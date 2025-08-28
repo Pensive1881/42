@@ -1,6 +1,14 @@
-#include <stdio.h>
-#include <string.h>
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcspn.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/28 14:24:15 by acasper           #+#    #+#             */
+/*   Updated: 2025/08/28 14:24:57 by acasper          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 size_t	ft_strcspn(const char *s, const char *reject)
 {
 	int	i;
@@ -22,6 +30,10 @@ size_t	ft_strcspn(const char *s, const char *reject)
 	return (i);
 }
 
+/*
+#include <stdio.h>
+#include <string.h>
+
 int	main(void)
 {
 	printf("hello, world, ,!: %zu\n", ft_strcspn("hello, world", ",!"));
@@ -31,4 +43,4 @@ int	main(void)
 
 	return (0);
 }
-
+*/
