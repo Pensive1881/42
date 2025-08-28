@@ -1,5 +1,14 @@
-#include <stdio.h>
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   max.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/28 14:26:45 by acasper           #+#    #+#             */
+/*   Updated: 2025/08/28 14:27:15 by acasper          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 int	max(int* tab, unsigned int len)
 {
 	int	i;
@@ -19,6 +28,8 @@ int	max(int* tab, unsigned int len)
 	return (bubble);
 }
 
+/*
+#include <stdio.h>
 
 int	main(void)
 {
@@ -35,3 +46,4 @@ int	main(void)
 
 	return (0);
 }
+*/
