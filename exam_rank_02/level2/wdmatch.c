@@ -3,11 +3,18 @@
 void	wdmatch(char *str1, char *str2)
 {
 	int	i;
+	int	j;
 
 	i = 0;
-	while (str[i])
+	while (str1[i])
 	{
-		
+		j = 0;
+		while (str2[j])
+		{
+			if (str1[i] == str2[j]
+				)
+			j++;
+		}
 		i++;
 	}
 	write(1, "\n", 1);
