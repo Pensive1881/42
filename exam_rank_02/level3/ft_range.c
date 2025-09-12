@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 18:56:23 by acasper           #+#    #+#             */
-/*   Updated: 2025/09/12 16:56:17 by acasper          ###   ########.fr       */
+/*   Updated: 2025/09/12 17:07:27 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,12 @@ int	*ft_range(int start, int end);
 
 #include <stdio.h>
 
-int	main(void)
+void	main(int argc, char **argv)
 {
-	
-	return (0);
+	if (argc != 3)
+		write (1, "\n", 1);
+	printf("(1, 3): %a", ft_range(1, 3));
+	printf("(-1, 2): %a", ft_range(-1, 2));
+	printf("(0, 0): %a", ft_range(0, 0));
+	printf("(0, -3): %a", ft_range(0, -3));
 }
