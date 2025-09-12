@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 18:56:23 by acasper           #+#    #+#             */
-/*   Updated: 2025/09/12 18:04:46 by acasper          ###   ########.fr       */
+/*   Updated: 2025/09/12 18:10:54 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -35,23 +35,23 @@ int	*ft_range(int start, int end)
 	}
 	return (arr);
 }
-
+/*
 #include <unistd.h>
 #include <stdio.h>
 
 int	main(int argc, char **argv)
 {
 	int	*arr;
-	int start = atoi(argv[1]);
-	int end = atoi(argv[2]);
-	arr = ft_range(start, end);
-	int	len = (end >= start) ? (end - start + 1) : (start - end + 1);
-	
 	if (argc != 3)
 	{
 		write (1, "\n", 1);
 		return (0);
 	}
+	int start = atoi(argv[1]);
+	int end = atoi(argv[2]);
+	arr = ft_range(start, end);
+	int	len = (end >= start) ? (end - start + 1) : (start - end + 1);
+
 	if (!arr)
 		return (1);
 	int i = 0;
@@ -68,4 +68,4 @@ int	main(int argc, char **argv)
 	free(arr);
 	return (0);
 }
-
+*/
