@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 18:56:23 by acasper           #+#    #+#             */
-/*   Updated: 2025/09/12 17:52:24 by acasper          ###   ########.fr       */
+/*   Updated: 2025/09/12 17:54:32 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -24,7 +24,6 @@ int	*ft_range(int start, int end)
 	arr = (int *)malloc(sizeof(int) * len);
 	if (!arr)
 		return (NULL);
-
 	i = 0;
 	while (i < len)
 	{
@@ -36,14 +35,15 @@ int	*ft_range(int start, int end)
 	}
 	return (arr);
 }
-
-
+/*
 int	main(int argc, char **argv)
 {
-	int	*arr = ft_range(argv[1], argv[2]);
-	int	len = (argv[2] >= argv[1]) ? (argv[2] - argv[1] + 1) : (argv[1] - argv[2] + 1)
+	int	*arr;
 	int	i;
 
+	arr = ft_range(argv[1], argv[2]);
+	int	len = (argv[2] >= argv[1]) ? (argv[2] - argv[1] + 1) : (argv[1]
+				- argv[2] + 1)
 	if (argc != 3)
 	{
 		write (1, "\n", 1);
@@ -51,7 +51,6 @@ int	main(int argc, char **argv)
 	}
 	if (!arr)
 		return (1);
-
 	i = 0;
 	printf("ft_range(%d, %d): ", argv[1], argv[2]);
 	i = 0;
@@ -63,8 +62,7 @@ int	main(int argc, char **argv)
 	write (1, "\n", 1);
 	if (argc != 3)
 		write (1, "\n", 1);
-
 	free(arr);
 	return (0);
 }
-
+*/
