@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 18:56:23 by acasper           #+#    #+#             */
-/*   Updated: 2025/09/12 16:49:31 by acasper          ###   ########.fr       */
+/*   Updated: 2025/09/12 16:56:17 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ int	*ft_range(int start, int end);
 	i = 0;
 	while (i < len)
 	{
-		
+		if (start <= end)
+			arr[i] = start + i;
+		else
+			arr[i] = start - i;
 		i++;
 	}
 	return (arr);
@@ -34,5 +37,6 @@ int	*ft_range(int start, int end);
 
 int	main(void)
 {
+	
 	return (0);
 }
