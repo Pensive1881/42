@@ -6,10 +6,10 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 18:56:23 by acasper           #+#    #+#             */
-/*   Updated: 2025/09/12 17:54:32 by acasper          ###   ########.fr       */
+/*   Updated: 2025/09/12 18:04:46 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
+#include <stdlib.h>
 
 int	*ft_range(int start, int end)
 {
@@ -35,15 +35,18 @@ int	*ft_range(int start, int end)
 	}
 	return (arr);
 }
-/*
+
+#include <unistd.h>
+#include <stdio.h>
+
 int	main(int argc, char **argv)
 {
 	int	*arr;
-	int	i;
-
-	arr = ft_range(argv[1], argv[2]);
-	int	len = (argv[2] >= argv[1]) ? (argv[2] - argv[1] + 1) : (argv[1]
-				- argv[2] + 1)
+	int start = atoi(argv[1]);
+	int end = atoi(argv[2]);
+	arr = ft_range(start, end);
+	int	len = (end >= start) ? (end - start + 1) : (start - end + 1);
+	
 	if (argc != 3)
 	{
 		write (1, "\n", 1);
@@ -51,8 +54,8 @@ int	main(int argc, char **argv)
 	}
 	if (!arr)
 		return (1);
-	i = 0;
-	printf("ft_range(%d, %d): ", argv[1], argv[2]);
+	int i = 0;
+	printf("ft_range(%d, %d): ", start, end);
 	i = 0;
 	while (i < len)
 	{
@@ -65,4 +68,4 @@ int	main(int argc, char **argv)
 	free(arr);
 	return (0);
 }
-*/
+
