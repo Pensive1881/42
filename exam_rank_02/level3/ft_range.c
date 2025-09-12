@@ -6,17 +6,21 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 18:56:23 by acasper           #+#    #+#             */
-/*   Updated: 2025/09/12 17:41:57 by acasper          ###   ########.fr       */
+/*   Updated: 2025/09/12 17:52:24 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stdio.h>
 
-int	*ft_range(int start, int end);
+int	*ft_range(int start, int end)
 {
 	int	len;
 	int	*arr;
 	int	i;
 
-	len = (end >= start) ? (end - start + 1) : (start - end + 1)
+	if (start <= end)
+		len = end - start + 1;
+	else
+		len = start - end + 1;
 	arr = (int *)malloc(sizeof(int) * len);
 	if (!arr)
 		return (NULL);
@@ -30,11 +34,9 @@ int	*ft_range(int start, int end);
 			arr[i] = start - i;
 		i++;
 	}
-	free(arr);
 	return (arr);
 }
 
-#include <stdio.h>
 
 int	main(int argc, char **argv)
 {
@@ -65,3 +67,4 @@ int	main(int argc, char **argv)
 	free(arr);
 	return (0);
 }
+
