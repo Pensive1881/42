@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 21:41:57 by acasper           #+#    #+#             */
-/*   Updated: 2025/09/16 22:06:08 by acasper          ###   ########.fr       */
+/*   Updated: 2025/09/16 22:11:03 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -28,9 +28,9 @@ int	*ft_rrange(int start, int end)
 	while (i < len)
 	{
 		if (start <= end)
-			arr[i] = end + i;
-		else
 			arr[i] = end - i;
+		else
+			arr[i] = end + i;
 		i++;
 	}
 		
@@ -59,9 +59,9 @@ int	main(int argc, char **argv)
 	int	i = 0;
 	while (i < len)
 	{
-		printf("%d", arr[i]);
+		printf("%d ", arr[i]);
 		i++;
-	)
+	}
 	write(1, "\n", 1);
 	free (arr);
 	return (0);
