@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 14:43:14 by acasper           #+#    #+#             */
-/*   Updated: 2025/09/16 21:34:03 by acasper          ###   ########.fr       */
+/*   Updated: 2025/09/16 21:38:28 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 char	*ft_strrev(char *str)
@@ -20,13 +20,13 @@ char	*ft_strrev(char *str)
 		len++;
 	len--;
 	i = 0;
-	while (i > j)
+	while (i < len)
 	{
 		temp = str[i];
-		str[i] = str[j];
-		str[j] = temp;
+		str[i] = str[len];
+		str[len] = temp;
 		i++;
-		j--;
+		len--;
 	}
 	return (str);
 }
@@ -36,7 +36,8 @@ char	*ft_strrev(char *str)
 
 int	main(void)
 {
-	printf("miaumeow: %s", ft_strrev("miaumeow"));
+	char	s1[] = "miaumeow";
+	printf("miaumeow: %s", ft_strrev(s1));
 
 	return (0);
 }
