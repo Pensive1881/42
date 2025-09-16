@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 18:56:23 by acasper           #+#    #+#             */
-/*   Updated: 2025/09/12 18:10:54 by acasper          ###   ########.fr       */
+/*   Updated: 2025/09/16 22:13:28 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -54,17 +54,14 @@ int	main(int argc, char **argv)
 
 	if (!arr)
 		return (1);
-	int i = 0;
 	printf("ft_range(%d, %d): ", start, end);
-	i = 0;
+	int	i = 0;
 	while (i < len)
 	{
 		printf("%d ", arr[i]);
 		i++;
 	}
 	write (1, "\n", 1);
-	if (argc != 3)
-		write (1, "\n", 1);
 	free(arr);
 	return (0);
 }
