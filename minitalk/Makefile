@@ -6,7 +6,7 @@
 #    By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/01 18:59:25 by acasper           #+#    #+#              #
-#    Updated: 2025/09/11 20:06:08 by acasper          ###   ########.fr        #
+#    Updated: 2025/09/16 22:34:16 by acasper          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,26 +14,42 @@ CC = cc
 CFLAGS = -Wall -Werror -Wextra
 RM = rm -f
 
+SERVER = server
+CLIENT = client
 
+SRCS_COMMON = utils.c
+SRCS_SERVER = server.c $(SRCS_COMMON)
+SRCS_CLIENT = client.c $(SRCS_COMMON)
+
+OBJS_SERVER =	$(SRCS_SERVER:.c=.o)
+OBJS_CLIENT =	$(SRCS_CLIENT:.c=.o)
+
+LIBFT_DIR = ./libft
+LIBFT	= $(LIBFT_DIR)/libft.a
 
 all: $(SERVER) $(CLIENT)
 
-$(SERVER):
+$(SERVER): $(OBJS_SERVER) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJS_SERVER) $(LIBFT) -o $@
 
+$(CLIENT): $(OBJS_CLIENT) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJS_CLIENT) $(LIBFT) -o $@
 
-$(CLIENT):
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
-
-
+$(LIBFT):
+	@$(MAKE) -C $(LIBFT_DIR)
 
 clean:
+	$(RM) $(OBJS_SERVER) $(OBJS_CLIENT)
+	@-$(MAKE) -C $(LIBFT_DIR) clean
 
-
-fclean:
-
+fclean: clean
+	$(RM) $(SERVER) $(CLIENT)
+	@-$(MAKE) -C $(LIBFT_DIR) fclean
 
 re: fclean all
-
 
 .PHONY: all clean fclean re
 
