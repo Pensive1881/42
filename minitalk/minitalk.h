@@ -6,8 +6,15 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 15:54:28 by acasper           #+#    #+#             */
-/*   Updated: 2025/09/17 15:54:29 by acasper          ###   ########.fr       */
+/*   Updated: 2025/09/17 15:56:39 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#ifndef MINITALK_H
+# define MINITALK_H
 
+# include <>
+# include <>
+# include <>
+# include ""
 
+#endif
