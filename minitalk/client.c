@@ -6,63 +6,46 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 19:01:11 by acasper           #+#    #+#             */
-/*   Updated: 2025/09/17 18:56:31 by acasper          ###   ########.fr       */
+/*   Updated: 2025/09/17 20:12:27 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minitalk.h"
 
-static void	signal_handler(int sig)
-{
-	static int	received;
-
-	received = 0;
-	if (sig == SIGUSR1)
-		++received;
-	else
-	{
-		ft_putnbr_fd(received, 1);
-		ft_putchar_fd('\n', 1);
-		exit(0);
-	}
-}
-
-void	ft_kill(int pid, char *str)
+static int	send_char(pid_t pid, unsigned char ch)
 {
 	int	i;
-	int	c;
 
+	i = 7;
+	while (i >= 0)
+	{
+		if (kill(pid, ((ch >> i) & 1) ? SIGUSR2 : SIGUSR1) == -1)
+			return (-1);
+		usleep(100);
+		i--;
+	}
+	return (0);
+}
+
+static int	send_str(pid_t pid, const char *str)
+{
 	while (*str)
 	{
-		i = 8;
-		c = *str++;
-		while (i--)
-		{
-			if (c >> i & 1)
-				kill(pid, SIGUSR2);
-			else
-				kill(pid, SIGUSR1);
-			usleep(200);
-		}
-		i++;
+		if (send_char(pid, (unsigned char)*str++) == -1)
+			return (-1);
 	}
-	i = 8;
-	while (i--)
-	{
-		kill(pid, SIGUSR1);
-		usleep(200);
-	}
+	return (send_char(pid, 0));
 }
 
 int	main(int argc, char **argv)
 {
-	struct sigaction	sa;
+	pid_t	pid;
 
 	if (argc != 3 || !ft_strlen(argv[2]))
 		return (1);
-	signal(SIGUSR1, signal_handler);
-	signal(SIGUSR2, signal_handler);
-	ft_kill(ft_atoi(argv[1]), argv[2]);
-	while (1)
-		pause();
+	pid = (pid_t)ft_atoi(argv[1]);
+	if (pid <= 0)
+		return (1);
+	if (send_str(pid, argv[2]) == -1)
+		return (1);
 	return (0);
 }
