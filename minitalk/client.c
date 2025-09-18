@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 19:01:11 by acasper           #+#    #+#             */
-/*   Updated: 2025/09/17 20:36:41 by acasper          ###   ########.fr       */
+/*   Updated: 2025/09/18 18:29:02 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minitalk.h"
@@ -40,7 +40,7 @@ int	main(int argc, char **argv)
 {
 	pid_t	pid;
 
-	if (argc != 3 || !ft_strlen(argv[2]))
+	if (argc != 3)
 	{
 		ft_putstr_fd("Usage: ./client <server_pid> <message>\n", 2);
 		return (1);
