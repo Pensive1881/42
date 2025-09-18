@@ -6,16 +6,18 @@
 #    By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/01 18:59:25 by acasper           #+#    #+#              #
-#    Updated: 2025/09/16 22:34:16 by acasper          ###   ########.fr        #
+#    Updated: 2025/09/18 17:26:40 by acasper          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
 RM = rm -f
+INCS = -I ./libft
 
 SERVER = server
 CLIENT = client
+NAME = $(SERVER) $(CLIENT)
 
 SRCS_COMMON = utils.c
 SRCS_SERVER = server.c $(SRCS_COMMON)
@@ -28,15 +30,16 @@ LIBFT_DIR = ./libft
 LIBFT	= $(LIBFT_DIR)/libft.a
 
 all: $(SERVER) $(CLIENT)
+$(NAME): all
 
 $(SERVER): $(OBJS_SERVER) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJS_SERVER) $(LIBFT) -o $@
+	$(CC) $(CFLAGS) $(INCS) $(OBJS_SERVER) $(LIBFT) -o $@
 
 $(CLIENT): $(OBJS_CLIENT) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJS_CLIENT) $(LIBFT) -o $@
+	$(CC) $(CFLAGS) $(INCS) $(OBJS_CLIENT) $(LIBFT) -o $@
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCS) -c $< -o $@
 
 $(LIBFT):
 	@$(MAKE) -C $(LIBFT_DIR)
