@@ -9,7 +9,7 @@ void	capitalizer(char *str)
 	{
 		if (str[i] >= 'A' && str[i] <= 'Z')
 			str[i] += 'a' - 'A';
-		if ((str[i] >= 'a' && str[i] <= 'z') && (str[i] == ' '))
+		if ((str[i] >= 'a' && str[i] <= 'z') && ((str[i-1] == ' ') || i == 0))
 			str[i] -= 'a'- 'A';
 		write(1, &str[i], 1);
 		i++;
@@ -25,7 +25,7 @@ int     main(int argc, char **argv)
 		write(1, "\n", 1);
 		return (0);
 	}
-	i = 0;
+	i = 1;
 	while (i < argc)
 	{
 		capitalizer(argv[i]);
