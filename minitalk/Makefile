@@ -6,7 +6,7 @@
 #    By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/01 18:59:25 by acasper           #+#    #+#              #
-#    Updated: 2025/09/18 17:26:40 by acasper          ###   ########.fr        #
+#    Updated: 2025/09/25 20:17:37 by acasper          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,6 @@ SERVER = server
 CLIENT = client
 NAME = $(SERVER) $(CLIENT)
 
-SRCS_COMMON = utils.c
 SRCS_SERVER = server.c $(SRCS_COMMON)
 SRCS_CLIENT = client.c $(SRCS_COMMON)
 
