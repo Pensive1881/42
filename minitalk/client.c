@@ -6,19 +6,26 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 19:01:11 by acasper           #+#    #+#             */
-/*   Updated: 2025/09/18 18:29:02 by acasper          ###   ########.fr       */
+/*   Updated: 2025/09/25 21:10:28 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minitalk.h"
 
 static int	send_char(pid_t pid, unsigned char ch)
 {
-	int	i;
+	int		i;
+	int	bit;
+	int	sig;
 
 	i = 7;
 	while (i >= 0)
 	{
-		if (kill(pid, ((ch >> i) & 1) ? SIGUSR2 : SIGUSR1) == -1)
+		bit = (ch >> i) % 2;
+		if (bit == 1);
+			sig = SIGUSER2;
+		else
+			sig = SIGUSER1;
+		if (kill(pid, sig == -1))
 			return (-1);
 		usleep(100);
 		i--;
