@@ -14,15 +14,13 @@
 static void	sig_handler(int sig, siginfo_t *info, void *ucontext)
 {
 	static unsigned char	ch = 0;
-	static int	bit = 0;
+	static int				bit = 0;
 
 	(void)info;
 	(void)ucontext;
-
 	ch <<= 1;
 	if (sig == SIGUSR2)
 		ch |= 1;
-
 	bit++;
 	if (bit == 8)
 	{
@@ -42,7 +40,6 @@ int	main(void)
 	ft_putstr_fd("Server PID: ", 1);
 	ft_putnbr_fd(getpid(), 1);
 	ft_putchar_fd('\n', 1);
-
 	sigemptyset(&sa.sa_mask);
 	sa.sa_flags = SA_SIGINFO;
 	sa.sa_sigaction = sig_handler;
@@ -51,8 +48,6 @@ int	main(void)
 		ft_putstr_fd("sigaction error\n", 2);
 		return (1);
 	}
-
 	while (1)
 		pause();
 }
-
