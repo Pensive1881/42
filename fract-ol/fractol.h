@@ -6,8 +6,12 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 17:50:25 by acasper           #+#    #+#             */
-/*   Updated: 2025/10/08 17:50:26 by acasper          ###   ########.fr       */
+/*   Updated: 2025/10/10 11:11:56 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#ifndef FRACTOL_H
+# define FRACTOL_H
 
 
+
+#endif
