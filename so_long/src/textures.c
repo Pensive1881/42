@@ -1,0 +1,66 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   textures.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/23 20:58:00 by acasper           #+#    #+#             */
+/*   Updated: 2025/12/23 22:21:17 by acasper          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/so_long.h"
+
+static void	create_colored_square(t_game *game, t_img *img, int color)
+{
+	int	x;
+	int	y;
+	int	pixel;
+
+	img->img = mlx_new_image(game->mlx, TILE_SIZE, TILE_SIZE);
+	if (!img->img)
+		return ;
+	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel,
+			&img->line_length, &img->endian);
+	y = 0;
+	while (y < TILE_SIZE)
+	{
+		x = 0;
+		while (x < TILE_SIZE)
+		{
+			pixel = y * img->line_length + x * (img->bits_per_pixel / 8);
+			*(unsigned int *)(img->addr + pixel) = color;
+			x++;
+		}
+		y++;
+	}
+}
+
+int	load_textures(t_game *game)
+{
+	create_colored_square(game, &game->textures.wall, 0x808080);
+	create_colored_square(game, &game->textures.floor, 0xFFFFFF);
+	create_colored_square(game, &game->textures.collectible, 0xFFD700);
+	create_colored_square(game, &game->textures.exit, 0x00FF00);
+	create_colored_square(game, &game->textures.player, 0x0000FF);
+	if (!game->textures.wall.img || !game->textures.floor.img
+		|| !game->textures.collectible.img || !game->textures.exit.img
+		|| !game->textures.player.img)
+		return (0);
+	return (1);
+}
+
+void	free_textures(t_game *game)
+{
+	if (game->textures.wall.img)
+		mlx_destroy_image(game->mlx, game->textures.wall.img);
+	if (game->textures.floor.img)
+		mlx_destroy_image(game->mlx, game->textures.floor.img);
+	if (game->textures.collectible.img)
+		mlx_destroy_image(game->mlx, game->textures.collectible.img);
+	if (game->textures.exit.img)
+		mlx_destroy_image(game->mlx, game->textures.exit.img);
+	if (game->textures.player.img)
+		mlx_destroy_image(game->mlx, game->textures.player.img);
+}
