@@ -31,7 +31,9 @@ SRC_FILES = main.c \
 			player_move.c \
 			textures.c \
 			utils.c \
-			error.c
+			error.c \
+			get_next_line.c \
+			get_next_line_utils.c
 
 SRCS = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJS = $(SRCS:.c=.o)
