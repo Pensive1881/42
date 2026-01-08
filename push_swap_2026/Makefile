@@ -6,7 +6,7 @@
 #    By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/08 17:33:06 by acasper           #+#    #+#              #
-#    Updated: 2026/01/08 18:00:54 by acasper          ###   ########.fr        #
+#    Updated: 2026/01/08 19:57:02 by acasper          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,37 @@ RM = rm -f
 LIBFT_DIR = ../libft
 LIBT = $(LIBFT_DIR)/libft.a
 
-SRCS = 
+SRCS = push_swap.c \
+	   parse.c \
+	   stack_utils.c \
+	   utils.c \
+	   operations_swap.c \
+	   operations_push.c \
+	   operations_rotate.c \
+	   operations_reverse_rotate.c \
+	   sort.c
 
+OBJS = $(SRCS: .c=.0)
+
+all: $(NAME)
+
+$(LIBFT):
+	@make -C $(LIBFT_DIR)
+
+$(NAME): $(LIBFT) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+
+%.o: %.c push_swap.h
+	$(CC) $(CFlags) -c $< -o $@
+
+clean:
+	@make -C $(LIBFT_DIR) clean
+	$(RM) $(NAME)
+
+fclean: clean
+	@make -C $(LIBFT_DIR) clean
+	$(RM) $(NAME)
+
+re: fclean all
 
 .PHONY: all clean fclean re
