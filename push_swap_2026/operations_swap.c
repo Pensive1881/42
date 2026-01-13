@@ -39,7 +39,7 @@ void	sb(t_stack **b, int print)
 		write(1, "sb\n", 3);
 }
 
-void ss(t_stack **a, t_stack **b, int print)
+void	ss(t_stack **a, t_stack **b, int print)
 {
 	swap(a);
 	swap(b);
