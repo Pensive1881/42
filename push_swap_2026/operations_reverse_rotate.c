@@ -14,7 +14,7 @@
 static void	reverse_rotate(t_stack **stack)
 {
 	t_stack	*last;
-	t_stack *second_last;
+	t_stack	*second_last;
 
 	if (!stack || !*stack || !(*stack)->next)
 		return ;
@@ -32,7 +32,7 @@ void	rra(t_stack **a, int print)
 {
 	reverse_rotate(a);
 	if (print)
-		write (a, "rra\n", 4);
+		write(a, "rra\n", 4);
 }
 
 void	rrb(t_stack **b, int print)
