@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void choose_sort(t_stack **a, t_stack **b)
+static void	choose_sort(t_stack **a, t_stack **b)
 {
 	int	size;
 
@@ -32,8 +32,8 @@ static void choose_sort(t_stack **a, t_stack **b)
 
 int	main(int argc, char **argv)
 {
-	t_stack *a;
-	t_stack *b;
+	t_stack	*a;
+	t_stack	*b;
 
 	if (argc < 2)
 		return (0);
