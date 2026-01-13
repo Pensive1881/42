@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 16:33:36 by acasper           #+#    #+#             */
-/*   Updated: 2026/01/13 16:52:07 by acasper          ###   ########.fr       */
+/*   Updated: 2026/01/13 16:59:05 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -14,7 +14,7 @@
 long	ft_atol(const char *str)
 {
 	long	result;
-	int	sign;
+	int		sign;
 
 	result = 0;
 	sign = 1;
@@ -34,10 +34,10 @@ long	ft_atol(const char *str)
 	return (result * sign);
 }
 
-int	is_valid_numver(char *str)
+int	is_valid_number(char *str)
 {
 	long	num;
-	int	i;
+	int		i;
 
 	i = 0;
 	if (str[i] == '-' || str[i] == '+')
@@ -59,7 +59,7 @@ int	is_valid_numver(char *str)
 int	has_duplicates(t_stack *stack)
 {
 	t_stack	*current;
-	t_stack *checker;
+	t_stack	*checker;
 
 	current = stack;
 	while (current)
@@ -87,10 +87,10 @@ int	is_sorted(t_stack *stack)
 	return (1);
 }
 
-t_stack *parse_args)(int argc, char **argv)
+t_stack	*parse_args(int argc, char **argv)
 {
 	t_stack	*stack;
-	int	i;
+	int		i;
 	long	num;
 
 	stack = NULL;
@@ -109,7 +109,7 @@ t_stack *parse_args)(int argc, char **argv)
 	if (has_duplicates(stack))
 	{
 		free_stack(&stack);
-		error_exit();1
+		error_exit();
 	}
 	return (stack);
 }
