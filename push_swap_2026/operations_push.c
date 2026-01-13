@@ -14,10 +14,10 @@
 
 static void	push(t_stack **src, t_stack **dst)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	if (!src || !*src)
-		return;
+		return ;
 	tmp = *src;
 	*src = (*src)->next;
 	tmp->next = *dst;
