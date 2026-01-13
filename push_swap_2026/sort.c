@@ -14,8 +14,8 @@
 void	index_stack(t_stack **stack)
 {
 	t_stack	*current;
-	t_stack *compare;
-	int	index;
+	t_stack	*compare;
+	int		index;
 
 	current = *stack;
 	while (current)
@@ -56,7 +56,7 @@ void	sort_three(t_stack **a)
 	else if (first < second && second > third && first < third)
 	{
 		sa(a, 1);
-		ra(a. 1);
+		ra(a.1);
 	}
 	else if (first < second && second > third && first > third)
 		rra(a, 1);
@@ -88,7 +88,7 @@ void	sort_small(t_stack **a, t_stack **b)
 	}
 	sort_three(a);
 	while (*b)
-		pa (a, b, 1);
+		pa(a, b, 1);
 }
 
 void	sort_large(t_stack **a, t_stack **b)
