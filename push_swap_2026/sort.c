@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 17:18:31 by acasper           #+#    #+#             */
-/*   Updated: 2026/01/13 19:40:16 by acasper          ###   ########.fr       */
+/*   Updated: 2026/01/13 19:47:03 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -64,10 +64,58 @@ void	sort_three(t_stack **a)
 
 void	sort_small(t_stack **a, t_stack **b)
 {
-	
+	int	size;
+	int	min;
+	int	pos;
+
+	size = stack_size(*a);
+	while (size > 3)
+	{
+		min = get_min(*a);
+		pos = get_position(*a, min);
+		if (pos <= size / 2)
+		{
+			while ((*a)->value != min)
+				ra(a, 1);
+		}
+		else
+		{
+			while ((*a)->value != min)
+				rra(a, 1);
+		}
+		pb(a, b, 1);
+		size--;
+	}
+	sort_three(a);
+	while (*b)
+		pa (a, b, 1);
 }
 
 void	sort_large(t_stack **a, t_stack **b)
 {
-	
+	int	size;
+	int	max_bits;
+	int	i;
+	int	j;
+
+	size = stack_size(*a);
+	max_bits = 0;
+	while ((size - 1) >> max_bits)
+		max_bits++;
+	i = 0;
+	while (i < max_bits)
+	{
+		j = 0;
+		while (j < size)
+		{
+			if ((((*a)->index >> i) & 1) == 0)
+				pb(a, b, 1);
+			else
+				ra(a, 1);
+			j++;
+		}
+		while (*b)
+			pa(a, b, 1);
+		i++;
+	}
 }
