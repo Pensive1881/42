@@ -34,7 +34,7 @@ void	stack_add_front(t_stack **stack, t_stack *new)
 
 void	stack_add_back(t_stack **stack, t_stack *new)
 {
-	t_stack *last;
+	t_stack	*last;
 
 	if (!stack || !new)
 		return ;
