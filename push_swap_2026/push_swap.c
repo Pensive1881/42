@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 18:45:46 by acasper           #+#    #+#             */
-/*   Updated: 2026/01/13 17:10:24 by acasper          ###   ########.fr       */
+/*   Updated: 2026/01/14 22:30:47 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-	a = parse_args(Argc, argv);
+	a = parse_args(argc, argv);
 	if (!a)
 		error_exit();
 	if (is_sorted(a))
@@ -48,6 +48,6 @@ int	main(int argc, char **argv)
 	b = NULL;
 	choose_sort(&a, &b);
 	free_stack(&a);
-	free_Stack(&b);
+	free_stack(&b);
 	return (0);
 }
