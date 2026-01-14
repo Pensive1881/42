@@ -6,7 +6,7 @@
 #    By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/08 17:33:06 by acasper           #+#    #+#              #
-#    Updated: 2026/01/08 19:57:02 by acasper          ###   ########.fr        #
+#    Updated: 2026/01/14 22:36:35 by acasper          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ SRCS = push_swap.c \
 	   operations_reverse_rotate.c \
 	   sort.c
 
-OBJS = $(SRCS: .c=.0)
+OBJS = $(SRCS: .c=.o)
 
 all: $(NAME)
 
@@ -40,7 +40,7 @@ $(NAME): $(LIBFT) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 %.o: %.c push_swap.h
-	$(CC) $(CFlags) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@make -C $(LIBFT_DIR) clean
