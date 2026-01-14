@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 15:30:56 by acasper           #+#    #+#             */
-/*   Updated: 2026/01/09 16:34:25 by acasper          ###   ########.fr       */
+/*   Updated: 2026/01/14 22:32:44 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	error_exit(void)
 {
-	write(2, "Error\n", 6) exit(1);
+	write(2, "Error\n", 6);
+	exit(1);
 }
 
 void	free_stack(t_stack **stack)
