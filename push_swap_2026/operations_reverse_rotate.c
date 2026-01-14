@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 17:16:55 by acasper           #+#    #+#             */
-/*   Updated: 2026/01/13 19:08:36 by acasper          ###   ########.fr       */
+/*   Updated: 2026/01/14 22:35:08 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -32,7 +32,7 @@ void	rra(t_stack **a, int print)
 {
 	reverse_rotate(a);
 	if (print)
-		write(a, "rra\n", 4);
+		write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack **b, int print)
