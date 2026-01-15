@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 15:30:56 by acasper           #+#    #+#             */
-/*   Updated: 2026/01/14 22:32:44 by acasper          ###   ########.fr       */
+/*   Updated: 2026/01/15 19:38:14 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,5 @@ int	get_position(t_stack *stack, int value)
 		pos++;
 		stack = stack->next;
 	}
+	return (0);
 }
