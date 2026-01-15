@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 17:18:31 by acasper           #+#    #+#             */
-/*   Updated: 2026/01/13 19:47:03 by acasper          ###   ########.fr       */
+/*   Updated: 2026/01/15 18:39:27 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -56,7 +56,7 @@ void	sort_three(t_stack **a)
 	else if (first < second && second > third && first < third)
 	{
 		sa(a, 1);
-		ra(a.1);
+		ra(a, 1);
 	}
 	else if (first < second && second > third && first > third)
 		rra(a, 1);
