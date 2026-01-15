@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 16:35:19 by acasper           #+#    #+#             */
-/*   Updated: 2026/01/14 22:31:49 by acasper          ###   ########.fr       */
+/*   Updated: 2026/01/15 18:37:20 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void				stack_add_back(t_stack **stack, t_stack *new);
 void				stack_add_front(t_stack **stack, t_stack *new);
 int					stack_size(t_stack *stack);
 t_stack				*stack_last(t_stack *stack);
-void				free_stack(t_stack, **stack);
+void				free_stack(t_stack **stack);
 
 // sorting algorithms
 void				sort_three(t_stack **a);
