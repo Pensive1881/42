@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 22:53:48 by acasper           #+#    #+#             */
-/*   Updated: 2025/03/11 21:45:51 by acasper          ###   ########.fr       */
+/*   Updated: 2025/03/11 21:43:31 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -24,6 +24,7 @@ int	ft_is_prime(int nb)
 			return (0);
 		i++;
 	}
+
 	return (1);
 }
 /*
