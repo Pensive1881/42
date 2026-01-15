@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 16:33:36 by acasper           #+#    #+#             */
-/*   Updated: 2026/01/13 16:59:05 by acasper          ###   ########.fr       */
+/*   Updated: 2026/01/15 19:39:35 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -69,7 +69,7 @@ int	has_duplicates(t_stack *stack)
 		{
 			if (current->value == checker->value)
 				return (1);
-			checker = current->next;
+			checker = checker->next;
 		}
 		current = current->next;
 	}
