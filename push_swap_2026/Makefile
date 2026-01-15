@@ -6,7 +6,7 @@
 #    By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/08 17:33:06 by acasper           #+#    #+#              #
-#    Updated: 2026/01/14 22:36:35 by acasper          ###   ########.fr        #
+#    Updated: 2026/01/15 19:41:37 by acasper          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
 LIBFT_DIR = ../libft
-LIBT = $(LIBFT_DIR)/libft.a
+LIBFT = $(LIBFT_DIR)/libft.a
 
 SRCS = push_swap.c \
 	   parse.c \
@@ -29,7 +29,7 @@ SRCS = push_swap.c \
 	   operations_reverse_rotate.c \
 	   sort.c
 
-OBJS = $(SRCS: .c=.o)
+OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
@@ -44,10 +44,10 @@ $(NAME): $(LIBFT) $(OBJS)
 
 clean:
 	@make -C $(LIBFT_DIR) clean
-	$(RM) $(NAME)
+	$(RM) $(OBJS)
 
 fclean: clean
-	@make -C $(LIBFT_DIR) clean
+	@make -C $(LIBFT_DIR) fclean
 	$(RM) $(NAME)
 
 re: fclean all
