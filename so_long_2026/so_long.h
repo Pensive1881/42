@@ -6,8 +6,13 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 17:41:01 by acasper           #+#    #+#             */
-/*   Updated: 2026/01/19 17:41:03 by acasper          ###   ########.fr       */
+/*   Updated: 2026/01/19 17:45:16 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SO_LONG_H
+# define SO_LONG_H
 
+# include 
+
+#endif
