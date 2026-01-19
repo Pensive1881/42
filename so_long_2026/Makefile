@@ -6,7 +6,7 @@
 #    By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/19 17:17:51 by acasper           #+#    #+#              #
-#    Updated: 2026/01/19 17:21:28 by acasper          ###   ########.fr        #
+#    Updated: 2026/01/19 17:46:31 by acasper          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME = so_long
 
 CC = cc
 C_FLAGS = -Wall -Wextra -Werror
-INCLUDES = -I./libft
+
+LIBFT
 
 
