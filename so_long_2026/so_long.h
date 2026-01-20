@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 17:41:01 by acasper           #+#    #+#             */
-/*   Updated: 2026/01/19 17:45:16 by acasper          ###   ########.fr       */
+/*   Updated: 2026/01/20 14:12:02 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,35 +83,35 @@ typedef struct	s_game
 }	t_game;
 
 // Map Parsing
-int	parse_map();
-int	validate_map();
-int	check_path();
-void	free_map();
+int	parse_map(char *filename, t_game *game);
+int	validate_map(t_game *game);
+int	check_path(t_game *game);
+void	free_map(char **map);
 
 // Map Validation
-int	is_rectangular();
-int	is_surrounded_by_walls();
-int	count_map_elements();
+int	is_rectangular(char **map);
+int	is_surrounded_by_walls(t_map *map);
+int	count_map_elements(t_map *map);
 
 // Game Initialization
-int	init_game();
-int	load_textures();
-void	free_textures();
+int	init_game(t_game *game);
+int	load_textures(t_game *game);
+void	free_textures(t_game *game);
 
 // Game Loop
-int	game_loop();
-void	render_map();
-int	handle_keypress();
-int	handle_close();
+int	game_loop(t_game *game);
+void	render_map(t_game *game);
+int	handle_keypress(int keycode, t_game *game);
+int	handle_close(t_game *game);
 
 // Player Movement
-int	move_player();
-void	update_player_position();
+int	move_player(t_game *game, int new_x, int new_y);
+void	update_player_position(t_game *game, int new_x, int new_y);
 
 // Utils
-void	error_exit();
-void	cleanup_game();
-int	get_map_width();
-int	get_map_height();
+void	error_exit(char *message);
+void	cleanup_game(t_game *game);
+int	get_map_width(char *line);
+int	get_map_height(char *filename);
 
 #endif
