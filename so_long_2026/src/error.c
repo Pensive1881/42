@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 15:58:46 by acasper           #+#    #+#             */
-/*   Updated: 2026/01/20 16:05:58 by acasper          ###   ########.fr       */
+/*   Updated: 2026/01/20 16:17:55 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -28,6 +28,7 @@ void	cleanup_game(t_game *game)
 			mlx_destroy_window(game->mlx, game->win);
 		mlx_destroy_window(game->mlx, game->win);
 		free(game->mlx);
+	}
 }
 
 void	free_map(char **map)
