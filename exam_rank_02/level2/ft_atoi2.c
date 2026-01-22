@@ -1,32 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/12 22:19:04 by acasper           #+#    #+#             */
-/*   Updated: 2025/05/19 00:12:27 by acasper          ###   ########.fr       */
+/*   Created: 2026/01/21 15:57:25 by acasper           #+#    #+#             */
+/*   Updated: 2026/01/21 16:23:01 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include <stdio.h>
 
-void	*ft_memchr(const void *s, int c, size_t n)
+int	ft_atoi(const char *str)
 {
-	const unsigned char	*ptr = s;
+	int	num;
+	int	i;
 
-	while (n--)
+	num = 0;
+	i = 0;
+	while (str[i])
 	{
-		if (*ptr == (unsigned char)c)
-			return ((void *)ptr);
-		ptr++;
+		num *= 10;
+		num += str[i] - '0';
+		i++;
 	}
-	return (NULL);
+	return (num);
 }
 
-/*
-int	main(void)
+int	main(int argc, char **argv)
 {
+	int	i;
+	
+	if (argc != 2)
 		return (0);
+	printf(": %d\n", ft_atoi(argv[1]));
+
+	return (0);
 }
-*/

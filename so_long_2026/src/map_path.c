@@ -1,31 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   map_path.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/18 23:56:31 by acasper           #+#    #+#             */
-/*   Updated: 2025/06/03 14:43:17 by acasper          ###   ########.fr       */
+/*   Created: 2026/01/20 18:31:24 by acasper           #+#    #+#             */
+/*   Updated: 2026/01/20 18:31:36 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include "so_long.h"
 
-t_list	*ft_lstnew(void *content)
-{
-	t_list	*new_node;
-
-	new_node = (t_list *)malloc(sizeof(t_list));
-	if (!new_node)
-		return (NULL);
-	new_node->content = content;
-	new_node->next = NULL;
-	return (new_node);
-}
-
-/*
-int	main(void)
-{
-		return (0);
-}
-*/
