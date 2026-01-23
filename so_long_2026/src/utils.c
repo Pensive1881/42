@@ -24,8 +24,8 @@ int	get_map_width(char *line)
 
 int	get_map_height(char *filename)
 {
-	int	fd;
-	int	height;
+	int		fd;
+	int		height;
 	char	*line;
 
 	fd = open(filename, O_RDONLY);
@@ -38,7 +38,7 @@ int	get_map_height(char *filename)
 		height++;
 		free(line);
 		line = get_next_line(fd);
-	}	
+	}
 	close(fd);
 	return (height);
 }
