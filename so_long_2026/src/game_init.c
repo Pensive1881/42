@@ -11,12 +11,13 @@
 /* ************************************************************************** */
 #include "so_long.h"
 
-static int	init mlx(t_game *game)
+static int init	mlx(t_game *game)
 {
 	game->mlx = mlx_init();
 	if (!game->mlx)
 		return (0);
-	game->win = mlx_new_window(game->mlx, game->map.width * TILE_SIZE, map.height * TILE_SIZE, "so_long");
+	game->win = mlx_new_window(game->mlx, game->map.width * TILE_SIZE,
+			map.height * TILE_SIZE, "so_long");
 	if (!game->mlx)
 		return (0);
 	return (1);
@@ -32,7 +33,7 @@ statis int	setup_hooks(t_game *game)
 int	init_game(t_game *game)
 {
 	game->moves = 0;
-	game-collected = 0;
+	game - collected = 0;
 	if (!init_mlx(game))
 		return (0);
 	if (!load_textures(game))
