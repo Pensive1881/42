@@ -6,8 +6,13 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 16:03:24 by acasper           #+#    #+#             */
-/*   Updated: 2026/01/30 16:03:26 by acasper          ###   ########.fr       */
+/*   Updated: 2026/01/30 16:06:25 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "list.h"
 
-
+t_list	*sort_list(t_list *lst, int (*cmp)(int, int))
+{
+	
+	return ();
+}
