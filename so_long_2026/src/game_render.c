@@ -13,15 +13,20 @@
 
 static void	render_title(t_game *game, char title, int x, int y)
 {
-	mlx_put_image_to_window(game->mlx, game->win, game->textures.floor.img, x * TILE_SIZE, y * TILE_SIZE);
+	mlx_put_image_to_window(game->mlx, game->win, game->textures.floor.img, x
+		* TILE_SIZE, y * TILE_SIZE);
 	if (tile == WALL)
-		mlx_put_image_to_window(game->mlx, game->win, game->textures.wall.img, x * TILE_SIZE, y * TILE_SIZE);
+		mlx_put_image_to_window(game->mlx, game->win, game->textures.wall.img, x
+			* TILE_SIZE, y * TILE_SIZE);
 	else if (tile == COLLECTIBLE)
-		mlx_put_image_to_window(game->mlx, game->win, game->textures.collectible.img, x * TILE_SIZE, y * TILE_SIZE);
+		mlx_put_image_to_window(game->mlx, game->win,
+			game->textures.collectible.img, x * TILE_SIZE, y * TILE_SIZE);
 	else if (tile == EXIT)
-		mlx_put_image_to_window(game->mlx, game->win, game->textures.exit.img, x * TILE_SIZE, y * TILE_SIZE);
+		mlx_put_image_to_window(game->mlx, game->win, game->textures.exit.img, x
+			* TILE_SIZE, y * TILE_SIZE);
 	else if (tile == PLAYER)
-		mlx_put_image_to_window(game->mlx, game->win, game->textures.player.img, x * TILE_SIZE, y * TILE_SIZE);
+		mlx_put_image_to_window(game->mlx, game->win, game->textures.player.img,
+			x * TILE_SIZE, y * TILE_SIZE);
 }
 
 void	render_map(t_game *game)
