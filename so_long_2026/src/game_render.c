@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   game_render.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/02 19:16:42 by acasper           #+#    #+#             */
+/*   Updated: 2026/02/02 19:18:52 by acasper          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "so_long.h"
 
 static void	render_title(t_game *game, char title, int x, int y)
@@ -19,10 +30,14 @@ void	render_map(t_game *game)
 	int	y;
 
 	y = 0;
-	while (y < game->map.width)
+	while (y < game->map.height)
 	{
-		render_title(game, game->map.grid[y][x], x, y);
-		x++;
+		x = 0;
+		while (x < game->map.width)
+		{
+			render_title(game, game->map.grid[y][x], x, y);
+			x++;
+		}
+		y++;
 	}
-	y++;
 }
