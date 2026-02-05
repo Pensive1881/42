@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 19:20:30 by acasper           #+#    #+#             */
-/*   Updated: 2026/02/05 19:50:50 by acasper          ###   ########.fr       */
+/*   Updated: 2026/02/05 19:52:28 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -29,7 +29,7 @@ int	handle_keypress(int keycode, t_game *game)
 		handle_close(game);
 	else if (keycode == W_KEY || keycode == 119)
 		new_y--;
-	else if (keycode == S_KEY || keycode == 115))
+	else if (keycode == S_KEY || keycode == 115)
 		new_y++;
 	else if (keycode == A_KEY || keycode == 97)
 		new_x--;
