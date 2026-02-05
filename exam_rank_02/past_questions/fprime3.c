@@ -1,42 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fprime.c                                           :+:      :+:    :+:   */
+/*   fprime3.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/03 13:50:20 by acasper           #+#    #+#             */
-/*   Updated: 2026/02/04 18:23:12 by acasper          ###   ########.fr       */
+/*   Created: 2026/02/04 18:23:28 by acasper           #+#    #+#             */
+/*   Updated: 2026/02/04 18:29:08 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 int	main(int argc, char **argv)
 {
 	int	i;
-	int	num;
+	int	n;
 
 	i = 2;
 	if (argc == 2)
 	{
-		num = atoi(argv[1]);
-		if (num == 1)
+		n = atoi(argv[1]);
+		if (n == 1)
 			printf("1");
-		while (i <= num)
+		while (i <= n)
 		{
-			if (num % i == 0)
+			if (n % i == 0)
 			{
 				printf("%d", i);
-				if (num != i)
+				if (n != i)
 					printf("*");
-				num /= i;
+				n /= i;
 			}
 			else
 				i++;
 		}
 	}
-
 	printf("\n");
 	return (0);
 }
