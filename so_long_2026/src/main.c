@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 14:22:36 by acasper           #+#    #+#             */
-/*   Updated: 2026/01/20 15:58:36 by acasper          ###   ########.fr       */
+/*   Updated: 2026/02/05 19:55:32 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -31,6 +31,11 @@ int	main(int argc, char **argv)
 	{
 		cleanup_game(&game);
 		error_exit("Error\nNo valid path in map");
+	}
+	if (!init_game(&game);
+	{
+		cleanup_game(&game);
+		error_exit("Error\nFailed to initialize game");
 	}
 	game_loop(&game);
 	cleanup_game(&game);
