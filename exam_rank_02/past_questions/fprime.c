@@ -41,3 +41,29 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
+
+
+
+#include <studio.h>
+#include <stdlib.h>
+
+int	main(int argc, char **argv)
+{
+	i = 2;
+	while (i <= n)
+	{
+		if (n % i == 0)
+		{
+			printf("%d", i);
+			if (n != i)
+				printf("*");
+			num /= i;
+		}
+		else
+			i++;
+	
+	}
+
+	printf("\n");
+	return (0);
+}
