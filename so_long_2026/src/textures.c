@@ -49,5 +49,14 @@ int	load_textures(t_game *game)
 
 void	free_textures(t_game *game)
 {
-	
+	if (game->textures.wall.img)
+		mlx_destroy_image(game->mlx, game->textures.wall.img);
+	if (game->textures.floor.img))
+		mlx_destroy_image(game->mlx, game->textures.floor.img);
+	if (game->textures.collectible.img))
+		mlx_destroy_image(game->mlx, game->textures.collectible.img);
+	if (game->textures.exit.img)
+		mlx_destroy_image(game->mlx, game->textures.exit.img);
+	if (game->textures.player.img)
+		mlx_destroy_image(game->mlx, game->textures.player.img);
 }
