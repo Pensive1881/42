@@ -37,16 +37,14 @@ static void	create_colored_square(t_game *game, t_img *img, int color)
 
 int	load_textures(t_game *game)
 {
-	create_colored_square();
-	create_colored_square();
-	create_colored_square();
-	create_colored_square();
-	create_colored_square();
-	if ()
-	{
-		
-	}
-	
+	create_colored_square(game, &game->textures.wall, 0x808080);
+	create_colored_square(game, &game->textures.floor, 0xFFFFFF);
+	create_colored_square(game, &game->textures.collectible, 0xFFD700);
+	create_colored_square(game, &game->textures.exit, 0x00FF00);
+	create_colored_square(game, &game->textures.player, 0x0000FF);
+	if (!game->textures.wall.img || !game->textures.floor.img || !game->textures.collectible.img || !game->textures.exit.img || !game->textures.player.img)
+		return (0);
+	return (1);
 }
 
 void	free_textures(t_game *game)
