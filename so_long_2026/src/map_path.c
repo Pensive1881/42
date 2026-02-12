@@ -11,3 +11,22 @@
 /* ************************************************************************** */
 #include "so_long.h"
 
+static char	**copy_map(t_map *map)
+{
+	
+}
+
+static void	flood_fill(char **map, int x, int y, int *collectibles)
+{
+	
+}
+
+static int	can_reach_exit(char **map, int exit_x, int ext_y)
+{
+	
+}
+
+int	check_path(t_game *game)
+{
+	
+}
