@@ -20,7 +20,10 @@ static void	create_colored_square(t_game *game, t_img *img, int color)
 	img->img = mlx_new_image(game->mlx, TILE_SIZE, TILE_SIZE);
 	if (!img->img)
 		return ;
-	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel, &img->line_length, &img->endian);
+	img->addr = mlx_get_data_addr(img->img,
+		&img->bits_per_pixel,
+		&img->line_length,
+		&img->endian);
 	y = 0;
 	while (y < TILE_SIZE)
 	{
@@ -42,7 +45,11 @@ int	load_textures(t_game *game)
 	create_colored_square(game, &game->textures.collectible, 0xFFD700);
 	create_colored_square(game, &game->textures.exit, 0x00FF00);
 	create_colored_square(game, &game->textures.player, 0x0000FF);
-	if (!game->textures.wall.img || !game->textures.floor.img || !game->textures.collectible.img || !game->textures.exit.img || !game->textures.player.img)
+	if (!game->textures.wall.img
+		|| !game->textures.floor.img
+		|| !game->textures.collectible.img
+		|| !game->textures.exit.img
+		|| !game->textures.player.img)
 		return (0);
 	return (1);
 }
@@ -51,9 +58,9 @@ void	free_textures(t_game *game)
 {
 	if (game->textures.wall.img)
 		mlx_destroy_image(game->mlx, game->textures.wall.img);
-	if (game->textures.floor.img))
+	if (game->textures.floor.img)
 		mlx_destroy_image(game->mlx, game->textures.floor.img);
-	if (game->textures.collectible.img))
+	if (game->textures.collectible.img)
 		mlx_destroy_image(game->mlx, game->textures.collectible.img);
 	if (game->textures.exit.img)
 		mlx_destroy_image(game->mlx, game->textures.exit.img);
