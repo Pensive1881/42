@@ -40,9 +40,27 @@ static int	allocate_map(t_game *game, int height)
 	return (1);
 }
 
-static int	read_map_line(int fd, t_game *game))
+static int	read_map_lines(int fd, t_game *game)
 {
-	
+	int	i;
+	char	*line;
+
+	i = 0;
+	line = read_line_trim(fd);
+	while (line)
+	{
+		if (i == 0)
+			game->map.width = ft_strlen(line);
+		if ((int)ft_strlen(line) != game->map.width)
+		{
+			free(line);
+			return (0);
+		}
+		game->map.grid[i] = line;
+		i++;
+		line = read_line_trim(fd);
+	}
+	return (1);
 }
 
 int	parse_map(char *filename, t_game *game)
