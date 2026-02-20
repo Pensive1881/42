@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 20:01:57 by acasper           #+#    #+#             */
-/*   Updated: 2026/02/20 15:12:56 by acasper          ###   ########.fr       */
+/*   Updated: 2026/02/20 15:31:43 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,14 @@ static void	check_win_condition(t_game *game)
 
 void	update_player_position(t_game *game, int new_x, int new_y)
 {
-	
+	game->map.grid[game->map.player_pos.y][game->map.player_pos.x] = EMPTY;
+	game->map.player_pos.x = new_x;
+	game->map.player_pos.y = new_y;
+	game->map.grid[new_y][new_x] = PLAYER;
+	game->moves++;
+	ft_putstr_fd("Moves: ", 1);
+	ft_putnbr_fd(game->moves, 1);
+	ft_putchar_fd('\n', 1);
 }
 
 int	move_player(t_game *game, int new_x, int new_y)
@@ -41,7 +48,7 @@ int	move_player(t_game *game, int new_x, int new_y)
 	{
 		if (game->collected == game->map.collectibles)
 		{
-			update_player_position(ga,e new_x, new_y);
+			update_player_position(game, new_x, new_y);
 			render_map(game);
 			check_win_condition(game);
 		}
