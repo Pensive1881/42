@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 20:01:57 by acasper           #+#    #+#             */
-/*   Updated: 2026/02/20 15:31:43 by acasper          ###   ########.fr       */
+/*   Updated: 2026/02/20 15:34:53 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@ int	move_player(t_game *game, int new_x, int new_y)
 {
 	char	target;
 
-	if (new_x < 0 || new_x >= game->map.width || new_y < 0 || new_y >= game->map.height)
+	if (new_x < 0 || new_x >= game->map.width
+		|| new_y < 0
+		|| new_y >= game->map.height)
 		return (0);
 	target = game->map.grid[][];
 	if (target == WALL)
@@ -58,4 +60,3 @@ int	move_player(t_game *game, int new_x, int new_y)
 	render_map(game);
 	return (1);
 }
-
