@@ -15,13 +15,13 @@ static char	*read_line_trim(int fd)
 {
 	char	*line;
 	char	*trimmed;
-	int	len;
+	int		len;
 
 	line = get_next_line(fd);
 	if (!line)
 		return (NULL);
 	len = ft_strlen(line);
-	if (len > 0 && line[len-1] == '\n')
+	if (len > 0 && line[len - 1] == '\n')
 	{
 		trimmed = ft_substr(line, 0, len - 1);
 		free(line);
@@ -42,7 +42,7 @@ static int	allocate_map(t_game *game, int height)
 
 static int	read_map_lines(int fd, t_game *game)
 {
-	int	i;
+	int		i;
 	char	*line;
 
 	i = 0;
@@ -89,4 +89,3 @@ int	parse_map(char *filename, t_game *game)
 	close(fd);
 	return (count_map_elements(&game->map));
 }
-
