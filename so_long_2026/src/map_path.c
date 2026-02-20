@@ -14,7 +14,7 @@
 static char	**copy_map(t_map *map)
 {
 	char	**copy;
-	int	i;
+	int		i;
 
 	copy = (char **)malloc(sizeof(char *) * (map->height + 1));
 	if (!copy)
@@ -57,18 +57,17 @@ static int	can_reach_exit(char **map, int exit_x, int exit_y)
 int	check_path(t_game *game)
 {
 	char	**map_copy;
-	int	collectibles;
-	int	result;
+	int		collectibles;
+	int		result;
 
 	map_copy = copy_map(&game->map);
 	if (!map_copy)
 		return (0);
 	collectibles = 0;
-	flood_fill(map_copy, game->map.player_pos.x,
-		game->map.player_pos.y, &collectibles);
-	result = (collectibles == game->map.collectibles
-			&& can_reach_exit(map_copy, game->map.exit_pos.x,
-				game->map.exit_pos_y));
+	flood_fill(map_copy, game->map.player_pos.x, game->map.player_pos.y,
+		&collectibles);
+	result = (collectibles == game->map.collectibles && can_reach_exit(map_copy,
+				game->map.exit_pos.x, game->map.exit_pos_y));
 	free_map(map_copy);
 	return (result);
 }
