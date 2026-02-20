@@ -16,13 +16,20 @@ static char	**copy_map(t_map *map)
 	char	**copy;
 	int	i;
 
-	copy = ()malloc();
+	copy = (char **)malloc(sizeof(char *) * (map->height + 1));
 	if (!copy)
 		return (NULL);
 	i = 0;
 	while (i < map->height)
 	{
-		
+		copy[i] = ft_strdup(map->grid[i]);
+		if (!copy[i])
+		{
+			while (--i >= 0)
+				free(copy[i]);
+			free(copy);
+			return (NULL);
+		}
 		i++;
 	}
 	copy[i] = NULL;
@@ -31,10 +38,18 @@ static char	**copy_map(t_map *map)
 
 static void	flood_fill(char **map, int x, int y, int *collectibles)
 {
-	
+	if (map[y][x] == WALL || map[y][x] == 'V')
+		return ;
+	if (map[y][x] == COLLECTIBLE)
+		(*collectibles)++;
+	map[y][x] = 'V';
+	flood_fill(map, x + 1, y, collectibles);
+	flood_fill(map, x - 1, y, collectibles);
+	flood_fill(map, x, y + 1, collectibles);
+	flood_fill(map, x, y - 1, collectibles);
 }
 
-static int	can_reach_exit(char **map, int exit_x, int ext_y)
+static int	can_reach_exit(char **map, int exit_x, int exit_y)
 {
 	return (map[exit_y][exit_x] == 'V');
 }
