@@ -13,12 +13,31 @@
 
 static char	*read_line_trim(int fd)
 {
-	
+	char	*line;
+	char	*trimmed;
+	int	len;
+
+	line = get_next_line(fd);
+	if (!line)
+		return (NULL);
+	len = ft_strlen(line);
+	if (len > 0 && line[len-1] == '\n')
+	{
+		trimmed = ft_substr(line, 0, len - 1);
+		free(line);
+		return (trimmed);
+	}
+	return (line);
 }
 
 static int	allocate_map(t_game *game, int height)
 {
-	
+	game->map.grid = (char **)malloc(sizeof(char *) * (height + 1));
+	if (!game->map.grid)
+		return (0);
+	game->map.grid[height] = NULL;
+	game->map.height = height;
+	return (1);
 }
 
 static int	read_map_line(int fd, t_game *game))
