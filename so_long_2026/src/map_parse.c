@@ -28,6 +28,28 @@ static int	read_map_line(int fd, t_game *game))
 
 int	parse_map(char *filename, t_game *game)
 {
-	
+	int	fd;
+	int	height;
+
+	height = get_map_height(filename);
+	if (height == 0)
+		return (0);
+	if (!allocate_map(game, height))
+		return (0);
+	fd = open(filename, O_RDONLY);
+	if (fd < 0)
+	{
+		free(game->map.grid);
+		return (0);
+	}
+	if (!read_map_lines(fd, game))
+	{
+		free_map(game->map.grid);
+		game->map.grid = NULL;
+		close(fd);
+		return (0);
+	}
+	close(fd);
+	return (count_map_elements(&game->map));
 }
 
