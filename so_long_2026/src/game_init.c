@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 16:20:16 by acasper           #+#    #+#             */
-/*   Updated: 2026/02/23 11:47:20 by acasper          ###   ########.fr       */
+/*   Updated: 2026/02/23 12:11:51 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -18,7 +18,7 @@ static int init_mlx(t_game *game)
 		return (0);
 	game->win = mlx_new_window(game->mlx, game->map.width * TILE_SIZE,
 			game->map.height * TILE_SIZE, "so_long");
-	if (!game->mlx)
+	if (!game->win)
 		return (0);
 	return (1);
 }
