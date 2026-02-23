@@ -6,12 +6,12 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 16:20:16 by acasper           #+#    #+#             */
-/*   Updated: 2026/02/23 12:11:51 by acasper          ###   ########.fr       */
+/*   Updated: 2026/02/23 15:39:37 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
 
-static int init_mlx(t_game *game)
+static int	init_mlx(t_game *game)
 {
 	game->mlx = mlx_init();
 	if (!game->mlx)
