@@ -6,12 +6,12 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 19:16:42 by acasper           #+#    #+#             */
-/*   Updated: 2026/02/02 19:18:52 by acasper          ###   ########.fr       */
+/*   Updated: 2026/02/23 11:51:02 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
 
-static void	render_title(t_game *game, char title, int x, int y)
+static void	render_title(t_game *game, char tile, int x, int y)
 {
 	mlx_put_image_to_window(game->mlx, game->win, game->textures.floor.img, x
 		* TILE_SIZE, y * TILE_SIZE);
