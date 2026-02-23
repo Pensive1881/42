@@ -21,6 +21,7 @@ LIBFT = $(LIBFT_DIR)/libft.a
 
 SRCS = push_swap.c \
 	   parse.c \
+	   parse_utils.c \
 	   stack_utils.c \
 	   utils.c \
 	   operations_swap.c \
