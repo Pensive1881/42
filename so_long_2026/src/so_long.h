@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 17:41:01 by acasper           #+#    #+#             */
-/*   Updated: 2026/01/20 14:18:03 by acasper          ###   ########.fr       */
+/*   Updated: 2026/02/23 11:38:53 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "../src/get_next_line.h"
 # include "libft/libft.h"
-# include <fcnhtl.h>
+# include <fcntl.h>
 # include <math.h>
 # include <mlx.h>
 # include <stdlib.h>
@@ -66,7 +66,7 @@ typedef struct s_map
 	int			width;
 	int			height;
 	int			collectibles;
-	int			exit;
+	int			exits;
 	int			players;
 	t_point		player_pos;
 	t_point		exit_pos;
@@ -74,7 +74,7 @@ typedef struct s_map
 
 typedef struct s_game
 {
-	void		*mix;
+	void		*mlx;
 	void		*win;
 	t_map		map;
 	t_textures	textures;
