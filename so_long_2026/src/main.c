@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 14:22:36 by acasper           #+#    #+#             */
-/*   Updated: 2026/02/05 19:59:21 by acasper          ###   ########.fr       */
+/*   Updated: 2026/02/23 11:40:12 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 			".ber", 4) != 0)
 		error_exit("error\nMap file must have .ber extension");
 	ft_memset(&game, 0, sizeof(t_game));
-	if (!parse_map(Argv[1], &game))
+	if (!parse_map(argv[1], &game))
 		error_exit("Error\nFailed to parse map");
 	if (!validate_map(&game))
 	{
