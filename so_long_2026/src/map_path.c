@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 18:31:24 by acasper           #+#    #+#             */
-/*   Updated: 2026/01/20 18:31:36 by acasper          ###   ########.fr       */
+/*   Updated: 2026/02/23 11:42:57 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -67,7 +67,7 @@ int	check_path(t_game *game)
 	flood_fill(map_copy, game->map.player_pos.x, game->map.player_pos.y,
 		&collectibles);
 	result = (collectibles == game->map.collectibles && can_reach_exit(map_copy,
-				game->map.exit_pos.x, game->map.exit_pos_y));
+				game->map.exit_pos.x, game->map.exit_pos.y));
 	free_map(map_copy);
 	return (result);
 }
