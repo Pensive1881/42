@@ -6,14 +6,16 @@
 #    By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/19 17:17:51 by acasper           #+#    #+#              #
-#    Updated: 2026/01/19 17:54:58 by acasper          ###   ########.fr        #
+#    Updated: 2026/02/23 15:37:09 by acasper          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
 CC = cc
-C_FLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
+INCLUDES = -I. -I./src
+MLX_FLAGS = -lmlx -lXext -lX11 -lm
 
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
@@ -24,7 +26,7 @@ SRC_FILES = main.c \
 	    map_validate.c \
 	    map_path.c \
 	    game_init.c \
-	    game_loop.c \
+	    game_loops.c \
 	    game_render.c \
 	    player_move.c \
 	    textures.c \
@@ -33,20 +35,27 @@ SRC_FILES = main.c \
 	    get_next_line.c \
 	    get_next_line_utils.c
 
-SRCS = 
-OBJS = 
+SRCS = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
+OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME):
+$(NAME): $(LIBFT) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MLX_FLAGS) -o $(NAME)
 
 $(LIBFT):
+	make -C $(LIBFT_DIR)
 
 %.o: %.c
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
+	make -C $(LIBFT_DIR) clean
+	rm -f $(OBJS)
 
-fclean:
+fclean: clean
+	make -C $(LIBFT_DIR) fclean
+	rm -f $(NAME)
 
 re: fclean all
 
