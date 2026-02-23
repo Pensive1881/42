@@ -6,12 +6,12 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 15:58:46 by acasper           #+#    #+#             */
-/*   Updated: 2026/02/23 11:54:34 by acasper          ###   ########.fr       */
+/*   Updated: 2026/02/23 16:47:28 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
 
-void	error_exit(char *message)
+void	error_exit(const char *message)
 {
 	ft_putendl_fd(message, 2);
 	exit(1);
