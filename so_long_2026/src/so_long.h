@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 17:41:01 by acasper           #+#    #+#             */
-/*   Updated: 2026/02/23 11:38:53 by acasper          ###   ########.fr       */
+/*   Updated: 2026/02/23 16:45:05 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ int				move_player(t_game *game, int new_x, int new_y);
 void			update_player_position(t_game *game, int new_x, int new_y);
 
 // Utils
-void			error_exit(char *message);
+void			error_exit(const char *message);
 void			cleanup_game(t_game *game);
 int				get_map_width(char *line);
 int				get_map_height(char *filename);
