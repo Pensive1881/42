@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 16:33:36 by acasper           #+#    #+#             */
-/*   Updated: 2026/01/15 19:39:35 by acasper          ###   ########.fr       */
+/*   Updated: 2026/02/23 18:52:24 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -104,9 +104,6 @@ t_stack	*parse_args(int argc, char **argv)
 		}
 	}
 	if (has_duplicates(stack))
-	{
-		free_stack(&stack);
-		error_exit();
-	}
+		(free_stack(&stack), error_exit());
 	return (stack);
 }
