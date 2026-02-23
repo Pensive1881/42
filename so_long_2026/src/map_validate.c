@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 18:29:23 by acasper           #+#    #+#             */
-/*   Updated: 2026/01/20 18:29:36 by acasper          ###   ########.fr       */
+/*   Updated: 2026/02/23 11:41:21 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -73,7 +73,7 @@ int	is_surrounded_by_walls(t_map *map)
 
 int	validate_map(t_game *game)
 {
-	if (gmae->map.height < 3 || game->map.width < 3)
+	if (game->map.height < 3 || game->map.width < 3)
 		return (0);
 	if (!is_surrounded_by_walls(&game->map))
 		return (0);
