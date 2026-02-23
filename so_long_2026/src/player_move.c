@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 20:01:57 by acasper           #+#    #+#             */
-/*   Updated: 2026/02/20 15:34:53 by acasper          ###   ########.fr       */
+/*   Updated: 2026/02/23 11:50:13 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	move_player(t_game *game, int new_x, int new_y)
 		|| new_y < 0
 		|| new_y >= game->map.height)
 		return (0);
-	target = game->map.grid[][];
+	target = game->map.grid[new_y][new_x];
 	if (target == WALL)
 		return (0);
 	if (target == COLLECTIBLE)
