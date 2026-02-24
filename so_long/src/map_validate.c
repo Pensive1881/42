@@ -5,12 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/23 20:58:00 by acasper           #+#    #+#             */
-/*   Updated: 2025/12/23 22:14:00 by acasper          ###   ########.fr       */
+/*   Created: 2026/01/20 18:29:23 by acasper           #+#    #+#             */
+/*   Updated: 2026/02/23 16:20:49 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "so_long.h"
 
-#include "../includes/so_long.h"
+static int	handle_tile(t_map *map, int i, int j)
+{
+	if (map->grid[i][j] == PLAYER)
+	{
+		map->players++;
+		map->player_pos.x = j;
+		map->player_pos.y = i;
+	}
+	else if (map->grid[i][j] == EXIT)
+	{
+		map->exits++;
+		map->exit_pos.x = j;
+		map->exit_pos.y = i;
+	}
+	else if (map->grid[i][j] == COLLECTIBLE)
+		map->collectibles++;
+	else if (map->grid[i][j] != WALL && map->grid[i][j] != EMPTY)
+		return (0);
+	return (1);
+}
 
 int	count_map_elements(t_map *map)
 {
@@ -26,21 +46,7 @@ int	count_map_elements(t_map *map)
 		j = 0;
 		while (j < map->width)
 		{
-			if (map->grid[i][j] == PLAYER)
-			{
-				map->players++;
-				map->player_pos.x = j;
-				map->player_pos.y = i;
-			}
-			else if (map->grid[i][j] == EXIT)
-			{
-				map->exits++;
-				map->exit_pos.x = j;
-				map->exit_pos.y = i;
-			}
-			else if (map->grid[i][j] == COLLECTIBLE)
-				map->collectibles++;
-			else if (map->grid[i][j] != WALL && map->grid[i][j] != EMPTY)
+			if (!handle_tile(map, i, j))
 				return (0);
 			j++;
 		}

@@ -1,0 +1,59 @@
+
+
+//		Correctness tests (must print OK)
+
+./push_swap 42 | cat -e
+./push_swap 2 3 | cat -e
+./push_swap 0 1 2 3 4 5 6 7 8 9 | cat -e
+
+ARG="2 1 0"; ./push_swap $ARG | ./checker $ARG
+ARG="1 5 2 4 3"; ./push_swap $ARG | ./checker $ARG
+
+
+
+//		Error management tests (must print Error on stderr)
+
+./push_swap a 2 3
+./push_swap 1 2 2
+./push_swap 2147483648
+./push_swap -2147483649
+./push_swap "1 2 a"
+./push_swap "1 2 2"
+./push_swap ""
+
+./push_swap 1 2 2 1>/dev/null
+echo $?
+		You should still see Error (because it’s on fd 2) and $? should be 1: error_exit() does exit(1)
+
+
+
+//		Make sure already-sorted prints nothing (not even a newline)
+
+./push_swap 0 1 2 3 | cat -e
+
+
+//		Random stress tests (correctness + step count)
+
+//		100 NUMBERS
+ARG=$(python3 - << EOF
+import random
+print(" ".join(map(str, random.sample(range(-10000,10000), 100))))
+EOF
+)
+./push_swap $ARG | ./checker $ARG
+./push_swap $ARG | wc -l
+
+//		500 NUMBERS
+ARG=$(python3 - << EOF
+import random
+print(" ".join(map(str, random.sample(range(-100000,100000), 500))))
+EOF
+)
+./push_swap $ARG | ./checker $ARG
+./push_swap $ARG | wc -l
+
+
+
+//		
+
+

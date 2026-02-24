@@ -5,12 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/23 20:58:00 by acasper           #+#    #+#             */
-/*   Updated: 2025/12/23 22:21:17 by acasper          ###   ########.fr       */
+/*   Created: 2026/01/20 16:34:22 by acasper           #+#    #+#             */
+/*   Updated: 2026/02/23 15:50:47 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 static void	create_colored_square(t_game *game, t_img *img, int color)
 {

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/20 13:23:21 by acasper           #+#    #+#             */
-/*   Updated: 2025/12/20 by acasper                  ###   ########.fr       */
+/*   Created: 2026/01/09 18:45:46 by acasper           #+#    #+#             */
+/*   Updated: 2026/01/14 22:30:47 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,3 @@ int	main(int argc, char **argv)
 	free_stack(&b);
 	return (0);
 }
-

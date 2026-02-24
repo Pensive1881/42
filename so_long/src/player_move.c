@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/23 20:58:00 by acasper           #+#    #+#             */
-/*   Updated: 2025/12/23 22:23:52 by acasper          ###   ########.fr       */
+/*   Created: 2026/02/05 20:01:57 by acasper           #+#    #+#             */
+/*   Updated: 2026/02/23 11:50:13 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 static void	check_win_condition(t_game *game)
 {
@@ -38,7 +38,8 @@ int	move_player(t_game *game, int new_x, int new_y)
 	char	target;
 
 	if (new_x < 0 || new_x >= game->map.width
-		|| new_y < 0 || new_y >= game->map.height)
+		|| new_y < 0
+		|| new_y >= game->map.height)
 		return (0);
 	target = game->map.grid[new_y][new_x];
 	if (target == WALL)

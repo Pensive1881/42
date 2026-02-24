@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/23 20:58:00 by acasper           #+#    #+#             */
-/*   Updated: 2025/12/23 21:59:08 by acasper          ###   ########.fr       */
+/*   Created: 2026/01/23 15:59:06 by acasper           #+#    #+#             */
+/*   Updated: 2026/01/23 16:07:18 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 int	get_map_width(char *line)
 {

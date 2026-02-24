@@ -5,11 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/17 by acasper                   #+#    #+#             */
-/*   Updated: 2025/12/17 by acasper                  ###   ########.fr       */
+/*   Created: 2026/01/13 17:16:55 by acasper           #+#    #+#             */
+/*   Updated: 2026/01/15 18:49:00 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "push_swap.h"
 
 static void	reverse_rotate(t_stack **stack)

@@ -5,16 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/23 20:58:00 by acasper           #+#    #+#             */
-/*   Updated: 2025/12/23 21:50:54 by acasper          ###   ########.fr       */
+/*   Created: 2026/01/20 15:58:46 by acasper           #+#    #+#             */
+/*   Updated: 2026/02/23 16:50:26 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "so_long.h"
 
-#include "../includes/so_long.h"
-
-void	error_exit(char *message)
+void	error_exit(const char *message)
 {
-	ft_putendl_fd(message, 2);
+	ft_putendl_fd((char *)message, 2);
 	exit(1);
 }
 

@@ -5,35 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/17 18:05:39 by acasper           #+#    #+#             */
-/*   Updated: 2025/12/17 18:05:49 by acasper          ###   ########.fr       */
+/*   Created: 2026/01/13 16:33:36 by acasper           #+#    #+#             */
+/*   Updated: 2026/02/23 18:52:24 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "push_swap.h"
-
-long	ft_atol(const char *str)
-{
-	long	result;
-	int		sign;
-
-	result = 0;
-	sign = 1;
-	while (*str == ' ' || (*str >= 9 && *str <= 13))
-		str++;
-	if (*str == '-' || *str == '+')
-	{
-		if (*str == '-')
-			sign = -1;
-		str++;
-	}
-	while (*str >= '0' && *str <= '9')
-	{
-		result = result * 10 + (*str - '0');
-		str++;
-	}
-	return (result * sign);
-}
 
 int	is_valid_number(char *str)
 {
@@ -77,40 +53,57 @@ int	has_duplicates(t_stack *stack)
 	return (0);
 }
 
-int	is_sorted(t_stack *stack)
+static t_stack	*parse_single_arg(char *str)
 {
-	while (stack && stack->next)
+	t_stack	*stack;
+	char	**tokens;
+	int		i;
+
+	tokens = ft_split(str, ' ');
+	if (!tokens)
+		return (NULL);
+	stack = NULL;
+	i = 0;
+	while (tokens[i])
 	{
-		if (stack->value > stack->next->value)
-			return (0);
-		stack = stack->next;
+		if (!is_valid_number(tokens[i]))
+		{
+			free_stack(&stack);
+			while (tokens[i])
+				free(tokens[i++]);
+			free(tokens);
+			error_exit();
+		}
+		stack_add_back(&stack, stack_new((int)ft_atol(tokens[i])));
+		free(tokens[i++]);
 	}
-	return (1);
+	free(tokens);
+	return (stack);
 }
 
 t_stack	*parse_args(int argc, char **argv)
 {
 	t_stack	*stack;
 	int		i;
-	long	num;
 
-	stack = NULL;
-	i = 1;
-	while (i < argc)
+	if (argc == 2)
+		stack = parse_single_arg(argv[1]);
+	else
 	{
-		if (!is_valid_number(argv[i]))
+		stack = NULL;
+		i = 1;
+		while (i < argc)
 		{
-			free_stack(&stack);
-			error_exit();
+			if (!is_valid_number(argv[i]))
+			{
+				free_stack(&stack);
+				error_exit();
+			}
+			stack_add_back(&stack, stack_new((int)ft_atol(argv[i])));
+			i++;
 		}
-		num = ft_atol(argv[i]);
-		stack_add_back(&stack, stack_new((int)num));
-		i++;
 	}
 	if (has_duplicates(stack))
-	{
-		free_stack(&stack);
-		error_exit();
-	}
+		(free_stack(&stack), error_exit());
 	return (stack);
 }

@@ -5,12 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/23 20:58:00 by acasper           #+#    #+#             */
-/*   Updated: 2025/12/23 22:19:23 by acasper          ###   ########.fr       */
+/*   Created: 2026/01/20 18:31:24 by acasper           #+#    #+#             */
+/*   Updated: 2026/02/23 11:42:57 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 static char	**copy_map(t_map *map)
 {
@@ -65,11 +64,10 @@ int	check_path(t_game *game)
 	if (!map_copy)
 		return (0);
 	collectibles = 0;
-	flood_fill(map_copy, game->map.player_pos.x,
-		game->map.player_pos.y, &collectibles);
-	result = (collectibles == game->map.collectibles
-			&& can_reach_exit(map_copy, game->map.exit_pos.x,
-				game->map.exit_pos.y));
+	flood_fill(map_copy, game->map.player_pos.x, game->map.player_pos.y,
+		&collectibles);
+	result = (collectibles == game->map.collectibles && can_reach_exit(map_copy,
+				game->map.exit_pos.x, game->map.exit_pos.y));
 	free_map(map_copy);
 	return (result);
 }

@@ -5,11 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/20 by acasper                   #+#    #+#             */
-/*   Updated: 2025/12/20 by acasper                  ###   ########.fr       */
+/*   Created: 2026/01/13 17:18:31 by acasper           #+#    #+#             */
+/*   Updated: 2026/01/15 18:39:27 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "push_swap.h"
 
 void	index_stack(t_stack **stack)

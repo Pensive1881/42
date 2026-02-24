@@ -5,22 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/23 20:58:00 by acasper           #+#    #+#             */
-/*   Updated: 2025/12/23 22:20:03 by acasper          ###   ########.fr       */
+/*   Created: 2026/01/23 16:20:16 by acasper           #+#    #+#             */
+/*   Updated: 2026/02/23 15:39:37 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 static int	init_mlx(t_game *game)
 {
 	game->mlx = mlx_init();
 	if (!game->mlx)
 		return (0);
-	game->win = mlx_new_window(game->mlx,
-			game->map.width * TILE_SIZE,
-			game->map.height * TILE_SIZE,
-			"so_long");
+	game->win = mlx_new_window(game->mlx, game->map.width * TILE_SIZE,
+			game->map.height * TILE_SIZE, "so_long");
 	if (!game->win)
 		return (0);
 	return (1);

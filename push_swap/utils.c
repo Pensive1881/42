@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/17 by acasper                   #+#    #+#             */
-/*   Updated: 2025/12/17 by acasper                  ###   ########.fr       */
+/*   Created: 2026/01/09 15:30:56 by acasper           #+#    #+#             */
+/*   Updated: 2026/01/15 19:38:14 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,5 @@ int	get_position(t_stack *stack, int value)
 		pos++;
 		stack = stack->next;
 	}
-	return (-1);
+	return (0);
 }

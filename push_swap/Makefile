@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/06/20 13:28:28 by acasper           #+#    #+#              #
-#    Updated: 2025/12/20 by acasper                  ###   ########.fr        #
+#    Created: 2026/01/08 17:33:06 by acasper           #+#    #+#              #
+#    Updated: 2026/01/15 19:41:37 by acasper          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,14 +20,15 @@ LIBFT_DIR = ../libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
 SRCS = push_swap.c \
-       parse.c \
-       stack_utils.c \
-       utils.c \
-       operations_swap.c \
-       operations_push.c \
-       operations_rotate.c \
-       operations_reverse_rotate.c \
-       sort.c
+	   parse.c \
+	   parse_utils.c \
+	   stack_utils.c \
+	   utils.c \
+	   operations_swap.c \
+	   operations_push.c \
+	   operations_rotate.c \
+	   operations_reverse_rotate.c \
+	   sort.c
 
 OBJS = $(SRCS:.c=.o)
 
