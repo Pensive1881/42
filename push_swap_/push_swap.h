@@ -6,14 +6,14 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 16:35:19 by acasper           #+#    #+#             */
-/*   Updated: 2026/01/15 18:37:20 by acasper          ###   ########.fr       */
+/*   Updated: 2026/02/24 16:01:30 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../libft/libft.h"
+# include "libft/libft.h"
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
