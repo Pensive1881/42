@@ -6,7 +6,7 @@
 #    By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/08 17:33:06 by acasper           #+#    #+#              #
-#    Updated: 2026/01/15 19:41:37 by acasper          ###   ########.fr        #
+#    Updated: 2026/02/24 16:00:49 by acasper          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
-LIBFT_DIR = ../libft
+LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
 SRCS = push_swap.c \
