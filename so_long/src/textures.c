@@ -6,13 +6,16 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 16:34:22 by acasper           #+#    #+#             */
-/*   Updated: 2026/02/23 15:50:47 by acasper          ###   ########.fr       */
+/*   Updated: 2026/02/25 18:00:37 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
 
-static void	create_colored_square(t_game *game, t_img *img, int color)
+static int	load_xpm(t_game *game, t_img *img, int *path)
 {
+	img->img = mlx_xpm_file_to_image(game->mlx, path, &img->width, &img->height);
+	return (img->img != NULL);
+/*
 	int	x;
 	int	y;
 	int	pixel;
@@ -34,10 +37,23 @@ static void	create_colored_square(t_game *game, t_img *img, int color)
 		}
 		y++;
 	}
+*/
 }
 
 int	load_textures(t_game *game)
 {
+	if (!load_xpm(game, &game->textures.wall, "assets/wall.xpm"))
+		return (0);
+	if (!load_xpm(game, &game->textures.floor, "assets/floor.xpm")
+		return (0);
+	if (!load_xpm(game, &game->textures.collectible, "assets/coin-bag.xpm")
+		return (0);
+	if (!load_xpm(game, &game->textures.exit, "assets/exit-closed.xpm"))
+		return (0);
+	if (!load_xpm(game, &game->textures.player, "assets/player/front.xpm"))
+		return(0);
+	return (1);
+/*
 	create_colored_square(game, &game->textures.wall, 0x808080);
 	create_colored_square(game, &game->textures.floor, 0xFFFFFF);
 	create_colored_square(game, &game->textures.collectible, 0xFFD700);
@@ -47,6 +63,8 @@ int	load_textures(t_game *game)
 		|| !game->textures.collectible.img || !game->textures.exit.img
 		|| !game->textures.player.img)
 		return (0);
+*/
+	
 	return (1);
 }
 
