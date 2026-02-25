@@ -22,17 +22,17 @@ static char	*read_line_trim(int fd)
 		return (NULL);
 	len = ft_strlen(line);
 	if (len > 0 && line[len - 1] == '\n')
-	{
-		trimmed = ft_substr(line, 0, len - 1);
-		free(line);
-		return (trimmed);
-	}
-	return (line);
+		len--;
+	if (len > 0 && line[len - 1] == '\r')
+		len--;
+	trimmed = ft_substr(line, 0, len);
+	free(line);
+	return (trimmed);
 }
 
 static int	allocate_map(t_game *game, int height)
 {
-	game->map.grid = (char **)malloc(sizeof(char *) * (height + 1));
+	game->map.grid = (char **)ft_calloc(height + 1, sizeof(char *));
 	if (!game->map.grid)
 		return (0);
 	game->map.grid[height] = NULL;
