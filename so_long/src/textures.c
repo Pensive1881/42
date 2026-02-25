@@ -6,14 +6,17 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 16:34:22 by acasper           #+#    #+#             */
-/*   Updated: 2026/02/25 18:06:34 by acasper          ###   ########.fr       */
+/*   Updated: 2026/02/25 18:08:09 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
 
 static int	load_xpm(t_game *game, t_img *img, char *path)
 {
-	img->img = mlx_xpm_file_to_image(game->mlx, path, &img->width, &img->height);
+	img->img = mlx_xpm_file_to_image(game->mlx,
+			path,
+			&img->width,
+			&img->height);
 	return (img->img != NULL);
 /*
 	int	x;
