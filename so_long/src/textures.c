@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 16:34:22 by acasper           #+#    #+#             */
-/*   Updated: 2026/02/26 14:14:51 by acasper          ###   ########.fr       */
+/*   Updated: 2026/02/26 14:20:42 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -22,15 +22,15 @@ static int	load_xpm(t_game *game, t_img *img, char *path)
 
 int	load_textures(t_game *game)
 {
-	if (!load_xpm(game, &game->textures.wall, "assets/wall.xpm"))
+	if (!load_xpm(game, &game->textures.wall, "textures/wall.xpm"))
 		return (0);
-	if (!load_xpm(game, &game->textures.floor, "assets/floor.xpm"))
+	if (!load_xpm(game, &game->textures.floor, "textures/floor.xpm"))
 		return (0);
-	if (!load_xpm(game, &game->textures.collectible, "assets/coin-bag.xpm"))
+	if (!load_xpm(game, &game->textures.collectible, "textures/coin-bag.xpm"))
 		return (0);
-	if (!load_xpm(game, &game->textures.exit, "assets/exit-closed.xpm"))
+	if (!load_xpm(game, &game->textures.exit, "textures/exit-closed.xpm"))
 		return (0);
-	if (!load_xpm(game, &game->textures.player, "assets/player_front.xpm"))
+	if (!load_xpm(game, &game->textures.player, "textures/player_front.xpm"))
 		return (0);
 	return (1);
 }
