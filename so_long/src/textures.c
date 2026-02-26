@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 16:34:22 by acasper           #+#    #+#             */
-/*   Updated: 2026/02/25 18:08:09 by acasper          ###   ########.fr       */
+/*   Updated: 2026/02/26 12:34:30 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -53,7 +53,7 @@ int	load_textures(t_game *game)
 		return (0);
 	if (!load_xpm(game, &game->textures.exit, "assets/exit-closed.xpm"))
 		return (0);
-	if (!load_xpm(game, &game->textures.player, "assets/player/front.xpm"))
+	if (!load_xpm(game, &game->textures.player, "assets/player_front.xpm"))
 		return(0);
 	return (1);
 /*
