@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 19:16:42 by acasper           #+#    #+#             */
-/*   Updated: 2026/02/23 11:51:02 by acasper          ###   ########.fr       */
+/*   Updated: 2026/02/26 17:12:55 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -29,6 +29,22 @@ static void	render_title(t_game *game, char tile, int x, int y)
 			x * TILE_SIZE, y * TILE_SIZE);
 }
 
+static void	render_move_counter(t_game *game)
+{
+	char	*nb;
+	char	*msg;
+
+	nb = ft_itoa(game->moves);
+	if (!nb)
+		return ;
+	msg = ft_strjoin("Moves: ", nb);
+	free(nb);
+	if (!msg)
+		return ;
+	mlx_string_put(game->mlx, game->win, 10, 20, 0xFFFFFF, msg);
+	free(msg);
+}
+
 void	render_map(t_game *game)
 {
 	int	x;
@@ -45,4 +61,5 @@ void	render_map(t_game *game)
 		}
 		y++;
 	}
+	render_move_counter(game);
 }
