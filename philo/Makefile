@@ -10,4 +10,34 @@
 #                                                                              #
 # **************************************************************************** #
 
+NAME = philo
 
+CC = cc
+CFLAGS = -Wall -Wextra -Werror -pthread
+RM = rm -f
+
+SRC = main.c \
+      init.c \
+      utils.c \
+      routine.c \
+      monitor.c
+OBJS = $(SRC:.c=.o)
+INC = -I .
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
+%.o: %.c philo.h
+	$(CC) $(CFLAGS) $(INC) -c $< -o $@
+
+clean:
+	$(RM) $(OBJS)
+
+fclean: clean
+	$(RM) $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re
