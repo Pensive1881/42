@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 17:28:35 by acasper           #+#    #+#             */
-/*   Updated: 2026/03/04 18:30:32 by acasper          ###   ########.fr       */
+/*   Updated: 2026/03/04 18:33:38 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -42,6 +42,7 @@ char	**split_args(char *input)
 		return (NULL);
 
 	i = 0;
+	j = 0;
 	while (input[i])
 	{
 		while (input[i] == ' ')
@@ -57,7 +58,7 @@ char	**split_args(char *input)
 	}
 
 	args[j] = NULL;
-	RETURN (args);
+	return (args);
 }
 
 void	free_args(char **args)
