@@ -6,11 +6,10 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 17:27:45 by acasper           #+#    #+#             */
-/*   Updated: 2026/03/04 17:51:11 by acasper          ###   ########.fr       */
+/*   Updated: 2026/03/04 17:52:17 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <minishell.h>
+#include "minishell.h"
 
 void	prompt_loop(char **envp)
 {
