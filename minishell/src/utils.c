@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 17:28:35 by acasper           #+#    #+#             */
-/*   Updated: 2026/03/04 18:02:53 by acasper          ###   ########.fr       */
+/*   Updated: 2026/03/04 18:30:32 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
@@ -18,7 +18,7 @@ static int	count_words(char *s)
 
 	count = 0;
 	i = 0;
-	while (s[i] == ' ')
+	while (s[i])
 	{
 		while (s[i] == ' ')
 			i++;
@@ -41,7 +41,7 @@ char	**split_args(char *input)
 	if (!args)
 		return (NULL);
 
-	i = i;
+	i = 0;
 	while (input[i])
 	{
 		while (input[i] == ' ')
@@ -72,6 +72,6 @@ void	free_args(char **args)
 		free(args[i]);
 		i++;
 	}
-	free(args);
+	free (args);
 }
 
