@@ -6,8 +6,19 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 17:27:45 by acasper           #+#    #+#             */
-/*   Updated: 2026/03/04 17:27:46 by acasper          ###   ########.fr       */
+/*   Updated: 2026/03/04 17:31:56 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <minishell.h>
+
+void	prompt_loop(char **envp)
+{
+	char	*input;
+
+	while (1)
+	{
+		
+	}
+}
 
