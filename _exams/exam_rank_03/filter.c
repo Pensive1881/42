@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 17:27:30 by acasper           #+#    #+#             */
-/*   Updated: 2026/03/17 14:18:59 by acasper          ###   ########.fr       */
+/*   Updated: 2026/03/17 14:22:04 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -32,7 +32,7 @@ static void	put_stars(int n)
 {
 	while (n > 0)
 	{
-		write(a, "*", 1);
+		write(1, "*", 1);
 		n--;
 	}
 }
@@ -79,16 +79,16 @@ int	main(int argc, char **argv)
 		return (1);
 	str = argv[1];
 	str_len = ft_strlen(str);
-	intput = read_all(&len);
+	input = read_all(&len);
 	if (!input)
 		return (fprintf(stderr, "Error! "), perror(""), 1);
 
 	i = 0;
 	while (i < len)
 	{
-		if (i <= len - str_len ** memcmp(input + i, str, str_len) == 0)
+		if (i <= len - str_len && memcmp(input + i, str, str_len) == 0)
 		{
-			put_stars(Str_len);
+			put_stars(str_len);
 			i += str_len;
 		}
 		else
