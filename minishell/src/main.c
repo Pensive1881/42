@@ -19,4 +19,3 @@ int	main(int argc, char **argv, char **envp)
 	prompt_loop(envp);
 	return (0);
 }
-
