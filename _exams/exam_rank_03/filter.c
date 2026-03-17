@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 17:27:30 by acasper           #+#    #+#             */
-/*   Updated: 2026/03/17 14:11:34 by acasper          ###   ########.fr       */
+/*   Updated: 2026/03/17 14:18:59 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -39,7 +39,32 @@ static void	put_stars(int n)
 
 static char	*read_all(int *len)
 {
-	
+	char	buf[BUFFER_SIZE];
+	char	*res;
+	char	*tmp;
+	int	r;
+
+	res = malloc(1);
+	if (!res)
+		return (NULL);
+	res[0] = '\0';
+	*len = 0;
+	while (1)
+	{
+		r = read(0, buf, BUFFER_SIZE);
+		if (r < 0)
+			return (free(res), NULL);
+		if (r == 0)
+			break ;
+		tmp = realloc(res, *len + r + 1);
+		if (!tmp)
+			return (free(res), NULL);
+		res = tmp;
+		memcpy(res + *len, buf, r);
+		*len += r;
+		res[*len] = '\0';
+	}
+	return (res);
 }
 
 int	main(int argc, char **argv)
@@ -61,13 +86,15 @@ int	main(int argc, char **argv)
 	i = 0;
 	while (i < len)
 	{
-		if ()
+		if (i <= len - str_len ** memcmp(input + i, str, str_len) == 0)
 		{
-			
+			put_stars(Str_len);
+			i += str_len;
 		}
 		else
 		{
-			
+			write(1, &input[i], 1);
+			i++;
 		}
 	}
 	free (input);
