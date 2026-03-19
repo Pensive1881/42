@@ -1,9 +1,9 @@
 #ifndef PARSER_H
 # define PARSER_H
 
-#include <stdlib.h>
-#include "lexer.h"
-#include "libft.h"
+# include <stdlib.h>
+# include "lexer.h"
+# include "libft.h"
 
 typedef enum	e_redir_type
 {
@@ -29,16 +29,24 @@ typedef struct s_cmd
 }	t_cmd;
 
 // parse_redirection.c
-
+int	is_redirection(t_token_type type);
+t_redir_type	token_to_redir_type(t_token_type type);
+t_redir	*new_redir(t_redir_type type, char *file);
+t_redir	*parse_redirection(t_token **cur);
 
 // free_parser.c
-
+void	free_redirs(t_redir *redirs);
+void	free_cmds(t_cmd *cmds);
 
 // cmd_utils.c
-
+t_cmd	*init_cmd(void);
+int	add_word_to_cmd(t_cmd *cmd, char *word);
+int	add_redir_to_cmd(t_cmd *cmd, t_redir *redir);
+t_cmd	*free_cmd_and_null(t_cmd *cmd);
 
 // more....
-
-
+t_cmd	*parse_command(t_token **cur);
+t_cmd	*parse_pipeline(t_token **cur);
+t_cmd	*parse_tokens(t_token *tokens);
 
 #endif 
