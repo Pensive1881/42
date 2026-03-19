@@ -79,9 +79,22 @@ void	arena_alloc(t_arena *arena, size_t size)
 	chunk = arena->chunks;
 	while (chunk)
 	{
-		
+		if (chunk-size - chunk->used >= size)
+		{
+			ptr = (char *)chunk->memory + chunk->used;
+			chunk->used += size;
+			return (ptr);
+		}
+		if (!chunk->next)
+			break;
+		chunk = chunk->next;
 	}
-
+	chunk->next = new_chunk(arena->chunk_size);
+	if (!chunk->next)
+		return (NULL);
+	chunk = chunk->next;
+	ptr = chunk->memory;
+	chunk->used = size;
 	return (ptr);
 }
 
