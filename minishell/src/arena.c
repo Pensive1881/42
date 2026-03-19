@@ -1,0 +1,71 @@
+#include "../includes/arena.h"
+#include <string.h>
+
+static t_arena_chunk	*new_chunk(size_t size)
+{
+	t_arena_chunk	*chunk;
+
+	chunk = malloc(sizeof(t_arena_chunk));
+	if (!chunk)
+		return (NULL);
+	chunk->memory = malloc(size);
+	if (!chunk->memory)
+	{
+		free(chunk);
+		return (NULL);
+	}
+	chunk->size = size;
+	chunk->used = 0;
+	chunk->next = NULL;
+	return (chunk);
+}
+
+t_arena	*arena_create(size_t chunk_size)
+{
+	t_arena	*arena;
+
+	arena = malloc(sizeof(t_arena));
+	if (!arena)
+		return (NULL);
+	arena->chunks = new_chunk(chunk_size);
+	if (!arena->chunks)
+	{
+		free(arena);
+		return (NULL);
+	}
+	arena->chunk_size = chunk_size;
+	return (arena);
+}
+
+void	arena_destroy(t_arena *arena)
+{
+	t_arena_chunk	*chunk;
+	t_arena_chunk	*next;
+
+	if (!arena)
+		return ;
+	chunk = arena->chunks;
+	while (chunk)
+	{
+		next = chunk->next;
+		free(chunk->memory);
+		free(chunk);
+		chunk = next;
+	}
+	free(arena);
+}
+
+void	arena_reset(t_arena *arena)
+{
+	
+}
+
+void	arena_alloc(t_arena *arena, size_t size)
+{
+	
+}
+
+char	*arena_strdup(t_arena *arena, const char *s)
+{
+	
+}
