@@ -57,15 +57,45 @@ void	arena_destroy(t_arena *arena)
 
 void	arena_reset(t_arena *arena)
 {
-	
+	t_arena_chunk	*chunk;
+
+	if (!arena)
+		return ;
+	chunk = arena->chunks;
+	while (chunk)
+	{
+		chunk->used = 0;
+		chunk = chunk->next;
+	}
 }
 
 void	arena_alloc(t_arena *arena, size_t size)
 {
-	
+	t_arena_chunk	*chunk;
+	void	*ptr;
+
+	if (!arena || size == 0)
+		return (NULL);
+	chunk = arena->chunks;
+	while (chunk)
+	{
+		
+	}
+
+	return (ptr);
 }
 
 char	*arena_strdup(t_arena *arena, const char *s)
 {
-	
+	size_t	len;
+	char	*copy;
+
+	if (!s)
+		return (NULL);
+	len = strlen(s) + 1;
+	copy = arena_alloc(arena, len);
+	if (!copy)
+		return (NULL);
+	memcpy(copy, s, len);
+	return (copy);
 }
