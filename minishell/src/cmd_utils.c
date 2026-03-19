@@ -36,12 +36,41 @@ static int	copy_old_args(char **new_argv, char **old_argv, int count)
 
 int	add_word_to_cmd(t_cmd *cmd, char *word)
 {
-	
+	char	**new_argv;
+
+	new_argv = malloc(sizeof(char *) * (cmd->argc + 2));
+	if (!new_argv)
+		return (0);
+	copy_old_args(new_argv, cmd->argv, cmd->argc);
+	new_argv[cmd->argc] = ft_strdup(word);
+	if (!new_argv[cmd->argc])
+	{
+		free(new_argv);
+		return (0);
+	}
+	new_argv[cmd->argc + 1] = NULL;
+	free(cmd->argv);
+	cmd->argv = new_argv;
+	cmd->argc++;
+	return (1);
 }
 
 int	add_redir_to_cmd(t_cmd *cmd, t_redir *redir)
 {
+	t_redir	*last;
 	
+	if (!cmd || !redir)
+		return (0);
+	if (!cmd->redirs)
+	{
+		cmd->redirs = redir;
+		return (1);
+	}
+	last = cmd->redirs;
+	while (last->next)
+		last = last->next;
+	last->next = redir;
+	return (1);
 }
 
 t_cmd	*free_cmd_and_null(t_cmd *cmd)
