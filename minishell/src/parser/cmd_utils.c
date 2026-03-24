@@ -75,6 +75,6 @@ int	add_redir_to_cmd(t_cmd *cmd, t_redir *redir)
 
 t_cmd	*free_cmd_and_null(t_cmd *cmd)
 {
-	free_cmds(cmds);
+	free_cmds(cmd);
 	return (NULL);
 }
