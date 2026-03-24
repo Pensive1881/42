@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "minishell.h"
+#include "../includes/lexer.h"
+#include "../includes/parser.h"
 
 void	prompt_loop(char **envp)
 {
@@ -24,8 +26,33 @@ void	prompt_loop(char **envp)
 		if (*input)
 			add_history(input);
 
-		execute_command(input, envp);
 		free(input);
+	}
+}
+
+static void	print_cmds(t_cmd *cmd)
+{
+	int	i;
+	t_redir	*r;
+
+	while (cmds)
+	{
+		printf("CMD:\n");
+		i = 0;
+		while (cmds->argv && cmds->argv[i])
+		{
+			printf("  argv[%d] = [%s]\n", i, cmds->argv[i]);
+			i++;
+		}
+		r = cmds->redirs;
+		while (r)
+		{
+			printf("  redir type=%d file=[%s]\n", r->type, r->file);
+			r = r->next;
+		}
+		cmds = cmds->next;
+		if (cmds)
+			printf("PIPE ->\n");
 	}
 }
 
