@@ -29,7 +29,7 @@ void	free_cmds(t_cmd *cmds)
 				free(cmds->argv[i]);
 				i++;
 			}
-			free(cmds->redirs);
+			free(cmds->argv);
 		}
 		free_redirs(cmds->redirs);
 		free(cmds);
