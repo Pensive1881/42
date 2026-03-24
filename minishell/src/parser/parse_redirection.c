@@ -23,11 +23,34 @@ t_redir *new_redir(t_redir_type type, char *file)
 {
 	t_redir	*redir;
 
-	redir = malloc(siaeof(t_redir));
-	
+	redir = malloc(sizeof(t_redir));
+	if (!redir)
+		return (NULL);
+	redir->type = type;
+	redir->file = ft_strdup(file);
+	if (!redir->file)
+	{
+		free(redir);
+		return (NULL);
+	}
+	redir->next = NULL;
+	return (redir);
 }
 
 t_redir	*parse_redirection(t_token **cur)
 {
-	
+	t_redir_type	type;
+	t_redir	*redir;
+
+	if (!cur || !*cur || !is_redirection((*cur)->type))
+		return (NULL);
+	type = token_to_redir((*cur)->type);
+	*cur = (*cur)->next;
+	if (!*cur || (*cur)->type != TOKEN_WORD)
+		return (NULL);
+	redir = new_redir(type, (*cur)->value);
+	if (!redir)
+		return (NULL);
+	*cur = (*cur)->next;
+	return (redir);
 }
