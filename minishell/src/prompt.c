@@ -13,10 +13,15 @@
 #include "../includes/lexer.h"
 #include "../includes/parser.h"
 
+static void	print_cmds(t_cmd *cmd);
+
 void	prompt_loop(char **envp)
 {
 	char	*input;
+	t_token	*tokens;
+	t_cmd	*cmds;
 
+	(void)envp;
 	while (1)
 	{
 		input = readline("minishell$ ");
@@ -26,6 +31,25 @@ void	prompt_loop(char **envp)
 		if (*input)
 			add_history(input);
 
+		tokens = lexer(input);
+		if (!tokens)
+		{
+			free(input);
+			continue;
+		}
+
+		cmds = parse_tokens(tokens);
+		if (!cmds)
+		{
+			free_all(tokens);
+			free(input);
+			continue;
+		}
+
+		print_cmds(cmds);
+
+		free_cmds(cmds);
+		free_all(tokens);
 		free(input);
 	}
 }
@@ -35,23 +59,23 @@ static void	print_cmds(t_cmd *cmd)
 	int	i;
 	t_redir	*r;
 
-	while (cmds)
+	while (cmd)
 	{
 		printf("CMD:\n");
 		i = 0;
-		while (cmds->argv && cmds->argv[i])
+		while (cmd->argv && cmd->argv[i])
 		{
-			printf("  argv[%d] = [%s]\n", i, cmds->argv[i]);
+			printf("  argv[%d] = [%s]\n", i, cmd->argv[i]);
 			i++;
 		}
-		r = cmds->redirs;
+		r = cmd->redirs;
 		while (r)
 		{
 			printf("  redir type=%d file=[%s]\n", r->type, r->file);
 			r = r->next;
 		}
-		cmds = cmds->next;
-		if (cmds)
+		cmd = cmd->next;
+		if (cmd)
 			printf("PIPE ->\n");
 	}
 }
