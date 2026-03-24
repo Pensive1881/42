@@ -44,7 +44,7 @@ t_redir	*parse_redirection(t_token **cur)
 
 	if (!cur || !*cur || !is_redirection((*cur)->type))
 		return (NULL);
-	type = token_to_redir((*cur)->type);
+	type = token_to_redir_type((*cur)->type);
 	*cur = (*cur)->next;
 	if (!*cur || (*cur)->type != TOKEN_WORD)
 		return (NULL);
