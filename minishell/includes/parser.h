@@ -4,7 +4,9 @@
 # include <stdlib.h>
 # include "lexer.h"
 # include "libft.h"
+/*
 # include "arena.h"
+*/
 
 typedef enum	e_redir_type
 {
@@ -38,8 +40,6 @@ t_redir	*parse_redirection(t_token **cur);
 // free_parser.c
 void	free_redirs(t_redir *redirs);
 void	free_cmds(t_cmd *cmds);
-t_redir	*new_redir(t_arena *arena, t_redit_type type, char *file);
-t_redir *parse_rediretion(t_token **cur, t_arena *arena);
 
 // cmd_utils.c
 t_cmd	*init_cmd(void);
