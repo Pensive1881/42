@@ -1,4 +1,4 @@
-#include "../includes/parser.h"
+#include "../../includes/parser.h"
 
 t_cmd	*parse_command(t_token **cur)
 {

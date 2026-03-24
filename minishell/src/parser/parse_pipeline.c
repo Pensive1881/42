@@ -1,4 +1,4 @@
-#include "../includes/parser.h"
+#include "../../includes/parser.h"
 
 t_cmd	*parse_pipeline(t_token **cur)
 {
