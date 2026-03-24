@@ -18,9 +18,19 @@ CFLAGS = -Wall -Wextra -Werror
 SRC = src/main.c \
 	  src/prompt.c \
 	  src/exec.c \
-	  src/utils.c
+	  src/utils.c \
+	  src/lexer/lex.c \
+	  src/lexer/lexer_token.c \
+	  src/lexer/lex.utils.c \
+	  src/parser/parse.c \
+	  src/parser/parse_pipeline.c \
+	  src/parser/parse_command.c \
+	  src/parser/cmd_utils.c \
+	  src/parser/free_parser.c \
+	  src/parser/parse_redirection.c \
+	  src/arena.c \
 
-INC = -Iinclude
+INC = -Iincludes
 
 all:
 	$(CC) $(CFLAGS) $(SRC) $(INC) -lreadline -o $(NAME)
