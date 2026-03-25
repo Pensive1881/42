@@ -62,8 +62,10 @@ t_token	*lex_quoted(char *input, int *i)
 	start = *i;
 	while (input[*i] && input[*i] != quote)
 	{
-		if (input[i] == quote)
+		if (input[*i] == quote)
 			value = ft_substr(input, start, *i - start);
+		else if (input[*i] == '\0')			
+			return (NULL);
 		*i++;
 	}
 	token = create_token(TOKEN_WORD, value);
