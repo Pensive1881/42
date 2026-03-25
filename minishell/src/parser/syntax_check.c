@@ -38,7 +38,7 @@ int	validate_syntax(t_token *tokens)
 		}
 		else if (is_redirection(cur->type))
 		{
-			if (is_pipe_error(cur))
+			if (is_redir_error(cur))
 				return (0);
 		}
 		prev = cur;
