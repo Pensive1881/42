@@ -2,12 +2,24 @@
 
 static int	is_pipe_error(t_token *prev, t_token *cur)
 {
-	
+	if (!prev)
+		return (1);
+	if (!cur->next)
+		return (1);
+	if (prev->type == TOKEN_PIPE)
+		return (1);
+	if (cur->next->type == TOKEN_PIPE)
+		return (1);
+	return (0);
 }
 
 static int	is_redir_error(t_token *cur)
 {
-	
+	if (!cur->next)
+		return (1);
+	if (cur->next->type != TOKEN_WORD)
+		return (1);
+	return (0);
 }
 
 int	validate_syntax(t_token *tokens)
