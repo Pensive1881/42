@@ -38,6 +38,14 @@ void	prompt_loop(char **envp)
 			continue;
 		}
 
+		if (!validate_syntax(tokens))
+		{
+			printf("syntax error\n");
+			free_all(tokens);
+			free(input);
+			continue;
+		}
+
 		cmds = parse_tokens(tokens);
 		if (!cmds)
 		{
