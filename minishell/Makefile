@@ -28,6 +28,7 @@ SRC = src/main.c \
 	  src/parser/cmd_utils.c \
 	  src/parser/free_parser.c \
 	  src/parser/parse_redirection.c \
+	  src/parser/syntax_check.c \
 	  src/arena.c
 
 INC = -Iincludes
