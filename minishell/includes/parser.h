@@ -55,6 +55,7 @@ int	add_word_to_cmd(t_cmd *cmd, char *word, t_arena *arena);
 t_cmd	*parse_command(t_token **cur);
 t_cmd	*parse_pipeline(t_token **cur);
 t_cmd	*parse_tokens(t_token *tokens);
+int	validate_syntax(t_token *token);
 /*
 t_cmd	*parse_command(t_token **cur, t_arena *arena);
 t_cmd	*parse_pipeline(t_token **cur, t_arena *arena);
