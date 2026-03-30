@@ -1,22 +1,7 @@
-void	unclosed_quote(t_token *head)//almost sure this function is not needed
-{
-	t_token	*current;
-	int	i;
-
-	i = 0;
-	current = head;
-	if (current[i] == '"' || current[i] == '\'')
-	{
-		while (current[i] != '\0' || current[i] != '"' || current[i] != '\'')
-			i++;
-		if (current[i] == '\0' && (current[i] != '"' || current[i] != '\''))
-	}
-}//don't know about this fuction how usfull its gonna be. need to finish it aswell. 
- //the moto of this function was to return error if the quotes are not closed, 
- //but i did add a cheak in the quote function, if input[*i] reaches \0 means the 
- //quotes are not being closed so it returns NULL
+# include "lexer.h"
+# include "../../libft/includes/libft.h"
  
-void	free_all(t_token *head)
+void	free_tokens(t_token *head)
 {
 	t_token	*current;
 	t_token	*next;
@@ -31,11 +16,20 @@ void	free_all(t_token *head)
 	}
 }
 
-char	*expand_env(char *input, int *i)// will need to add env(char **env) variable later
+char	*expand_var(char *input, int *i)// will need to add env(char **env) variable later
 {
-	char	*head;
+	char	*variable;
+	char	*value;
+	int	start;
 
-	if (input[*i] && input[1] == '$')
+	if (input[*i] == '$')
 		(*i)++;
-	while ()
+	start = *i;
+	while (ft_isalnum(input[*i]) || input[*i] == '_')
+		(*i)++;
+	//how to extract variable names inside the quotes?
+	variable = ft_substr(input, start, *i - start);
+	value = getenv(variable);
+	free(variable);
+	return (value);
 }

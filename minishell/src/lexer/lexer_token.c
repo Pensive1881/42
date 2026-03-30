@@ -1,34 +1,40 @@
 #include "lexer.h"
-#include "libft.h"
+#include "../../libft/includes/libft.h"
 
 t_token	*lex_oprator(char *input, int *i)
 {
-	t_token	*token;
+	t_token	*token = NULL;
 
-	if (input[*i] == '>' && input[*i + 1] == '>')
+	if (input[*i] == '|')
 	{
-		token = create_token(TOKEN_APPEND, ">>");
-		*i += 2;	
+		token = create_token(TOKEN_PIPE, ft_strdup("|"));
+		*i += 1;
+	}
+	else if (input[*i] == '<')
+	{
+		if (input[*i + 1] == '<')
+		{
+			token = create_token(TOKEN_HEREDOC, ft_strdup("<<"));
+			*i += 2;
+		}
+		else
+		{
+			token = create_token(TOKEN_REDIRECT_IN, ft_strdup("<"));
+			*i += 1;
+		}
 	}
 	else if (input[*i] == '>')
 	{
-		token = create_token(TOKEN_REDIR_OUT, '>');
-		*i++;
-	}
-	if (input[*i] == '<' && input [*i + 1] == '<')
-	{
-		token = create_token(TOKEN_HEREDOC, "<<");
-		*i += 2;	
-	} 
-	else if (input[*i])
-	{
-		token = create_token(TOKEN_REDIR_IN, '<');
-		*i++;
-	}
-	else if (input[*i] == '|')
-	{
-		token = create_token(TOKEN_PIPE, '|');
-		*i++;
+		if (input[*i + 1] == '>')
+		{
+			token = create_token(TOKEN_APPEND, ft_strdup(">>"));
+			*i += 2;
+		}
+		else
+		{
+			token = create_token(TOKEN_REDIRECT_OUT, ft_strdup(">"));
+			*i += 1;
+		}
 	}
 	return (token);
 }
@@ -39,14 +45,39 @@ t_token	*lex_word(char	*input, int *i)
 	int	start;
 	char	*value;
 
-	if (input[*i])
-		start = *i;
-	while (input[*i] != '\0' && !is_oprator(input[*i]) 
+	start = *i;
+	value = ft_strdup("");
+	while (input[*i] != '\0' && !is_operator(input[*i]) 
 				&& !is_whitespace(input[*i]) 
 				&& input[*i] != '"' && input[*i] != '\'')
-		*i++;
-	value = ft_substr(input, start, *i - start);
-	token = create_token(TOKEN_WORD, value);
+	{
+		if (input[*i] == '$')
+		{
+			// append the part before $
+			char *before = ft_substr(input, start, *i - start);
+			char *temp = ft_strjoin(value, before);
+			free(value);
+			free(before);
+			value = temp;
+			// expand the variable
+			char *expanded = expand_var(input, i);
+			if (expanded)
+			{
+				temp = ft_strjoin(value, expanded);
+				free(value);
+				value = temp;
+			}
+			start = *i; // update start after expansion
+		}
+		else
+			(*i)++;
+	}
+	// append the remaining part
+	char *rest = ft_substr(input, start, *i - start);
+	char *final_value = ft_strjoin(value, rest);
+	free(value);
+	free(rest);
+	token = create_token(TOKEN_WORD, final_value);
 	return (token);
 }
 
@@ -58,16 +89,17 @@ t_token	*lex_quoted(char *input, int *i)
 	char	*value;
 
 	quote = input[*i];
-	*i++;
+	(*i)++;
 	start = *i;
 	while (input[*i] && input[*i] != quote)
+		(*i)++;
+	if (input[*i] == quote)
 	{
-		if (input[*i] == quote)
-			value = ft_substr(input, start, *i - start);
-		else if (input[*i] == '\0')			
-			return (NULL);
-		*i++;
+		value = ft_substr(input, start, *i - start);
+		(*i)++;
 	}
+	else
+		return (NULL); // unclosed quote
 	token = create_token(TOKEN_WORD, value);
 	return (token);
 }

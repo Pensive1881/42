@@ -2,18 +2,18 @@
 
 void	white_sapaces( char *input, int	*i)
 {
-	while (input && input[*i] == ' ' || input[*i] == '\t'))
+	while (input && (input[*i] == ' ' || input[*i] == '\t'))
 		(*i)++;
 }
 
 char	is_whitespace(char c)
 {
-	return (c == ' ' || (c >= 9 && c <= 13) || c == '\n')
+	return (c == ' ' || (c >= 9 && c <= 13) || c == '\n');
 }
 
 char	is_operator(char c)
 {
-	return (c == '|' || c == '<' || c == '>')
+	return (c == '|' || c == '<' || c == '>');
 }
 
 void	add_token(t_token **head, t_token **current, t_token *token)
@@ -46,9 +46,15 @@ t_token	*lexer(char *input)
 	{
 		white_sapaces(input, &i);
 		if (is_operator(input[i]))
-			token = lex_operator(input, &i);
+		{
+			token = lex_oprator(input, &i);
+			add_token(&head, &current, token);
+		}
 		else if (input[i] == '"' || input[i] == '\'')
+		{
 			token = lex_quoted(input, &i);
+			add_token(&head, &current, token);
+		}
 		else
 		{
 			token = lex_word(input, &i);
