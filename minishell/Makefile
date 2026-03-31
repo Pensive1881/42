@@ -11,9 +11,15 @@
 # **************************************************************************** #
 
 NAME = minishell
+SRCDIR = src
+HEADERDIR = includes
+LIBFTDIR = libft
+BUILDDIR = build
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
+INC = -I$(HEADERDIR) -I$(LIBFTDIR)/includes
+LIBFT = $(LIBFTDIR)/libft.a
 
 SRC = src/main.c \
 	  src/prompt.c \
@@ -29,15 +35,34 @@ SRC = src/main.c \
 	  src/parser/free_parser.c \
 	  src/parser/parse_redirection.c \
 	  src/parser/syntax_check.c \
-	  src/arena.c
+	  src/arena.c \
+	  src/exec/execute_pipeline.c \
+	  src/exec/execute_single.c \
+	  src/exec/execute_multi.c \
+	  src/exec/path.c \
+	  src/exec/redirections.c \
+	  src/exec/exec_utils.c
 
-INC = -Iincludes
+OBJFILES = $(SRC:$(SRCDIR)/%.c=$(BUILDDIR)/%.o)
 
-all:
-	$(CC) $(CFLAGS) $(SRC) $(INC) -lreadline -o $(NAME)
+all: $(NAME)
+
+$(NAME): $(OBJFILES) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJFILES) $(LIBFT) -lreadline -o $(NAME)
+
+$(LIBFT):
+	make -C $(LIBFTDIR)
+
+$(BUILDDIR)/%.o: $(SRCDIR)/%.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 clean:
+	make -C $(LIBFTDIR) clean
+	rm -rf $(BUILDDIR)
+
+fclean: clean
+	make -C $(LIBFTDIR) fclean
 	rm -f $(NAME)
 
 re: clean all
-
