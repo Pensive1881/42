@@ -29,7 +29,7 @@ char	*get_env_value(char **envp, char *name)
 	return (NULL);
 }
 
-static char	**join_path_cmd(char *dir, char *cmd)
+static char	*join_path_cmd(char *dir, char *cmd)
 {
 	char	*tmp;
 	char	*full;
@@ -58,7 +58,7 @@ char	*find_command_path(char *cmd, char **envp)
 		return (NULL);
 	}
 	path_env = get_env_value(envp, "PATH");
-	if (!paths)
+	if (!path_env)
 		return (NULL);
 	paths = ft_split(path_env, ':');
 	if (!paths)
@@ -66,7 +66,7 @@ char	*find_command_path(char *cmd, char **envp)
 	i = 0;
 	while (paths[i])
 	{
-		full = join_path_cmd(path[i], cmd);
+		full = join_path_cmd(paths[i], cmd);
 		if (full && access(full, X_OK) == 0)
 			return (free_args(paths), full);
 		free(full);

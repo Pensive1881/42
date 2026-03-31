@@ -65,7 +65,7 @@ void	execute_multi_command(t_cmd *cmds, char **envp)
 			if (cur->next)
 				child_exec(cur, prev_read, pipefd[1], envp);
 			else
-				child_exec(cur, prev_Read, STDOUT_FILENO, envp);
+				child_exec(cur, prev_read, STDOUT_FILENO, envp);
 		}
 		close_fd_if_needed(prev_read);
 		if (cur->next)

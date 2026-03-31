@@ -32,7 +32,7 @@ int	is_builtin(char *cmd)
 	return (0);
 }
 
-int	exedute_builtin(t_cmd *cmd, char **envp)
+int	execute_builtin(t_cmd *cmd, char **envp)
 {
 	(void)cmd;
 	(void)envp;
@@ -40,9 +40,9 @@ int	exedute_builtin(t_cmd *cmd, char **envp)
 	return (0);
 }
 
-void	close_fd_if_needede(int fd)
+void	close_fd_if_needed(int fd)
 {
-	if (fd >= 0 && fd != STDIN_FILEO && fd != STDOUT_FILEO)
+	if (fd >= 0 && fd != STDIN_FILENO && fd != STDOUT_FILENO)
 		close(fd);
 }
 
@@ -56,14 +56,14 @@ void	child_exec(t_cmd *cmd, int in_fd, int out_fd, char **envp)
 {
 	char *path;
 
-	if (in_fd != -1 && in_fd != STDIN_FILEO)
+	if (in_fd != -1 && in_fd != STDIN_FILENO)
 	{
-		if (dup2(in_fd, STDIN_FILEO) < 0)
+		if (dup2(in_fd, STDIN_FILENO) < 0)
 			return (perror("dup2"), exit(1));
 	}
-	if (out_fd != STDOUT_FILEO)
+	if (out_fd != STDOUT_FILENO)
 	{
-		if (dup2(out_fd, STDOUT_FILEO) < 0)
+		if (dup2(out_fd, STDOUT_FILENO) < 0)
 			return (perror("dup2"), exit(1));
 	}
 	close_fd_if_needed(in_fd);
@@ -71,7 +71,7 @@ void	child_exec(t_cmd *cmd, int in_fd, int out_fd, char **envp)
 	if (!apply_redirections(cmd->redirs))
 		exit(1);
 	if (is_builtin(cmd->argv[0]))
-		exit(execute_builtin(cmd, envp));
+		close_fd_if_needed(in_fd);
 	path = find_command_path(cmd->argv[0], envp);
 	if (!path)
 	{

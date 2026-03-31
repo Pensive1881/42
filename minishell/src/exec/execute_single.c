@@ -9,7 +9,7 @@
 /*   Updated: 2026/03/31 21:00:12 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#includes "../../includes/minishell.h"
+#include "../../includes/minishell.h"
 
 static void	exec_external(t_cmd *cmd, char **envp)
 {
@@ -20,7 +20,7 @@ static void	exec_external(t_cmd *cmd, char **envp)
 	path = find_command_path(cmd->argv[0], envp);
 	if (!path)
 	{
-		print_exec_error(cmd->argv[0], envp);
+		print_exec_error(cmd->argv[0]);
 		exit(127);
 	}
 	execve(path, cmd->argv, envp);
@@ -29,7 +29,7 @@ static void	exec_external(t_cmd *cmd, char **envp)
 	exit(126);
 }
 
-static void    execute_single_command(t_cmd *cmd, char **envp)
+void    execute_single_command(t_cmd *cmd, char **envp)
 {
 	pid_t pid;
 	int	status;
@@ -46,7 +46,7 @@ static void    execute_single_command(t_cmd *cmd, char **envp)
 	{
 		if (!apply_redirections(cmd->redirs))
 			exit(1);
-		if (!is_buildin(cmd->argv[0]))
+		if (!is_builtin(cmd->argv[0]))
 			exit(execute_builtin(cmd, envp));
 		exec_external(cmd, envp);
 	}
