@@ -54,7 +54,8 @@ void	prompt_loop(char **envp)
 			continue;
 		}
 
-		print_cmds(cmds);
+//		print_cmds(cmds);
+		execute_pipeline(cmds, envp);
 
 		free_cmds(cmds);
 		free_tokens(tokens);
@@ -87,4 +88,3 @@ static void	print_cmds(t_cmd *cmd)
 			printf("PIPE ->\n");
 	}
 }
-
