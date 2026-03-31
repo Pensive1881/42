@@ -9,7 +9,7 @@
 /*   Updated: 2026/03/04 18:33:38 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "minishell.h"
+#include "../includes/minishell.h"
 
 static int	count_words(char *s)
 {
@@ -52,7 +52,7 @@ char	**split_args(char *input)
 			i++;
 		if (i > start)
 		{
-			args[j] = strndup(&input[start], i - start);
+			args[j] = ft_substr(input, start, i - start);
 			j++;
 		}
 	}

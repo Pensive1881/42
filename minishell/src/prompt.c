@@ -9,7 +9,7 @@
 /*   Updated: 2026/03/04 17:52:17 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "minishell.h"
+#include "../includes/minishell.h"
 #include "../includes/lexer.h"
 #include "../includes/parser.h"
 
@@ -41,7 +41,7 @@ void	prompt_loop(char **envp)
 		if (!validate_syntax(tokens))
 		{
 			printf("syntax error\n");
-			free_all(tokens);
+			free_tokens(tokens);
 			free(input);
 			continue;
 		}
@@ -49,7 +49,7 @@ void	prompt_loop(char **envp)
 		cmds = parse_tokens(tokens);
 		if (!cmds)
 		{
-			free_all(tokens);
+			free_tokens(tokens);
 			free(input);
 			continue;
 		}
@@ -57,7 +57,7 @@ void	prompt_loop(char **envp)
 		print_cmds(cmds);
 
 		free_cmds(cmds);
-		free_all(tokens);
+		free_tokens(tokens);
 		free(input);
 	}
 }

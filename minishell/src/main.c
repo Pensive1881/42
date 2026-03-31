@@ -9,7 +9,7 @@
 /*   Updated: 2026/03/04 18:26:27 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "minishell.h"
+#include "../includes/minishell.h"
 
 int	main(int argc, char **argv, char **envp)
 {

@@ -9,6 +9,7 @@
 /*   Updated: 2026/03/25 17:45:09 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "../../includes/minishell.h"
 
 void	execute_pipeline(t_cmd *cmds, char **envp)
 {
