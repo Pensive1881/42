@@ -3,12 +3,12 @@
 
 typedef	enum e_token_type
 {
-	TOKEN_WORD;
-	TOKEN_PIPE;
-	TOKEN_REDIRECT_IN;
-	TOKEN_REDIRECT_OUT;
-	TOKEN_HEREDOC;
-	TOKEN_APPEND;
+	TOKEN_WORD,
+	TOKEN_PIPE,
+	TOKEN_REDIRECT_IN,
+	TOKEN_REDIRECT_OUT,
+	TOKEN_HEREDOC,
+	TOKEN_APPEND,
 }	t_token_type;
 
 typedef	struct	s_token
@@ -29,5 +29,8 @@ void	add_token(t_token **head, t_token **current, t_token *token);
 void	white_sapaces( char *input, int	*i);
 char	is_whitespace(char c);
 char	is_operator(char c);
+// lex.utils.c
+void       free_tokens(t_token *head);
+char       *expand_var(char *input, int *i);
 
 # endif
