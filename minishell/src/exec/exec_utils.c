@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "../../includes/minishell.h"
 
-int	is_builtin(char *cmd)
+int	is_buildin(char *cmd)
 {
 	if (!cmd)
 		return (0);
@@ -32,7 +32,7 @@ int	is_builtin(char *cmd)
 	return (0);
 }
 
-int	execute_builtin(t_cmd *cmd, char **envp)
+int	execute_buildin(t_cmd *cmd, char **envp)
 {
 	(void)cmd;
 	(void)envp;
@@ -70,8 +70,8 @@ void	child_exec(t_cmd *cmd, int in_fd, int out_fd, char **envp)
 	close_fd_if_needed(out_fd);
 	if (!apply_redirections(cmd->redirs))
 		exit(1);
-	if (is_builtin(cmd->argv[0]))
-		exit(execute_builtin(cmd, envp));
+	if (is_buildin(cmd->argv[0]))
+		exit(execute_buildin(cmd, envp));
 	path = find_command_path(cmd->argv[0], envp);
 	if (!path)
 	{
