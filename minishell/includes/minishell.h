@@ -40,7 +40,7 @@ char	*get_env_value(char **envp, char *name);
 char	*find_command_path(char *cmd, char **envp);
 int	is_builtin(char *cmd);
 int	execute_builtin(t_cmd *cmd, char **envp);
-void	close_fd_if_needed(int *fd);
+void	close_fd_if_needed(int fd);
 void	print_exec_error(char *cmd);
 void	child_exec(t_cmd *cmd, int in_fd, int out_fd, char **envp);
 
