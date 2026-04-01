@@ -46,7 +46,7 @@ void    execute_single_command(t_cmd *cmd, char **envp)
 	{
 		if (!apply_redirections(cmd->redirs))
 			exit(1);
-		if (!is_builtin(cmd->argv[0]))
+		if (is_builtin(cmd->argv[0]))
 			exit(execute_builtin(cmd, envp));
 		exec_external(cmd, envp);
 	}
