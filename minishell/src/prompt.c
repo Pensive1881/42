@@ -13,8 +13,6 @@
 #include "../includes/lexer.h"
 #include "../includes/parser.h"
 
-static void	print_cmds(t_cmd *cmd);
-
 void	prompt_loop(char **envp)
 {
 	char	*input;
@@ -54,37 +52,10 @@ void	prompt_loop(char **envp)
 			continue;
 		}
 
-//		print_cmds(cmds);
 		execute_pipeline(cmds, envp);
 
 		free_cmds(cmds);
 		free_tokens(tokens);
 		free(input);
-	}
-}
-
-static void	print_cmds(t_cmd *cmd)
-{
-	int	i;
-	t_redir	*r;
-
-	while (cmd)
-	{
-		printf("CMD:\n");
-		i = 0;
-		while (cmd->argv && cmd->argv[i])
-		{
-			printf("  argv[%d] = [%s]\n", i, cmd->argv[i]);
-			i++;
-		}
-		r = cmd->redirs;
-		while (r)
-		{
-			printf("  redir type=%d file=[%s]\n", r->type, r->file);
-			r = r->next;
-		}
-		cmd = cmd->next;
-		if (cmd)
-			printf("PIPE ->\n");
 	}
 }
