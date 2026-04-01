@@ -56,10 +56,25 @@ void	execute_multi_command(t_cmd *cmds, char **envp)
 	while (cur)
 	{
 		if (cur->next && pipe(pipefd) < 0)
-			return (free(pids), perror("pipe"));
+		{
+			close_fd_if_needed(prev_read);
+			free(pids);
+			perror("pipe");
+			return ;
+		}
 		pids[i] = fork();
 		if (pids[i] < 0)
-			return (free(pids), perror("fork"));
+		{
+			close_fd_if_needed(prev_read);
+			if (cur->next)
+			{
+				close(pipefd[0]);
+				close(pipefd[1]);
+			}
+			free(pids);
+			perror("fork");
+			return ;
+		}
 		if (pids[i] == 0)
 		{
 			if (cur->next)
