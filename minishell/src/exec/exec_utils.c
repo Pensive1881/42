@@ -71,7 +71,7 @@ void	child_exec(t_cmd *cmd, int in_fd, int out_fd, char **envp)
 	if (!apply_redirections(cmd->redirs))
 		exit(1);
 	if (is_builtin(cmd->argv[0]))
-		exit(execute_builtin(cmd, envp);
+		exit(execute_builtin(cmd, envp));
 	path = find_command_path(cmd->argv[0], envp);
 	if (!path)
 	{
