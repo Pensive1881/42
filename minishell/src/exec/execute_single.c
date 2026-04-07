@@ -44,6 +44,7 @@ void    execute_single_command(t_cmd *cmd, char **envp)
 	}
 	if (pid == 0)
 	{
+		setup_child_signals();
 		if (!apply_redirections(cmd->redirs))
 			exit(1);
 		if (is_buildin(cmd->argv[0]))
