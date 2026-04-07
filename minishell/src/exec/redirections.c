@@ -24,8 +24,28 @@ static int	open_redir_file(t_redir *redir)
 		fd = open(redir->file, O_WRONLY | O_CREAT | O_APPEND, 0644);
 	else if (redir->type == R_HEREDOC)
 	{
-		ft_putendl_fd("heredoc not implemented yet", 2);
-		return (-1);
+		int pipefd[2];
+		char	*line;
+
+		if (pipe(pipefd) < 0)
+			return (perror("pipe"), -1);
+
+		while (1)
+		{
+			line = readlin("> ");
+			if (!line)
+				break;
+			if (ft_strcmp(line, redir->file) == 0)
+			{
+				free(line);
+				break;
+			}
+			write(pipefd[1], line, ft_strlen(line));
+			write(pipefd[1], "\n", 1);
+			free(line);
+		}
+		close(pipefd[1]);
+		return (pipefd[0]);
 	}
 	if (fd < 0)
 		perror(redir->file);
