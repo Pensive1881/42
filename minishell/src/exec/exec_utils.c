@@ -56,6 +56,7 @@ void	child_exec(t_cmd *cmd, int in_fd, int out_fd, char **envp)
 {
 	char *path;
 
+	setup_child_signals();
 	if (in_fd != -1 && in_fd != STDIN_FILENO)
 	{
 		if (dup2(in_fd, STDIN_FILENO) < 0)
