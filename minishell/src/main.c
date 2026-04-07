@@ -19,6 +19,7 @@ int	main(int argc, char **argv, char **envp)
 	
 	//env = cpy_env(envp);
 	//prompt_loop(env);
+	setup_signals();
 	prompt_loop(envp); // this line will have to be deleted when using the lines above
 	return (0);
 }
