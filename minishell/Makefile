@@ -24,6 +24,7 @@ LIBFT = $(LIBFTDIR)/libft.a
 SRC = src/main.c \
 	  src/prompt.c \
 	  src/exec.c \
+	  src/signals.c \
 	  src/utils.c \
 	  src/lexer/lex.c \
 	  src/lexer/lexer_token.c \
@@ -41,7 +42,7 @@ SRC = src/main.c \
 	  src/exec/execute_multi.c \
 	  src/exec/path.c \
 	  src/exec/redirections.c \
-	  src/exec/exec_utils.c
+	  src/exec/exec_utils.c \
 
 OBJFILES = $(SRC:$(SRCDIR)/%.c=$(BUILDDIR)/%.o)
 
