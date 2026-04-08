@@ -22,6 +22,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <sys/wait.h>
+# include <signal.h>
 # include <readline/readline.h>
 # include <readline/history.h>
 # include <fcntl.h>
@@ -43,5 +44,8 @@ int	execute_buildin(t_cmd *cmd, char **envp);
 void	close_fd_if_needed(int fd);
 void	print_exec_error(char *cmd);
 void	child_exec(t_cmd *cmd, int in_fd, int out_fd, char **envp);
+
+void	setup_signals(void);
+void	setup_child_signals(void);
 
 #endif
