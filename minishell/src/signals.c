@@ -1,6 +1,7 @@
-#includes "../includes/minishell.h"
+#include "../includes/minishell.h"
+#include <signal.h>
 
-static void signal_handler(int signo)
+static void sigint_handler(int signo)
 {
 	(void)signo;
 	write(1, "\n", 1);
