@@ -32,10 +32,10 @@ static int	open_redir_file(t_redir *redir)
 
 		while (1)
 		{
-			line = readlin("> ");
+			line = readline("> ");
 			if (!line)
 				break;
-			if (ft_strcmp(line, redir->file) == 0)
+			if (ft_strncmp(line, redir->file, ft_strlen(redir->file) + 1) == 0)
 			{
 				free(line);
 				break;
