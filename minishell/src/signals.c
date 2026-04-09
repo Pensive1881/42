@@ -1,11 +1,13 @@
 #include "../includes/minishell.h"
 #include <signal.h>
 
+volatile sig_atomic_t	g_signal = 0;
+
 static void sigint_handler(int signo)
 {
-	(void)signo;
+	g_signal = signo;
 	write(1, "\n", 1);
-	rl_one_new_line();
+	rl_on_new_line();
 	rl_replace_line("", 0);
 	rl_redisplay();
 }
