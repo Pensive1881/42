@@ -28,6 +28,8 @@
 # include <fcntl.h>
 # include <errno.h>
 
+extern volatile sig_atomic_t	g_signal;
+
 void	prompt_loop(char **envp);
 void	execute_command(char *input, char **envp);
 char	**split_args(char *input);
