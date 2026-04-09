@@ -24,7 +24,10 @@ void	prompt_loop(char **envp)
 	{
 		input = readline("minishell$ ");
 		if (!input)
+		{
+			write(1, "exit\n", 5);
 			break;
+		}
 
 		if (*input)
 			add_history(input);
