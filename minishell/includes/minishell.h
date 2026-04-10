@@ -28,6 +28,13 @@
 # include <fcntl.h>
 # include <errno.h>
 
+typedef struct	s_shell
+{
+	char	**env;
+	int	last_status;
+	int	running;
+}	t_shell;
+
 extern volatile sig_atomic_t	g_signal;
 
 void	prompt_loop(char **envp);
