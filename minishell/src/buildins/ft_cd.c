@@ -4,6 +4,7 @@ int	ft_cd(char **args, char **env)
 {
 	char	*home;
 	char	*oldpwd;
+	char	*newpwd;
 	//so args[1] willbe the path to go
 	//need to use chdir() to to enter the listed directry om args[1]
 	//if no arguments, go to home?
@@ -34,8 +35,13 @@ int	ft_cd(char **args, char **env)
 			return (1);
 		}
 		else
-		{
-		
+		{//the current pwd has to saved first as old
+		 	oldpwd = get_env_value(env, "PWD");
+			update_env(env, "OLDPWD", oldpwd);
+			chdir(args[1]);
+			newpwd = getcwd(NULL, 0);
+			update_env(env, "PWD", newpwd);
+			free(newpwd);
 		}
 	}
 }
