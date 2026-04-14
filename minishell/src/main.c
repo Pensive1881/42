@@ -11,14 +11,38 @@
 /* ************************************************************************** */
 #include "../includes/minishell.h"
 
+void	free_env(char **env)
+{
+	int	i;
+
+	if (!env)
+		return ;
+	i = 0;
+	while (env[i])
+	{
+		free(env[i]);
+		i++;
+	}
+	free(env);
+}
+
 int	main(int argc, char **argv, char **envp)
 {
+	t_shell shell;
+
 	(void)argc;
 	(void)argv;
 	//char	**env; this arry contains the cpy of env vars
 	
 	//env = cpy_env(envp);
 	//prompt_loop(env);
-	prompt_loop(envp); // this line will have to be deleted when using the lines above
+	shell.env = cpy_env(envp);
+	if (!shell.env)
+		return (1);
+	shell.last_status = 0;
+	shell.running = 1;
+	setup_signals();
+	prompt_loop(&shell);
+	free_env(shell.env);
 	return (0);
 }
