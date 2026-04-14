@@ -127,8 +127,8 @@ void	cleanup(t_table *table)
 		}
 		free(table->forks);
 	}
-	pthread_mutex_destory(&table->print_mutex);
-	pthread_mutex_destory(&table->stop_mutex);
+	pthread_mutex_destroy(&table->print_mutex);
+	pthread_mutex_destroy(&table->stop_mutex);
 	pthread_mutex_destroy(&table->meal_mutex);
 	if (table->philos)
 		free(table->philos);
