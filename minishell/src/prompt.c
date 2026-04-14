@@ -31,9 +31,6 @@ void	prompt_loop(t_shell *shell)
 
 		if (*input)
 			add_history(input);
-<<<<<<< HEAD
-		execute_command(input, envp);
-=======
 
 		tokens = lexer(input);
 		if (!tokens)
@@ -63,12 +60,7 @@ void	prompt_loop(t_shell *shell)
 		execute_pipeline(shell, cmds);
 
 		free_cmds(cmds);
-<<<<<<< HEAD
-		free_all(tokens);
->>>>>>> 268323ff0502d26e301205d266d7fde5af79e45c
-=======
 		free_tokens(tokens);
->>>>>>> 86e865053e2826b989fe1e235da89e2b9d0214bf
 		free(input);
 	}
 }
