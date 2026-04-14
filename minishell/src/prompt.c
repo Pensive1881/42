@@ -13,14 +13,14 @@
 #include "../includes/lexer.h"
 #include "../includes/parser.h"
 
-void	prompt_loop(char **envp)
+void	prompt_loop(t_shell *shell)
 {
 	char	*input;
 	t_token	*tokens;
 	t_cmd	*cmds;
 
 	(void)envp;
-	while (1)
+	while (shell->running)
 	{
 		input = readline("minishell$ ");
 		if (!input)
@@ -45,6 +45,7 @@ void	prompt_loop(char **envp)
 		if (!validate_syntax(tokens))
 		{
 			printf("syntax error\n");
+			shell->last_status = 2;
 			free_tokens(tokens);
 			free(input);
 			continue;
@@ -53,12 +54,13 @@ void	prompt_loop(char **envp)
 		cmds = parse_tokens(tokens);
 		if (!cmds)
 		{
+			shell->last_status = 2;
 			free_tokens(tokens);
 			free(input);
 			continue;
 		}
 
-		execute_pipeline(cmds, envp);
+		execute_pipeline(shell, cmds);
 
 		free_cmds(cmds);
 <<<<<<< HEAD
