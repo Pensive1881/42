@@ -13,18 +13,25 @@
 
 int	main(int argc, char **argv)
 {
-	t_table	d;
+	t_table	table;
 
-	d.forks = NULL;
-	d.philos = NULL;
-	if ()
-		return ;
-	if ()
-		return ;
-	if()
-		return ;
-	join_threads(&d);
-	cleanup(&d);
+	table.forks = NULL;
+	table.philos = NULL;
+	if (parse_args(&table, argc, argv))
+		return (1);
+	if (init_table(&table))
+	{
+		cleanup(&table);
+		return (1);
+	}
+	if (start_threads(&table))
+	{
+		cleanup(&table);
+		return (1);
+	}
+	monitor_simulation(&table);
+	join_threads(&table);
+	cleanup(&table);
 	return (0);
 }
 
