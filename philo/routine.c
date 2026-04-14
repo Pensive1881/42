@@ -16,30 +16,40 @@ static void	take_forks(t_philo *philo)
 	if (philo->id & 2 == 0)
 	{
 		pthread_mutex_lock(philo->right_fork);
-		print_state();
-		pthread_mutex();
-		print_state();
+		print_state(philo, "has taken a fork");
+		pthread_mutex(philo->right_fork);
+		print_state(philo, "has taken a fork");
 	}
 	else
 	{
-		pthread_mutex();
-		print_state();
-		pthread_mutex();
-		print_state();
+		pthread_mutex(philo->left_fork);
+		print_state(philo, "has taken a fork");
+		pthread_mutex(philo->right_fork);
+		print_state(philo, "has take a fork");
 	}
 }
 
 static void	eat_sleep_think(t_philo *philo)
 {
-	
+	pthread_mutex_lock(&philo->table->meal_mutex);
+	philo->last_meal_time = get_time();
+	philo->meals_eaten++;
+	pthread_mutex_unlock(&philo->table->meal_mutex);
+	print_state(philo, "is eating");
+	precise_sleep(philo->table->time_to_eat, philo->table);
+	pthread_mutex_unlock(philo->left_fork);
+	pthread_mutex_unlock(philo->right_fork);
+	print_state(philok "is sleeping");
+	precise_sleep(philo->table-time_to_sleep, philo->table);
+	print_state(philo, "is thinking");
 }
 
 static void	one_philo_case(t_philo *philo)
 {
-	pthread_mutex_lock();
-	print_state();
-	precise_sleep();
-	pthread_mutex_unlock();
+	pthread_mutex_lock(philo->left_fork);
+	print_state(philo, "has taken a fork");
+	precise_sleep(philo->table->time_to_die, philo->table);
+	pthread_mutex_unlock(philo->left_fork);
 }
 
 void	*routine(void *arg)
