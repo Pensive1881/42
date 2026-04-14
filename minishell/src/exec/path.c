@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 #include "../../includes/minishell.h"
 
+/*
+// removing duplicate function also found in src/buildins/env_utils.c"
 char	*get_env_value(char **envp, char *name)
 {
 	int	i;
@@ -28,6 +30,7 @@ char	*get_env_value(char **envp, char *name)
 	}
 	return (NULL);
 }
+*/
 
 static char	*join_path_cmd(char *dir, char *cmd)
 {
