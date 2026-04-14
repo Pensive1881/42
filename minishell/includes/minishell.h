@@ -37,24 +37,27 @@ typedef struct	s_shell
 
 extern volatile sig_atomic_t	g_signal;
 
-void	prompt_loop(char **envp);
+void	prompt_loop(t_shell *shell);
 void	execute_command(char *input, char **envp);
 char	**split_args(char *input);
 void	free_args(char **args);
 
-void	execute_pipeline(t_cmd *cmds, char **envp);
-void	execute_single_command(t_cmd *cmd, char **envp);
-void	execute_multi_command(t_cmd *cmds, char **envp);
+void	execute_pipeline(t_shell *shell, t_cmd *cmds);
+void	execute_single_command(t_shell *shell, t_cmd *cmd);
+void	execute_multi_command(t_shell, *shell, t_cmd *cmds);
 int	apply_redirections(t_redir *redirs);
 char	*get_env_value(char **envp, char *name);
 char	*find_command_path(char *cmd, char **envp);
 int	is_buildin(char *cmd);
-int	execute_buildin(t_cmd *cmd, char **envp);
+int	execute_buildin(t_shell *shell, t_cmd *cmd);
 void	close_fd_if_needed(int fd);
 void	print_exec_error(char *cmd);
-void	child_exec(t_cmd *cmd, int in_fd, int out_fd, char **envp);
+void	child_exec(t_shell *shell, t_cmd *cmd, int in_fd, int out_fd);
 
 void	setup_signals(void);
 void	setup_child_signals(void);
+
+char	**cpy_env(char **env);
+void	free_env(char **env);
 
 #endif

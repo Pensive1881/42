@@ -32,10 +32,10 @@ int	is_buildin(char *cmd)
 	return (0);
 }
 
-int	execute_buildin(t_cmd *cmd, char **envp)
+int	execute_buildin(t_shell *shell, t_cmd *cmd)
 {
+	(void)shell;
 	(void)cmd;
-	(void)envp;
 	ft_putendl_fd("builtin execution hook not connected yet", 2);
 	return (0);
 }
@@ -52,7 +52,7 @@ void	print_exec_error(char *cmd)
 	ft_putendl_fd(cmd, 2);
 }
 
-void	child_exec(t_cmd *cmd, int in_fd, int out_fd, char **envp)
+void	child_exec(t_shell *shell, t_cmd *cmd, int in_fd, int out_fd)
 {
 	char *path;
 
@@ -72,14 +72,14 @@ void	child_exec(t_cmd *cmd, int in_fd, int out_fd, char **envp)
 	if (!apply_redirections(cmd->redirs))
 		exit(1);
 	if (is_buildin(cmd->argv[0]))
-		exit(execute_buildin(cmd, envp));
-	path = find_command_path(cmd->argv[0], envp);
+		exit(execute_buildin(shell, cmd));
+	path = find_command_path(cmd->argv[0], shell->env);
 	if (!path)
 	{
 		print_exec_error(cmd->argv[0]);
 		exit(127);
 	}
-	execve(path, cmd->argv, envp);
+	execve(path, cmd->argv, shell->env);
 	perror("execve");
 	free(path);
 	exit(126);
