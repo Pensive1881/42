@@ -44,7 +44,7 @@ void	free_args(char **args);
 
 void	execute_pipeline(t_shell *shell, t_cmd *cmds);
 void	execute_single_command(t_shell *shell, t_cmd *cmd);
-void	execute_multi_command(t_shell, *shell, t_cmd *cmds);
+void	execute_multi_command(t_shell *shell, t_cmd *cmds);
 int	apply_redirections(t_redir *redirs);
 char	*get_env_value(char **envp, char *name);
 char	*find_command_path(char *cmd, char **envp);
