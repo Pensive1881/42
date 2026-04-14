@@ -46,7 +46,7 @@ void	execute_pipeline(t_shell *shell, t_cmd *cmds);
 void	execute_single_command(t_shell *shell, t_cmd *cmd);
 void	execute_multi_command(t_shell *shell, t_cmd *cmds);
 int	apply_redirections(t_redir *redirs);
-char	*get_env_value(char **envp, char *name);
+char	*get_env_value(char **envp, char *key);
 char	*find_command_path(char *cmd, char **envp);
 int	is_buildin(char *cmd);
 int	execute_buildin(t_shell *shell, t_cmd *cmd);
