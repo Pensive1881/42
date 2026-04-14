@@ -11,12 +11,12 @@
 /* ************************************************************************** */
 #include "../../includes/minishell.h"
 
-void	execute_pipeline(t_cmd *cmds, char **envp)
+void	execute_pipeline(t_shell *shell, t_cmd *cmds)
 {
 	if (!cmds)
 		return ;
 	if (!cmds->next)
-		execute_single_command(cmds, envp);
+		execute_single_command(shell, cmds);
 	else
-		execute_multi_command(cmds, envp);
+		execute_multi_command(shell, cmds);
 }
