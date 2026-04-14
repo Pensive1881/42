@@ -16,14 +16,14 @@ static int	all_ate_enough(t_table *table)
 	int	i;
 	int	done;
 
-	if ()
+	if (table->must_eat_count == -1)
 		return (0);
 	i = 0;
 	done = 1;
 	pthread_mutex_lock(&table->meal_mutex);
-	while ()
+	while (i < table->number_of_philosophers)
 	{
-		if ()
+		if (table->philos[i].meals_eaten < table->must_eat_count)
 			done = 0;
 		i++;
 	}
@@ -41,7 +41,21 @@ int	monitor_simulation(t_table *table)
 		i = 0;
 		while (i < table->number_of_philosophers)
 		{
-			
+			pthread_mutex_lock(&table->meal_mutex);
+			now = get_time();
+			if (now - table->philos[i].last_meal_time > table->time_to_die)
+			{
+				pthread_mutex_unlock(&table->meal_mutex);
+				pthread_mutex_lock(&table->print_mutex);
+				printf("%ld %d died\n",
+					timestamp_ms(table->start_time),
+					table->philos[i].id);
+				pthread_mutex_unlock(&table->print_mutex);
+				set_setop(table, 1);
+				return (1);
+			}
+			pthread_mutex_unlock(&table->meal_mutex);
+			i++;
 		}
 		if (all_ate_enough(table))
 		{
@@ -52,4 +66,3 @@ int	monitor_simulation(t_table *table)
 	}
 	return (0);
 }
-
