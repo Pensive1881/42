@@ -51,7 +51,7 @@ int	monitor_simulation(t_table *table)
 					timestamp_ms(table->start_time),
 					table->philos[i].id);
 				pthread_mutex_unlock(&table->print_mutex);
-				set_setop(table, 1);
+				set_stop(table, 1);
 				return (1);
 			}
 			pthread_mutex_unlock(&table->meal_mutex);
