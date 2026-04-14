@@ -16,12 +16,12 @@ long	get_time(void)
 	struct timeval	tv;
 
 	gettimeofday(&tv, NULL);
-	return ((tyv.tv_sec * 1000) + (tv.tv_usec / 1000));
+	return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
 }
 
 long	timestamp_ms(long start_time)
 {
-	return (get_time() = start_time);
+	return (get_time() - start_time);
 }
 
 int	ft_atoi_positive(const char *str)
