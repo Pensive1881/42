@@ -19,37 +19,36 @@
 # include <pthread.h>
 # include <sys/time.h>
 
-typedef struct s_data t_data;
-typedef struct s_philos t_philos;
+typedef struct s_table t_table;
+typedef struct s_philo t_philo;
 
-typedef struct  s_philos
+typedef struct  s_philo
 {
-        int     *id;
+        int     id;
         int     meals_eaten;
         long    last_meal_time;
-
 	pthread_t	thread;
-
 	pthread_mutex_t	*left_fork;
 	pthread_mutex_t	*right_fork;
+        t_table	*table;
+}       t_philo;
 
-        t_data  *data;
-}       t_philos;
-
-typedef struct	s_data
+typedef struct	s_table
 {
 	int	number_of_philosophers;
 	long	time_to_die;
 	long	time_to_eat;
 	long	time_to_sleep;
 	int	must_eat_count;
-
 	long	start_time;
 	int	simulation_stop;
 
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	print_mutex;
-}	t_data;
+	pthread_mutex_t	stop_mutex;
+	pthread_mutex_t meal_mutex;
+	t_philo	*philos;
+}	t_table;
 
 long	get_time(void);
 void	precise_sleep(long time, t_data *data);
