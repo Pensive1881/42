@@ -19,7 +19,6 @@ void	prompt_loop(t_shell *shell)
 	t_token	*tokens;
 	t_cmd	*cmds;
 
-	(void)envp;
 	while (shell->running)
 	{
 		input = readline("minishell$ ");
