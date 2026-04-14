@@ -24,7 +24,7 @@ static int	count_cmds(t_cmd *cmds)
 	return (count);
 }
 
-static void	wait_all(pid_t *pids, int count)
+static void	wait_all(t_shell *shell, pid_t *pids, int count)
 {
 	int	i;
 	int	status;
@@ -33,11 +33,19 @@ static void	wait_all(pid_t *pids, int count)
 	while (i < count)
 	{
 		waitpid(pids[i], &status, 0);
+		if (i == count - 1)
+		{
+			if (WIFEXITED(status))
+				shell->last_status = WEXITSTATUS(status);
+			else if (WIFSIGNALED(status))
+				shell->last_status = 128 + WTERMSIG(status);
+
+		}
 		i++;
 	}
 }
 
-void	execute_multi_command(t_cmd *cmds, char **envp)
+void	execute_multi_command(t_shell *shell, t_cmd *cmds)
 {
 	int	prev_read;
 	int	pipefd[2];
@@ -78,9 +86,9 @@ void	execute_multi_command(t_cmd *cmds, char **envp)
 		if (pids[i] == 0)
 		{
 			if (cur->next)
-				child_exec(cur, prev_read, pipefd[1], envp);
+				child_exec(shell, cur, prev_read, pipefd[1]);
 			else
-				child_exec(cur, prev_read, STDOUT_FILENO, envp);
+				child_exec(shell, cur, prev_read, STDOUT_FILENO);
 		}
 		close_fd_if_needed(prev_read);
 		if (cur->next)
@@ -92,6 +100,6 @@ void	execute_multi_command(t_cmd *cmds, char **envp)
 		i++;
 	}
 	close_fd_if_needed(prev_read);
-	wait_all(pids, count);
+	wait_all(shell, pids, count);
 	free(pids);
 }
