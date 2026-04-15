@@ -24,6 +24,11 @@ int	main(int argc, char **argv)
 		cleanup(&table);
 		return (1);
 	}
+	if (init_philos(&table))
+	{
+		cleanup(&table);
+		return (1);
+	}
 	if (start_threads(&table))
 	{
 		cleanup(&table);
