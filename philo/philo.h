@@ -51,7 +51,18 @@ typedef struct	s_table
 }	t_table;
 
 long	get_time(void);
-void	precise_sleep(long time, t_data *data);
-void	print_state(t_philos *philo, char *msg);
+long	timestamp_ms(long start_time);
+int	ft_atoi_positive(const char *str);
+void	precise_sleep(long time, t_table, *table);
+void	print_state(t_philo *philo, char *msg);
+int	get_stop(t_table *table);
+void	set_stop(t_table *table, int value);
+int	parse_args(t_table *table, int argc, char **argv);
+int	init_table(t_table *table);
+int	init_philos(t_table *table);
+void	join_threads(t_table *table);
+void	cleanup(t_Table *table);
+void	*routine(void *arg);
+int	monitor_simulation(t_table *table);
 
 #endif
