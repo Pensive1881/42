@@ -64,5 +64,6 @@ void	join_threads(t_table *table);
 void	cleanup(t_table *table);
 void	*routine(void *arg);
 int	monitor_simulation(t_table *table);
+int	start_threads(t_table *table);
 
 #endif
