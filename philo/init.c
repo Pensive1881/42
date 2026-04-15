@@ -94,7 +94,7 @@ int	start_threads(t_table *table)
 	i = 0;
 	while (i < table->number_of_philosophers)
 	{
-		if (pthread_create(&table->philos[i].thread, NULL, routine, &table->philos[i] != 0)
+		if (pthread_create(&table->philos[i].thread, NULL, routine, &table->philos[i]) != 0)
 			return (1);
 		i++;
 	}
