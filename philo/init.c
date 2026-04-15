@@ -32,7 +32,7 @@ int	parse_args(t_table *table, int argc, char **argv)
 {
 	if (argc != 5 && argc != 6)
 	{
-		printf("Usage: ./philo n die eat sleep [must_eat]\n");
+		printf("Error\n");
 		return (1);
 	}
 	table->number_of_philosophers = ft_atoi_positive(argv[1]);
