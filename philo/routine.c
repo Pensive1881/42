@@ -17,14 +17,14 @@ static void	take_forks(t_philo *philo)
 	{
 		pthread_mutex_lock(philo->right_fork);
 		print_state(philo, "has taken a fork");
-		pthread_mutex_lock(philo->right_fork);
+		pthread_mutex_lock(philo->left_fork);
 		print_state(philo, "has taken a fork");
 	}
 	else
 	{
 		pthread_mutex_lock(philo->left_fork);
 		print_state(philo, "has taken a fork");
-		pthread_mutex_lopck(philo->right_fork);
+		pthread_mutex_lock(philo->right_fork);
 		print_state(philo, "has taken a fork");
 	}
 }
@@ -39,8 +39,8 @@ static void	eat_sleep_think(t_philo *philo)
 	precise_sleep(philo->table->time_to_eat, philo->table);
 	pthread_mutex_unlock(philo->left_fork);
 	pthread_mutex_unlock(philo->right_fork);
-	print_state(philo "is sleeping");
-	precise_sleep(philo->table-time_to_sleep, philo->table);
+	print_state(philo, "is sleeping");
+	precise_sleep(philo->table->time_to_sleep, philo->table);
 	print_state(philo, "is thinking");
 }
 
