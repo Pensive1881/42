@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 18:10:18 by acasper           #+#    #+#             */
-/*   Updated: 2026/03/03 18:10:19 by acasper          ###   ########.fr       */
+/*   Updated: 2026/04/16 17:21:07 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
@@ -33,7 +33,7 @@ static int	all_ate_enough(t_table *table)
 
 int	monitor_simulation(t_table *table)
 {
-	int	i;
+	int		i;
 	long	now;
 
 	while (!get_stop(table))
@@ -47,8 +47,7 @@ int	monitor_simulation(t_table *table)
 			{
 				pthread_mutex_unlock(&table->meal_mutex);
 				pthread_mutex_lock(&table->print_mutex);
-				printf("%ld %d died\n",
-					timestamp_ms(table->start_time),
+				printf("%ld %d died\n", timestamp_ms(table->start_time),
 					table->philos[i].id);
 				pthread_mutex_unlock(&table->print_mutex);
 				set_stop(table, 1);
