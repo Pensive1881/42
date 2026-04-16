@@ -60,23 +60,23 @@ void	join_threads(t_table *table)
 	}
 }
 
-void    cleanup(t_table *table)
+void	cleanup(t_table *table)
 {
-        int     i;
+	int	i;
 
-        if (table->forks)
-        {
-                i = 0;
-                while (i < table->number_of_philosophers)
-                {
-                        pthread_mutex_destroy(&table->forks[i]);
-                        i++;
-                }
-                free(table->forks);
-        }
-        pthread_mutex_destroy(&table->print_mutex);
-        pthread_mutex_destroy(&table->stop_mutex);
-        pthread_mutex_destroy(&table->meal_mutex);
-        if (table->philos)
-                free(table->philos);
+	if (table->forks)
+	{
+		i = 0;
+		while (i < table->number_of_philosophers)
+		{
+			pthread_mutex_destroy(&table->forks[i]);
+			i++;
+		}
+		free(table->forks);
+	}
+	pthread_mutex_destroy(&table->print_mutex);
+	pthread_mutex_destroy(&table->stop_mutex);
+	pthread_mutex_destroy(&table->meal_mutex);
+	if (table->philos)
+		free(table->philos);
 }
