@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 17:35:50 by acasper           #+#    #+#             */
-/*   Updated: 2026/04/14 17:35:56 by acasper          ###   ########.fr       */
+/*   Updated: 2026/04/16 18:05:37 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
@@ -15,7 +15,8 @@ static int	init_forks(t_table *table)
 {
 	int	i;
 
-	table->forks = malloc(sizeof(pthread_mutex_t) * table->number_of_philosophers);
+	table->forks = malloc(sizeof(pthread_mutex_t)
+			* table->number_of_philosophers);
 	if (!table->forks)
 		return (1);
 	i = 0;
@@ -42,11 +43,9 @@ int	parse_args(t_table *table, int argc, char **argv)
 	table->must_eat_count = -1;
 	if (argc == 6)
 		table->must_eat_count = ft_atoi_positive(argv[5]);
-	if (table->number_of_philosophers <= 0
-		|| table->time_to_die <= 0
-		|| table->time_to_eat <= 0
-		|| table->time_to_sleep <= 0
-		|| (argc == 6 && table->must_eat_count <= 0))
+	if (table->number_of_philosophers <= 0 || table->time_to_die <= 0
+		|| table->time_to_eat <= 0 || table->time_to_sleep <= 0 || (argc == 6
+			&& table->must_eat_count <= 0))
 		return (1);
 	return (0);
 }
@@ -80,7 +79,8 @@ int	init_philos(t_table *table)
 		table->philos[i].meals_eaten = 0;
 		table->philos[i].last_meal_time = table->start_time;
 		table->philos[i].left_fork = &table->forks[i];
-		table->philos[i].right_fork = &table->forks[(i + 1) % table->number_of_philosophers];
+		table->philos[i].right_fork = &table->forks[(i + 1)
+			% table->number_of_philosophers];
 		table->philos[i].table = table;
 		i++;
 	}
@@ -94,7 +94,8 @@ int	start_threads(t_table *table)
 	i = 0;
 	while (i < table->number_of_philosophers)
 	{
-		if (pthread_create(&table->philos[i].thread, NULL, routine, &table->philos[i]) != 0)
+		if (pthread_create(&table->philos[i].thread, NULL, routine,
+				&table->philos[i]) != 0)
 			return (1);
 		i++;
 	}
