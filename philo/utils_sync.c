@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/16 19:06:43 by acasper           #+#    #+#             */
-/*   Updated: 2026/04/16 19:06:45 by acasper          ###   ########.fr       */
+/*   Updated: 2026/04/16 19:30:11 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
@@ -52,4 +52,3 @@ void	precise_sleep(long time, t_table *table)
 		usleep(500);
 	}
 }
-
