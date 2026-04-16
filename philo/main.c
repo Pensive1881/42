@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 15:21:05 by acasper           #+#    #+#             */
-/*   Updated: 2026/03/03 15:21:06 by acasper          ###   ########.fr       */
+/*   Updated: 2026/04/16 17:19:06 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "philo.h"
@@ -39,4 +39,3 @@ int	main(int argc, char **argv)
 	cleanup(&table);
 	return (0);
 }
-
