@@ -18,7 +18,9 @@ RM = rm -f
 
 SRC = main.c \
       init.c \
+      init_philos \
       utils.c \
+      utils_sync.c \
       routine.c \
       monitor.c
 OBJS = $(SRC:.c=.o)
