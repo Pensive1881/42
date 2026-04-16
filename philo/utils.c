@@ -27,7 +27,7 @@ long	timestamp_ms(long start_time)
 int	ft_atoi_positive(const char *str)
 {
 	long	result;
-	int	i;
+	int		i;
 
 	result = 0;
 	i = 0;
@@ -67,9 +67,7 @@ void	print_state(t_philo *philo, char *msg)
 	pthread_mutex_lock(&philo->table->print_mutex);
 	if (!get_stop(philo->table))
 	{
-		printf("%ld %d %s\n",
-			timestamp_ms(philo->table->start_time),
-			philo->id,
+		printf("%ld %d %s\n", timestamp_ms(philo->table->start_time), philo->id,
 			msg);
 	}
 	pthread_mutex_unlock(&philo->table->print_mutex);
@@ -83,7 +81,7 @@ void	precise_sleep(long time, t_table *table)
 	while (!get_stop(table))
 	{
 		if (get_time() - start >= time)
-			break;
+			break ;
 		usleep(500);
-	}	
+	}
 }
