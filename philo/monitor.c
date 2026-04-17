@@ -37,7 +37,7 @@ static int	check_death(t_table *table, int i)
 
 	pthread_mutex_lock(&table->meal_mutex);
 	now = get_time();
-	if (now - table->philos[i].last_meal_time > table->time_to_die)
+	if (now - table->philos[i].last_meal_time >= table->time_to_die)
 	{
 		pthread_mutex_unlock(&table->meal_mutex);
 		set_stop(table, 1);
