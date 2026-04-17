@@ -40,11 +40,11 @@ static int	check_death(t_table *table, int i)
 	if (now - table->philos[i].last_meal_time > table->time_to_die)
 	{
 		pthread_mutex_unlock(&table->meal_mutex);
+		set_stop(table, 1);
 		pthread_mutex_lock(&table->print_mutex);
 		printf("%ld %d died\n", timestamp_ms(table->start_time),
 			table->philos[i].id);
 		pthread_mutex_unlock(&table->print_mutex);
-		set_stop(table, 1);
 		return (1);
 	}
 	pthread_mutex_unlock(&table->meal_mutex);
