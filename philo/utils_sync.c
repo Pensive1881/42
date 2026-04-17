@@ -30,6 +30,8 @@ void	set_stop(t_table *table, int value)
 
 void	print_state(t_philo *philo, char *msg)
 {
+	if (get_stop(philo->table))
+		return ;
 	pthread_mutex_lock(&philo->table->print_mutex);
 	if (!get_stop(philo->table))
 	{
