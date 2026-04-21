@@ -6,10 +6,9 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 17:26:02 by acasper           #+#    #+#             */
-/*   Updated: 2026/03/04 17:55:16 by acasper          ###   ########.fr       */
+/*   Updated: 2026/04/10 19:34:22 by rrajni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
@@ -57,7 +56,18 @@ void	child_exec(t_shell *shell, t_cmd *cmd, int in_fd, int out_fd);
 void	setup_signals(void);
 void	setup_child_signals(void);
 
-char	**cpy_env(char **env);
-void	free_env(char **env);
+//buildins & env utils
+int	ft_cd(char **args, t_shell *shell);
+int	ft_env(t_shell *shell);
+int	ft_export(char **args, t_shell *shell);
+int     ft_unset(char **args, t_shell *shell);
+int     ft_echo(char **args);
+int     ft_exit(char **args);
+int     ft_pwd(void);
+int     update_env(char **env, char *key, char *value);
+char    *get_env_value(char **env, char *key);
+char    **cpy_env(char **env);
+void    print_export(char **env);
+void    add_to_env(t_shell *shell, char *name, char *value);
 
 #endif
