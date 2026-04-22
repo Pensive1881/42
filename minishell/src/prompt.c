@@ -55,7 +55,13 @@ void	prompt_loop(t_shell *shell)
 			free(input);
 			continue;
 		}
-
+		if (!prepare_heredocs(cmds))
+		{
+			free_cmds(cmds);
+			free_tokens(tokens);
+			free(input);
+			continue;
+		}
 		execute_pipeline(shell, cmds);
 
 		free_cmds(cmds);
