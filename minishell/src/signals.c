@@ -11,7 +11,8 @@ static void sigint_handler(int signo)
 	g_signal = signo;
 	write(1, "\n", 1);
 	rl_on_new_line();
-	rl_replace_line("", 0);
+// removed for mac compiling, readline.h linking
+//	rl_replace_line("", 0);
 	rl_redisplay();
 }
 
