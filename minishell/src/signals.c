@@ -2,6 +2,8 @@
 #include <signal.h>
 #include <readline/readline.h>
 
+void	rl_replace_line(const char *text, int clear_undo);
+
 volatile sig_atomic_t	g_signal = 0;
 
 static void sigint_handler(int signo)
