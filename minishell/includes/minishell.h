@@ -41,6 +41,8 @@ void	execute_command(char *input, char **envp);
 char	**split_args(char *input);
 void	free_args(char **args);
 
+int	prepare_heredocs(t_cmd *cmds);
+
 void	execute_pipeline(t_shell *shell, t_cmd *cmds);
 void	execute_single_command(t_shell *shell, t_cmd *cmd);
 void	execute_multi_command(t_shell *shell, t_cmd *cmds);
