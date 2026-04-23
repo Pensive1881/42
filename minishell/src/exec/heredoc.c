@@ -8,7 +8,7 @@ static int	write_heredoc_to_file(char *delimiter, char *filename)
 	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (fd < 0)
 		return (perror("open"), 0);
-	while (1);
+	while (1)
 	{
 		line = readline("> ");
 		if (!line)
