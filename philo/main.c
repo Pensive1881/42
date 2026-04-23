@@ -20,10 +20,7 @@ int	main(int argc, char **argv)
 	if (parse_args(&table, argc, argv))
 		return (1);
 	if (init_table(&table))
-	{
-		cleanup(&table);
 		return (1);
-	}
 	if (init_philos(&table))
 	{
 		cleanup(&table);
