@@ -46,7 +46,10 @@ int	parse_args(t_table *table, int argc, char **argv)
 	if (table->number_of_philosophers <= 0 || table->time_to_die <= 0
 		|| table->time_to_eat <= 0 || table->time_to_sleep <= 0 || (argc == 6
 			&& table->must_eat_count <= 0))
+	{
+		printf("Error\n");
 		return (1);
+	}
 	return (0);
 }
 
