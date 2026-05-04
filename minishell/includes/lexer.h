@@ -1,6 +1,13 @@
 #ifndef LEXER_H
 # define LEXER_H
 
+//#include "minishell.h"
+#include <stddef.h>
+#include <stdlib.h>
+//#include "../libft/libft.h"
+
+typedef struct s_shell t_shell;
+
 typedef	enum e_token_type
 {
 	TOKEN_WORD,

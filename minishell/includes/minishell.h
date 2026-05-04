@@ -12,7 +12,6 @@
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
-//# include "lexer.h"
 # include "../libft/includes/libft.h" //being added to include libft 
 # include "lexer.h"
 # include "arena.h"

@@ -44,7 +44,14 @@ SRC = src/main.c \
 	  src/exec/redirections.c \
 	  src/exec/exec_utils.c \
 	  src/exec/heredoc.c \
-	  src/buildins/env_utils.c
+	  src/buildins/env_utils.c \
+	  src/buildins/ft_echo.c \
+	  src/buildins/ft_pwd.c \
+	  src/buildins/ft_env.c \
+	  src/buildins/ft_cd.c \
+	  src/buildins/ft_export.c \
+	  src/buildins/ft_unset.c \
+	  src/buildins/ft_exit.c
 
 OBJFILES = $(SRC:$(SRCDIR)/%.c=$(BUILDDIR)/%.o)
 
