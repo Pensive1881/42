@@ -9,7 +9,7 @@ int	ft_env(t_shell *shell)
 		return (1);
 	while (shell->env[i])
 	{
-		ft_putendl_fd(shell->env[i], i);
+		ft_putendl_fd(shell->env[i], 1);
 		i++;
 	}
 	return (0);
