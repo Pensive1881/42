@@ -17,7 +17,7 @@ void	free_tokens(t_token *head)
 	}
 }
 
-char	*expand_var(char *input, int *i)
+char	*expand_var(char *input, int *i, *shell)
 {
 	char	*variable;
 	char	*value;

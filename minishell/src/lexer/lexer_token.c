@@ -39,7 +39,7 @@ t_token	*lex_oprator(char *input, int *i)
 	return (token);
 }
 
-t_token	*lex_word(char	*input, int *i)
+t_token	*lex_word(char	*input, int *i, t_shell *shell)
 {
 	t_token	*token;
 	int	start;
@@ -60,7 +60,7 @@ t_token	*lex_word(char	*input, int *i)
 			free(before);
 			value = temp;
 			// expand the variable
-			char *expanded = expand_var(input, i);
+			char *expanded = expand_var(input, i, shell);
 			if (expanded)
 			{
 				temp = ft_strjoin(value, expanded);

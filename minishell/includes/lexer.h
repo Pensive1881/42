@@ -27,7 +27,7 @@ typedef	struct	s_token
 
 // lexer_token.c
 t_token	*lex_oprator(char *input, int *i);
-t_token	*lex_word(char	*input, int *i);
+t_token	*lex_word(char	*input, int *i, t_shell *shell);
 t_token	*lex_quoted(char *input, int *i);
 t_token	*create_token(t_token_type type, char *value);
 // lex.c
