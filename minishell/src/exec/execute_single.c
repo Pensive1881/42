@@ -31,8 +31,8 @@ static void	exec_external(t_cmd *cmd, char **envp)
 
 static int	save_stdio(int saved[2])
 {
-	saved[0] = dup(STDIN_FILEO);
-	saved[1] = dup(STDOUT_FILEO);
+	saved[0] = dup(STDIN_FILENO);
+	saved[1] = dup(STDOUT_FILENO);
 	if (saved[0] < 0 || saved[1] < 0)
 		return (0);
 	return (1);
@@ -40,8 +40,8 @@ static int	save_stdio(int saved[2])
 
 static void	restore_stdio(int saved[2])
 {
-	dup2(saved[0], STDIN_FILEO);
-	dup2(saved[1], STDOUT_FILEO);
+	dup2(saved[0], STDIN_FILENO);
+	dup2(saved[1], STDOUT_FILENO);
 	close(saved[0]);
 	close(saved[1]);
 }
