@@ -15,11 +15,18 @@ SRCDIR = src
 HEADERDIR = includes
 LIBFTDIR = libft
 BUILDDIR = build
+UNAME_S = $(shell uname -s)
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 INC = -I$(HEADERDIR) -I$(LIBFTDIR)/includes
 LIBFT = $(LIBFTDIR)/libft.a
+
+ifeq ($(UNAME_S), Darwin)
+	READLINE_FLAGS = -lreadline
+else
+	READLINE_FLAGS = -lreadline -lncurses
+endif
 
 SRC = src/main.c \
 	  src/prompt.c \
@@ -58,7 +65,7 @@ OBJFILES = $(SRC:$(SRCDIR)/%.c=$(BUILDDIR)/%.o)
 all: $(NAME)
 
 $(NAME): $(OBJFILES) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJFILES) $(LIBFT) -lreadline -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJFILES) $(LIBFT) $(READLINE_FLAGS) -o $(NAME)
 
 $(LIBFT):
 	make -C $(LIBFTDIR)
