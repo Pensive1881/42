@@ -32,7 +32,7 @@ void	prompt_loop(t_shell *shell)
 		if (*input)
 			add_history(input);
 
-		tokens = lexer(input);
+		tokens = lexer(input, shell);
 		if (!tokens)
 		{
 			free(input);
