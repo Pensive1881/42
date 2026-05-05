@@ -25,11 +25,13 @@ char	*expand_var(char *input, int *i, t_shell *shell)
 
 	if (input[*i] == '$')
 		(*i)++;
-//	if (input[*i] == '?')
-//	{
-//		(*i)++;
-//		return (ft_itoa(shell->last_status));
-//	}
+	if (input[*i] == '?')
+	{
+		(*i)++;
+		return (ft_itoa(shell->last_status));
+	}
+	if (!input[*i] || (!ft_isalnum(input[*i]) && input[*i] != '_'))
+		return (ft_strdup("$"));
 	start = *i;
 	while (ft_isalnum(input[*i]) || input[*i] == '_')
 		(*i)++;
@@ -37,5 +39,7 @@ char	*expand_var(char *input, int *i, t_shell *shell)
 	variable = ft_substr(input, start, *i - start);
 	value = get_env_value(shell->env, variable);
 	free(variable);
-	return (value);
+	if (!value)
+		return (ft_strdup(""));
+	return (ft_strdup(value));
 }
