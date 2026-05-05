@@ -29,6 +29,23 @@ static void	exec_external(t_cmd *cmd, char **envp)
 	exit(126);
 }
 
+static int	save_stdio(int saved[2])
+{
+	saved[0] = dup(STDIN_FILEO);
+	saved[1] = dup(STDOUT_FILEO);
+	if (saved[0] < 0 || saved[1] < 0)
+		return (0);
+	return (1);
+}
+
+static void	restore_stdio(int saved[2])
+{
+	dup2(saved[0], STDIN_FILEO);
+	dup2(saved[1], STDOUT_FILEO);
+	close(saved[0]);
+	close(saved[1]);
+}
+
 void    execute_single_command(t_shell *shell, t_cmd *cmd)
 {
 	pid_t pid;
@@ -36,9 +53,22 @@ void    execute_single_command(t_shell *shell, t_cmd *cmd)
 
 	if (!cmd || !cmd->argv || !cmd->argv[0])
 		return ;
+
 	if (is_buildin(cmd->argv[0]))
 	{
-		shell->last_status = execute_buildin(shell, cmd);
+		int	saved[2];
+
+		if (!save_stdio(saved))
+		{
+			perror("dup");
+			shell->last_status = 1;
+			return ;
+		}
+		if (!apply_redirections(cmd->redirs))
+			shell->last_status = 1;
+		else
+			shell->last_status = execute_buildin(shell, cmd);
+		restore_stdio(saved);
 		return ;
 	}
 	pid = fork();
