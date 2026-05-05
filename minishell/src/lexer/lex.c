@@ -30,7 +30,7 @@ void	add_token(t_token **head, t_token **current, t_token *token)
 	}
 }
 
-t_token	*lexer(char *input)
+t_token	*lexer(char *input, t_shell *shell)
 {
 	t_token	*head;
 	t_token	*current;
@@ -57,7 +57,7 @@ t_token	*lexer(char *input)
 		}
 		else
 		{
-			token = lex_word(input, &i);
+			token = lex_word(input, &i, shell);
 			add_token(&head, &current, token);
 		}
 	}
