@@ -64,11 +64,9 @@ OBJFILES = $(SRC:$(SRCDIR)/%.c=$(BUILDDIR)/%.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJFILES) $(LIBFT)
+$(NAME): $(OBJFILES)
+	$(MAKE) -C $(LIBFTDIR)
 	$(CC) $(CFLAGS) $(OBJFILES) $(LIBFT) $(READLINE_FLAGS) -o $(NAME)
-
-$(LIBFT):
-	make -C $(LIBFTDIR)
 
 $(BUILDDIR)/%.o: $(SRCDIR)/%.c
 	@mkdir -p $(dir $@)
@@ -82,4 +80,6 @@ fclean: clean
 	make -C $(LIBFTDIR) fclean
 	rm -f $(NAME)
 
-re: clean all
+re: fclean all
+
+.PHONY: all clean fclean re
