@@ -65,6 +65,7 @@ t_token	*lex_word(char	*input, int *i, t_shell *shell)
 			{
 				temp = ft_strjoin(value, expanded);
 				free(value);
+				free(expanded);
 				value = temp;
 			}
 			start = *i; // update start after expansion
