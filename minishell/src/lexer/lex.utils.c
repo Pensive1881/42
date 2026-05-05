@@ -35,7 +35,7 @@ char	*expand_var(char *input, int *i)
 		(*i)++;
 	//how to extract variable names inside the quotes?
 	variable = ft_substr(input, start, *i - start);
-	value = getenv(variable);
+	value = get_env_value(shell->env, variable);
 	free(variable);
 	return (value);
 }
