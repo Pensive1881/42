@@ -31,13 +31,13 @@ t_token	*lex_word(char	*input, int *i);
 t_token	*lex_quoted(char *input, int *i);
 t_token	*create_token(t_token_type type, char *value);
 // lex.c
-t_token	*lexer(char *input);
+t_token	*lexer(char *input, t_shell *shell);
 void	add_token(t_token **head, t_token **current, t_token *token);
 void	white_sapaces( char *input, int	*i);
 char	is_whitespace(char c);
 char	is_operator(char c);
 // lex.utils.c
 void       free_tokens(t_token *head);
-char       *expand_var(char *input, int *i);
+char       *expand_var(char *input, int *i, t_shell *shell);
 
 # endif
