@@ -11,22 +11,46 @@
 /* ************************************************************************** */
 #include "philo.h"
 
-static void	take_forks(t_philo *philo)
+static int	take_forks(t_philo *philo)
 {
 	if (philo->id % 2 == 0)
 	{
 		pthread_mutex_lock(philo->right_fork);
+		if (get_stop(philo->table))
+			return (pthread_mutex_unlock(philo->right_fork), 1);
 		print_state(philo, "has taken a fork");
 		pthread_mutex_lock(philo->left_fork);
+		if (get_stop(philo->table))
+		{
+			pthread_mutex_unlock(philo->left_fork);
+			ptherad_mutex_unlcok(philo->right_fork);
+			reaturn (1);
+		}
 		print_state(philo, "has taken a fork");
 	}
 	else
 	{
 		pthread_mutex_lock(philo->left_fork);
+		if (get_stop(philo->table))
+			return (pthread_mutex_unlock(philo->left_fork), 1);
 		print_state(philo, "has taken a fork");
 		pthread_mutex_lock(philo->right_fork);
+		if (get_stop(philo->table))
+		{
+			pthread_mutex_unlock(philo->right_fork);
+			pthread_mutex_unlock(philo->left_fork);
+			return (1);
+		}
 		print_state(philo, "has taken a fork");
 	}
+	return (0);
+}
+
+static void	smart_think(t_philo *philo)
+{
+	print_state(philo, "is thinking");
+	if (philo->table->number_of_philosophers % 2 != 0)
+		precise_sleep(philo->table->time_to_eat, philo->table);
 }
 
 static void	eat_sleep_think(t_philo *philo)
@@ -39,9 +63,13 @@ static void	eat_sleep_think(t_philo *philo)
 	precise_sleep(philo->table->time_to_eat, philo->table);
 	pthread_mutex_unlock(philo->left_fork);
 	pthread_mutex_unlock(philo->right_fork);
+	if (get_stop(philo->table))
+		return ;
 	print_state(philo, "is sleeping");
 	precise_sleep(philo->table->time_to_sleep, philo->table);
-	print_state(philo, "is thinking");
+	if (get_stop(philo->table))
+		return ;
+	smart_think(philo);
 }
 
 static void	one_philo_case(t_philo *philo)
@@ -66,7 +94,8 @@ void	*routine(void *arg)
 		usleep(1000);
 	while (!get_stop(philo->table))
 	{
-		take_forks(philo);
+		if (take_forks(philo))
+			break;
 		eat_sleep_think(philo);
 	}
 	return (NULL);
