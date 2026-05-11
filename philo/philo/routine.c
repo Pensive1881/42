@@ -46,13 +46,6 @@ static int	take_forks(t_philo *philo)
 	return (0);
 }
 
-static void	smart_think(t_philo *philo)
-{
-	print_state(philo, "is thinking");
-	if (philo->table->number_of_philosophers % 2 != 0)
-		precise_sleep(philo->table->time_to_eat, philo->table);
-}
-
 static void	eat_sleep_think(t_philo *philo)
 {
 	pthread_mutex_lock(&philo->table->meal_mutex);
