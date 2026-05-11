@@ -16,7 +16,7 @@ static int	take_even_forks(t_philo *philo)
 	pthread_mutex_lock(philo->right_fork);
 	if (get_stop(philo->table))
 		return (pthread_mutex_unlock(philo->right_fork), 1);
-	print_state(philo "has taken a fork");
+	print_state(philo, "has taken a fork");
 	pthread_mutex_lock(philo->left_fork);
 	if (get_stop(philo->table))
 	{
@@ -25,6 +25,7 @@ static int	take_even_forks(t_philo *philo)
 		return (1);
 	}
 	print_state(philo, "has taken a fork");
+	return (0);
 }
 
 static int	take_odd_forks(t_philo *philo)
@@ -48,7 +49,7 @@ static int	take_forks(t_philo *philo)
 {
 	if (philo->id % 2 == 0)
 		return (take_even_forks(philo));
-	return (take_odd_forks(philo);
+	return (take_odd_forks(philo));
 }
 /*
 	if (philo->id % 2 == 0)
