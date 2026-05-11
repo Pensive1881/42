@@ -54,7 +54,6 @@ long					get_time(void);
 long					timestamp_ms(long start_time);
 int						ft_atoi_positive(const char *str);
 void					precise_sleep(long time, t_table *table);
-void					get_stop(t_table *table);
 void					print_state(t_philo *philo, char *msg);
 int						get_stop(t_table *table);
 void					set_stop(t_table *table, int value);
@@ -66,5 +65,7 @@ void					cleanup(t_table *table);
 void					*routine(void *arg);
 int						monitor_simulation(t_table *table);
 int						start_threads(t_table *table);
+void					smart_think(t_philo *philo);
+void					one_philo_case(t_philo *philo);
 
 #endif
