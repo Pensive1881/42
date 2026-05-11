@@ -23,7 +23,7 @@ static int	take_forks(t_philo *philo)
 		if (get_stop(philo->table))
 		{
 			pthread_mutex_unlock(philo->left_fork);
-			pthread_mutex_unlcok(philo->right_fork);
+			pthread_mutex_unlock(philo->right_fork);
 			return (1);
 		}
 		print_state(philo, "has taken a fork");
