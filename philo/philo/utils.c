@@ -52,3 +52,10 @@ void	smart_think(t_philo *philo)
 		precise_sleep(philo->table->time_to_eat, philo->table);
 }
 
+void	one_philo_case(t_philo *philo)
+{
+	pthread_mutex_lock(philo->left_fork);
+	print_state(philo, "has taken a fork");
+	precise_sleep(philo->table->time_to_die, philo->table);
+	pthread_mutex_unlock(philo->left_fork);
+}
