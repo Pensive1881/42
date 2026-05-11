@@ -11,8 +11,46 @@
 /* ************************************************************************** */
 #include "philo.h"
 
+static int	take_even_forks(t_philo *philo)
+{
+	pthread_mutex_lock(philo->right_fork);
+	if (get_stop(philo->table))
+		return (pthread_mutex_unlock(philo->right_fork), 1);
+	print_state(philo "has taken a fork");
+	pthread_mutex_lock(philo->left_fork);
+	if (get_stop(philo->table))
+	{
+		pthread_mutex_unlock(philo->left_fork);
+		pthread_mutex_unlock(philo->right_fork);
+		return (1);
+	}
+	print_state(philo, "has taken a fork");
+}
+
+static int	take_odd_forks(t_philo *philo)
+{
+	pthread_mutex_lock(philo->left_fork);
+	if (get_stop(philo->table))
+		return (pthread_mutex_unlock(philo->left_fork), 1);
+	print_state(philo, "has taken a fork");
+	pthread_mutex_lock(philo->right_fork);
+	if (get_stop(philo->table))
+	{
+		pthread_mutex_unlock(philo->right_fork);
+		pthread_mutex_unlock(philo->left_fork);
+		return (1);
+	}
+	print_state(philo, "has taken a fork");
+	return (0);
+}
+
 static int	take_forks(t_philo *philo)
 {
+	if (philo->id % 2 == 0)
+		return (take_even_forks(philo));
+	return (take_odd_forks(philo);
+}
+/*
 	if (philo->id % 2 == 0)
 	{
 		pthread_mutex_lock(philo->right_fork);
@@ -45,6 +83,7 @@ static int	take_forks(t_philo *philo)
 	}
 	return (0);
 }
+*/
 
 static void	eat_sleep_think(t_philo *philo)
 {
@@ -63,14 +102,6 @@ static void	eat_sleep_think(t_philo *philo)
 	if (get_stop(philo->table))
 		return ;
 	smart_think(philo);
-}
-
-static void	one_philo_case(t_philo *philo)
-{
-	pthread_mutex_lock(philo->left_fork);
-	print_state(philo, "has taken a fork");
-	precise_sleep(philo->table->time_to_die, philo->table);
-	pthread_mutex_unlock(philo->left_fork);
 }
 
 void	*routine(void *arg)
