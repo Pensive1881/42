@@ -54,6 +54,7 @@ long					get_time(void);
 long					timestamp_ms(long start_time);
 int						ft_atoi_positive(const char *str);
 void					precise_sleep(long time, t_table *table);
+void					get_stop(t_table *table);
 void					print_state(t_philo *philo, char *msg);
 int						get_stop(t_table *table);
 void					set_stop(t_table *table, int value);
