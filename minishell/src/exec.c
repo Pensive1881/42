@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 17:28:08 by acasper           #+#    #+#             */
-/*   Updated: 2026/03/04 17:47:19 by acasper          ###   ########.fr       */
+/*   Updated: 2026/05/12 16:24:59 by rrajni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minishell.h"
@@ -22,7 +22,6 @@ void	execute_command(char *input, char **envp)
 		free_args(args);
 		return ;
 	}
-
 	pid = fork();
 	if (pid == 0)
 	{
@@ -34,4 +33,3 @@ void	execute_command(char *input, char **envp)
 		waitpid(pid, NULL, 0);
 	free_args(args);
 }
-

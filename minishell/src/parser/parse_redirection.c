@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 17:44:24 by acasper           #+#    #+#             */
-/*   Updated: 2026/03/25 17:44:25 by acasper          ###   ########.fr       */
+/*   Updated: 2026/05/12 16:43:51 by rrajni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_redir_type	token_to_redir_type(t_token_type type)
 	return (R_APPEND);
 }
 
-t_redir *new_redir(t_redir_type type, char *file)
+t_redir	*new_redir(t_redir_type type, char *file)
 {
 	t_redir	*redir;
 
@@ -52,7 +52,7 @@ t_redir *new_redir(t_redir_type type, char *file)
 t_redir	*parse_redirection(t_token **cur)
 {
 	t_redir_type	type;
-	t_redir	*redir;
+	t_redir			*redir;
 
 	if (!cur || !*cur || !is_redirection((*cur)->type))
 		return (NULL);

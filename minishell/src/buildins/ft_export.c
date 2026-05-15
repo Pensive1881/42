@@ -1,15 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_export.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rrajni <rrajni@student.42berlin.de>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/12 16:53:32 by rrajni            #+#    #+#             */
+/*   Updated: 2026/05/12 17:08:25 by rrajni           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/minishell.h"
 
 void	print_export(char **env)
 {
-	int     i;
-	char    *equal;
+	int		i;
+	char	*equal;
 
 	i = 0;
 	while (env[i])
-        {
+	{
 		equal = ft_strchr(env[i], '=');
-                ft_putstr_fd("declare -x ", 1);
+		ft_putstr_fd("declare -x ", 1);
 		if (equal)
 		{
 			write(1, env[i], equal - env[i] + 1);
@@ -22,12 +34,11 @@ void	print_export(char **env)
 		write(1, "\n", 1);
 		i++;
 	}
-
 }
 
 int	ft_export(char **args, t_shell *shell)
 {
-	int	i;
+	int		i;
 	char	*name;
 	char	*value;
 	char	*equal;
@@ -41,7 +52,7 @@ int	ft_export(char **args, t_shell *shell)
 	{
 		equal = ft_strchr(args[i], '=');
 		if (equal)
-		{// so if there is equal sign, before = its name and afterwads is value
+		{
 			name = ft_substr(args[i], 0, equal - args[i]);
 			value = ft_strdup(equal + 1);
 		}
@@ -63,8 +74,8 @@ int	ft_export(char **args, t_shell *shell)
 
 void	add_to_env(t_shell *shell, char *name, char *value)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	char	**new_env;
 	char	*entry;
 	char	*tmp;
@@ -75,7 +86,7 @@ void	add_to_env(t_shell *shell, char *name, char *value)
 	new_env = malloc(sizeof(char *) * (i + 2));
 	if (!new_env)
 		return ;
-	j  = 0;
+	j = 0;
 	while (j < i)
 	{
 		new_env[j] = shell->env[j];

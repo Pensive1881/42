@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 17:44:33 by acasper           #+#    #+#             */
-/*   Updated: 2026/03/25 17:44:34 by acasper          ###   ########.fr       */
+/*   Updated: 2026/05/12 16:41:34 by rrajni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ static int	is_redir_error(t_token *cur)
 
 int	validate_syntax(t_token *tokens)
 {
-	t_token *prev;
-	t_token *cur;
+	t_token	*prev;
+	t_token	*cur;
 
 	prev = NULL;
 	cur = tokens;
@@ -58,4 +58,3 @@ int	validate_syntax(t_token *tokens)
 	}
 	return (1);
 }
-

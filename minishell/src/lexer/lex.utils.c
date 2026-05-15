@@ -1,7 +1,19 @@
-# include "lexer.h"
-# include "minishell.h"
-# include "../../libft/includes/libft.h"
- 
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   lex.utils.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rrajni <rrajni@student.42berlin.de>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/12 16:12:47 by rrajni            #+#    #+#             */
+/*   Updated: 2026/05/12 16:13:57 by rrajni           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "lexer.h"
+#include "minishell.h"
+#include "../../libft/includes/libft.h"
+
 void	free_tokens(t_token *head)
 {
 	t_token	*current;
@@ -21,7 +33,7 @@ char	*expand_var(char *input, int *i, t_shell *shell)
 {
 	char	*variable;
 	char	*value;
-	int	start;
+	int		start;
 
 	if (input[*i] == '$')
 		(*i)++;
@@ -35,7 +47,6 @@ char	*expand_var(char *input, int *i, t_shell *shell)
 	start = *i;
 	while (ft_isalnum(input[*i]) || input[*i] == '_')
 		(*i)++;
-	//how to extract variable names inside the quotes?
 	variable = ft_substr(input, start, *i - start);
 	value = get_env_value(shell->env, variable);
 	free(variable);

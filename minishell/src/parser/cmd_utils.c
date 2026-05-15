@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 17:43:31 by acasper           #+#    #+#             */
-/*   Updated: 2026/03/25 17:43:32 by acasper          ###   ########.fr       */
+/*   Updated: 2026/05/12 16:33:32 by rrajni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ t_cmd	*init_cmd(void)
 	cmd->argc = 0;
 	cmd->redirs = NULL;
 	cmd->next = NULL;
-
 	return (cmd);
 }
 
@@ -70,7 +69,7 @@ int	add_word_to_cmd(t_cmd *cmd, char *word)
 int	add_redir_to_cmd(t_cmd *cmd, t_redir *redir)
 {
 	t_redir	*last;
-	
+
 	if (!cmd || !redir)
 		return (0);
 	if (!cmd->redirs)

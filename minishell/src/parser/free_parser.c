@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 17:43:39 by acasper           #+#    #+#             */
-/*   Updated: 2026/03/25 17:43:40 by acasper          ###   ########.fr       */
+/*   Updated: 2026/05/12 16:34:13 by rrajni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	free_redirs(t_redir *redirs)
 void	free_cmds(t_cmd *cmds)
 {
 	t_cmd	*tmp;
-	int	i;
+	int		i;
 
 	while (cmds)
 	{
@@ -48,4 +48,3 @@ void	free_cmds(t_cmd *cmds)
 		cmds = tmp;
 	}
 }
-

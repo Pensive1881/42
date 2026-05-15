@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 17:44:02 by acasper           #+#    #+#             */
-/*   Updated: 2026/03/25 17:44:03 by acasper          ###   ########.fr       */
+/*   Updated: 2026/05/12 16:35:13 by rrajni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_cmd	*parse_command(t_token **cur)
 {
 	t_cmd	*cmd;
 	t_redir	*redir;
-	
+
 	if (!cur || !*cur)
 		return (NULL);
 	cmd = init_cmd();
@@ -39,6 +39,5 @@ t_cmd	*parse_command(t_token **cur)
 		else
 			return (free_cmd_and_null(cmd));
 	}
-
 	return (cmd);
 }

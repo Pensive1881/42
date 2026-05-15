@@ -1,10 +1,23 @@
-#include"../includes/minishell.h"
-#include"../includes/lexer.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   expand.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rrajni <rrajni@student.42berlin.de>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/12 16:04:35 by rrajni            #+#    #+#             */
+/*   Updated: 2026/05/12 16:08:49 by rrajni           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "../includes/minishell.h"
+#include "../includes/lexer.h"
+
+//need to break this function
 char	*expend_value(char *str, t_shell *shell)
 {
-	int	i;
-	int	start;
+	int		i;
+	int		start;
 	char	*result;
 	char	*value;
 	char	*temp;
@@ -53,4 +66,3 @@ t_token	expand_tokens(t_token *tokens, t_shell *shell)
 	}
 	return (tokens);
 }
-

@@ -1,51 +1,61 @@
-# include "../../includes/minishell.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   env_utils.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rrajni <rrajni@student.42berlin.de>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/12 16:51:22 by rrajni            #+#    #+#             */
+/*   Updated: 2026/05/12 17:17:20 by rrajni           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-// the function to get env value
+#include "../../includes/minishell.h"
+
 char	*get_env_value(char **env, char *key)
 {
 	int	i;
 	int	len;
-	// the length of the key e.g. HOME is needed to check what comes next
+
 	i = 0;
 	len = ft_strlen(key);
 	while (env[i])
 	{
-		if (ft_strncmp(env[i], key, len) == 0 && env[i][len] == '=')// now the key will be skiped
-			return (env[i] + len + 1);// we skip the key and get what is afterwards
+		if (ft_strncmp(env[i], key, len) == 0 && env[i][len] == '=')
+			return (env[i] + len + 1);
 		i++;
 	}
 	return (NULL);
 }
 
-// the function to update env
 int	update_env(char **env, char *key, char *value)
 {
-	int	i;
-	int	len;
+	int		i;
+	int		len;
 	char	*new_entry;
 	char	*temp;
 
 	i = 0;
 	len = ft_strlen(key);
-	temp = ft_strjoin(key, "=");// use temp for mem safety
+	temp = ft_strjoin(key, "=");
 	new_entry = ft_strjoin(temp, value);
-	free(temp); // temp has to be freed rightaway 
+	free(temp);
 	while (env[i])
-	{// need to find the entry which starts with pwd
+	{
 		if (ft_strncmp(env[i], key, len) == 0 && env[i][len] == '=')
 		{
-			env[i] = new_entry;//must replace the old path with the new path
+			env[i] = new_entry;
 			return (0);
 		}
 		i++;
 	}
-	free(new_entry);//if it not found we need to free it
-	return (1);//nothing updated
+	free(new_entry);
+	return (1);
 }
 
-char	**cpy_env(char **env)// the function copy the env vars and funtions e.g. unset 
-{ // will modify the copy not the original
-	int	i;
+char	**cpy_env(char **env)
+{
+	int		i;
 	char	**new_env;
 
 	i = 0;
@@ -59,5 +69,5 @@ char	**cpy_env(char **env)// the function copy the env vars and funtions e.g. un
 		i++;
 	}
 	new_env[i] = NULL;
-	return (new_env);	
+	return (new_env);
 }

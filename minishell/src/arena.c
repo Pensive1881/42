@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 17:41:32 by acasper           #+#    #+#             */
-/*   Updated: 2026/03/25 17:41:34 by acasper          ###   ########.fr       */
+/*   Updated: 2026/05/12 17:22:32 by rrajni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	arena_reset(t_arena *arena)
 
 void	*arena_alloc(t_arena *arena, size_t size)
 {
-	t_arena_chunk	*chunk;
+	t_arena_chunk			*chunk;
 	void	*ptr;
 
 	if (!arena || size == 0)
@@ -98,7 +98,7 @@ void	*arena_alloc(t_arena *arena, size_t size)
 			return (ptr);
 		}
 		if (!chunk->next)
-			break;
+			break ;
 		chunk = chunk->next;
 	}
 	chunk->next = new_chunk(arena->chunk_size);

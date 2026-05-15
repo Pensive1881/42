@@ -6,7 +6,7 @@
 /*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 17:27:45 by acasper           #+#    #+#             */
-/*   Updated: 2026/03/04 17:52:17 by acasper          ###   ########.fr       */
+/*   Updated: 2026/05/12 16:32:08 by rrajni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/minishell.h"
@@ -21,33 +21,29 @@ void	prompt_loop(t_shell *shell)
 
 	while (shell->running)
 	{
-		g_signal = 0; //rrajni: to reset befor each prompt
+		g_signal = 0;
 		input = readline("minishell$ ");
 		if (!input)
 		{
 			write(1, "exit\n", 5);
-			break;
+			break ;
 		}
-
 		if (*input)
 			add_history(input);
-
 		tokens = lexer(input, shell);
 		if (!tokens)
 		{
 			free(input);
-			continue;
+			continue ;
 		}
-
 		if (!validate_syntax(tokens))
 		{
 			printf("syntax error\n");
 			shell->last_status = 2;
 			free_tokens(tokens);
 			free(input);
-			continue;
+			continue ;
 		}
-
 		cmds = parse_tokens(tokens);
 		if (!cmds)
 		{

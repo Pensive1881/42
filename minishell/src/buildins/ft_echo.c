@@ -1,9 +1,21 @@
-# include "../../includes/minishell.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_echo.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rrajni <rrajni@student.42berlin.de>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/12 16:52:08 by rrajni            #+#    #+#             */
+/*   Updated: 2026/05/12 17:03:04 by rrajni           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../../includes/minishell.h"
 
 int	ft_echo(char **args)
 {
 	int	i;
-	int	no_newline; // flag to mark if new line should be printed
+	int	no_newline;
 
 	if (!args || !args[1])
 	{
@@ -27,6 +39,5 @@ int	ft_echo(char **args)
 	}
 	if (!no_newline)
 		write(1, "\n", 1);
-	
 	return (0);
 }
