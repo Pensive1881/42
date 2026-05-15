@@ -1,14 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   lexer.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rrajni <rrajni@student.42berlin.de>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/12 15:19:37 by rrajni            #+#    #+#             */
+/*   Updated: 2026/05/12 15:48:53 by rrajni           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef LEXER_H
 # define LEXER_H
 
-//#include "minishell.h"
-#include <stddef.h>
-#include <stdlib.h>
-//#include "../libft/libft.h"
+# include <stddef.h>
+# include <stdlib.h>
+# include "../libft/includes/libft.h"
 
-typedef struct s_shell t_shell;
+typedef struct s_shell	t_shell;
 
-typedef	enum e_token_type
+typedef enum e_token_type
 {
 	TOKEN_WORD,
 	TOKEN_PIPE,
@@ -18,11 +29,11 @@ typedef	enum e_token_type
 	TOKEN_APPEND,
 }	t_token_type;
 
-typedef	struct	s_token
+typedef struct s_token
 {
-	t_token_type	type;
-	char		*value;
-	struct	s_token	*next;
+	t_token_type		type;
+	char				*value;
+	struct s_token		*next;
 }	t_token;
 
 // lexer_token.c
@@ -37,7 +48,7 @@ void	white_sapaces( char *input, int	*i);
 char	is_whitespace(char c);
 char	is_operator(char c);
 // lex.utils.c
-void       free_tokens(t_token *head);
-char       *expand_var(char *input, int *i, t_shell *shell);
+void	free_tokens(t_token *head);
+char	*expand_var(char *input, int *i, t_shell *shell);
 
-# endif
+#endif
