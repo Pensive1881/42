@@ -29,6 +29,7 @@ int	main(int ac, char **av)
 					write(1, "*", 1);
 					j++;
 				}
+				i += len;
 			}
 			else if (i <= r - len)
 			{	
@@ -51,5 +52,4 @@ int	main(int ac, char **av)
 	if (keep > 0)
 //		write(1, buf, keep);
 	return (0);
-	
 }

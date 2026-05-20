@@ -11,9 +11,9 @@
 char *ft_strchr(char *s, int c)
 {
   int i = 0;
-  while(s[i] != c)
+  while(s[i] && s[i] != c)
     i++;
-  if (s[i] && s[i] == c)
+  if (s[i] == c)
     return s + i;
   else
     return NULL;
@@ -90,26 +90,26 @@ char *get_next_line(int fd)
     if (read_ret == -1)
       return (NULL);
     if (read_ret == 0)
-	    break;
+      break;
     b[read_ret] = 0;
   }
   if (tmp)
   {
-  	if (!str_append_mem(&ret, b, tmp - b + 1))
-  	{
-   		free(ret);
-    		return NULL;
-	}
-	ft_memmove(b, tmp + 1, ft_strlen(tmp + 1) + 1);
+    if (!str_append_mem(&ret, b, tmp - b + 1))
+    {
+      free(ret);
+      return NULL;
+    }
+    ft_memmove(b, tmp + 1, ft_strlen(tmp + 1) + 1);
   }
   else
   {
-	b[0] = '\0';
-	if (!ret || !*ret)
-	{
-		free(ret);
-		return (NULL);
-	}
+    b[0] = '\0';
+    if (!ret || !*ret)
+    {
+      free(ret);
+      return (NULL);
+    }
   }
   return ret;
 }
