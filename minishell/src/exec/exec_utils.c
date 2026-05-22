@@ -73,27 +73,62 @@ void	child_exec(t_shell *shell, t_cmd *cmd, int in_fd, int out_fd)
 	if (in_fd != -1 && in_fd != STDIN_FILENO)
 	{
 		if (dup2(in_fd, STDIN_FILENO) < 0)
-			return (perror("dup2"), exit(1));
+		{
+			free_env(shell->env);
+			free_cmds(shell->cmds);
+			free_tokens(shell->tokens);
+			free(shell->input);
+			perror("dup2");
+			exit(1);
+		}
 	}
 	if (out_fd != STDOUT_FILENO)
 	{
 		if (dup2(out_fd, STDOUT_FILENO) < 0)
-			return (perror("dup2"), exit(1));
+		{
+			free_env(shell->env);
+			free_cmds(shell->cmds);
+			free_tokens(shell->tokens);
+			free(shell->input);
+			perror("dup2");
+			exit(1);
+		}
 	}
 	close_fd_if_needed(in_fd);
 	close_fd_if_needed(out_fd);
 	if (!apply_redirections(cmd->redirs))
+	{
+		free_env(shell->env);
+		free_cmds(shell->cmds);
+		free_tokens(shell->tokens);
+		free(shell->input);
 		exit(1);
+	}
 	if (is_buildin(cmd->argv[0]))
-		exit(execute_buildin(shell, cmd));
+	{
+		shell->last_status = execute_buildin(shell, cmd);
+		free_env(shell->env);
+		free_cmds(shell->cmds);
+		free_tokens(shell->tokens);
+		free(shell->input);
+		exit(shell->last_status);
+	}
 	path = find_command_path(cmd->argv[0], shell->env);
 	if (!path)
 	{
 		print_exec_error(cmd->argv[0]);
+		free_env(shell->env);
+		free_cmds(shell->cmds);
+		free_tokens(shell->tokens);
+		free(shell->input);
 		exit(127);
 	}
 	execve(path, cmd->argv, shell->env);
 	perror("execve");
+	free_env(shell->env);
+	free_cmds(shell->cmds);
+	free_tokens(shell->tokens);
+	free(shell->input);
 	free(path);
 	exit(126);
 }

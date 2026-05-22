@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   execute_multi_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: akasper <akasper@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 18:43:41 by acasper           #+#    #+#             */
-/*   Updated: 2026/05/22 18:43:46 by acasper          ###   ########.fr       */
+/*   Updated: 2026/05/22 19:47:09 by akasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minishell.h"
 
-static int	create_pipe_if_needed(t_cmd *cmd, int pipefd[2])
+int	create_pipe_if_needed(t_cmd *cmd, int pipefd[2])
 {
 	if (cmd->next && pipe(pipefd) < 0)
 	{
@@ -21,7 +21,7 @@ static int	create_pipe_if_needed(t_cmd *cmd, int pipefd[2])
 	return (1);
 }
 
-static void	run_child(t_shell *shell, t_cmd *cmd, int prev_read, int pipefd[2])
+void	run_pipe_child(t_shell *shell, t_cmd *cmd, int prev_read, int pipefd[2])
 {
 	if (cmd->next)
 		child_exec(shell, cmd, prev_read, pipefd[1]);
@@ -29,7 +29,7 @@ static void	run_child(t_shell *shell, t_cmd *cmd, int prev_read, int pipefd[2])
 		child_exec(shell, cmd, prev_read, STDOUT_FILENO);
 }
 
-static int	fork_one(t_shell *shell, t_cmd *cmd, int prev_read, int pipefd[2],
+int	fork_one_pipe(t_shell *shell, t_cmd *cmd, int prev_read, int pipefd[2],
 		pid_t *pid)
 {
 	*pid = fork();
@@ -39,11 +39,11 @@ static int	fork_one(t_shell *shell, t_cmd *cmd, int prev_read, int pipefd[2],
 		return (0);
 	}
 	if (*pid == 0)
-		run_child(shell, cmd, prev_read, pipefd);
+		run_pipe_child(shell, cmd, prev_read, pipefd);
 	return (1);
 }
 
-static void	parent_close_fds(t_cmd *cmd, int *prev_read, int pipefd[2])
+void	parent_close_pipe_fds(t_cmd *cmd, int *prev_read, int pipefd[2])
 {
 	close_fd_if_needed(*prev_read);
 	if (cmd->next)
