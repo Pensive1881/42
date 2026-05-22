@@ -9,6 +9,7 @@
 /*   Updated: 2026/05/22 18:46:56 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "../../includes/minishell.h"
 
 static int	count_cmds(t_cmd *cmds)
 {
@@ -61,9 +62,9 @@ void	execute_multi_command(t_shell *shell, t_cmd *cmds)
 	{
 		if (!create_pipe_if_needed(cur, pipefd))
 			return (free(pids));
-		if (!fork_one(shell, cur, prev_read, pipefd, &pids[i]))
+		if (!fork_one_pipe(shell, cur, prev_read, pipefd, &pids[i]))
 			return (free(pids));
-		parent_close_fds(cur, &prev_read, pipefd);
+		parent_close_pipe_fds(cur, &prev_read, pipefd);
 		cur = cur->next;
 		i++;
 	}
