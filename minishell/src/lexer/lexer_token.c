@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lexer.h"
 #include "../../libft/includes/libft.h"
+#include "lexer.h"
 
 static t_token	*weirdies(char *input, int *i)
 {
@@ -39,7 +39,7 @@ static t_token	*weirdies(char *input, int *i)
 
 t_token	*lex_oprator(char *input, int *i)
 {
-	t_token	*token;	
+	t_token	*token;
 
 	token = NULL;
 	if (input[*i] == '|')
@@ -74,7 +74,7 @@ static char	*doller(t_word *w, int *i, char *value, int *start)
 	return (temp);
 }
 
-static	char	*full_word(char *input, int *i, int start, char *value)
+static char	*full_word(char *input, int *i, int start, char *value)
 {
 	char	*rest;
 	char	*final_value;
@@ -90,7 +90,7 @@ static	char	*full_word(char *input, int *i, int start, char *value)
 	return (value);
 }
 
-t_token	*lex_word(char	*input, int *i, t_shell *shell)
+t_token	*lex_word(char *input, int *i, t_shell *shell)
 {
 	t_word	w;
 	int		start;
@@ -100,8 +100,7 @@ t_token	*lex_word(char	*input, int *i, t_shell *shell)
 	w.shell = shell;
 	start = *i;
 	value = ft_strdup("");
-	while (input[*i] && !is_operator(input[*i])
-		&& !is_whitespace(input[*i])
+	while (input[*i] && !is_operator(input[*i]) && !is_whitespace(input[*i])
 		&& input[*i] != '"' && input[*i] != '\'')
 	{
 		if (input[*i] == '$')
@@ -112,43 +111,44 @@ t_token	*lex_word(char	*input, int *i, t_shell *shell)
 	return (create_token(TOKEN_WORD, full_word(input, i, start, value)));
 }
 
-/*static char    *handle_dollar(char *input, int *i, char *value, int *start, t_shell *shell)
+/*static char    *handle_dollar(char *input, int *i, char *value, int *start,
+	t_shell *shell)
 {
-    char    *rest;
-    char    *temp;
-    char    *expanded;
+	char	*rest;
+	char	*temp;
+	char	*expanded;
 
-    if (*i > *start)
-    {
-        rest = ft_substr(input, *start, *i - *start);
-        temp = ft_strjoin(value, rest);
-        free(value);
-        free(rest);
-        value = temp;
-    }
-    expanded = expand_var(input, i, shell);
-    temp = ft_strjoin(value, expanded);
-    free(value);
-    free(expanded);
-    *start = *i;
-    return (temp);
+	if (*i > *start)
+	{
+		rest = ft_substr(input, *start, *i - *start);
+		temp = ft_strjoin(value, rest);
+		free(value);
+		free(rest);
+		value = temp;
+	}
+	expanded = expand_var(input, i, shell);
+	temp = ft_strjoin(value, expanded);
+	free(value);
+	free(expanded);
+	*start = *i;
+	return (temp);
 }
 
-t_token    *lex_word(char *input, int *i, t_shell *shell)
+t_token	*lex_word(char *input, int *i, t_shell *shell)
 {
-    int     start;
-    char    *value;
+	int     start;
+	char    *value;
 
-    start = *i;
-    value = ft_strdup("");
-    while (input[*i] && !is_operator(input[*i])
-        && !is_whitespace(input[*i])
-        && input[*i] != '"' && input[*i] != '\'')
-    {
-        if (input[*i] == '$')
-            value = handle_dollar(input, i, value, &start, shell);
-        else
-            (*i)++;
-    }
-    return (create_token(TOKEN_WORD, full_word(input, i, start, value)));
+	start = *i;
+	value = ft_strdup("");
+	while (input[*i] && !is_operator(input[*i])
+		&& !is_whitespace(input[*i])
+		&& input[*i] != '"' && input[*i] != '\'')
+	{
+		if (input[*i] == '$')
+			value = handle_dollar(input, i, value, &start, shell);
+		else
+			(*i)++;
+	}
+	return (create_token(TOKEN_WORD, full_word(input, i, start, value)));
 } */

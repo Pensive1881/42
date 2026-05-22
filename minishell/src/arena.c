@@ -83,8 +83,8 @@ void	arena_reset(t_arena *arena)
 
 void	*arena_alloc(t_arena *arena, size_t size)
 {
-	t_arena_chunk			*chunk;
-	void	*ptr;
+	t_arena_chunk	*chunk;
+	void			*ptr;
 
 	if (!arena || size == 0)
 		return (NULL);

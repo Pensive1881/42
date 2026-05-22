@@ -13,7 +13,7 @@
 
 static int	write_heredoc_to_file(char *delimiter, char *filename)
 {
-	int	fd;
+	int		fd;
 	char	*line;
 
 	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0644);
@@ -23,14 +23,14 @@ static int	write_heredoc_to_file(char *delimiter, char *filename)
 	{
 		line = readline("> ");
 		if (!line)
-			break;
+			break ;
 		if (ft_strncmp(line, delimiter, ft_strlen(delimiter) + 1) == 0)
 		{
 			free(line);
-			break;
+			break ;
 		}
-		write (fd, line, ft_strlen(line));
-		write (fd, "\n", 1);
+		write(fd, line, ft_strlen(line));
+		write(fd, "\n", 1);
 		free(line);
 	}
 	close(fd);

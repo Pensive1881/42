@@ -39,7 +39,6 @@ static void	wait_all(t_shell *shell, pid_t *pids, int count)
 				shell->last_status = WEXITSTATUS(status);
 			else if (WIFSIGNALED(status))
 				shell->last_status = 128 + WTERMSIG(status);
-
 		}
 		i++;
 	}
@@ -47,11 +46,11 @@ static void	wait_all(t_shell *shell, pid_t *pids, int count)
 
 void	execute_multi_command(t_shell *shell, t_cmd *cmds)
 {
-	int	prev_read;
-	int	pipefd[2];
+	int		prev_read;
+	int		pipefd[2];
 	pid_t	*pids;
-	int	i;
-	int	count;
+	int		i;
+	int		count;
 	t_cmd	*cur;
 
 	count = count_cmds(cmds);

@@ -49,7 +49,7 @@ int	execute_buildin(t_shell *shell, t_cmd *cmd)
 	if (ft_strncmp(cmd->argv[0], "unset", 6) == 0)
 		return (ft_unset(cmd->argv, shell));
 	if (ft_strncmp(cmd->argv[0], "exit", 5) == 0)
-		return (ft_exit(cmd->argv));
+		return (ft_exit(cmd->argv, shell));
 	return (1);
 }
 
@@ -67,7 +67,7 @@ void	print_exec_error(char *cmd)
 
 void	child_exec(t_shell *shell, t_cmd *cmd, int in_fd, int out_fd)
 {
-	char *path;
+	char	*path;
 
 	setup_child_signals();
 	if (in_fd != -1 && in_fd != STDIN_FILENO)

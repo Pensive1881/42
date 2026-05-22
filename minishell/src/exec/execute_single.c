@@ -11,20 +11,34 @@
 /* ************************************************************************** */
 #include "../../includes/minishell.h"
 
-static void	exec_external(t_cmd *cmd, char **envp)
+static void	exec_external(t_cmd *cmd, t_shell *shell)
 {
-	char *path;
+	char	*path;
 
 	if (!cmd || !cmd->argv || !cmd->argv[0])
+	{
+		free_env(shell->env);
+		free_cmds(shell->cmds);
+		free_tokens(shell->tokens);
+		free(shell->input);
 		exit(1);
-	path = find_command_path(cmd->argv[0], envp);
+	}
+	path = find_command_path(cmd->argv[0], shell->env);
 	if (!path)
 	{
 		print_exec_error(cmd->argv[0]);
+		free_env(shell->env);
+		free_cmds(shell->cmds);
+		free_tokens(shell->tokens);
+		free(shell->input);
 		exit(127);
 	}
-	execve(path, cmd->argv, envp);
+	execve(path, cmd->argv, shell->env);
 	perror("execve");
+	free_env(shell->env);
+	free_cmds(shell->cmds);
+	free_tokens(shell->tokens);
+	free(shell->input);
 	free(path);
 	exit(126);
 }
@@ -46,18 +60,16 @@ static void	restore_stdio(int saved[2])
 	close(saved[1]);
 }
 
-void    execute_single_command(t_shell *shell, t_cmd *cmd)
+void	execute_single_command(t_shell *shell, t_cmd *cmd)
 {
-	pid_t pid;
-	int	status;
+	pid_t	pid;
+	int		status;
+	int		saved[2];
 
 	if (!cmd || !cmd->argv || !cmd->argv[0])
 		return ;
-
 	if (is_buildin(cmd->argv[0]))
 	{
-		int	saved[2];
-
 		if (!save_stdio(saved))
 		{
 			perror("dup");
@@ -83,7 +95,7 @@ void    execute_single_command(t_shell *shell, t_cmd *cmd)
 		if (!apply_redirections(cmd->redirs))
 			exit(1);
 
-		exec_external(cmd, shell->env);
+		exec_external(cmd, shell);
 	}
 	waitpid(pid, &status, 0);
 	if (WIFEXITED(status))

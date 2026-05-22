@@ -9,8 +9,8 @@
 /*   Updated: 2026/05/12 16:32:08 by rrajni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../includes/minishell.h"
 #include "../includes/lexer.h"
+#include "../includes/minishell.h"
 #include "../includes/parser.h"
 
 void	prompt_loop(t_shell *shell)
@@ -50,19 +50,26 @@ void	prompt_loop(t_shell *shell)
 			shell->last_status = 2;
 			free_tokens(tokens);
 			free(input);
-			continue;
+			continue ;
 		}
 		if (!prepare_heredocs(cmds))
 		{
 			free_cmds(cmds);
 			free_tokens(tokens);
 			free(input);
-			continue;
+			continue ;
 		}
+		shell->input = input;
+		shell->tokens = tokens;
+		shell->cmds = cmds;
 		execute_pipeline(shell, cmds);
-
 		free_cmds(cmds);
 		free_tokens(tokens);
 		free(input);
+		if (shell->should_exit == 1)
+		{
+			free_env(shell->env);
+			exit(shell->last_status);
+		}
 	}
 }

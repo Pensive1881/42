@@ -43,6 +43,7 @@ int	main(int argc, char **argv, char **envp)
 		return (1);
 	shell.last_status = 0;
 	shell.running = 1;
+	shell.should_exit = 0;
 	setup_signals();
 	prompt_loop(&shell);
 	free_env(shell.env);

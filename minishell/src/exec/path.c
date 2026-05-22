@@ -15,7 +15,7 @@
 // removing duplicate function also found in src/buildins/env_utils.c"
 char	*get_env_value(char **envp, char *name)
 {
-	int	i;
+	int		i;
 	size_t	len;
 
 	if (!envp || !name)
@@ -50,7 +50,7 @@ char	*find_command_path(char *cmd, char **envp)
 	char	**paths;
 	char	*path_env;
 	char	*full;
-	int	i;
+	int		i;
 
 	if (!cmd)
 		return (NULL);

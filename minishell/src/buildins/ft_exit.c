@@ -12,7 +12,7 @@
 
 #include "../../includes/minishell.h"
 
-int	ft_exit(char **args)
+int	ft_exit(char **args, t_shell *shell)
 {
 	int	num;
 
@@ -24,9 +24,11 @@ int	ft_exit(char **args)
 	if (args[1])
 	{
 		num = ft_atoi(args[1]);
-		exit(num);
+		shell->should_exit = 1;
+		return (num);
 	}
-	exit(0);
+	shell->should_exit = 1;
+	return (0);
 }
 
 /*

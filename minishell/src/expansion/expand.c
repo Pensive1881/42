@@ -6,14 +6,14 @@
 /*   By: rrajni <rrajni@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 16:04:35 by rrajni            #+#    #+#             */
-/*   Updated: 2026/05/20 16:06:45 by rrajni           ###   ########.fr       */
+/*   Updated: 2026/05/22 17:03:34 by acasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/minishell.h"
 #include "../../includes/lexer.h"
+#include "../../includes/minishell.h"
 
-static	char	*handler(char *str, int *i, char *result)
+static char	*handler(char *str, int *i, char *result)
 {
 	char	*old_result;
 	char	*temp;
@@ -29,10 +29,12 @@ static	char	*handler(char *str, int *i, char *result)
 	free(temp);
 	return (result);
 }
-static	char	*char_handler(char *str, int *i, t_shell *shell, char *result)
+
+static char	*char_handler(char *str, int *i, t_shell *shell, char *result)
 {
 	char	*old_value;
 	char	*value;
+
 	if (str[*i] == '$')
 	{
 		value = expand_var(str, i, shell);
@@ -43,7 +45,8 @@ static	char	*char_handler(char *str, int *i, t_shell *shell, char *result)
 	else
 		result = handler(str, i, result);
 	return (result);
-}	
+}
+
 char	*expend_value(char *str, t_shell *shell)
 {
 	int		i;

@@ -31,6 +31,10 @@ typedef struct s_shell
 	char	**env;
 	int		last_status;
 	int		running;
+	int		should_exit;
+	char	*input;
+	t_token	*tokens;
+	t_cmd	*cmds;
 }	t_shell;
 
 extern volatile sig_atomic_t	g_signal;
@@ -63,12 +67,13 @@ int		ft_env(t_shell *shell);
 int		ft_export(char **args, t_shell *shell);
 int		ft_unset(char **args, t_shell *shell);
 int		ft_echo(char **args);
-int		ft_exit(char **args);
+int		ft_exit(char **args, t_shell *shell);
 int		ft_pwd(void);
 int		update_env(char **env, char *key, char *value);
 char	*get_env_value(char **env, char *key);
 char	**cpy_env(char **env);
 void	print_export(char **env);
 void	add_to_env(t_shell *shell, char *name, char *value);
+void	free_env(char **env);
 
 #endif
