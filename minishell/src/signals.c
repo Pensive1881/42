@@ -6,7 +6,7 @@
 /*   By: rrajni <rrajni@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 16:30:13 by rrajni            #+#    #+#             */
-/*   Updated: 2026/05/13 15:03:45 by rrajni           ###   ########.fr       */
+/*   Updated: 2026/05/21 13:38:38 by rrajni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	rl_replace_line(const char *text, int clear_undo);
 
 volatile sig_atomic_t	g_signal = 0;
 
-static void sigint_handler(int signo)
+static	void	sigint_handler(int signo)
 {
 	g_signal = signo;
 	write(1, "\n", 1);

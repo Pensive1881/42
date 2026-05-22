@@ -6,7 +6,7 @@
 /*   By: rrajni <rrajni@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 16:10:02 by rrajni            #+#    #+#             */
-/*   Updated: 2026/05/12 16:12:23 by rrajni           ###   ########.fr       */
+/*   Updated: 2026/05/21 14:16:12 by rrajni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,16 @@ char	is_operator(char c)
 	return (c == '|' || c == '<' || c == '>');
 }
 
-void	add_token(t_token **head, t_token **current, t_token *token)
+static t_token	*tokenize(char *input, int *i, t_shell *shell)
 {
-	if (!*head)
-	{
-		*head = token;
-		*current = token;
-	}
+	if (is_operator(input[*i]))
+		return (lex_oprator(input, i));
+	else if (input[*i] == '"' || input[*i] == '\'')
+		return (lex_quoted(input, i));
 	else
-	{
-		(*current)->next = token;
-		*current = token;
-	}
+		return (lex_word(input, i, shell));
 }
 
-//need to break this function
 t_token	*lexer(char *input, t_shell *shell)
 {
 	t_token	*head;
@@ -58,19 +53,9 @@ t_token	*lexer(char *input, t_shell *shell)
 	while (input[i])
 	{
 		white_sapaces(input, &i);
-		if (is_operator(input[i]))
+		if (input[i])
 		{
-			token = lex_oprator(input, &i);
-			add_token(&head, &current, token);
-		}
-		else if (input[i] == '"' || input[i] == '\'')
-		{
-			token = lex_quoted(input, &i);
-			add_token(&head, &current, token);
-		}
-		else
-		{
-			token = lex_word(input, &i, shell);
+			token = tokenize(input, &i, shell);
 			add_token(&head, &current, token);
 		}
 	}

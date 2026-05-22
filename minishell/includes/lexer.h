@@ -6,7 +6,7 @@
 /*   By: rrajni <rrajni@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 15:19:37 by rrajni            #+#    #+#             */
-/*   Updated: 2026/05/12 15:48:53 by rrajni           ###   ########.fr       */
+/*   Updated: 2026/05/21 15:46:23 by rrajni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@ typedef enum e_token_type
 	TOKEN_HEREDOC,
 	TOKEN_APPEND,
 }	t_token_type;
+
+typedef struct s_word
+{
+	char	*input;
+	t_shell	*shell;
+}	t_word;
 
 typedef struct s_token
 {

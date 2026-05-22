@@ -35,7 +35,7 @@ SRC = src/main.c \
 	  src/utils.c \
 	  src/lexer/lex.c \
 	  src/lexer/lexer_token.c \
-	  src/lexer/lex.utils.c \
+	  src/lexer/lexer_token_utils.c \
 	  src/parser/parse.c \
 	  src/parser/parse_pipeline.c \
 	  src/parser/parse_command.c \
@@ -79,6 +79,9 @@ clean:
 fclean: clean
 	make -C $(LIBFTDIR) fclean
 	rm -f $(NAME)
+
+valgrind: all
+	valgrind --leak-check=full --show-leak-kinds=all --trace-children=yes --track-fds=yes --suppressions=ignore_readline_errors.supp ./$(NAME)
 
 re: fclean all
 
