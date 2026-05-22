@@ -94,7 +94,6 @@ void	execute_single_command(t_shell *shell, t_cmd *cmd)
 		setup_child_signals();
 		if (!apply_redirections(cmd->redirs))
 			exit(1);
-
 		exec_external(cmd, shell);
 	}
 	waitpid(pid, &status, 0);
