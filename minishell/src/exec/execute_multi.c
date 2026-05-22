@@ -6,7 +6,7 @@
 /*   By: akasper <akasper@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 21:00:27 by acasper           #+#    #+#             */
-/*   Updated: 2026/05/22 18:21:12 by akasper          ###   ########.fr       */
+/*   Updated: 2026/05/22 18:25:00 by akasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void	execute_multi_command(t_shell *shell, t_cmd *cmds)
 	int		i;
 	t_cmd	*cur;
 
-	pids = malloc(sizeof(pid_t) * count);
+	pids = malloc(sizeof(pid_t) * count_cmds(cmds));
 	if (!pids)
 		return ;
 	prev_read = -1;
