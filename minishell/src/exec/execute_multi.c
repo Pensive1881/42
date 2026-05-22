@@ -6,10 +6,9 @@
 /*   By: akasper <akasper@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 21:00:27 by acasper           #+#    #+#             */
-/*   Updated: 2026/05/22 18:25:00 by akasper          ###   ########.fr       */
+/*   Updated: 2026/05/22 18:32:49 by akasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 static int	count_cmds(t_cmd *cmds)
 {
@@ -41,47 +40,6 @@ static void	wait_all(t_shell *shell, pid_t *pids, int count)
 				shell->last_status = 128 + WTERMSIG(status);
 		}
 		i++;
-	}
-}
-
-static int	create_pipe_if_needed(t_cmd *cmd, int pipefd[2])
-{
-	if (cmd->next && pipe(pipefd) < 0)
-	{
-		perror("pipe");
-		return (0);
-	}
-	return (1);
-}
-
-static void	run_child(t_shell *shell, t_cmd *cmd, int prev_read, int pipefd[2])
-{
-	if (cmd->next)
-		child_exec(shell, cmd, prev_read, pipefd[1]);
-	else
-		child_exec(shell, cmd, prev_read, STDOUT_FILENO);
-}
-
-static int	fork_one(t_shell *shell, t_cmd *cmd, int prev_read, int pipefd[2], pid_t *pid)
-{
-	*pid = fork();
-	if (*pid < 0)
-	{
-		perror("fork");
-		return (0);
-	}
-	if (*pid == 0)
-		run_child(shell, cmd, prev_read, pipefd);
-	return (1);
-}
-
-static void	parent_close_fds(t_cmd *cmd, int *prev_read, int pipefd[2])
-{
-	close_fd_if_needed(*prev_read);
-	if (cmd->next)
-	{
-		close(pipefd[1]);
-		*prev_read = pipefd[0];
 	}
 }
 
