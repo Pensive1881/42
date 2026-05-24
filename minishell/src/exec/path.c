@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   path.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: akasper <akasper@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 21:01:12 by acasper           #+#    #+#             */
-/*   Updated: 2026/03/31 21:01:16 by acasper          ###   ########.fr       */
+/*   Updated: 2026/05/22 20:30:14 by akasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minishell.h"
@@ -45,6 +45,17 @@ static char	*join_path_cmd(char *dir, char *cmd)
 	return (full);
 }
 
+static char	*check_direct_path(char *cmd)
+{
+	if (ft_strchr(cmd, '/'))
+	{
+		if (access(cmd, X_OK) == 0)
+			return (ft_strdup(cmd));
+		return (NULL);
+	}
+	return ((char *)1);
+}
+
 char	*find_command_path(char *cmd, char **envp)
 {
 	char	**paths;
@@ -54,12 +65,9 @@ char	*find_command_path(char *cmd, char **envp)
 
 	if (!cmd)
 		return (NULL);
-	if (ft_strchr(cmd, '/'))
-	{
-		if (access(cmd, X_OK) == 0)
-			return (ft_strdup(cmd));
-		return (NULL);
-	}
+	full = check_direct_path(cmd);
+	if (full != (char *)1)
+		return (full);
 	path_env = get_env_value(envp, "PATH");
 	if (!path_env)
 		return (NULL);
