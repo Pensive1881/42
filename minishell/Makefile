@@ -52,6 +52,7 @@ SRC = src/main.c \
 	  src/exec/path.c \
 	  src/exec/redirections.c \
 	  src/exec/exec_utils.c \
+	  src/exec/child_exec_utils.c \
 	  src/exec/heredoc.c \
 	  src/buildins/env_utils.c \
 	  src/buildins/ft_echo.c \
