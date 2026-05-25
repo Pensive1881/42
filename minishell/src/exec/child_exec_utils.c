@@ -33,7 +33,7 @@ void    exec_child_external(t_shell *shell, t_cmd *cmd)
     path = find_command_path(cmd->argv[0], shell->env);
     if (!path)
     {
-        print_exec_error(cmd->argvp[0])
+        print_exec_error(cmd->argv[0]);
         clean_exit(shell, 127);
     }
     execve(path, cmd->argv, shell->env);
