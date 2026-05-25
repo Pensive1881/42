@@ -3,19 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   parse_command.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: akasper <akasper@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 17:44:02 by acasper           #+#    #+#             */
-/*   Updated: 2026/05/21 15:55:01 by rrajni           ###   ########.fr       */
+/*   Updated: 2026/05/25 18:57:18 by akasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/parser.h"
 
+static int	handle_word(t_cmd *cmd, t_token **cur)
+{
+	if (!add_word_to_cmd(cmd, (*cur)->value))
+		return (0);
+	*cur = (*cur)->next;
+	return (1);
+}
+
+static int	handle_redirection(t_cmd *cmd, t_token **cur)
+{
+	t_redir	*redir;
+
+	redir = parse_redirection(cur);
+	if (!redir || !add_redir_to_cmd(cmd, redir))
+		return (0);
+	return (1);
+}
+
 t_cmd	*parse_command(t_token **cur)
 {
 	t_cmd	*cmd;
-	t_redir	*redir;
 
 	if (!cur || !*cur)
 		return (NULL);
@@ -24,19 +41,11 @@ t_cmd	*parse_command(t_token **cur)
 		return (NULL);
 	while (*cur && (*cur)->type != TOKEN_PIPE)
 	{
-		if ((*cur)->type == TOKEN_WORD)
-		{
-			if (!add_word_to_cmd(cmd, (*cur)->value))
-				return (free_cmd_and_null(cmd));
-			*cur = (*cur)->next;
-		}
-		else if (is_redirection((*cur)->type))
-		{
-			redir = parse_redirection(cur);
-			if (!redir || !add_redir_to_cmd(cmd, redir))
-				return (free_cmd_and_null(cmd));
-		}
-		else
+		if ((*cur)->type == TOKEN_WORD && !handle_word(cmd, cur))
+			return (free_cmd_and_null(cmd));
+		else if (is_redirection((*cur)->type) && !handle_redirection(cmd, cur))
+			return (free_cmd_and_null(cmd));
+		else if ((*cur)->type != TOKEN_WORD && !is_redirection((*cur)->type))
 			return (free_cmd_and_null(cmd));
 	}
 	return (cmd);
