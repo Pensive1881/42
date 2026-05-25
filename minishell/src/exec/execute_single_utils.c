@@ -1,4 +1,4 @@
-#include "../../minishell.h"
+#include "../../includes/minishell.h"
 
 void	clean_exit(t_shell *shell, int status)
 {
@@ -21,16 +21,16 @@ int	save_stdio(int saved[2])
 void	restore_stdio(int saved[2])
 {
 	dup2(saved[0], STDIN_FILENO);
-	dup2(saved[1], STDOUT_FINENO);
+	dup2(saved[1], STDOUT_FILENO);
 	close(saved[0]);
 	close(saved[1]);
 }
 
-void	run_saved_buildtin(t_Shell *shell, t_cmd *cmd, int saved[2])
+void	run_saved_builtin(t_shell *shell, t_cmd *cmd, int saved[2])
 {
 	if (!save_stdio(saved))
 	{
-		perror)"dup");
+		perror("dup");
 		shell->last_status = 1;
 		return ;
 	}
@@ -48,6 +48,6 @@ void	wait_for_child(t_shell *shell, pid_t pid)
 	waitpid(pid, &status, 0);
 	if (WIFEXITED(status))
 		shell->last_status = WEXITSTATUS(status);
-	else if (WIFSIGNALED (status))
+	else if (WIFSIGNALED(status))
 		shell->last_status = 128 + WTERMSIG(status);
 }
