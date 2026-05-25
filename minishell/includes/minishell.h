@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: akasper <akasper@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 17:26:02 by acasper           #+#    #+#             */
-/*   Updated: 2026/05/12 15:55:49 by rrajni           ###   ########.fr       */
+/*   Updated: 2026/05/25 17:31:22 by akasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef MINISHELL_H
@@ -49,6 +49,12 @@ int								prepare_heredocs(t_cmd *cmds);
 void							execute_pipeline(t_shell *shell, t_cmd *cmds);
 void							execute_single_command(t_shell *shell,
 									t_cmd *cmd);
+void							clean_exit(t_shell *shell, int status);
+int								save_stdio(int saved[2]);
+void							restore_stdio(int saved[2]);
+void							run_saved_builtin(t_shell *shell,
+									t_cmd *cmd, int saved[2]);
+void							wait_for_child(t_shell *shell, pid_t pid);
 void							execute_multi_command(t_shell *shell,
 									t_cmd *cmds);
 int								create_pipe_if_needed(t_cmd *cmd,
