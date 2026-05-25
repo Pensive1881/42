@@ -74,6 +74,9 @@ void							close_fd_if_needed(int fd);
 void							print_exec_error(char *cmd);
 void							child_exec(t_shell *shell, t_cmd *cmd,
 									int in_fd, int out_fd);
+void							dup_child_fds(t_shell *shell, int in_fd, int out_fd);
+void							exit_child_builtin(t_shell *shell, t_cmd *cmd);
+void							exec_child_external(t_shell *shell, t_cmd *cmd);
 
 void							setup_signals(void);
 void							setup_child_signals(void);
