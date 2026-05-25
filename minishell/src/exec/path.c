@@ -6,7 +6,7 @@
 /*   By: akasper <akasper@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 21:01:12 by acasper           #+#    #+#             */
-/*   Updated: 2026/05/25 17:57:49 by akasper          ###   ########.fr       */
+/*   Updated: 2026/05/25 18:01:44 by akasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minishell.h"
@@ -38,14 +38,14 @@ static char	*check_direct_path(char *cmd)
 static char	*search_paths(char **paths, char *cmd)
 {
 	char	*full;
-	int	*i;
+	int	i;
 
 	i = 0;
-	while (pahts[i])
+	while (paths[i])
 	{
 		full = join_path_cmd(paths[i], cmd);
 		if (full && access(full, X_OK) == 0)
-			return (free_args(paths, full));
+			return (free_args(paths), full);
 		free(full);
 		i++;
 	}
