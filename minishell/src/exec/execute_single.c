@@ -6,10 +6,10 @@
 /*   By: akasper <akasper@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 21:00:07 by acasper           #+#    #+#             */
-/*   Updated: 2026/05/25 17:10:11 by akasper          ###   ########.fr       */
+/*   Updated: 2026/05/25 17:12:40 by akasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../../inclues/minishell.h"
+#include "../../includes/minishell.h"
 
 static void	exec_external(t_cmd *cmd, t_shell *shell)
 {
@@ -44,7 +44,7 @@ static void	start_single_child(t_shell *shell, t_cmd *cmd)
 	pid = fork();
 	if (pid < 0)
 	{
-		perror)"fork");
+		perror("fork");
 		return ;
 	}
 	if (pid == 0)
