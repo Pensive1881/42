@@ -6,7 +6,7 @@
 /*   By: akasper <akasper@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 21:00:27 by acasper           #+#    #+#             */
-/*   Updated: 2026/05/22 19:42:00 by akasper          ###   ########.fr       */
+/*   Updated: 2026/05/25 19:19:44 by akasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minishell.h"
@@ -44,10 +44,24 @@ static void	wait_all(t_shell *shell, pid_t *pids, int count)
 	}
 }
 
+static int	run_pipeline_step(t_shell *shell, t_cmd *cur, int *prev_read, pid_t *pid)
+{
+	int	pipefd[2];
+	int	fds[2];
+
+	if (!create_pipe_if_needed(cur, pipefd))
+		return (0);
+	fds[0] = *prev_read;
+	fds[1] = pipefd[1];
+	if (!fork_one_pipe(shell, cur, fds, pid))
+		return (0);
+	parent_close_pipe_fds(cur, prev_read, pipefd);
+	return (1);
+}
+
 void	execute_multi_command(t_shell *shell, t_cmd *cmds)
 {
 	int		prev_read;
-	int		pipefd[2];
 	pid_t	*pids;
 	int		i;
 	t_cmd	*cur;
@@ -60,11 +74,8 @@ void	execute_multi_command(t_shell *shell, t_cmd *cmds)
 	cur = cmds;
 	while (cur)
 	{
-		if (!create_pipe_if_needed(cur, pipefd))
+		if (!run_pipeline_step(shell, cur, &prev_read, &pids[i]))
 			return (free(pids));
-		if (!fork_one_pipe(shell, cur, prev_read, pipefd, &pids[i]))
-			return (free(pids));
-		parent_close_pipe_fds(cur, &prev_read, pipefd);
 		cur = cur->next;
 		i++;
 	}
