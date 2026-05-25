@@ -6,7 +6,7 @@
 /*   By: akasper <akasper@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/22 18:43:41 by acasper           #+#    #+#             */
-/*   Updated: 2026/05/22 19:47:09 by akasper          ###   ########.fr       */
+/*   Updated: 2026/05/25 19:29:50 by akasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minishell.h"
@@ -29,8 +29,7 @@ void	run_pipe_child(t_shell *shell, t_cmd *cmd, int prev_read, int pipefd[2])
 		child_exec(shell, cmd, prev_read, STDOUT_FILENO);
 }
 
-int	fork_one_pipe(t_shell *shell, t_cmd *cmd, int prev_read, int pipefd[2],
-		pid_t *pid)
+int	fork_one_pipe(t_shell *shell, t_cmd *cmd, int fds[2], pid_t *pid)
 {
 	*pid = fork();
 	if (*pid < 0)
@@ -39,7 +38,7 @@ int	fork_one_pipe(t_shell *shell, t_cmd *cmd, int prev_read, int pipefd[2],
 		return (0);
 	}
 	if (*pid == 0)
-		run_pipe_child(shell, cmd, prev_read, pipefd);
+		child_exec(shell, cmd, fds[0], fds[1]);
 	return (1);
 }
 
