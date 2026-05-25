@@ -6,7 +6,7 @@
 /*   By: akasper <akasper@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 17:26:02 by acasper           #+#    #+#             */
-/*   Updated: 2026/05/25 17:31:22 by akasper          ###   ########.fr       */
+/*   Updated: 2026/05/25 19:34:38 by akasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef MINISHELL_H
@@ -62,7 +62,7 @@ int								create_pipe_if_needed(t_cmd *cmd,
 void							run_pipe_child(t_shell *shell, t_cmd *cmd,
 									int prev_read, int pipefd[2]);
 int								fork_one_pipe(t_shell *shell, t_cmd *cmd,
-									int prev_read, int pipefd[2], pid_t *pid);
+									int fds[2], pid_t *pid);
 void							parent_close_pipe_fds(t_cmd *cmd,
 									int *prev_read, int pipefd[2]);
 int								apply_redirections(t_redir *redirs);
