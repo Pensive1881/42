@@ -46,6 +46,7 @@ SRC = src/main.c \
 	  src/arena.c \
 	  src/exec/execute_pipeline.c \
 	  src/exec/execute_single.c \
+	  src/exec/execute_single_utils.c \
 	  src/exec/execute_multi.c \
 	  src/exec/execute_multi_utils.c \
 	  src/exec/path.c \
