@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: akasper <akasper@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 21:00:43 by acasper           #+#    #+#             */
-/*   Updated: 2026/03/31 21:00:50 by acasper          ###   ########.fr       */
+/*   Updated: 2026/05/25 18:19:22 by akasper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../includes/minishell.h"
@@ -67,68 +67,13 @@ void	print_exec_error(char *cmd)
 
 void	child_exec(t_shell *shell, t_cmd *cmd, int in_fd, int out_fd)
 {
-	char	*path;
-
 	setup_child_signals();
-	if (in_fd != -1 && in_fd != STDIN_FILENO)
-	{
-		if (dup2(in_fd, STDIN_FILENO) < 0)
-		{
-			free_env(shell->env);
-			free_cmds(shell->cmds);
-			free_tokens(shell->tokens);
-			free(shell->input);
-			perror("dup2");
-			exit(1);
-		}
-	}
-	if (out_fd != STDOUT_FILENO)
-	{
-		if (dup2(out_fd, STDOUT_FILENO) < 0)
-		{
-			free_env(shell->env);
-			free_cmds(shell->cmds);
-			free_tokens(shell->tokens);
-			free(shell->input);
-			perror("dup2");
-			exit(1);
-		}
-	}
+	dup_child_fds(shell, in_fd, out_fd);
 	close_fd_if_needed(in_fd);
 	close_fd_if_needed(out_fd);
 	if (!apply_redirections(cmd->redirs))
-	{
-		free_env(shell->env);
-		free_cmds(shell->cmds);
-		free_tokens(shell->tokens);
-		free(shell->input);
-		exit(1);
-	}
+		clean_exit(shell, 1);
 	if (is_buildin(cmd->argv[0]))
-	{
-		shell->last_status = execute_buildin(shell, cmd);
-		free_env(shell->env);
-		free_cmds(shell->cmds);
-		free_tokens(shell->tokens);
-		free(shell->input);
-		exit(shell->last_status);
-	}
-	path = find_command_path(cmd->argv[0], shell->env);
-	if (!path)
-	{
-		print_exec_error(cmd->argv[0]);
-		free_env(shell->env);
-		free_cmds(shell->cmds);
-		free_tokens(shell->tokens);
-		free(shell->input);
-		exit(127);
-	}
-	execve(path, cmd->argv, shell->env);
-	perror("execve");
-	free_env(shell->env);
-	free_cmds(shell->cmds);
-	free_tokens(shell->tokens);
-	free(shell->input);
-	free(path);
-	exit(126);
+		exit_child_builtin(shell, cmd);
+	exec_child_external(shell, cmd);
 }
