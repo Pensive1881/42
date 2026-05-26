@@ -39,7 +39,7 @@ void	exit_child_builtin(t_shell *shell, t_cmd *cmd)
 
 void	exec_child_external(t_shell *shell, t_cmd *cmd)
 {
-	char *path;
+	char	*path;
 
 	path = find_command_path(cmd->argv[0], shell->env);
 	if (!path)
