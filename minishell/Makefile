@@ -36,6 +36,7 @@ SRC = src/main.c \
 	  src/lexer/lex.c \
 	  src/lexer/lexer_token.c \
 	  src/lexer/lexer_token_utils.c \
+	  src/expansion/expand.c \
 	  src/parser/parse.c \
 	  src/parser/parse_pipeline.c \
 	  src/parser/parse_command.c \

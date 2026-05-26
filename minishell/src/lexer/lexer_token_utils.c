@@ -89,6 +89,7 @@ t_token	*lex_quoted(char *input, int *i)
 	else
 		return (NULL);
 	token = create_token(TOKEN_WORD, value);
+	token->quote = quote; //the new thingi
 	return (token);
 }
 
@@ -101,6 +102,7 @@ t_token	*create_token(t_token_type type, char *value)
 		return (NULL);
 	token->type = type;
 	token->value = value;
+	token->quote = '\0'; //new thingi
 	token->next = NULL;
 	return (token);
 }

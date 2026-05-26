@@ -62,7 +62,7 @@ int								create_pipe_if_needed(t_cmd *cmd,
 void							run_pipe_child(t_shell *shell, t_cmd *cmd,
 									int prev_read, int pipefd[2]);
 int								fork_one_pipe(t_shell *shell, t_cmd *cmd,
-									int fds[2], pid_t *pid);
+									int fds[2], int pipefd[2], pid_t *pid);
 void							parent_close_pipe_fds(t_cmd *cmd,
 									int *prev_read, int pipefd[2]);
 int								apply_redirections(t_redir *redirs);

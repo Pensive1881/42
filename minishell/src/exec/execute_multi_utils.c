@@ -24,12 +24,15 @@ int	create_pipe_if_needed(t_cmd *cmd, int pipefd[2])
 void	run_pipe_child(t_shell *shell, t_cmd *cmd, int prev_read, int pipefd[2])
 {
 	if (cmd->next)
+	{
+		close_fd_if_needed(pipefd[0]);
 		child_exec(shell, cmd, prev_read, pipefd[1]);
+	}
 	else
 		child_exec(shell, cmd, prev_read, STDOUT_FILENO);
 }
 
-int	fork_one_pipe(t_shell *shell, t_cmd *cmd, int fds[2], pid_t *pid)
+int	fork_one_pipe(t_shell *shell, t_cmd *cmd, int fds[2], int pipefd[2], pid_t *pid)
 {
 	*pid = fork();
 	if (*pid < 0)
@@ -38,7 +41,7 @@ int	fork_one_pipe(t_shell *shell, t_cmd *cmd, int fds[2], pid_t *pid)
 		return (0);
 	}
 	if (*pid == 0)
-		child_exec(shell, cmd, fds[0], fds[1]);
+		run_pipe_child(shell, cmd, fds[0], pipefd);
 	return (1);
 }
 

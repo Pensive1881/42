@@ -50,11 +50,13 @@ static int	run_pipeline_step(t_shell *shell, t_cmd *cur, int *prev_read,
 	int	pipefd[2];
 	int	fds[2];
 
+	pipefd[0] = -1;
+	pipefd[1] = -1;
 	if (!create_pipe_if_needed(cur, pipefd))
 		return (0);
 	fds[0] = *prev_read;
-	fds[1] = pipefd[1];
-	if (!fork_one_pipe(shell, cur, fds, pid))
+	fds[1] = (cur->next ? pipefd[1] : STDOUT_FILENO);
+	if (!fork_one_pipe(shell, cur, fds, pipefd, pid))
 		return (0);
 	parent_close_pipe_fds(cur, prev_read, pipefd);
 	return (1);
@@ -76,7 +78,10 @@ void	execute_multi_command(t_shell *shell, t_cmd *cmds)
 	while (cur)
 	{
 		if (!run_pipeline_step(shell, cur, &prev_read, &pids[i]))
-			return (free(pids));
+		{
+			free(pids);
+			return ;
+		}
 		cur = cur->next;
 		i++;
 	}

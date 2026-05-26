@@ -21,6 +21,7 @@ static int	handle_input(t_shell *shell, char *input)
 	tokens = lexer(input, shell);
 	if (!tokens)
 		return (0);
+	expand_tokens(tokens, shell); // new thingi
 	if (!validate_syntax(tokens))
 	{
 		printf("syntax error\n");

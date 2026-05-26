@@ -39,6 +39,7 @@ typedef struct s_token
 {
 	t_token_type		type;
 	char				*value;
+	char				quote; // this thinginew
 	struct s_token		*next;
 }	t_token;
 
@@ -56,5 +57,7 @@ char	is_operator(char c);
 // lex.utils.c
 void	free_tokens(t_token *head);
 char	*expand_var(char *input, int *i, t_shell *shell);
+// expansion/expand.c
+t_token	expand_tokens(t_token *tokens, t_shell *shell); //new thingi
 
 #endif

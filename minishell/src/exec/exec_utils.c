@@ -61,8 +61,8 @@ void	close_fd_if_needed(int fd)
 
 void	print_exec_error(char *cmd)
 {
-	ft_putstr_fd("minishell: command not found: ", 2);
-	ft_putendl_fd(cmd, 2);
+	ft_putstr_fd(cmd, 2);
+	ft_putendl_fd(": command not found", 2);
 }
 
 void	child_exec(t_shell *shell, t_cmd *cmd, int in_fd, int out_fd)
