@@ -52,8 +52,8 @@ void							execute_single_command(t_shell *shell,
 void							clean_exit(t_shell *shell, int status);
 int								save_stdio(int saved[2]);
 void							restore_stdio(int saved[2]);
-void							run_saved_builtin(t_shell *shell,
-									t_cmd *cmd, int saved[2]);
+void							run_saved_builtin(t_shell *shell, t_cmd *cmd,
+									int saved[2]);
 void							wait_for_child(t_shell *shell, pid_t pid);
 void							execute_multi_command(t_shell *shell,
 									t_cmd *cmds);
@@ -74,7 +74,8 @@ void							close_fd_if_needed(int fd);
 void							print_exec_error(char *cmd);
 void							child_exec(t_shell *shell, t_cmd *cmd,
 									int in_fd, int out_fd);
-void							dup_child_fds(t_shell *shell, int in_fd, int out_fd);
+void							dup_child_fds(t_shell *shell, int in_fd,
+									int out_fd);
 void							exit_child_builtin(t_shell *shell, t_cmd *cmd);
 void							exec_child_external(t_shell *shell, t_cmd *cmd);
 
