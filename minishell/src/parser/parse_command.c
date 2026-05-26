@@ -41,11 +41,17 @@ t_cmd	*parse_command(t_token **cur)
 		return (NULL);
 	while (*cur && (*cur)->type != TOKEN_PIPE)
 	{
-		if ((*cur)->type == TOKEN_WORD && !handle_word(cmd, cur))
-			return (free_cmd_and_null(cmd));
-		else if (is_redirection((*cur)->type) && !handle_redirection(cmd, cur))
-			return (free_cmd_and_null(cmd));
-		else if ((*cur)->type != TOKEN_WORD && !is_redirection((*cur)->type))
+		if ((*cur)->type == TOKEN_WORD)
+		{
+			if (!handle_word(cmd, cur))
+				return (free_cmd_and_null(cmd));
+		}
+		else if (is_redirection((*cur)->type))
+		{
+			if (!handle_redirection(cmd, cur))
+				return (free_cmd_and_null(cmd));
+		}
+		else
 			return (free_cmd_and_null(cmd));
 	}
 	return (cmd);
