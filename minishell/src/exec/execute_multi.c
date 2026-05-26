@@ -44,7 +44,8 @@ static void	wait_all(t_shell *shell, pid_t *pids, int count)
 	}
 }
 
-static int	run_pipeline_step(t_shell *shell, t_cmd *cur, int *prev_read, pid_t *pid)
+static int	run_pipeline_step(t_shell *shell, t_cmd *cur, int *prev_read,
+		pid_t *pid)
 {
 	int	pipefd[2];
 	int	fds[2];
