@@ -38,7 +38,7 @@ static char	*check_direct_path(char *cmd)
 static char	*search_paths(char **paths, char *cmd)
 {
 	char	*full;
-	int	i;
+	int		i;
 
 	i = 0;
 	while (paths[i])
