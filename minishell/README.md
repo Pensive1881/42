@@ -4,6 +4,9 @@
 
 ## Description
 
+A simplified Unix shell written in C for the 42 curriculum.
+
+minishell reproduces core bash functionality including command execution, pipes, redirections, environment variables, and signal handling while exploring low-level Unix process management and parsing.
 
 ## Instructions
 ### Compile
