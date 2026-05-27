@@ -63,6 +63,31 @@ marvin
 
 ## Resources
 
+### Shell Behavior
+
+- Bash manual
+- POSIX shell specification
+
+### System Calls
+
+- fork
+- execve
+- wait / waitpid
+- pipe
+- dup / dup2
+
+### Parsing
+
+- tokenization
+- ASTs
+- quote handling
+- environment expansion
+
+### Debugging
+
+- valgrind
+- gdb
+```
 
 ## AI Usage
 
