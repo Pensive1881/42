@@ -94,3 +94,8 @@ marvin
 
 ## AI Usage
 
+AI tools were used to accelerate learning, assist with debugging, and troubleshoot implementation issues throughout development.
+
+This included help with understanding Unix behavior, identifying edge cases, and reviewing technical concepts related to parsing, processes, signals, and memory management.
+
+All final code, implementation decisions, and integration work were completed manually.
