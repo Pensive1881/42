@@ -15,15 +15,12 @@ static int	open_redir_file(t_redir *redir)
 {
 	int	fd;
 
-	fd = -1;
 	if (redir->type == R_IN)
 		fd = open(redir->file, O_RDONLY);
-	else if (redir->type == R_OUT)
-		fd = open(redir->file, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	else if (redir->type == R_APPEND)
 		fd = open(redir->file, O_WRONLY | O_CREAT | O_APPEND, 0644);
-	if (fd < 0)
-		perror(redir->file);
+        else
+                fd = open(redir->file, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	return (fd);
 }
 
