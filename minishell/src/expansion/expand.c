@@ -32,15 +32,16 @@ static char	*handler(char *str, int *i, char *result)
 
 static char	*char_handler(char *str, int *i, t_shell *shell, char *result)
 {
-	char	*old_value;
+	char	*old_result;
 	char	*value;
 
 	if (str[*i] == '$')
 	{
 		value = expand_var(str, i, shell);
-		old_value = value;
+		old_result = value;
 		result = ft_strjoin(result, value);
-		free(old_value);
+		free(old_result);
+		free(value);
 	}
 	else
 		result = handler(str, i, result);
