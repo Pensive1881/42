@@ -48,7 +48,6 @@ void	exec_child_external(t_shell *shell, t_cmd *cmd)
 		clean_exit(shell, 127);
 	}
 	execve(path, cmd->argv, shell->env);
-	perror("execve");
 	free(path);
 	clean_exit(shell, 126);
 }
