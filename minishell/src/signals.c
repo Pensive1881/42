@@ -15,6 +15,7 @@
 #include <signal.h>
 
 void					rl_replace_line(const char *text, int clear_undo);
+extern int				rl_done;
 
 volatile sig_atomic_t	g_signal = 0;
 
@@ -23,7 +24,8 @@ static void	sigint_handler(int signo)
 	g_signal = signo;
 	write(1, "\n", 1);
 	rl_on_new_line();
-	rl_redisplay();
+	rl_replace_line("", 0);
+	rl_done = 1;
 }
 
 void	setup_signals(void)

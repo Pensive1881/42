@@ -38,7 +38,7 @@ static char	*char_handler(char *str, int *i, t_shell *shell, char *result)
 	if (str[*i] == '$')
 	{
 		value = expand_var(str, i, shell);
-		old_result = value;
+		old_result = result;
 		result = ft_strjoin(result, value);
 		free(old_result);
 		free(value);

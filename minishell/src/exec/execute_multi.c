@@ -33,7 +33,7 @@ static void	wait_all(t_shell *shell, pid_t *pids, int count)
 	while (i < count)
 	{
 		waitpid(pids[i], &status, 0);
-		if (i == count - 1)
+		if (i == count - 1) // bash: clear: No such file or directory
 		{
 			if (WIFEXITED(status))
 				shell->last_status = WEXITSTATUS(status);
