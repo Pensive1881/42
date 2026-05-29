@@ -6,7 +6,7 @@
 #    By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/04 17:21:47 by acasper           #+#    #+#              #
-#    Updated: 2026/03/04 17:25:13 by acasper          ###   ########.fr        #
+#    Updated: 2026/05/29 15:36:55 by acasper          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,6 @@ SRC = src/main.c \
 	  src/parser/free_parser.c \
 	  src/parser/parse_redirection.c \
 	  src/parser/syntax_check.c \
-	  src/arena.c \
 	  src/exec/execute_pipeline.c \
 	  src/exec/execute_single.c \
 	  src/exec/execute_single_utils.c \
