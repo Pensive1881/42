@@ -33,6 +33,7 @@ typedef struct s_shell
 	int							running;
 	int							should_exit;
 	char						*input;
+	int							*pids;
 	t_token						*tokens;
 	t_cmd						*cmds;
 }								t_shell;
@@ -61,8 +62,8 @@ int								create_pipe_if_needed(t_cmd *cmd,
 									int pipefd[2]);
 void							run_pipe_child(t_shell *shell, t_cmd *cmd,
 									int prev_read, int pipefd[2]);
-int								fork_one_pipe(t_shell *shell, t_cmd *cmd,
-									int fds[2], int pipefd[2], pid_t *pid);
+pid_t							fork_one_pipe(t_shell *shell, t_cmd *cmd,
+									int fds[2], int pipefd[2]);
 void							parent_close_pipe_fds(t_cmd *cmd,
 									int *prev_read, int pipefd[2]);
 int								apply_redirections(t_redir *redirs);

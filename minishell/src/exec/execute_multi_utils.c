@@ -32,17 +32,19 @@ void	run_pipe_child(t_shell *shell, t_cmd *cmd, int prev_read, int pipefd[2])
 		child_exec(shell, cmd, prev_read, STDOUT_FILENO);
 }
 
-int	fork_one_pipe(t_shell *shell, t_cmd *cmd, int fds[2], int pipefd[2], pid_t *pid)
+pid_t	fork_one_pipe(t_shell *shell, t_cmd *cmd, int fds[2], int pipefd[2])
 {
-	*pid = fork();
-	if (*pid < 0)
+	pid_t	pid;
+
+	pid = fork();
+	if (pid < 0)
 	{
 		perror("fork");
-		return (0);
+		return (-1);
 	}
-	if (*pid == 0)
+	if (pid == 0)
 		run_pipe_child(shell, cmd, fds[0], pipefd);
-	return (1);
+	return (pid);
 }
 
 void	parent_close_pipe_fds(t_cmd *cmd, int *prev_read, int pipefd[2])

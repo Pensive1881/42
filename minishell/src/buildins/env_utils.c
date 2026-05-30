@@ -44,6 +44,7 @@ int	update_env(char **env, char *key, char *value)
 	{
 		if (ft_strncmp(env[i], key, len) == 0 && env[i][len] == '=')
 		{
+			free(env[i]);
 			env[i] = new_entry;
 			return (0);
 		}

@@ -6,7 +6,7 @@
 #    By: acasper <acasper@student.42berlin.de>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/04 17:21:47 by acasper           #+#    #+#              #
-#    Updated: 2026/05/29 15:36:55 by acasper          ###   ########.fr        #
+#    Updated: 2026/05/29 18:00:55 by acasper          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,9 +82,6 @@ clean:
 fclean: clean
 	make -C $(LIBFTDIR) fclean
 	rm -f $(NAME)
-
-valgrind: all
-	valgrind --leak-check=full --show-leak-kinds=all --trace-children=yes --track-fds=yes --suppressions=ignore_readline_errors.supp ./$(NAME)
 
 re: fclean all
 

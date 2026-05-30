@@ -13,6 +13,8 @@
 
 void	clean_exit(t_shell *shell, int status)
 {
+	if (shell->pids)
+		free(shell->pids);
 	free_env(shell->env);
 	free_cmds(shell->cmds);
 	free_tokens(shell->tokens);

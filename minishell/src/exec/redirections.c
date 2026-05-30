@@ -19,8 +19,8 @@ static int	open_redir_file(t_redir *redir)
 		fd = open(redir->file, O_RDONLY);
 	else if (redir->type == R_APPEND)
 		fd = open(redir->file, O_WRONLY | O_CREAT | O_APPEND, 0644);
-        else
-                fd = open(redir->file, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	else
+		fd = open(redir->file, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	return (fd);
 }
 

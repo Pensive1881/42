@@ -33,7 +33,7 @@ static void	wait_all(t_shell *shell, pid_t *pids, int count)
 	while (i < count)
 	{
 		waitpid(pids[i], &status, 0);
-		if (i == count - 1) // bash: clear: No such file or directory
+		if (i == count - 1)
 		{
 			if (WIFEXITED(status))
 				shell->last_status = WEXITSTATUS(status);
@@ -58,8 +58,13 @@ static int	run_pipeline_step(t_shell *shell, t_cmd *cur, int *prev_read,
 	fds[1] = STDOUT_FILENO;
 	if (cur->next)
 		fds[1] = pipefd[1];
-	if (!fork_one_pipe(shell, cur, fds, pipefd, pid))
+	*pid = fork_one_pipe(shell, cur, fds, pipefd);
+	if (*pid < 0)
+	{
+		close_fd_if_needed(pipefd[0]);
+		close_fd_if_needed(pipefd[1]);
 		return (0);
+	}
 	parent_close_pipe_fds(cur, prev_read, pipefd);
 	return (1);
 }
@@ -72,6 +77,7 @@ void	execute_multi_command(t_shell *shell, t_cmd *cmds)
 	t_cmd	*cur;
 
 	pids = malloc(sizeof(pid_t) * count_cmds(cmds));
+	shell->pids = pids;
 	if (!pids)
 		return ;
 	prev_read = -1;
@@ -81,7 +87,7 @@ void	execute_multi_command(t_shell *shell, t_cmd *cmds)
 	{
 		if (!run_pipeline_step(shell, cur, &prev_read, &pids[i]))
 		{
-			free(pids);
+			free(shell->pids);
 			return ;
 		}
 		cur = cur->next;
@@ -89,5 +95,5 @@ void	execute_multi_command(t_shell *shell, t_cmd *cmds)
 	}
 	close_fd_if_needed(prev_read);
 	wait_all(shell, pids, i);
-	free(pids);
+	free(shell->pids);
 }

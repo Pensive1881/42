@@ -44,7 +44,7 @@ static void	start_single_child(t_shell *shell, t_cmd *cmd)
 	pid = fork();
 	if (pid < 0)
 	{
-		perror("fork"); //bash: clear: No such file or directory
+		perror("fork");
 		return ;
 	}
 	if (pid == 0)
