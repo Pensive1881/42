@@ -23,8 +23,11 @@ INC = -I$(HEADERDIR) -I$(LIBFTDIR)/includes
 LIBFT = $(LIBFTDIR)/libft.a
 
 ifeq ($(UNAME_S), Darwin)
-	READLINE_FLAGS = -lreadline
+	READLINE_DIR = $(shell brew --prefix readline)
+	READLINE_INC = -I$(READLINE_DIR)/include
+	READLINE_FLAGS = -L$(READLINE_DIR)/lib -lreadline
 else
+	READLINE_INC =
 	READLINE_FLAGS = -lreadline -lncurses
 endif
 
@@ -73,7 +76,7 @@ $(NAME): $(OBJFILES)
 
 $(BUILDDIR)/%.o: $(SRCDIR)/%.c
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) $(INC) -c $< -o $@
+	$(CC) $(CFLAGS) $(INC) $(READLINE_INC) -c $< -o $@
 
 clean:
 	make -C $(LIBFTDIR) clean
