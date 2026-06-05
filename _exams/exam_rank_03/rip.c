@@ -78,7 +78,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		return (1);
-	balance find_balance(argv[1]);
+	balance = find_balance(argv[1]);
 	if (balance == 0)
 	{
 		puts(argv[1]);

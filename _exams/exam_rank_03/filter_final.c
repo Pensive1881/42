@@ -12,7 +12,7 @@ int	main(int ac, char **av)
 	char	buf[BUFFER_SIZE + 1000];
 
 	if (ac != 2 || !av[1][0])
-		return (0);
+		return (1);
 	len = strlen(av[1]);
 	keep = 0;
 	while ((r = read(0, buf + keep, BUFFER_SIZE)) > 0)
