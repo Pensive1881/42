@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BackendCodeEditorMiscSettings">
+    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3dabffa0-2784-4ba8-842d-e5dacb9252db" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../_exams/exam_rank_03/n_queens_easy.c" beforeDir="false" afterPath="$PROJECT_DIR$/../../../_exams/exam_rank_03/n_queens_easy.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../_exams/exam_rank_03/permutations_recursive.c" beforeDir="false" afterPath="$PROJECT_DIR$/../../../_exams/exam_rank_03/permutations_recursive.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../_pdfs/projects_pdfs_core/ring02/minitalk.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../_pdfs/projects_pdfs_core/ring02/ring02_minitalk.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../_pdfs/projects_pdfs_core/ring03/ring03_Philosophers.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../_pdfs/projects_pdfs_core/ring04/cub3d.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../_pdfs/projects_pdfs_core/ring04/ring04_CPP_Module_03.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../_pdfs/projects_pdfs_core/ring04/ring04_NetPractice - net_practice.1.5.tgz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../_pdfs/projects_pdfs_core/ring04/ring04_NetPractice - net_practice.1.9.tgz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../_pdfs/projects_pdfs_core/ring04/ring04_NetPractice.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../_pdfs/projects_pdfs_core/ring04/ring04_cub3d.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../_pdfs/projects_pdfs_core/ring04/ring04_miniRT - minilibx-linux.tgz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../_pdfs/projects_pdfs_core/ring04/ring04_miniRT - minilibx_mms_20200219_beta.tgz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../_pdfs/projects_pdfs_core/ring04/ring04_miniRT - minilibx_opengl.tgz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../_pdfs/projects_pdfs_core/ring04/ring04_miniRT.pdf" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="FxffKKaW" />
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2025" />
+    <option name="minorVersion" value="3.3" />
+    <option name="productBranch" value="Classic" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="3Ew6kgwx4ckProf4OMCGIQNgjbt" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.RadMigrateCodeStyle": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "main",
+    "org.rust.first.attach.projects": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="RustProjectSettings">
+    <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3dabffa0-2784-4ba8-842d-e5dacb9252db" name="Changes" comment="" />
+      <created>1781077430795</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1781077430795</updated>
+      <workItem from="1781077432594" duration="5000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
