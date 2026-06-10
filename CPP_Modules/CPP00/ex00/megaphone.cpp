@@ -19,7 +19,7 @@ int main(int ac, char **av)
 {
     if (ac == 1 || empty_av_check(av))
     {
-        std::count << " * LOUD AND UNBEARABLE FEEDBACK NOISE *"
+        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
     }
     else
     {
@@ -30,11 +30,11 @@ int main(int ac, char **av)
             while (av[i][j])
             {
                 std::cout << (char)std::toupper(av[i][j]);
-                j++
+                j++;
             }
             i++;
         }
     }
-    std::cout << strd::endl;
+    std::cout << std::endl;
     return (0);
 }
