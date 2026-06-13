@@ -17,17 +17,29 @@ void PhoneBook::addContact()
     std::string input;
 
     std::cout << "Enter First Name: ";
-    if ()
+    if (!(std::getline(std::cin, input)) || input.empty())
         return;
     _contacts[_index].setFirstName(input);
 
     std::cout << "Enter Last Name: ";
+    if ()
+        return ;
+    _contacts[_index].setLastName(input)
 
     std::cout << "Enter Nick Name: ";
-
+    if ()
+        return ;
+    _contacts[]
+    
     std::cout << "Enter Phone Number: ";
+    if ()
+        return ;
+    _contacts[]
 
     std::cout << "Enter Dark Secret: ";
+    if ()
+        return ;
+    _contacts[]
 
     _index = (_index + 1) % 8
 
