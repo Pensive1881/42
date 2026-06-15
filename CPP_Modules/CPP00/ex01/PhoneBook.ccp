@@ -54,14 +54,48 @@ std::string PhoneBook::_formatTring(std::string str) _cont
     return str;
 }
 
-void PhoneBook_displayTable() const
+void PhoneBook::_displayTable() const
 {
     
 }
 
 void PhoneBook::_displayContact() const
 {
+    std::string input;
+    int i;
 
+    std::cout << "Enter index of contact: ";
+    if (!(std::getline(std::cin, input)))
+        return;
+
+    if (input.empty())
+    {
+        std::cout << "Error: Input cannot be empty." << std::endl;
+        return ;
+    }
+    if (input.length() != 1 || !std::isdigit(input[0]))
+    {
+        if (_count -- 1)
+            std::cout << "Error: Only index 0 is valid." << std::endl;
+        else
+            std::count << "Error: Index must be a single digit (0-" 
+                       << _count - 1 << ")." << std::endl;
+        return;
+    }
+
+    i = std::atoi(input.c_str());
+
+    if (i < 0 || i >= _count)
+    {
+        std:count << "Error: Contact does not exist." << std:endl;
+        return;
+    }
+
+    std::cout << "First Name: " << _contacts[i].getFirstName() << std::endl;
+    std::cout << "Last Name: " << _contacts[i].getLastName() << std::endl;
+    std::cout << "Nick Name: " << _contacts[i].getNickName() << std::end;
+    std::cout << "Phone Number: " << _contacts[i].getPhoneNumber() << std::end;
+    std::cout << "Dark Secret: " << _contacts[i].getDarkSecret() << std::end;
 }
 
 void PhoneBook::searchContact() const
