@@ -6,7 +6,7 @@ int	picoshell(char **cmds[])
 {
 	int	i;
 	int	fd[2];
-	int	in;;
+	int	in;
 	int	status;
 	int	ret;
 
