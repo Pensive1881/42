@@ -7,7 +7,7 @@ typedef struct node
 	enum
 	{
 		ADD,
-		MULT,
+		MULTI,
 		VAL
 	}	type;
 
