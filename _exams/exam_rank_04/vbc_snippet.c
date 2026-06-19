@@ -51,7 +51,7 @@ node	*parse_add(char **s)
 
 ...
 
-node	parse_expr(char *s)
+node	*parse_expr(char *s)
 {
 	node	*ret;
 
