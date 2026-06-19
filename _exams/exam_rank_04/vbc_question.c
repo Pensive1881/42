@@ -9,12 +9,12 @@ typedef struct node
 		ADD,
 		MULT,
 		VAL
-	} type;
+	}	type;
 
 	int val;
 	struct node *l;
 	struct node *r;
-} node;
+}	node;
 
 node *new_node(node n)
 {
@@ -64,111 +64,14 @@ int expect(char **s, char c)
 	return 0;
 }
 
-node *parse_expr(char **s);
+// ...
 
-node *parse_factor(char **s)
+node *parse_expr(char *s)
 {
-	node n;
-	node *ret;
-
-	if (isdigit(**s))
-	{
-		n.type = VAL;
-		n.val = **s - '0';
-		n.l = NULL;
-		n.r = NULL;
-		(*s)++;
-		return new_node(n);
-	}
-	if (accept(s, '('))
-	{
-		ret = parse_expr(s);
-		if (!ret)
-			return NULL;
-		if (!expect(s, ')'))
-		{
-			destroy_tree(ret);
-			return NULL;
-		}
-		return ret;
-	}
-	unexpected(**s);
-	return NULL;
-}
-
-node *parse_term(char **s)
-{
-	node *left;
-	node *right;
-	node n;
-
-	left = parse_factor(s);
-	if (!left)
-		return NULL;
-	while (accept(s, '*'))
-	{
-		right = parse_factor(s);
-		if (!right)
-		{
-			destroy_tree(left);
-			return NULL;
-		}
-		n.type = MULT;
-		n.val = 0;
-		n.l = left;
-		n.r = right;
-		left = new_node(n);
-		if (!left)
-		{
-			destroy_tree(right);
-			return NULL;
-		}
-	}
-	return left;
-}
-
-node *parse_addition(char **s)
-{
-	node *left;
-	node *right;
-	node n;
-
-	left = parse_term(s);
-	if (!left)
-		return NULL;
-	while (accept(s, '+'))
-	{
-		right = parse_term(s);
-		if (!right)
-		{
-			destroy_tree(left);
-			return NULL;
-		}
-		n.type = ADD;
-		n.val = 0;
-		n.l = left;
-		n.r = right;
-		left = new_node(n);
-		if (!left)
-		{
-			destroy_tree(right);
-			return NULL;
-		}
-	}
-	return left;
-}
-
-node *parse_expr(char **s)
-{
-	node *ret;
-
-	ret = parse_addition(s);
-	if (!ret)
-		return NULL;
-	if (**s)
+	// ...
+	if (*s)
 	{
 		destroy_tree(ret);
-		unexpected(**s);
 		return NULL;
 	}
 	return ret;
@@ -180,24 +83,20 @@ int eval_tree(node *tree)
 	{
 		case ADD:
 			return eval_tree(tree->l) + eval_tree(tree->r);
-		case MULT:
+		case MULTI:
 			return eval_tree(tree->l) * eval_tree(tree->r);
 		case VAL:
 			return tree->val;
 	}
-	return 0;
 }
 
 int main(int argc, char **argv)
 {
-	node *tree;
-
 	if (argc != 2)
 		return 1;
-	tree = parse_expr(argv + 1);
+	node *tree = parse_expr(argv[1]);
 	if (!tree)
 		return 1;
 	printf("%d\n", eval_tree(tree));
 	destroy_tree(tree);
-	return 0;
 }
