@@ -1,5 +1,5 @@
 #ifndef ZOMBIE_HPP
-# define
+# define ZOMBIE_HPP
 
 # include <string>
 
@@ -18,4 +18,4 @@ class Zombie
 
 Zombie* zombieHorde(int N, std::string name);
 
-#endof
+#endif
