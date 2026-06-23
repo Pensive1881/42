@@ -1,21 +1,7 @@
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+NAME		= zombieHorde
 
-# include <string>
+CXX			= c++
+CXXFLAGS	= -Wall -Wextra -Werror - std=c++98
 
-class Zombie
-{
-	private:
-		std::string name;
-
-	public:
-		Zombie();
-		~Zombie();
-
-		void setName(std::string name);
-		void announce(void);
-};
-
-Zombie* zombieHorde(int N, std::string name);
-
-#endif
+SRCS		= main.cpp Zombie.cpp zombieHorde.cpp
+OBJS		= 
