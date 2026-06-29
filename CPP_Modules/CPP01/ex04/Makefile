@@ -6,13 +6,13 @@ CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 SRCS		= main.cpp
 OBJS		= $(SRCS:.cpp=.o)
 
-all $(NAME)
+all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CXX) $(CXXFLAG) $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 %.o: %.cpp
-	$(CXX) $(CXXFLAGS) ic %< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)
@@ -20,6 +20,6 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-re: flcean all
+re: fclean all
 
 .PHONY: all clean fclean re
