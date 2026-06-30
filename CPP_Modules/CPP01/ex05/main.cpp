@@ -5,8 +5,8 @@ int main(void)
     Harl harl;
 
     harl.complain("DEBUG");
-    harl.compalin("INFO");
-    harl.compalin("WARNING");
+    harl.complain("INFO");
+    harl.complain("WARNING");
     harl.complain("ERROR");
 
     return (0);
