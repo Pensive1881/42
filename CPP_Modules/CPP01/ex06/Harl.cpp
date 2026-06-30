@@ -47,7 +47,7 @@ void Harl::complain(std::string level)
         "ERROR"
     };
 
-    void (Harl::*functions[4](void) = {
+    void (Harl::*functions[4])(void) = {
         &Harl::debug,
         &Harl::info,
         &Harl::warning,
@@ -70,13 +70,13 @@ void Harl::complain(std::string level)
         case 0:
             (this->*functions[0])();
         case 1:
-            (this->*functions[1])():
+            (this->*functions[1])();
         case 2:
             (this->*functions[2])();
         case 3:
             (this->*functions[3])();
             break;
         default:
-            std:cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+            std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
     }
 }
