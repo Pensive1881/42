@@ -38,7 +38,7 @@ void Harl::error(void)
               << "I want to speak to the manager now." << std::endl;
 }
 
-void Harl::compalin(std::string level)
+void Harl::complain(std::string level)
 {
     std::string levels[4] = {
         "",
@@ -47,7 +47,7 @@ void Harl::compalin(std::string level)
         ""
     };
 
-    void (Harl::*funtions[4](void) = {
+    void (Harl::*functions[4](void) = {
         &Harl::debug,
         &Harl::info,
         &Harl::warning,
@@ -56,7 +56,7 @@ void Harl::compalin(std::string level)
 
     for (int i = 0; i < 4; i++)
     {
-        if (level == level[i])
+        if (level == levels[i])
         {
             (this->*functions[i])()
             return;
