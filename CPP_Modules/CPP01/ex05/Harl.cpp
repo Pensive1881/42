@@ -37,3 +37,29 @@ void Harl::error(void)
     std::cout << "This is unacceptable! "
               << "I want to speak to the manager now." << std::endl;
 }
+
+void Harl::compalin(std::string level)
+{
+    std::string levels[4] = {
+        "",
+        "",
+        "",
+        ""
+    };
+
+    void (Harl::*funtions[4](void) = {
+        &Harl::debug,
+        &Harl::info,
+        &Harl::warning,
+        &Harl::error
+    };
+
+    for (int i = 0; i < 4; i++)
+    {
+        if (level == level[i])
+        {
+            (this->*functions[i])()
+            return;
+        }
+    }
+}
