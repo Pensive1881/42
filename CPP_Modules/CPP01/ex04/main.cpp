@@ -6,7 +6,7 @@ int main(int argc, char **argv)
 {
     if (argc != 4)
     {
-        std::cout << "Usage: ./replace <filename> >s1> <s2>" << std::endl;
+        std::cout << "Usage: ./replace <filename> <s1> <s2>" << std::endl;
         return (1);
     }
 
@@ -16,7 +16,7 @@ int main(int argc, char **argv)
 
     if (s1.empty())
     {
-        std:cout << "Error: s1 cannot be empty." << std::endl;
+        std::cout << "Error: s1 cannot be empty." << std::endl;
         return (1);
     }
 
