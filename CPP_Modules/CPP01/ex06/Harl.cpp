@@ -68,15 +68,15 @@ void Harl::complain(std::string level)
     switch (index)
     {
         case 0:
-
+            (this->*functions[0])();
         case 1:
-
+            (this->*functions[1])():
         case 2:
-
+            (this->*functions[2])();
         case 3:
-
+            (this->*functions[3])();
             break;
         default:
-            std:cout << "" << std::endl;
+            std:cout << "[ Probably complaining about insignificant problems ]" << std::endl;
     }
 }
