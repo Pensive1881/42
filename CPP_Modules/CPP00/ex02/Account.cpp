@@ -92,10 +92,10 @@ void Account::displayAccountsInfos(void)
               << std::endl;
 }
 
-void account::displayStatus(void) const
+void Account::displayStatus(void) const
 {
     _displayTimestamp();
-    std::cout << "index:" << _acountIndex
+    std::cout << "index:" << _accountIndex
               << ";amount:" << _amount
               << ";deposits:" << _nbDeposits
               << ";withdrawals:" << _nbWithdrawals
@@ -105,7 +105,7 @@ void account::displayStatus(void) const
 Account::~Account(void)
 {
     _displayTimestamp();
-    std::cout << "index:" << _acountIndex
+    std::cout << "index:" << _accountIndex
               << ";amount:" << _amount
               << ";closed" << std::endl;
 }
