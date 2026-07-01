@@ -73,8 +73,8 @@ bool Account::makeWithdrawal(int withdrawal)
 
     previous = _amount;
     _displayTimestamp();
-    std::cout << "" << _accountIndex
-              << "" << previous;
+    std::cout << "index:" << _accountIndex
+              << ";p_amount:" << previous;
 
     if (withdrawal > _amount)
     {
@@ -87,9 +87,9 @@ bool Account::makeWithdrawal(int withdrawal)
     _totalAmount -= withdrawal;
     _totalNbWithdrawals++;
 
-    std::cout << "" << withdrawal
-              << "" << _amount
-              << "" << _nbWithdrawals
+    std::cout << ";withdrawal:" << withdrawal
+              << ";amount:" << _amount
+              << ";nb_withdrawals:" << _nbWithdrawals
               << std::endl;
     return (true);
 }
