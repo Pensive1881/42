@@ -8,7 +8,7 @@ int Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;
 int Account::_totalNbWithddrawals = 0;
 
-Account:Account(int initial_deposit)
+void Account::_displayTimestamp(void)
 {
     std::time_t now;
     std::tm *timeinfo;
@@ -25,6 +25,22 @@ Account:Account(int initial_deposit)
               << std::setw(2) << timeinfo->tm_sec
               << "] ";
     std::cout << std:setfill(' ');
+}
+
+Account:Account(int initial_deposit)
+{
+    _accountIndex = _nbAccounts;
+    _amount = initial_deposit;
+    _nbDeposits = 0;
+    _nbWithdrawals = 0;
+
+    _nbAccounts++;
+    _totalAmount += initial_deposit;
+
+    _displayTimestamp();
+    std:cout << "index:" << _accountIndex
+             << ";amount:" << _amount
+             << ";created" << std::endl;
 }
 
 Account::~Account(void)
