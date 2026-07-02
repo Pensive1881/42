@@ -56,7 +56,7 @@ std::string PhoneBook::_formatString(std::string str) const
 
 void PhoneBook::_displayTable() const
 {
-    std:cout << std::setw(10) << "Index" << "|"
+    std::cout << std::setw(10) << "Index" << "|"
              << std::setw(10) << "First Name" << "|"
              << std::setw(10) << "Last Name" << "|"
              << std::setw(10) << "Nickname" << std::endl;
@@ -87,11 +87,8 @@ void PhoneBook::_displayContact() const
     }
     if (input.length() != 1 || !std::isdigit(input[0]))
     {
-        if (_count - 1)
-            std::cout << "Error: Only index 0 is valid." << std::endl;
-        else
-            std::cout << "Error: Index must be a single digit (0-" 
-                       << _count - 1 << ")." << std::endl;
+        std::cout << "Error: Index must be a single digit (0-" 
+                  << _count - 1 << ")." << std::endl;
         return;
     }
 
