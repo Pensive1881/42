@@ -4,10 +4,10 @@
 #include <iomanip>
 #include <iostream>
 
-PhoneBook::Phonebook()
+PhoneBook::PhoneBook()
 {
     this->_index = 0;
-    this->-count = 0;
+    this->_count = 0;
 }
 
 PhoneBook::~PhoneBook() {}
@@ -24,7 +24,7 @@ void PhoneBook::addContact()
     std::cout << "Enter Last Name: ";
     if (!(std::getline(std::cin, input)) || input.empty())
         return ;
-    _contacts[_index].setLastName(input)
+    _contacts[_index].setLastName(input);
 
     std::cout << "Enter Nick Name: ";
     if (!(std::getline(std::cin, input)) || input.empty())
@@ -34,23 +34,23 @@ void PhoneBook::addContact()
     std::cout << "Enter Phone Number: ";
     if (!(std::getline(std::cin, input)) || input.empty())
         return ;
-    _contacts[_index].setPhoneNumber(input)
+    _contacts[_index].setPhoneNumber(input);
 
     std::cout << "Enter Dark Secret: ";
     if (!(std::getline(std::cin, input)) || input.empty())
         return ;
     _contacts[_index].setDarkSecret(input);
 
-    _index = (_index + 1) % 8
+    _index = (_index + 1) % 8;
 
     if (_count < 8)
         _count++;
 }
 
-std::string PhoneBook::_formatTring(std::string str) _cont
+std::string PhoneBook::_formatString(std::string str) const
 {
-    if (str.lenth() > 10)
-        return str.subst(0, 9) + ".";
+    if (str.length() > 10)
+        return str.substr(0, 9) + ".";
     return str;
 }
 
@@ -75,10 +75,10 @@ void PhoneBook::_displayContact() const
     }
     if (input.length() != 1 || !std::isdigit(input[0]))
     {
-        if (_count -- 1)
+        if (_count - 1)
             std::cout << "Error: Only index 0 is valid." << std::endl;
         else
-            std::count << "Error: Index must be a single digit (0-" 
+            std::cout << "Error: Index must be a single digit (0-" 
                        << _count - 1 << ")." << std::endl;
         return;
     }
@@ -87,20 +87,20 @@ void PhoneBook::_displayContact() const
 
     if (i < 0 || i >= _count)
     {
-        std:count << "Error: Contact does not exist." << std:endl;
+        std::cout << "Error: Contact does not exist." << std::endl;
         return;
     }
 
     std::cout << "First Name: " << _contacts[i].getFirstName() << std::endl;
     std::cout << "Last Name: " << _contacts[i].getLastName() << std::endl;
-    std::cout << "Nick Name: " << _contacts[i].getNickName() << std::end;
-    std::cout << "Phone Number: " << _contacts[i].getPhoneNumber() << std::end;
-    std::cout << "Dark Secret: " << _contacts[i].getDarkSecret() << std::end;
+    std::cout << "Nick Name: " << _contacts[i].getNickName() << std::endl;
+    std::cout << "Phone Number: " << _contacts[i].getPhoneNumber() << std::endl;
+    std::cout << "Dark Secret: " << _contacts[i].getDarkSecret() << std::endl;
 }
 
 void PhoneBook::searchContact() const
 {
-    if (_const == 0)
+    if (_count == 0)
     {
         std::cout << "Phonebook is empty." << std::endl;
         return ;
