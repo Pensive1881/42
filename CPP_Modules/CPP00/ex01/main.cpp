@@ -17,7 +17,7 @@ int main(int ac, char **av)
             break;
         else if (input == "SEARCH")
             pb.searchContact();
-        else if (inpt == "ADD")
+        else if (input == "ADD")
             pb.addContact();
         else
         {
