@@ -56,7 +56,19 @@ std::string PhoneBook::_formatString(std::string str) const
 
 void PhoneBook::_displayTable() const
 {
+    std:cout << std::setw(10) << "Index" << "|"
+             << std::setw(10) << "First Name" << "|"
+             << std::setw(10) << "Last Name" << "|"
+             << std::setw(10) << "Nickname" << std::endl;
     
+    for (int i = 0; i < _count; i++)
+    {
+        std::cout << std::setw(10) << i << "|"
+                  << std::setw(10) << _formatString(_contacts[i].getFirstName()) << "|"
+                  << std::setw(10) << _formatString(_contacts[i].getLastName()) << "|"
+                  << std::setw(10) << _formatString(_contacts[i].getNickName())
+                  << std::endl;
+    }
 }
 
 void PhoneBook::_displayContact() const
