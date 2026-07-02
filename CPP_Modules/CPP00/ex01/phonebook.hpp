@@ -4,10 +4,10 @@
 #include "Contact.hpp"
 #include <string>
 
-clas PhoneBook
+class PhoneBook
 {
     private:
-        Contract _contacts [8];
+        Contact _contacts [8];
         int _index;
         int _count;
 
