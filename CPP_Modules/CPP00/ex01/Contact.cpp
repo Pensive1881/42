@@ -1,10 +1,10 @@
 #include "Contact.hpp"
 
-Contact:Contact() {}
+Contact::Contact() {}
 
 Contact::~Contact() {}
 
-void Contact::setFristName(std::string str)
+void Contact::setFirstName(std::string str)
 {
     _firstName = str;
 }
@@ -39,12 +39,12 @@ std::string Contact::getLastName(void) const
     return _lastName;
 }
 
-std::strint Contact::getNickName(void) const
+std::string Contact::getNickName(void) const
 {
     return _nickName;
 }
 
-std::string Contact:getPhoneNumber(void) const
+std::string Contact::getPhoneNumber(void) const
 {
     return _phoneNumber;
 }
