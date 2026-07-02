@@ -16,7 +16,7 @@ class Contact
         Contact();
         ~Contact();
 
-        voide setFirstName(std::string str)_;
+        voide setFirstName(std::string str);
         void setLastName(std::string str);
         void setNickName(std::string str);
         void setPhoneNumber(std::string str);
