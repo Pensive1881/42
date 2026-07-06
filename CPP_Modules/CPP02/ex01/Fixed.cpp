@@ -15,11 +15,11 @@ Fixed::Fixed(const Fixed& other)
 
 Fixed::Fixed(const int value)
 {
-    std::cout << "Flat constructor called" << std::endl;
-    this->_value = roundf(value * (1 << _frationalBits));
+    std::cout << "Int constructor called" << std::endl;
+    this->_value = value * (1 << _fractionalBits);
 }
 
-Fixed:Fixed(const flat value)
+Fixed::Fixed(const float value)
 {
     std::cout << "Float constructor called" << std::endl;
     this->_value = roundf(value * (1 << _fractionalBits));
@@ -49,12 +49,12 @@ void Fixed::setRawBits(int const raw)
     this->_value = raw;
 }
 
-float Fixed::toFlat(void) const
+float Fixed::toFloat(void) const
 {
     return (static_cast<float>(this->_value) / (1 << _fractionalBits));
 }
 
-int FIxed::toInt(void) const
+int Fixed::toInt(void) const
 {
     return (this->_value >> _fractionalBits);
 }
