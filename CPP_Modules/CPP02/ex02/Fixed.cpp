@@ -97,7 +97,25 @@ bool Fixed::operator!=(const Fixed& other) const
 }
 
 // arithmetic operators
+Fixed Fixed::operator+(const Fixed& other) const
+{
+    return (Fixed(this->toFloat() + other.toFloat()));
+}
 
+Fixed Fixed::operator-(const Fixed& other) const
+{
+    return (Fixed(this->toFloat() - other.toFloat()));
+}
+
+Fixed Fixed::operator*(const Fixed& other) const
+{
+    return (Fied(this->toFloat() *  other.toFloat()));
+}
+
+Fixed Fixed::operator/(const Fixed& other) const
+{
+    return (Fixed(this->toFloat() / other.toFloat()));
+}
 
 // increment/decrement
 
