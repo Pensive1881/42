@@ -83,12 +83,12 @@ bool Fixed::operator>=(const Fixed& other) const
 
 bool Fixed::operator<=(const Fixed& other) const
 {
-    return (this->_value <= other.value);
+    return (this->_value <= other._value);
 }
 
 bool Fixed::operator==(const Fixed& other) const
 {
-    return (this->_value == other._ value);
+    return (this->_value == other._value);
 }
 
 bool Fixed::operator!=(const Fixed& other) const
@@ -109,7 +109,7 @@ Fixed Fixed::operator-(const Fixed& other) const
 
 Fixed Fixed::operator*(const Fixed& other) const
 {
-    return (Fied(this->toFloat() *  other.toFloat()));
+    return (Fixed(this->toFloat() *  other.toFloat()));
 }
 
 Fixed Fixed::operator/(const Fixed& other) const
@@ -137,7 +137,7 @@ Fixed& Fixed::operator--()
     return (*this);
 }
 
-Fixed Fixed::opeartor--(int)
+Fixed Fixed::operator--(int)
 {
     Fixed temp(*this);
     this->_value--;
