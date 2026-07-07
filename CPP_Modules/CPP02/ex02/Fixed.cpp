@@ -64,3 +64,43 @@ std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
     out << fixed.toFloat();
     return (out);
 }
+
+// comparison operators
+bool Fixed::operator>(const Fixed& other) const
+{
+    return (this->_value > other._value);
+}
+
+bool Fixed::operator<(const Fixed& other) const
+{
+    return (this->_value < other._value);
+}
+
+bool Fixed::operator>=(const Fixed& other) const
+{
+    return (this->_value >= other._value);
+}
+
+bool Fixed::operator<=(const Fixed& other) const
+{
+    return (this->_value <= other.value);
+}
+
+bool Fixed::operator==(const Fixed& other) const
+{
+    return (this->_value == other._ value);
+}
+
+bool Fixed::operator!=(const Fixed& other) const
+{
+    return (this->_value != other._value);
+}
+
+// arithmetic operators
+
+
+// increment/decrement
+
+
+// min / max
+
