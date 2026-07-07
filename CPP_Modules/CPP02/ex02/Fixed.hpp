@@ -28,22 +28,22 @@ class Fixed
         bool operator<(const Fixed& other) const;
         bool operator>=(const Fixed& other) const;
         bool operator<=(const Fixed& other) const;
-        bool operator== (const Fixed& other) const;
+        bool operator==(const Fixed& other) const;
         bool operator!=(const Fixed& other) const;
 
-        Fixed opeator+(const Fixed& other) const;
+        Fixed operator+(const Fixed& other) const;
         Fixed operator-(const Fixed& other) const;
         Fixed operator*(const Fixed& other) const;
-        Fixed operator/(const Fixed& otehr) const;
+        Fixed operator/(const Fixed& other) const;
 
         Fixed& operator++();
         Fixed operator++(int);
-        FIxed operator--();
+        Fixed& operator--();
         Fixed operator--(int);
 
         static Fixed& min(Fixed& a, Fixed& b);
-        static const Fixed& min(const Fixed& a, onst Fixed& b);
-        static Fixed& mac(Fixed& a, Fixed b);
+        static const Fixed& min(const Fixed& a, const Fixed& b);
+        static Fixed& max(Fixed& a, Fixed& b);
         static const Fixed& max(const Fixed& a, const Fixed& b);
 };
 
