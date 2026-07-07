@@ -118,7 +118,31 @@ Fixed Fixed::operator/(const Fixed& other) const
 }
 
 // increment/decrement
+Fixed& Fixed::operator++()
+{
+    this->_value++;
+    return (*this);
+}
 
+Fixed Fixed::operator++(int)
+{
+    Fixed temp(*this);
+    this->_value++;
+    return (temp);
+}
+
+Fixed& Fixed::operator--()
+{
+    this->_value--;
+    return (*this);
+}
+
+Fixed Fixed::opeartor--(int)
+{
+    Fixed temp(*this);
+    this->_value--;
+    return (temp);
+}
 
 // min / max
 
