@@ -117,7 +117,7 @@ Fixed Fixed::operator/(const Fixed& other) const
     return (Fixed(this->toFloat() / other.toFloat()));
 }
 
-// increment/decrement
+// increment/decrement operator overloads
 Fixed& Fixed::operator++()
 {
     this->_value++;
@@ -144,5 +144,31 @@ Fixed Fixed::opeartor--(int)
     return (temp);
 }
 
-// min / max
+// min/max
+Fixed& Fixed::min(Fixed& a, Fixed& b)
+{
+    if (a < b)
+        return (a);
+    return (b);
+}
 
+const Fixed& Fixed::min(const Fixed& a, const Fixed& b)
+{
+    if (a < b)
+        return (a);
+    return (b);
+}
+
+Fixed& Fixed::max(Fixed& a, Fixed& b)
+{
+    if (a > b)
+        return (a);
+    return (b);
+}
+
+const Fixed& Fixed::max(const Fixed& a, const Fixed& b)
+{
+    if (a > b)
+        return (a);
+    return (b);
+}
