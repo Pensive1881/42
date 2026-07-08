@@ -17,8 +17,8 @@ class Point
         ~Point();
 
         Fixed getX(void) const;
-        Fixed getY(coid) const;
-}
+        Fixed getY(void) const;
+};
 
 bool bsp(Point const a,
          Point const b,
