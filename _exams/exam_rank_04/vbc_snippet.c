@@ -2,8 +2,8 @@ node	*parse_add(char **s);
 
 node	*parse_factor(char **s)
 {
-	node	n;
 	node	*ret;
+	node	n;
 
 	if (isdigit(**s))
 	{
@@ -95,7 +95,8 @@ node	*parse_expr(char *s)
 	ret = parse_add(&s);
 	if (!ret)
 		return (NULL);
-
+	if (*s)
+		unexpected(*s);
 ...
 	if (*s)
 	{
