@@ -173,17 +173,6 @@ node	*parse_expr(char *s)
 }
 
 
-node *parse_expr(char *s)
-{
-	// ...
-	if (*s)
-	{
-		destroy_tree(ret);
-		return NULL;
-	}
-	return ret;
-}
-
 int eval_tree(node *tree)
 {
 	switch (tree->type)
