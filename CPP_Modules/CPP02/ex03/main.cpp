@@ -7,7 +7,7 @@ int main(void)
     Point b(10.0f, 0.0f);
     Point c(5.0f, 10.0f);
 
-    Point inside(5.0f, 0.0f);
+    Point inside(5.0f, 5.0f);
     Point outside(10.0f, 10.0f);
     Point edge(5.0f, 0.0f);
     Point vertex(0.0f, 0.0f);
