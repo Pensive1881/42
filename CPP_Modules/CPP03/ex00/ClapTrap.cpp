@@ -1,8 +1,8 @@
 #include "ClapTrap.hpp"
 #include <iostream>
 
-ClapTrap::ClapTrap)
-    : _name("Default"), _hitpoints(10),
+ClapTrap::ClapTrap()
+    : _name("Default"), _hitPoints(10),
       _energyPoints(10), _attackDamage(0)
 {
     std::cout << "ClapTrap default constructor called" << std::endl;
@@ -10,7 +10,7 @@ ClapTrap::ClapTrap)
 
 ClapTrap::ClapTrap(const std::string& name)
     : _name(name), _hitPoints(10),
-      _energyPoint(10), _attackDamage(0)
+      _energyPoints(10), _attackDamage(0)
 {
     std::cout << "ClapTrap" << _name
               << " constructor called" << std::endl;
@@ -29,7 +29,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
     std::cout << "ClapTrap copy assignment operator called" << std::endl;
 
-    if (this != other)
+    if (this != &other)
     {
         _name = other._name;
         _hitPoints = other._hitPoints;
@@ -49,7 +49,7 @@ void ClapTrap::attack(const std::string& target)
 {
     if (_hitPoints == 0)
     {
-        cout << "ClapTrap " << _name
+        std::cout << "ClapTrap " << _name
              << " cannot attack because it has no hit points"
              << std::endl;
         return;
@@ -64,13 +64,13 @@ void ClapTrap::attack(const std::string& target)
 
     --_energyPoints;
 
-    std::cout << "ClapTrap " _name
-              << " attack " target
+    std::cout << "ClapTrap " << _name
+              << " attacks " << target
               << ", causing " << _attackDamage
               << " points of damage!" << std::endl;
 }
 
-void ClapTrap::taakeDamage(unsigned int amount)
+void ClapTrap::takeDamage(unsigned int amount)
 {
     if (amount >= _hitPoints)
         _hitPoints = 0;
