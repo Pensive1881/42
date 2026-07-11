@@ -50,8 +50,8 @@ void ClapTrap::attack(const std::string& target)
     if (_hitPoints == 0)
     {
         std::cout << "ClapTrap " << _name
-             << " cannot attack because it has no hit points"
-             << std::endl;
+                  << " cannot attack because it has no hit points"
+                  << std::endl;
         return;
     }
     if (_energyPoints == 0)
