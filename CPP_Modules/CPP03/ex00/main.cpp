@@ -4,8 +4,8 @@ int main()
 {
     ClapTrap robot("Clappy");
 
-    robot.attack("Taget");
-    togot.takeDamage(4);
+    robot.attack("Target");
+    robot.takeDamage(4);
     robot.beRepaired(2);
     robot.takeDamage(20);
 
