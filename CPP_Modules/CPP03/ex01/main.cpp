@@ -1,16 +1,29 @@
 #include "ClapTrap.hpp"
+#include "ScabTrap.hpp"
+#include <iostream>
 
 int main()
 {
-    ClapTrap robot("Clappy");
+    std::cout << "=== ClapTrap test ===" << std::endl;
 
-    robot.attack("Target");
-    robot.takeDamage(4);
-    robot.beRepaired(2);
-    robot.takeDamage(20);
+    ClapTrap clap("Clappy");
 
-    robot.attack("Another target");
-    robot.beRepaired(5);
+    clap.attack("Target");
+    clap.takeDamage(4);
+    clap.beRepaired(2);
+
+    std::cout << std::endl;
+    std::cout << "=== ScavTrap test ===" << std::endl;
+
+    ScavTrap scav("Scavvy");
+
+    robot.attack("Enemy");
+    robot.takeDamage(30);
+    robot.beRepaired(10);
+    robot.guardGate());
+
+    std::cout << std:endl;
+    std::cout << "=== Destruction ===" << std::endl;
 
     return 0;
 }
