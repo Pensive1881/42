@@ -1,5 +1,5 @@
 #include "ClapTrap.hpp"
-#include "ScabTrap.hpp"
+#include "ScavTrap.hpp"
 #include <iostream>
 
 int main()
@@ -17,12 +17,12 @@ int main()
 
     ScavTrap scav("Scavvy");
 
-    robot.attack("Enemy");
-    robot.takeDamage(30);
-    robot.beRepaired(10);
-    robot.guardGate());
+    scav.attack("Enemy");
+    scav.takeDamage(30);
+    scav.beRepaired(10);
+    scav.guardGate();
 
-    std::cout << std:endl;
+    std::cout << std::endl;
     std::cout << "=== Destruction ===" << std::endl;
 
     return 0;
