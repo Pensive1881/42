@@ -1,5 +1,6 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 #include <iostream>
 
 int main()
@@ -21,6 +22,16 @@ int main()
     scav.takeDamage(30);
     scav.beRepaired(10);
     scav.guardGate();
+
+    std::cout << std::endl;
+    std::cout << "=== FragTrap test ===" << std::endl;
+
+    FragTrap frag("Fraggy");
+
+    frag.attack("Enemy");
+    frag.takeDamage(40);
+    frag.beRepaired(15);
+    frag.highFivesGuys();
 
     std::cout << std::endl;
     std::cout << "=== Destruction ===" << std::endl;
