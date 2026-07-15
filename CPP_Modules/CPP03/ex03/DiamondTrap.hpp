@@ -6,7 +6,7 @@
 
 class DiamondTrap : public ScavTrap, public FragTrap
 {
-    privagte:
+    private:
         std::string _name;
 
     public:
@@ -19,6 +19,6 @@ class DiamondTrap : public ScavTrap, public FragTrap
         using ScavTrap::attack;
 
         void whoAmI();
-}
+};
 
 #endif
