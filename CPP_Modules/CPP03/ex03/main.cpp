@@ -11,13 +11,13 @@ int main()
     diamond.attack("Enemy");
     diamond.takeDamage(30);
     diamond.beRepaired(10);
-    diamond.guardGat();
+    diamond.guardGate();
     diamond.highFivesGuys();
 
     std::cout << std::endl;
     std::cout << "=== Copy test ===" << std::endl;
 
-    DiamondTrap copy(Diamond);
+    DiamondTrap copy(diamond);
 
     copy.whoAmI();
     copy.attack("Another enemy");
