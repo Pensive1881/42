@@ -12,11 +12,11 @@ DiamondTrap::DiamondTrap()
     _energyPoints = 50;
     _attackDamage = 30;
 
-    std::cout << "DiamondTrap default onstructor called" << std::endl;
+    std::cout << "DiamondTrap default constructor called" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const std::string& name)
-    : ClapTrap(name  "_clap_name"),
+    : ClapTrap(name + "_clap_name"),
       ScavTrap(name),
       FragTrap(name),
       _name(name)
@@ -30,7 +30,7 @@ DiamondTrap::DiamondTrap(const std::string& name)
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& other)
-    : ClapTrao(other),
+    : ClapTrap(other),
       ScavTrap(other),
       FragTrap(other),
       _name(other._name)
@@ -44,7 +44,7 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other)
 
     if (this != &other)
     {
-        ClapTrap::operator=(other)
+        ClapTrap::operator=(other);
         _name = other._name;
     }
 
