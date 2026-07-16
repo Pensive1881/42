@@ -17,11 +17,11 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
-%.o: &.cpp
+%.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(NAME)
+	$(RM) $(OBJS)
 
 fclean: clean
 	$(RM) $(NAME)
