@@ -7,7 +7,7 @@ DiamondTrap::DiamondTrap()
       FragTrap(),
       _name("Default")
 {
-    ClapTrap::_name = "";
+    ClapTrap::_name = "Default_clap_name";
     _hitPoints = 100;
     _energyPoints = 50;
     _attackDamage = 30;
@@ -16,12 +16,17 @@ DiamondTrap::DiamondTrap()
 }
 
 DiamondTrap::DiamondTrap(const std::string& name)
-    : ClapTrap(name  ""),
+    : ClapTrap(name  "_clap_name"),
       ScavTrap(name),
       FragTrap(name),
       _name(name)
 {
+    _hitPoints = 100;
+    _energyPoints = 50;
+    _attackDamage = 30;
 
+    std::cout << "DiamondTrap " << _name
+              << " constructor called" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& other)
@@ -30,20 +35,31 @@ DiamondTrap::DiamondTrap(const DiamondTrap& other)
       FragTrap(other),
       _name(other._name)
 {
-    std::cout << "" << std::endl;
+    std::cout << "DiamondTrap copy constructor called" << std::endl;
 }
 
 DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other)
 {
-    
+    std::cout << "DiamondTrap copy assignment operator called" << std::endl;
+
+    if (this != &other)
+    {
+        ClapTrap::operator=(other)
+        _name = other._name;
+    }
+
+    return *this;
 }
 
 DiamondTrap::~DiamondTrap()
 {
-
+    std::cout << "DiamondTrap " << _name
+              << " destructor called" << std::endl;
 }
 
 void DiamondTrap::whoAmI()
 {
-
+    std::cout << "DiamondTrap name " << _name
+              << ", ClapTrap name: " << ClapTrap::_name
+              << std::endl;
 }
