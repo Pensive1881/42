@@ -43,7 +43,7 @@ int	picoshell(char **cmds[])
 		i++;
 	}
 	while (wait(&status) > 0)
-		if (!WIFEXITED(status) || WEXITSTATUS(status))
+		if (!WIFEXITED(status) && WEXITSTATUS(status))
 			ret = 1;
 	return (ret);
 }
