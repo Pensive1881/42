@@ -31,14 +31,14 @@ int main()
     const WrongAnimal* wrongAnimal = new WrongAnimal();
     const WrongAnimal* wrongCat = new WrongCat();
 
-    std::cout << "Type: " << wrongAnimal->getType() << endl::endl;
+    std::cout << "Type: " << wrongAnimal->getType() << std::endl;
     std::cout << "Type: " << wrongCat->getType() << std::endl;
 
     wrongAnimal->makeSound();
     wrongCat->makeSound();
 
     std::cout << std::endl;
-    std::cout << "=== Direct WrongCat call ==="
+    std::cout << "=== Direct WrongCat call ===" << std::endl;
 
     WrongCat directWrongCat;
     directWrongCat.makeSound();
