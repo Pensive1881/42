@@ -41,7 +41,7 @@ void Cat::makeSound() const
 
 Brain* Cat::getBrain()
 {
-    rturn brain;
+    return brain;
 }
 
 const Brain* Cat::getBrain() const
