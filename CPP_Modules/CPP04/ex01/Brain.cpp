@@ -1,7 +1,7 @@
 #include "Brain.hpp"
 #include <iostream>
 
-Brain:Brain()
+Brain::Brain()
 {
     std::cout << "Brain default constructor called" << std::endl;
 }
@@ -14,11 +14,11 @@ Brain::Brain(const Brain& other)
         ideas[i] = other.ideas[i];
 }
 
-Brain& Brain::operator=(conwst Brain& other)
+Brain& Brain::operator=(const Brain& other)
 {
-    std::cout << "Brain copy constructor called" << std::endl;
+    std::cout << "Brain copy assignment constructor called" << std::endl;
 
-    if (thisw != &other)
+    if (this != &other)
     {
         for (unsigned int i = 0; i < 100; ++i)
             ideas[i] = other.ideas[i];
