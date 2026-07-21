@@ -31,7 +31,7 @@ int main()
     std::cout << "=== Animal array destruction ===" << std::endl;
 
     for (unsigned int i = 0; i < count; ++i)
-        delete anhimals[i];
+        delete animals[i];
     
     std::cout << std::endl;
     std::cout << "=== Dog deep-copy test ===" << std::endl;
@@ -46,7 +46,7 @@ int main()
     std::cout << "Original Dog: "
               << originalDog.getBrain()->getIdea(0) << std::endl;
     std::cout << "Copied Dog: "
-              << copiedDog.getBrain()->getIdea(0) << std:endl;
+              << copiedDog.getBrain()->getIdea(0) << std::endl;
 
     std::cout << std::endl;
     std::cout << "=== Cat assignment test ===" << std::endl;
