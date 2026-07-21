@@ -6,7 +6,7 @@
 int main()
 {
     const unsigned int count = 10;
-    Animal* animals(count);
+    Animal* animals[count];
 
     std::cout << "=== Animal array construction ===" << std::endl;
 
@@ -49,7 +49,7 @@ int main()
               << copiedDog.getBrain()->getIdea(0) << std:endl;
 
     std::cout << std::endl;
-    std::cout << "" << std::endl;
+    std::cout << "=== Cat assignment test ===" << std::endl;
 
     Cat originalCat;
     originalCat.getBrain()->setIdea(0, "Climb the curtains");
@@ -60,7 +60,7 @@ int main()
     originalCat.getBrain()->setIdea(0, "Sit in the box");
 
     std::cout << "Original Cat: "
-              << originalCat.GetBrain()->getIdea(0) << std::endl;
+              << originalCat.getBrain()->getIdea(0) << std::endl;
     std::cout << "Assigned Cat: "
               << assignedCat.getBrain()->getIdea(0) << std::endl;
     
