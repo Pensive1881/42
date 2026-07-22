@@ -3,7 +3,7 @@
 #include <iostream>
 
 Ice::Ice()
-    : AMaterial("ice")
+    : AMateria("ice")
 {
 }
 
@@ -12,7 +12,7 @@ Ice::Ice(const Ice& other)
 {
 }
 
-Ice& Ice:: operator=(Const Ice& other)
+Ice& Ice::operator=(const Ice& other)
 {
     if (this != &other)
         AMateria::operator=(other);
