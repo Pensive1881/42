@@ -1,9 +1,9 @@
-#ifndef ICE_H
-#define ICE_H
+#ifndef ICE_HPP
+#define ICE_HPP
 
 #include "AMateria.hpp"
 
-clas Ice : public AMateria
+class Ice : public AMateria
 {
     public:
         Ice();
@@ -11,8 +11,8 @@ clas Ice : public AMateria
         Ice& operator=(const Ice& other);
         virtual ~Ice();
 
-        virtual AMaterial* close() const;
-        virtual void use(ICharacter& trarget);
+        virtual AMateria* close() const;
+        virtual void use(ICharacter& target);
 };
 
 #endif
