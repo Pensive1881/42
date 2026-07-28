@@ -12,7 +12,7 @@ Character::Character(const Character& other)
 {
     for (int i = 0; i < 4; ++i)
     {
-        for (other.inventory[i] != NULL)
+        if (other.inventory[i] != NULL)
             inventory[i] = other.inventory[i]->clone();
         else
             inventory[i] = NULL;
@@ -78,5 +78,5 @@ void Character::use(int index, ICharacter& target)
         return;
 
     if (inventory[index] != NULL)
-        invetnroy[index]->use(target);
+        inventory[index]->use(target);
 }
