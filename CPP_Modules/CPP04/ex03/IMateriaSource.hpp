@@ -5,7 +5,7 @@
 
 class AMateria;
 
-class IMateriasource
+class IMateriaSource
 {
     public:
         virtual ~IMateriaSource() {}
