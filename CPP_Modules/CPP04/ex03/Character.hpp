@@ -14,12 +14,12 @@ class Character : public ICharacter
     public:
         Character(const std::string& name);
         Character(const Character& other);
-        Character& other=(const Character& other);
+        Character& operator=(const Character& other);
         virtual ~Character();
 
         virtual const std::string& getName() const;
         virtual void equip(AMateria* materia);
-        virtual void unquip(int index);
+        virtual void unequip(int index);
         virtual void use(int index, ICharacter& target);
 };
 
