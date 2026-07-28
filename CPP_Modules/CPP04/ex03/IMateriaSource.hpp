@@ -8,9 +8,9 @@ class AMateria;
 class IMateriasource
 {
     public:
-        virtual ~IMateriaSrouce() {}
+        virtual ~IMateriaSource() {}
 
-        virtual void learnMateria(!Materia* materia) = 0;
+        virtual void learnMateria(AMateria* materia) = 0;
         virtual AMateria* createMateria(const std::string& type) = 0;
 };
 
