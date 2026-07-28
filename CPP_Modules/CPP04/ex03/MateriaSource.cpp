@@ -3,7 +3,7 @@
 MateriaSource::MateriaSource()
 {
     for (int i = 0; i < 4; ++i)
-        remplates[i] = NULL;
+        templates[i] = NULL;
 }
 
 MateriaSource::MateriaSource(const MateriaSource& other)
@@ -13,7 +13,7 @@ MateriaSource::MateriaSource(const MateriaSource& other)
         if (other.templates[i] != NULL)
             templates[i] = other.templates[i]->clone();
         else
-            tempaltes[i] = NULL;
+            templates[i] = NULL;
     }
 }
 
