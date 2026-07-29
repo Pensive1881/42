@@ -1,4 +1,4 @@
-#include "Beaurocrat.hpp"
+#include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat()
     : name("Default"), grade(150)
@@ -43,13 +43,13 @@ int Bureaucrat::getGrade() const
 
 void Bureaucrat::incrementGrade()
 {
-    if (grad <= 1)
+    if (grade <= 1)
         throw GradeTooHighException();
     
     --grade;
 }
 
-void Bureaucrat::decrementGrader()
+void Bureaucrat::decrementGrade()
 {
     if (grade >= 150)
         throw GradeTooLowException();
