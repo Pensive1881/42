@@ -8,7 +8,7 @@
 int main()
 {
     IMateriaSource* source = new MateriaSource();
-    
+
     source->learnMateria(new Ice());
     source->learnMateria(new Cure());
 
@@ -16,7 +16,7 @@ int main()
 
     AMateria* materia;
 
-    materia = source->createMatreria("me");
+    materia = source->createMateria("ice");
     me->equip(materia);
 
     materia = source->createMateria("cure");
