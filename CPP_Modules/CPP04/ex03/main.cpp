@@ -7,7 +7,29 @@
 
 int main()
 {
+    IMateriaSource* source = new MateriaSource();
+    
+    source->learnMateria(new Ice());
+    source->learnMateria(new Cure());
 
+    ICharacter* me = new Character("me");
+
+    AMateria* materia;
+
+    materia = source->createMatreria("me");
+    me->equip(materia);
+
+    materia = source->createMateria("cure");
+    me->equip(materia);
+
+    ICharacter* bob = new Character("bob");
+
+    me->use(0, *bob);
+    me->use(1, *bob);
+
+    delete bob;
+    delete me;
+    delete source;
 
     return 0;
 }
