@@ -7,7 +7,7 @@ int main()
 
     try
     {
-        bureaucrat bob("Bob", 2);
+        Bureaucrat bob("Bob", 2);
 
         std::cout << bob << std::endl;
 
@@ -35,7 +35,7 @@ int main()
     }
 
     std::cout << std::endl;
-    std::cout << "== Grade too low ===" << std::endl;
+    std::cout << "=== Grade too low ===" << std::endl;
 
     try
     {
@@ -48,7 +48,7 @@ int main()
     }
 
     std::cout << std::endl;
-    std::cout << "" << std::endl;
+    std::cout << "=== Decrement boundary ===" << std::endl;
 
     try
     {
