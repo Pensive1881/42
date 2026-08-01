@@ -1,69 +1,38 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include <iostream>
 
 int main()
 {
-    std::cout << "=== Valid bureaucrat ===" << std::endl;
-
     try
     {
-        Bureaucrat bob("Bob", 2);
+        Bureaucrat boss("Boss", 1);
+        Bureaucrat worker("Worker", 100);
+        Form contract("Contract":, 50, 25)
 
-        std::cout << bob << std::endl;
+        std::cout << contract << std::endl;
 
-        bob.incrementGrade();
-        std::cout << bob << std::endl;
+        worker.signForm(contract);
+        std::cout << contract << std::endl;
 
-        bob.incrementGrade();
+        boss.signForm(contract);
+        std::cout << contract << std::endl;
     }
     catch (const std::exception& exception)
     {
-        std::cout << "Exception: " << exception.what() << std::endl;
+        std::cout << "Exception: " 
+                  << exception.what() << std::endl;
     }
-
-    std::cout << std::endl;
-    std::cout << "=== Grade too high ===" << std::endl;
 
     try
     {
-        Bureaucrat invalid("TooHigh", 0);
+        Form invalid("Invalid", 0, 151);
         std::cout << invalid << std::endl;
     }
     catch (const std::exception& exception)
     {
-        std::cout << "Exception: " << exception.what() << std::endl;
-    }
-
-    std::cout << std::endl;
-    std::cout << "=== Grade too low ===" << std::endl;
-
-    try
-    {
-        Bureaucrat invalid("TooLow", 151);
-        std::cout << invalid << std::endl;
-    }
-    catch (const std::exception& exception)
-    {
-        std::cout << "Exception: " << exception.what() << std::endl;
-    }
-
-    std::cout << std::endl;
-    std::cout << "=== Decrement boundary ===" << std::endl;
-
-    try
-    {
-        Bureaucrat alice("Alice", 149);
-
-        std::cout << alice << std::endl;
-
-        alice.decrementGrade();
-        std::cout << alice << std::endl;
-
-        alice.decrementGrade();
-    }
-    catch (const std::exception& exception)
-    {
-        std::cout << "Exception: " << exception.what() << std::endl;
+        std::cout << "Exception: "
+                  << exception.what() << std::endl;
     }
 
     return 0;
