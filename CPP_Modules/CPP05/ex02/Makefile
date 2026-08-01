@@ -4,9 +4,9 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = main.cpp \
-	   Bureacrat.cpp \
+	   Bureaucrat.cpp \
 	   AForm.cpp \
-	   ShrubberyCreationFrom.cpp\
+	   ShrubberyCreationForm.cpp \
 	   RobotomyRequestForm.cpp \
 	   PresidentialPardonForm.cpp
 
@@ -24,7 +24,7 @@ clean:
 	$(RM) $(OBJS)
 
 fclean: clean
-	#(RM) $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
 
