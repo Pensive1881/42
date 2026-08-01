@@ -35,5 +35,16 @@ int main()
                   << exception.what() << std::endl;
     }
 
+    try
+    {
+        Form invalidLow("Invalid Low", 50, 151);
+        std::cout << invalidLow << std::endl;
+    }
+    catch (const std::exception& exception)
+    {
+        std::cout << "Exception: "
+                  << exception.what() << std::endl;
+    }
+
     return 0;
 }
