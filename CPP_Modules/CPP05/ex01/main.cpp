@@ -8,7 +8,7 @@ int main()
     {
         Bureaucrat boss("Boss", 1);
         Bureaucrat worker("Worker", 100);
-        Form contract("Contract":, 50, 25)
+        Form contract("Contract", 50, 25);
 
         std::cout << contract << std::endl;
 
