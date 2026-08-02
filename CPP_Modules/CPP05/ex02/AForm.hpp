@@ -11,7 +11,7 @@ class AForm
 {
     private:
         const std::string name;
-        cool isSigned;
+        bool isSigned;
         const int gradeToSign;
         const int gradeToExecute;
 
@@ -24,7 +24,7 @@ class AForm
               int gradeToSign,
               int gradeToExecute);
         AForm(const AForm& other);
-        Aform& operator=(const AForm& other);
+        AForm& operator=(const AForm& other);
         virtual ~AForm();
 
         const std::string& getName() const;
@@ -42,7 +42,7 @@ class AForm
                 virtual const char* what() const throw();
         };
 
-        clas GradeTooLowException : public std::exception
+        class GradeTooLowException : public std::exception
         {
             public:
                 virtual const char* what() const throw();
