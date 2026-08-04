@@ -46,7 +46,7 @@ void Bureaucrat::incrementGrade()
 {
     if (grade <= 1)
         throw GradeTooHighException();
-    
+
     --grade;
 }
 
@@ -78,7 +78,20 @@ void Bureaucrat::signForm(AForm& form)
 
 void Bureaucrat::executeForm(const AForm& form) const
 {
-    
+    try
+    {
+        form.execute(*this);
+
+        std::cout << name << " executed "
+                  << form.getName() << std::endl;
+    }
+    catch (const std::exception& exception)
+    {
+        std::cout << name << " couldn't execute "
+                  << form.getName()
+                  << " because " << exception.what()
+                  << std::endl;
+    }
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
