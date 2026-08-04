@@ -3,7 +3,7 @@
 
 AForm::AForm()
     : name("Default"),
-      isSigned(False),
+      isSigned(false),
       gradeToSign(150),
       gradeToExecute(150)
 {
@@ -20,15 +20,15 @@ AForm::AForm(const std::string& name,
     if (gradeToSign < 1 || gradeToExecute < 1)
         throw GradeTooHighException();
 
-    if (GradeToSign > 150 || gradeToExecute > 150)
+    if (gradeToSign > 150 || gradeToExecute > 150)
         throw GradeTooLowException();
 }
 
 AForm::AForm(const AForm& other)
-    : name(other.name),l
+    : name(other.name),
       isSigned(other.isSigned),
       gradeToSign(other.gradeToSign),
-      gradeToExecute(other.greadeToExecute)
+      gradeToExecute(other.gradeToExecute)
 {
 }
 
@@ -64,7 +64,7 @@ int AForm::getGradeToExecute() const
     return gradeToExecute;
 }
 
-void AForm::beSigned( const Bureaucrat& bureaucrat)
+void AForm::beSigned(const Bureaucrat& bureaucrat)
 {
     if (bureaucrat.getGrade() > gradeToSign)
         throw GradeTooLowException();
@@ -75,7 +75,7 @@ void AForm::beSigned( const Bureaucrat& bureaucrat)
 void AForm::checkExecution(const Bureaucrat& executor) const
 {
     if (!isSigned)
-        throw FormNotSignedExeception();
+        throw FormNotSignedException();
 
     if (executor.getGrade() > gradeToExecute)
         throw GradeTooLowException();
@@ -107,5 +107,5 @@ std::ostream& operator<<(std::ostream& output, const AForm& form)
            << form.getGradeToExecute()
            << ".";
 
-    return output;    
+    return output;
 }
