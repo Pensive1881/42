@@ -31,7 +31,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(
     return *this;
 }
 
-ShrubberyCerationForm::~ShrubberyCreationForm()
+ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 }
 
