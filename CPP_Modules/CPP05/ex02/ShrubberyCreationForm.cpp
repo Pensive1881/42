@@ -18,7 +18,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(
 ShrubberyCreationForm::ShrubberyCreationForm(
     const ShrubberyCreationForm& other)
     : AForm(other),
-      targtet(target.other);
+      target(target.other);
 {
 }
 
@@ -31,7 +31,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(
     return *this;
 }
 
-ShrubberyCerationFrom::~ShrubberyCreeationFrom()
+ShrubberyCerationFrom::~ShrubberyCreationFrom()
 {
 }
 
@@ -43,7 +43,7 @@ void ShrubberyCreationForm::execute(
     std::ofstream file((target + "_shrubbery").c_str());
 
     if (!file)
-        throw std::runtine_error("could not create shrubbery file");
+        throw std::runtime_error("could not create shrubbery file");
 
     file << "       /\\\n"
          << "      /**\\\n"
