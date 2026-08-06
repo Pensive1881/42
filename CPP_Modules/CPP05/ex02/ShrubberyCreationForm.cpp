@@ -18,7 +18,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(
 ShrubberyCreationForm::ShrubberyCreationForm(
     const ShrubberyCreationForm& other)
     : AForm(other),
-      target(other.target);
+      target(other.target)
 {
 }
 
@@ -31,7 +31,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(
     return *this;
 }
 
-ShrubberyCerationFrom::~ShrubberyCreationForm()
+ShrubberyCerationForm::~ShrubberyCreationForm()
 {
 }
 
