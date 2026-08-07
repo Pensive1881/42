@@ -15,24 +15,24 @@ RobotomyRequestForm::RobotomyRequestForm(
 {
 }
 
-RobotomyRequestForm::RobotomyRequestForm()
+RobotomyRequestForm::RobotomyRequestForm(
     const RobotomyRequestForm& other)
     : AForm(other),
       target(other.target)
 {
 }
 
-RobotomyRequestForm::execute(
+void RobotomyRequestForm::execute(
     const Bureaucrat& executor) const
 {
     checkExecution(executor);
 
     std::cout << "* drilling noises *" << std::endl;
 
-    if (std::rand() & 2)
+    if (std::rand() % 2)
     {
         std::cout << target
-                  << "has been robotomized successfully"
+                  << " has been robotomized successfully"
                   << std::endl;
     }
     else
