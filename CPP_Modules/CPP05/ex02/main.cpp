@@ -20,7 +20,7 @@ int main()
     std::cout << boss << std::endl;
     std::cout << intern << std::endl;
 
-    std::cout << "\n--- Unsigned execution ---" << std:endl;
+    std::cout << "\n--- Unsigned execution ---" << std::endl;
     boss.executeForm(shrubbery);
     
     std::cout << "\n--- Grade too low to sign ---" << std::endl;
