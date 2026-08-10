@@ -22,7 +22,7 @@ int main()
 
     std::cout << "\n--- Unsigned execution ---" << std::endl;
     boss.executeForm(shrubbery);
-    
+
     std::cout << "\n--- Grade too low to sign ---" << std::endl;
     intern.signForm(shrubbery);
 
