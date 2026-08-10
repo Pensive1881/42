@@ -10,7 +10,7 @@ int main()
 {
     std::srand(std::time(NULL));
 
-    Bureaucrat boss ("Boss", 1);
+    Bureaucrat boss("Boss", 1);
     Bureaucrat intern("Intern", 150);
 
     ShrubberyCreationForm shrubbery("garden");
@@ -23,12 +23,12 @@ int main()
     std::cout << "\n--- Unsigned execution ---" << std:endl;
     boss.executeForm(shrubbery);
     
-    std::cout << "\n--- Grade too low to sign ---" <<std::endl;
-    boss.signForm(shrubbery);
+    std::cout << "\n--- Grade too low to sign ---" << std::endl;
+    intern.signForm(shrubbery);
 
     std::cout << "\n--- Shrubbery ---" << std::endl;
-    boss.signForm(robotomy);
-    boss.executeForm(robotomy);
+    boss.signForm(shrubbery);
+    boss.executeForm(shrubbery);
 
     std::cout << "\n--- Robotomy ---" << std::endl;
     boss.signForm(robotomy);
