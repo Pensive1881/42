@@ -22,10 +22,10 @@ $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(NAME)
+	$(RM) $(OBJS)
 
 fclean: clean
-	$(RM) $(OBJS)
+	$(RM) $(NAME)
 
 re: fclean all
 
