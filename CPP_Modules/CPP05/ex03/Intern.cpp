@@ -7,7 +7,20 @@
 
 namespace
 {
+    AForm* createShrubbery(const std::string& target)
+    {
+        return new ShrubberyCreationForm(target);
+    }
 
+    AForm* createRobotomy(const std::string& target)
+    {
+        return new RobotomyRequestForm(target);
+    }
+
+    AForm* createPardon(const std::string& target)
+    {
+        return new PresidentialPardonForm(target);
+    }
 }
 
 Intern::Intern()
@@ -32,7 +45,36 @@ Intern::~Intern()
 AForm* Intern::makeForm(const std::string& formName,
                         const std::string& target) const
 {
+    const std::string name[] = {
+        "shrubbery creation",
+        "robotomy request",
+        "presidential pardon"
+    };
 
+    typedef AForm* (*FormCreator)(const std::string&);
+
+    FormCreator creators[] = {
+        createShrubbery,
+        createRobotomy,
+        createPardon
+    };
+
+    i = 0;
+    while (i <  3)
+    {
+        if (formName == names[i])
+        {
+            std::cout << "Intern creates "
+                      << formName << std::endl;
+            return creators[i](target);
+        }
+        ++i;
+    }
+
+    std::cout << "Intern cannot create "
+              << formName
+              << " because the form name is unknown"
+              << std:endl;
 
     return 0;
 }
