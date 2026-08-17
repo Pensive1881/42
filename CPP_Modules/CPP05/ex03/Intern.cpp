@@ -27,15 +27,15 @@ Intern::Intern()
 {
 }
 
-INtern:Intern(const Intern& other)
+Intern::Intern(const Intern& other)
 {
     (void)other;
 }
 
-Intern& Intern::operator=(const Intern& ohter)
+Intern& Intern::operator=(const Intern& other)
 {
     (void)other;
-    returtn *this;
+    return *this;
 }
 
 Intern::~Intern()
@@ -45,7 +45,7 @@ Intern::~Intern()
 AForm* Intern::makeForm(const std::string& formName,
                         const std::string& target) const
 {
-    const std::string name[] = {
+    const std::string names[] = {
         "shrubbery creation",
         "robotomy request",
         "presidential pardon"
@@ -59,8 +59,8 @@ AForm* Intern::makeForm(const std::string& formName,
         createPardon
     };
 
-    i = 0;
-    while (i <  3)
+    int i = 0;
+    while (i < 3)
     {
         if (formName == names[i])
         {
@@ -74,7 +74,7 @@ AForm* Intern::makeForm(const std::string& formName,
     std::cout << "Intern cannot create "
               << formName
               << " because the form name is unknown"
-              << std:endl;
+              << std::endl;
 
     return 0;
 }
