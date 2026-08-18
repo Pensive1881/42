@@ -30,7 +30,7 @@ int main()
     if (robotomy)
     {
         boss.signForm(*robotomy);
-        boss.executeForm(*shrubbery);
+        boss.executeForm(*robotomy);
     }
 
     if (pardon)
