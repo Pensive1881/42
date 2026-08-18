@@ -9,17 +9,17 @@ int main()
 {
     std::srand(std::time(NULL));
 
-    Intern someRnadomIntern;
+    Intern someRandomIntern;
     Bureaucrat boss("Boss", 1);
 
     AForm* shrubbery =
         someRandomIntern.makeForm("shrubbery creation", "garden");
     AForm* robotomy =
-        someRandomIntern.makeForm("", "Bender");
+        someRandomIntern.makeForm("robotomy request", "Bender");
     AForm* pardon =
-        someRandomIntern.makeForm("", "");
+        someRandomIntern.makeForm("presidential pardon", "Arthur Dent");
     AForm* unkonwn =
-        someRandomIntern.makeForm("", "");
+        someRandomIntern.makeForm("coffee request", "Boss");
     
     if (shrubbery)
     {
