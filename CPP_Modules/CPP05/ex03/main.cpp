@@ -1,7 +1,6 @@
+#include "Intern.hpp"
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
@@ -10,35 +9,52 @@ int main()
 {
     std::srand(std::time(NULL));
 
+    Intern someRnadomIntern;
     Bureaucrat boss("Boss", 1);
-    Bureaucrat intern("Intern", 150);
 
-    ShrubberyCreationForm shrubbery("garden");
-    RobotomyRequestForm robotomy("Bender");
-    PresidentialPardonForm pardon("Arthur Dent");
+    AForm* shrubbery =
+        someRandomIntern.makeForm("shrubbery creation", "garden");
+    AForm* robotomy =
+        someRandomIntern.makeForm("", "Bender");
+    AForm* pardon =
+        someRandomIntern.makeForm("", "");
+    AForm* unkonwn =
+        someRandomIntern.makeForm("", "");
+    
+    if (shrubbery)
+    {
+        boss.signForm(*shrubbery);
+        boss.executeForm(*shrubbery);
+    }
 
-    std::cout << boss << std::endl;
-    std::cout << intern << std::endl;
+    if (robotomy)
+    {
+        boss.signForm(*robotomy);
+        boss.executeForm(*shrubbery);
+    }
 
-    std::cout << "\n--- Unsigned execution ---" << std::endl;
-    boss.executeForm(shrubbery);
+    if (robotomy)
+    {
+        boss.signForm(*robotomy);
+        boss.executeForm(*robotomy);
+    }
 
-    std::cout << "\n--- Grade too low to sign ---" << std::endl;
-    intern.signForm(shrubbery);
+    if (pardon)
+    {
+        boss.signForm(*pardon);
+        boss.executeForm(*pardon);
+    }
 
-    std::cout << "\n--- Shrubbery ---" << std::endl;
-    boss.signForm(shrubbery);
-    boss.executeForm(shrubbery);
+    if (unknown)
+    {
+        boss.signForm(*unknown);
+        boss.executeForm(*unknown);
+    }
 
-    std::cout << "\n--- Robotomy ---" << std::endl;
-    boss.signForm(robotomy);
-    boss.executeForm(robotomy);
-    boss.executeForm(robotomy);
-    boss.executeForm(robotomy);
-
-    std::cout << "\n--- Presidential pardon ---" << std::endl;
-    boss.signForm(pardon);
-    boss.executeForm(pardon);
+    delete shrubbery;
+    delete robotomy;
+    delete pardon;
+    delete unknown;
 
     return 0;
 }
