@@ -18,7 +18,7 @@ int main()
         someRandomIntern.makeForm("robotomy request", "Bender");
     AForm* pardon =
         someRandomIntern.makeForm("presidential pardon", "Arthur Dent");
-    AForm* unkonwn =
+    AForm* unknown =
         someRandomIntern.makeForm("coffee request", "Boss");
     
     if (shrubbery)
@@ -31,12 +31,6 @@ int main()
     {
         boss.signForm(*robotomy);
         boss.executeForm(*shrubbery);
-    }
-
-    if (robotomy)
-    {
-        boss.signForm(*robotomy);
-        boss.executeForm(*robotomy);
     }
 
     if (pardon)
