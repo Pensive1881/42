@@ -9,7 +9,35 @@
 
 namespace
 {
+    bool isSpecialValue(double value)
+    {
+        
+    }
+
+    bool parseLiteral(Const std::string& literal, double& value)
+    {
+
+    }
     
+    void printChar(double value)
+    {
+
+    }
+
+    void printInt(double value)
+    {
+
+    }
+
+    void printFloat(double value)
+    {
+
+    }
+
+    void printDouble(double value)
+    {
+
+    }
 }
 
 void ScalarConverter::convert(const std::string& literal)
