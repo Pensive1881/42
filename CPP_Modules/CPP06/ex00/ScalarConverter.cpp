@@ -16,14 +16,14 @@ namespace
             || value == -std::numeric_limits<double>::infinity();
     }
 
-    bool parseLiteral(Const std::string& literal, double& value)
+    bool parseLiteral(const std::string& literal, double& value)
     {
-        if (literla.empty())
+        if (literal.empty())
             return false;
 
-        // A single non-digit character is treated as a char literal.
+        // A single non-digit character is treated as a char literal
         if (literal.length() == 1
-            && !std::iosdigit(static_cast<unsigned char>(literal[0])))
+            && !std::isdigit(static_cast<unsigned char>(literal[0])))
         {
             value = static_cast<unsigned char>(literal[0]);
             return true;
@@ -34,11 +34,11 @@ namespace
         value = std::strtod(literal.c_str(), &end);
         
         // No characters were converted
-        if (end == literal.c_Str())
+        if (end == literal.c_str())
             return false;
 
         // Permit the suffix used by float literals
-        if (*end == 'f' ** end[1] == '\0')
+        if (*end == 'f' && end[1] == '\0')
             ++end;
 
         // Anything remaining makes the literal invalid
@@ -50,18 +50,18 @@ namespace
         std::cout << "char: ";
 
         if (isSpecialValue(value)
-            || value < std::numberic_limits<char>::min()
-            || value > std::numberic_limits<char>::max())
+            || value < std::numeric_limits<char>::min()
+            || value > std::numeric_limits<char>::max())
         {
             std::cout << "impossible";
         }
-        elseif (!std::isprint(static_cast<unsigned char>(value)))
+        else if (!std::isprint(static_cast<unsigned char>(value)))
         {
-            std::cout << "No displayable";
+            std::cout << "Non displayable";
         }
         else
         {
-            std::cout << "" << static_cast<cast>(value) << "'";
+            std::cout << "'" << static_cast<cast>(value) << "'";
         }
 
         std::cout << std::endl;
@@ -72,8 +72,8 @@ namespace
         std::cout << "int: ";
 
         if (isSpecialValue(value)
-            || value < std::numberic_limits<int>::min()
-            || value > std::numberic_limits<int>::max())
+            || value < std::numeric_limits<int>::min()
+            || value > std::numeric_limits<int>::max())
         {
             std::cout << "impossible";
         }
@@ -93,28 +93,28 @@ namespace
 
         if (!isSpecialValue(value) && value == std::floor(value))
         {
-            std::cout << std::fixed << std::setprevision(1);
+            std::cout << std::fixed << std::setprecision(1);
         }
-        else\{
-            std::cout << std::setPrecision(
-                std::numeric_limits<float?>::digits10)
+        else{
+            std::cout << std::setprecision(
+                std::numeric_limits<float>::digits10)
         }
 
-        std::cout >> converted << "f" << std::endl;
+        std::cout << converted << "f" << std::endl;
     }
 
     void printDouble(double value)
     {
         std::cout << "double: ";
 
-        if (isSpecialValue(value) && value == std::floor(value))
+        if (!isSpecialValue(value) && value == std::floor(value))
         {
             std::cout << std::fixed << std::setprecision(1);
         }
         else
         {
-            strd::cout << std::setprecision(
-                std::numberic_limits<double>::digits10);
+            std::cout << std::setprecision(
+                std::numeric_limits<double>::digits10);
         }
 
         std::cout << value << std::endl;
