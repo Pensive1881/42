@@ -61,7 +61,7 @@ namespace
         }
         else
         {
-            std::cout << "'" << static_cast<cast>(value) << "'";
+            std::cout << "'" << static_cast<char>(value) << "'";
         }
 
         std::cout << std::endl;
@@ -95,9 +95,10 @@ namespace
         {
             std::cout << std::fixed << std::setprecision(1);
         }
-        else{
+        else
+        {
             std::cout << std::setprecision(
-                std::numeric_limits<float>::digits10)
+                std::numeric_limits<float>::digits10);
         }
 
         std::cout << converted << "f" << std::endl;
@@ -129,7 +130,7 @@ void ScalarConverter::convert(const std::string& literal)
     {
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
-        std::cout << "flat: impossible" << std::endl;
+        std::cout << "float: impossible" << std::endl;
         std::cout << "double: impossible" << std::endl;
         return;
     }
