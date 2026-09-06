@@ -13,8 +13,11 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OPBJS) -o $(NAME)
 
-clean:
+%.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+clean:
+	$(RM) $(OBJS)
 
 fclean: clean
 	$(RM) $(NAME)
