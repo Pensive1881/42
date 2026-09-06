@@ -7,6 +7,6 @@ struct Data
 {
     int         number;
     std::string text;
-}
+};
 
 #endif
