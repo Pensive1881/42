@@ -2,8 +2,8 @@ NAME = identify
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = 
-OBJS = 
+SRCS = main.cpp Base.cpp
+OBJS = $(SRCS:.cpp=.o)
 
 all:: $(NAME)
 
