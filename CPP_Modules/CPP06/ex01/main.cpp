@@ -4,19 +4,19 @@
 int main()
 {
     Data data;
-    data.value = 42; //use actual member name from Data.hpp
+    data.number = 42; //use actual member name from Data.hpp
 
-    Darta* original = &data;
+    Data* original = &data;
     uintptr_t raw = Serializer::serialize(original);
     Data* restored = Serializer::deserialize(raw);
 
-    std::cout <<"Original: " << original << std::endl;
+    std::cout << "Original: " << original << std::endl;
     std::cout << "Restored: " << restored << std::endl;
 
     if (original == restored)
-        std::cout << "Success: points match" << std::endl;
+        std::cout << "Success: pointers match" << std::endl;
     else
-        std::cout << "Failure: points differ" << std::endl;
+        std::cout << "Failure: pointers differ" << std::endl;
 
     return 0;
 }
