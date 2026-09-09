@@ -4,7 +4,7 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = main.cpp
-OBJS = #(STCS:.cpp=.o)
+OBJS = $(STCS:.cpp=.o)
 
 all: $(NAME)
 
@@ -15,7 +15,7 @@ $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(NAME)
+	$(RM) $(OBJS)
 
 fclean: clean
 	$(RM) $(NAME)
