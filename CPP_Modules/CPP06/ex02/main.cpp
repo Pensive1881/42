@@ -11,7 +11,7 @@ Base* generate()
 {
     int random = std::rand() % 3;
 
-    if (rahdom == 0)
+    if (random == 0)
         return new A;
     if (random == 1)
         return new B;
@@ -56,7 +56,7 @@ void identify(Base& p)
         std::cout << "C" << std::endl;
         return;
     }
-    catch(conswt std::exception&)
+    catch(const std::exception&)
     {
     }
 }
@@ -65,7 +65,7 @@ int main()
 {
     std::srand(std::time(NULL));
 
-    Base* instance = generater();
+    Base* instance = generate();
 
     identify(instance);
     identify(*instance);
