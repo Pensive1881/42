@@ -11,7 +11,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
-%.o: %,cpp
+%.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
@@ -22,4 +22,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fc lean re
+.PHONY: all clean fclean re
