@@ -7,7 +7,7 @@ template <typename T>
 class Array
 {
     private:
-        T*              _date;
+        T*              _data;
         unsigned int    _size;
 
     public:
@@ -15,7 +15,7 @@ class Array
         {
         }
 
-        Array(unsigned int size) : _data(new T[size]), size(size)
+        Array(unsigned int size) : _data(new T[size]), _size(size)
         {
         }
 
@@ -24,7 +24,7 @@ class Array
             *this = other;
         }
         Array& operator=(const Array& other)
-        [
+        {
             if (this != &other)
             {
                 T* copy = NULL;
@@ -41,7 +41,7 @@ class Array
                 _size = other._size;
             }
             return *this;
-        ]
+        }
 
         ~Array()
         {
@@ -52,7 +52,7 @@ class Array
         {
             if (index >= _size)
                 throw IndexOutOfBoundsException();
-            returnb _data[index];
+            return _data[index];
         }
 
         const T& operator[](unsigned int index) const
@@ -62,7 +62,7 @@ class Array
             return _data[index];
         }
 
-        unsigned in size() const
+        unsigned int size() const
         {
             return _size;
         }
