@@ -17,7 +17,7 @@ void increment(int& value)
 int main()
 {
     int numbers[] = {1, 2, 3, 4, 5};
-    const std::string words[] = {"Hello", "template", "world"}
+    const std::string words[] = {"Hello", "template", "world"};
 
     std::cout << "Numbers:" <<std::endl;
     iter(numbers, 5, printValue<int>);
