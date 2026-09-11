@@ -25,7 +25,22 @@ class Array
         }
         Array& operator=(const Array& other)
         [
+            if (this != &other)
+            {
+                T* copy = NULL;
 
+                if (other._size > 0)
+                {
+                    copy = new T[other._size];
+                    for (unsigned int i = 0; i <other._size; i++)
+                        copy[i] = other._data[i];
+                }
+
+                delete[] _data;
+                _data = copy;
+                _size = other._size;
+            }
+            return *this;
         ]
 
         ~Array()
@@ -35,12 +50,16 @@ class Array
 
         T& operator[](unsigned int index)
         {
-
+            if (index >= _size)
+                throw IndexOutOfBoundsException();
+            returnb _data[index];
         }
 
         const T& operator[](unsigned int index) const
         {
-
+            if (index >= _size)
+                throw IndexOutOfBoundsException();
+            return _data[index];
         }
 
         unsigned in size() const
