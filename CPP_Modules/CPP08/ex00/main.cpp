@@ -10,13 +10,13 @@ int main()
 
     numbers.push_back(10);
     numbers.push_back(20);
-    nubmers.push_back(30);
+    numbers.push_back(30);
     numbers.push_back(40);
 
     try
     {
         std::vector<int>::iterator found = easyfind(numbers, 30);
-        std::cout << "Found: " << *foud <<std::endl;
+        std::cout << "Found: " << *found << std::endl;
     }
     catch (const std::exception& error)
     {
@@ -33,5 +33,5 @@ int main()
         std::cout << "Error: " << error.what() << std::endl;
     }
 
-    return 0
+    return 0;
 }
