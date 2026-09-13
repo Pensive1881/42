@@ -17,15 +17,15 @@ class Span
         Span& operator=(const Span& other);
         ~Span();
 
-        boid addNumber(int number);
+        void addNumber(int number);
 
         template <typename InputIterator>
-        void addNumber(inputIterator first, InputIterator last)
+        void addNumber(InputIterator first, InputIterator last)
         {
             std::size_t count = std::distance(first, last);
 
             if (_numbers.size() + count > _maxSize)
-                throw std::out_of_range("Spanis full")
+                throw std::out_of_range("Span is full");
 
             _numbers.insert(_numbers.end(), first, last);
         }
