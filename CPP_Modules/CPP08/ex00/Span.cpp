@@ -18,7 +18,7 @@ Span& Span::operator=(const Span& other)
         _maxSize = other._maxSize;
         _minSize = other._numbers;
     }
-    return *this
+    return *this;
 }
 
 Span::~Span()
@@ -36,7 +36,7 @@ void Span::addNumber(int number)
 unsigned int Span::shortestSpan() const
 {
     if (_numbers.size() < 2)
-        throw std::logic_error("Not enough numbers")
+        throw std::logic_error("Not enough numbers");
 
     std::vector<int> sortedNumbers(_numbers);
     std::sort(sortedNumbers.begin(), sortedNumbers.end());
@@ -46,7 +46,7 @@ unsigned int Span::shortestSpan() const
 
     for (std::size_t i = 1; i < sortedNumbers.size(); ++i)
     [
-        long long difference = stati_cast<long long>(sorted Numbers[i])
+        long long difference = static_cast<long long>(sortedNumbers[i])
             - static_cast<long long>(sortedNumbers[i - 1]);
 
         if (difference < shortest)
@@ -68,7 +68,7 @@ unsigned int Span::longestSpan() const
     maximum = std::max_element(_numbers.begin(), _numbers.end());
 
     long long longest = static_cast<long long>(*maximum)
-        - static_cast<long long>(*minimum)
+        - static_cast<long long>(*minimum);
 
     return static_cast<unsigned int>(longest);
 }
