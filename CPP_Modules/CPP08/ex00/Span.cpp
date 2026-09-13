@@ -13,9 +13,10 @@ Span::Span(const Span& other) : _maxSize(other._maxSize), _numbers(other._number
 
 Span& Span::operator=(const Span& other)
 {
-    if ()
+    if (this != &other)
     {
-
+        _maxSize = other._maxSize;
+        _minSize = other._numbers;
     }
     return *this
 }
