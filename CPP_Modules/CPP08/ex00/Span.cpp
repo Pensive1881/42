@@ -59,7 +59,7 @@ unsigned int Span::shortestSpan() const
 unsigned int Span::longestSpan() const
 {
     if (_numbers.size() < 2)
-        throw 
+        throw std::logic_error("Not enough numbers");
     
     std::vector<int>::const_iterator minimum;
     std::vector<int>::const_iterator maximum;
