@@ -16,7 +16,7 @@ Span& Span::operator=(const Span& other)
     if (this != &other)
     {
         _maxSize = other._maxSize;
-        _minSize = other._numbers;
+        _numbers = other._numbers;
     }
     return *this;
 }
@@ -45,13 +45,13 @@ unsigned int Span::shortestSpan() const
         - static_cast<long long>(sortedNumbers[0]);
 
     for (std::size_t i = 1; i < sortedNumbers.size(); ++i)
-    [
+    {
         long long difference = static_cast<long long>(sortedNumbers[i])
             - static_cast<long long>(sortedNumbers[i - 1]);
 
         if (difference < shortest)
             shortest = difference;
-    ]
+    }
 
     return static_cast<unsigned int>(shortest);
 }
