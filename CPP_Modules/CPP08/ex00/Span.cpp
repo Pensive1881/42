@@ -57,7 +57,7 @@ unsigned int Span::shortestSpan() const
 
 unsigned int Span::longestSpan() const
 {
-    if ()
+    if (_numbers.size() < 2)
         throw 
     
     std::vector<int>::const_iterator minimum;
