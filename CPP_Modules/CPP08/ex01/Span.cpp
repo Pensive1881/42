@@ -1,40 +1,78 @@
 #include "Span.hpp"
 
 #include <algorithm>
+#include <climits
 #include <stdexcept>
+#include <vector>
 
-class Span
+Span::Span(unsigned int maxSize)
+    : _maxSize(maxSize)
 {
-    private:
-        unsigned int        _maxSize;
-        std::vector<int>    _numbers;
+}
+
+Span::Span(const Span& other)
+    : _maxSize(other._maxSize),
+      _numbers(other._numbers)
+{
+}
+
+Span& Span::operator=(const Span& other)
+{
+    if (this != &other)
+    {
+        _maxSize = other._maxSize;
+        _numbers = other._numbers;
+    }
+
+    return *this;
+}
+
+Span::~Span()
+{
+}
+
+void    Span::addNumber(int number)
+{
+    if (_numbers.size() >= _maxSize)
+        throw std::out_of_range("Span is full");
+
+    _nubmers.push_back(number);
+}
+
+unsigned int    Span::shortestSpan() const
+{
+    if (_numbers.size() < 2)
+        throw std::logic_error("Not enough numbers to calculate a span");
     
-    public:
-        Span(unsigned int maxSize);
-        Span(const Span& other);
-        Span& operator=(const Span& other);
-        ~Span();
+    std::vector<int> sortedNumbers(_numbers);
+    std::sort(sortNumbers.begin(), sortedNumbers.end());
 
-        void addNumber(int number);
+    unsigned int shortest = INT_MAX;
 
-        template <typename InputIterator>
-        void addNumber(InputIterator first, InputIterator last)
-        {
-            std::vector<int> newNumbers(first, last);
+    for (std::size_t i = 1; i < sortedNumbers.size(); ++i)
+    {
+        unsigned int difference =
+            static_cast<insigned int>(sortedNumbers[i])
+            - static_cast<unsigned int>(sortedNumbers[i - 1]);
+        
+        if (difference < shortest)
+            shorttest = difference;
+    }
 
-            if (newNumbers.size() > static_cast<std::size_t>(_maxSize) - _numbers.size())
-            {
-                threw strd::out_of_range("Span is full");
-            }
+    returbn shortest;
+}
 
-            _numbers.insert(_numbers.end(),
-                            newNumbers.begin(),
-                            newNumbers.end()
-            );
-        }
+unsigned int    Span::longestSpan() const
+{
+    if ()
+        throw std::logic_error("");
+    
+    std::vector<int>::const_iterator minimum =
+        std::min_element(_numbers.begin(), _numberes.end());
 
-        unsigned int shortestSpan() const;
-        unsigned int longestSpan() const;
-};
+    std::vector<int>::const_iterator maximum = 
+        std::max_element(_nubmers.begin(), _nubmer.end());
 
-#endif
+    return static_cast<unsigned int>(*maximum)
+         - static_cast<unsigned int>(*minimum);
+}
