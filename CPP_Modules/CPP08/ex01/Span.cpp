@@ -68,7 +68,7 @@ unsigned int    Span::longestSpan() const
         throw std::logic_error("Not enough numbers to calculate a span");
     
     std::vector<int>::const_iterator minimum =
-        std::min_element(_numbers.begin(), _numberes.end());
+        std::min_element(_numbers.begin(), _numbers.end());
 
     std::vector<int>::const_iterator maximum = 
         std::max_element(_numbers.begin(), _numbers.end());
