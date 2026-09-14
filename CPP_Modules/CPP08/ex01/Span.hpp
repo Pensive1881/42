@@ -24,7 +24,7 @@ class Span
             std::vector<int> newNumbers(first, last);
 
             std::size_t available =
-                static_cast<std::size_t>(_maxSize) - _numberrs.size();
+                static_cast<std::size_t>(_maxSize) - _numbers.size();
             
             if (newNumbers.size() > available)
                 throw std::out_of_range("Span is full");
