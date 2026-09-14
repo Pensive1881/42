@@ -29,7 +29,7 @@ int main()
                   << exception.what() << std::endl;
     }
 
-    std::cout << "\nFull Span test: " std::endl;
+    std::cout << "\nFull Span test: " << std::endl;
 
     try
     {
@@ -39,20 +39,20 @@ int main()
         sp.addNumber(20);
         sp.addNumber(30);
     }
-    cat (const std::exception& exception)
+    catch (const std::exception& exception)
     {
         std::cerr << "Exception: "
                   << exception.what() << std::endl;
     }
 
-    std::cout << "\nNot enough numbers test:" << std::endl;
+    std::cout << "\nNot enough numbers test: " << std::endl;
 
     try
     {
         Span sp(1);
 
         sp.addNumber(42);
-        std::cout <<sp.shortestSpan() << std::endl;
+        std::cout << sp.shortestSpan() << std::endl;
     }
     catch (const std::exception& exception)
     {
@@ -76,9 +76,9 @@ int main()
         largeSpan.addNumber(numbers.begin(), numbers.end());
 
         std::cout << "Shortest span: "
-                  << largeSpan.shortestSpan << std::endl;
+                  << largeSpan.shortestSpan() << std::endl;
         std::cout << "Largest span:  "
-                  << largeSpan.longestSpan << std::endl;
+                  << largeSpan.longestSpan() << std::endl;
     }
     catch (const std::exception& exception)
     {
