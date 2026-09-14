@@ -21,15 +21,15 @@ int main()
         std::cout << "Shortest span: "
                   << sp.shortestSpan() << std::endl;
         std::cout << "Longest span:  "
-                     sp.longestSpan() << std::endl;
+                  << sp.longestSpan() << std::endl;
     }
-    catch (const std::exception7 exception)
+    catch (const std::exception& exception)
     {
         std::cerr << "Exception: "
                   << exception.what() << std::endl;
     }
 
-    std:cout << "\nFull Span test: " std::endl;
+    std::cout << "\nFull Span test: " std::endl;
 
     try
     {
@@ -64,16 +64,19 @@ int main()
 
     try
     {
-        const unsigned int size = 10000l
+        const unsigned int size = 10000;
         std::vector<int> numbers;
 
         for (unsigned int i = 0; i < size; ++i)
+        {
+
+        }
 
         Span largeSpan(size);
         largeSpan.addNumber(numbers.begin(), numbers.end());
 
         std::cout << "Shortest span: "
-                  << largeSpan.shortestSpan() << std::endl;
+                  << largeSpan.shortestSpan << std::endl;
         std::cout << "Largest span:  "
                   << largeSpan.longestSpan << std::endl;
     }
