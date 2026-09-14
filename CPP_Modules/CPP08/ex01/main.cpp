@@ -69,7 +69,7 @@ int main()
 
         for (unsigned int i = 0; i < size; ++i)
         {
-
+            numbers.push_back(static_cast<int>(i));
         }
 
         Span largeSpan(size);
