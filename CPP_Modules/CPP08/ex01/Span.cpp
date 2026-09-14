@@ -1,7 +1,7 @@
 #include "Span.hpp"
 
 #include <algorithm>
-#include <climits
+#include <climits>
 #include <stdexcept>
 #include <vector>
 
@@ -36,7 +36,7 @@ void    Span::addNumber(int number)
     if (_numbers.size() >= _maxSize)
         throw std::out_of_range("Span is full");
 
-    _nubmers.push_back(number);
+    _numbers.push_back(number);
 }
 
 unsigned int    Span::shortestSpan() const
@@ -45,21 +45,21 @@ unsigned int    Span::shortestSpan() const
         throw std::logic_error("Not enough numbers to calculate a span");
     
     std::vector<int> sortedNumbers(_numbers);
-    std::sort(sortNumbers.begin(), sortedNumbers.end());
+    std::sort(sortedNumbers.begin(), sortedNumbers.end());
 
-    unsigned int shortest = INT_MAX;
+    unsigned int shortest = UINT_MAX;
 
     for (std::size_t i = 1; i < sortedNumbers.size(); ++i)
     {
         unsigned int difference =
-            static_cast<insigned int>(sortedNumbers[i])
+            static_cast<unsigned int>(sortedNumbers[i])
             - static_cast<unsigned int>(sortedNumbers[i - 1]);
         
         if (difference < shortest)
-            shorttest = difference;
+            shortest = difference;
     }
 
-    returbn shortest;
+    return shortest;
 }
 
 unsigned int    Span::longestSpan() const
@@ -71,7 +71,7 @@ unsigned int    Span::longestSpan() const
         std::min_element(_numbers.begin(), _numberes.end());
 
     std::vector<int>::const_iterator maximum = 
-        std::max_element(_nubmers.begin(), _nubmer.end());
+        std::max_element(_numbers.begin(), _numbers.end());
 
     return static_cast<unsigned int>(*maximum)
          - static_cast<unsigned int>(*minimum);
