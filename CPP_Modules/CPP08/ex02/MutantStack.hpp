@@ -18,7 +18,6 @@ class MutantStack : public std::stack<T>
 
         MutantStack& operator=(const MutantStack& other)
         {
-        }
             if (this != &other)
                 std::stack<T>::operator=(other);
 
