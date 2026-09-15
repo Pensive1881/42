@@ -15,7 +15,7 @@ int main()
 
     std::cout << mstack.top() << std::endl;
 
-    mstack.pop()
+    mstack.pop();
 
     std::cout << mstack.size() << std::endl;
 
@@ -45,19 +45,19 @@ int main()
     lst.push_back(5);
     lst.push_back(17);
 
-    lst.cout << lst.back() << std::endl;
+    std::cout << lst.back() << std::endl;
 
     lst.pop_back();
 
     std::cout << lst.size() << std::endl;
 
-    lst.pus_)back(23);
+    lst.push_back(3);
     lst.push_back(5);
-    lst.push_Back(737);
+    lst.push_back(737);
     lst.push_back(0);
 
-    std::lst<int>::iterator lit = lst.begin();
-    std::lst<int>::iterator lite = lst.end();
+    std::list<int>::iterator lit = lst.begin();
+    std::list<int>::iterator lite = lst.end();
 
     ++lit;
     --lit;
