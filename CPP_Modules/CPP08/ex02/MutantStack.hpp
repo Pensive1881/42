@@ -3,7 +3,7 @@
 
 #include <stack>
 template <typename T>
-clas MutantStack : public std::stack<T>
+class MutantStack : public std::stack<T>
 {
     public:
         typedef typename std::stack<T>::container_type::iterator iterator;
@@ -12,12 +12,13 @@ clas MutantStack : public std::stack<T>
         {
         }
 
-        MutantStack(cons MutantStack& other) : std::stack<T>(other)
+        MutantStack(const MutantStack& other) : std::stack<T>(other)
         {
         }
 
         MutantStack& operator=(const MutantStack& other)
-        {}
+        {
+        }
             if (this != &other)
                 std::stack<T>::operator=(other);
 
