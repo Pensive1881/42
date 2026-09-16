@@ -4,17 +4,17 @@
 #include <map>
 #include <string>
 
-class BitcoingExchange
+class BitcoinExchange
 {
     private:
         std::map<std::string, double> _exchangeRates;
 
         bool isValidDate(const std::string& date) const;
-        double get ExchangeRate(const dt::string& date) const;
+        double getExchangeRate(const sdt::string& date) const;
 
     public:
         BitcoinExchange();
-        BitcoinExchange(const BitcoinExchange other);
+        BitcoinExchange(const BitcoinExchange& other);
         BitcoinExchange& operator=(const BitcoinExchange& other);
         ~BitcoinExchange();
 
