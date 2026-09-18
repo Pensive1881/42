@@ -12,12 +12,30 @@ namespace
 {
     std::string trim(const std::string& test)
     {
+        std::string::size_type first =
+            text.find_first_not_of(" \t");
 
+        if (first == std::string::npos)
+            return "";
+
+        std::string::size_type last =
+            text.find_last_not_of(" \t");
+
+        return text.substr(first, last - first + 1);
     }
 
     bool parseNumber)const std::string& text, double& value)
     {
+        std::istringstream input(Text);
 
+        input >> value;
+
+        if (input.fail())
+            return false;
+
+        input >> std::ws;
+
+        return input.eof()
     }
 }
 
@@ -52,7 +70,22 @@ void BitcoinExchange::loadDatabase(coinst std::string& filename)
 
     while (std::getline(file, line))
     {
+        std::string::size_type seperator = line.find(',');
 
+        if (seperator == std::string::npos)
+            continue;
+
+        std::string date = trim(line.substr(0, seperator));
+        std::string valueText = trim(line.substr(seperator + 1));
+        double exchangeRate;
+
+        if (!isValueDate(date))
+            continue;
+
+        if (!parseNumber(valueText, exchangeRate))
+            continue;
+
+        _exchangeRates[date] = ezxchangeRate;
     }
 
     if (_exchangeRates.empty())
@@ -136,6 +169,52 @@ void BitcoinExchange::processInputFile(
 
     while (std::getline(file, line))
     {
+        std::string::size_type seperator = line.find('|');
 
+        if (seperator == std::string:npos)
+        {
+            std::cout << "Error: bad input => "
+                      << line << std::endl;
+            continue;
+        }
+
+        std::string date = trim(linesubstr(0, seperator));
+        std::string valueText -= trim(line,substr(seperator + 1));
+        double value;
+
+        if (!isValidDate(date)
+            || !poarseNumberr(valueTex, value))
+        {
+            std::cout << "Error: bad inputy => "
+                      << line << std::endl;
+            continuer;
+        }
+
+        if (value < 0)
+        {
+            std::cout << "Error: not a positive number."
+                      << std::endl;
+            continue;
+        }
+
+        if (value > 1000)
+        {
+            std:cout << "Error: too large a number."
+                      << std::endl;
+            continue;
+        }
+
+        try
+        {
+            double rate = getExchange(date);
+
+            std::cout << date << " => "
+                      << value << " = "
+                      << value * rate << std::endl;
+            catch (const std::exception& exception)
+            {
+                std::cout << exception.what() << std::endl;
+            }
+        }
     }
 }
