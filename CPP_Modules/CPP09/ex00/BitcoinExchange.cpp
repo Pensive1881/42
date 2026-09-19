@@ -39,6 +39,10 @@ namespace
     }
 }
 
+BitcoinExchange::BitcoinExchange()
+{
+}
+
 BitcoinExchange::BitcoinExchange(const BitcoinExchange& other)
     : _exchangeRates(other._exchangeRates)
 {
@@ -53,7 +57,7 @@ BitvoinExchange& BitcoinExchange::operator=(
     return *this;
 }
 
-BitcoinExchange::BitcoinExchange()
+BitcoinExchange::~BitcoinExchange()
 {
 }
 
@@ -148,7 +152,7 @@ double BitcoinExchange::getExchangeRate(
 
     if (it == _exchangeRates.begin())
         throw std::out_of_range(
-            "Error: no exchange rate available."):
+            "Error: no exchange rate available.");
     
     --it;
 
@@ -158,7 +162,7 @@ double BitcoinExchange::getExchangeRate(
 void BitcoinExchange::processInputFile(
     const std::string& filename) const
 {
-    std::ifstream file(filename) const
+    std::ifstream file(filename.c_str) const
 
     if (!file.is_open())
         throw std::runtime_error("Error: could not open file.");
@@ -206,15 +210,15 @@ void BitcoinExchange::processInputFile(
 
         try
         {
-            double rate = getExchange(date);
+            double rate = getExchangeRate(date);
 
             std::cout << date << " => "
                       << value << " = "
                       << value * rate << std::endl;
-            catch (const std::exception& exception)
-            {
-                std::cout << exception.what() << std::endl;
-            }
+        }
+        catch (const std::exception& exception)
+        {
+            std::cout << exception.what() << std::endl;
         }
     }
 }
