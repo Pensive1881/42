@@ -8,7 +8,7 @@ OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
-$(name): $(objs)
+$(name): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 %.o: %.cpp
@@ -20,6 +20,6 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 
-RE: fclean all
+re: fclean all
 
 .PHONY: all clean fclean re
