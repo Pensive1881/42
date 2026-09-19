@@ -7,17 +7,17 @@ int main(int ac, char** av)
 {
     if (ac != 2)
     {
-        std::cout << "Error/: could not open file."
+        std::cout << "Error: could not open file."
                   << std::endl;
         return 1;
     }
 
     try
     {
-        BitcoingExchange exchange;
+        BitcoinExchange exchange;
 
         exchange.loadDatabase("data.csv");
-        exchange.processInputFile(av[1])
+        exchange.processInputFile(av[1]);
     }
     catch (const std::exception& exception)
     {
