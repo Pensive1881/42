@@ -162,7 +162,7 @@ double BitcoinExchange::getExchangeRate(
 void BitcoinExchange::processInputFile(
     const std::string& filename) const
 {
-    std::ifstream file(filename.c_str()) const
+    std::ifstream file(filename.c_str());
 
     if (!file.is_open())
         throw std::runtime_error("Error: could not open file.");
