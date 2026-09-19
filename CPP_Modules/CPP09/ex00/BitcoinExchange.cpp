@@ -182,12 +182,12 @@ void BitcoinExchange::processInputFile(
             continue;
         }
 
-        std::string date = trim(linesubstr(0, separator));
-        std::string valueText = trim(line,substr(separator + 1));
+        std::string date = trim(line.substr(0, separator));
+        std::string valueText = trim(line.substr(separator + 1));
         double value;
 
         if (!isValidDate(date)
-            || !parseNumberr(valueTex, value))
+            || !parseNumber(valueTex, value))
         {
             std::cout << "Error: bad input => "
                       << line << std::endl;
