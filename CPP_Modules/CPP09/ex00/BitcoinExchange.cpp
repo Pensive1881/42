@@ -48,11 +48,11 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange& other)
 {
 }
 
-BitvoinExchange& BitcoinExchange::operator=(
+BitcoinExchange& BitcoinExchange::operator=(
         const BitcoinExchange& other)
 {
     if (this != &other)
-        _exchagneRates = other._exchangeRates;
+        _exchangeRates = other._exchangeRates;
 
     return *this;
 }
@@ -76,7 +76,7 @@ void BitcoinExchange::loadDatabase(const std::string& filename)
     {
         std::string::size_type separator = line.find(',');
 
-        if (saperator == std::string::npos)
+        if (separator == std::string::npos)
             continue;
 
         std::string date = trim(line.substr(0, separator));
@@ -162,7 +162,7 @@ double BitcoinExchange::getExchangeRate(
 void BitcoinExchange::processInputFile(
     const std::string& filename) const
 {
-    std::ifstream file(filename.c_str) const
+    std::ifstream file(filename.c_str()) const
 
     if (!file.is_open())
         throw std::runtime_error("Error: could not open file.");
@@ -175,19 +175,19 @@ void BitcoinExchange::processInputFile(
     {
         std::string::size_type separator = line.find('|');
 
-        if (separator == std::string:npos)
+        if (separator == std::string::npos)
         {
             std::cout << "Error: bad input => "
                       << line << std::endl;
             continue;
         }
 
-        std::string date = trim(linesubstr(0, saperator));
-        std::string valueText = trim(line,substr(saperator + 1));
+        std::string date = trim(linesubstr(0, separator));
+        std::string valueText = trim(line,substr(separator + 1));
         double value;
 
         if (!isValidDate(date)
-            || !poarseNumberr(valueTex, value))
+            || !parseNumberr(valueTex, value))
         {
             std::cout << "Error: bad input => "
                       << line << std::endl;
