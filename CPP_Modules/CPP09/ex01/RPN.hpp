@@ -20,6 +20,6 @@ class RPN
         ~RPN();
 
         int calculate(const std::string& expression);
-}
+};
 
 #endif
