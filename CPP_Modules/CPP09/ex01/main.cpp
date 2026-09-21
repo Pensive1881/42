@@ -1,5 +1,8 @@
 #include "RPN.hpp"
 
+#include <exception>
+#include <iostream>
+
 int main(int ac, char **av)
 {
     if (ac != 2)
