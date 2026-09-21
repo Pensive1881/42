@@ -11,7 +11,7 @@ RPN::RPN(const RPN& other) : _numbers(other._numbers)
 {
 }
 
-RPN& RPN::operator=(const RPN& OTHER)
+RPN& RPN::operator=(const RPN& other)
 {
     if (this != &other)
         _numbers = other._numbers;
