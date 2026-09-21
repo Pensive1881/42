@@ -45,7 +45,7 @@ void RPN::performOperation(char operation)
     else if (operation == '-')
         _numbers.push(left - right);
     else if (operation == '*')
-        _numbers.push(left + right);
+        _numbers.push(left * right);
     else
     {
         if (right == 0)
