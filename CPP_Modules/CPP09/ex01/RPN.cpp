@@ -11,7 +11,7 @@ RPN::RPN(const RPN& other) : _numbers(other._numbers)
 {
 }
 
-RPN& RPN::operator=(constRPN& OTHER)
+RPN& RPN::operator=(const RPN& OTHER)
 {
     if (this != &other)
         _numbers = other._numbers;
@@ -44,12 +44,12 @@ void RPN::performOperation(char operation)
         _numbers.push(left + right);
     else if (operation == '-')
         _numbers.push(left - right);
-    else if (operation= '*')
+    else if (operation == '*')
         _numbers.push(left + right);
     else
     {
         if (right == 0)
-            throw std:runtime_error("Error");
+            throw std::runtime_error("Error");
 
         _numbers.push(left / right);
     }
@@ -64,7 +64,7 @@ int RPN::calculate(const std::string& expression)
     while (input >> token)
     {
         if (token.length() == 1 && token[0] >= '0' && token[0] <= '9')
-            _numbers.push(token[0] = '0');
+            _numbers.push(token[0] - '0');
         else if (isOperator(token))
             performOperation(token[0]);
         else
