@@ -1,7 +1,7 @@
 NAME		= miniRT
 
 CC			= cc
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror -std=gnu17
 UNAME_S		:= $(shell uname -s)
 
 LIBFT_DIR	= libft
@@ -26,10 +26,13 @@ SRCS		= src/main.c \
 			  src/parse_scene.c \
 			  src/mlx_app.c \
 			  src/render.c \
+			  src/lighting.c \
 			  src/camera.c \
 			  src/ray.c \
+			  src/objects.c \
 			  src/sphere.c \
 			  src/vec3.c \
+			  src/plane_stub.c \
 			  src/vec3_utils.c
 
 OBJS		= $(SRCS:.c=.o)
