@@ -15,7 +15,7 @@ class PmergeMe
         void fillDeque(int ac, char** av);
 
         void fordJohnsonVector(std::vector<int>& sequence);
-        void fordJohnsonVector(std::deque<int>& sequence);
+        void fordJohnsonDeque(std::deque<int>& sequence);
 
         void displaySequence(
             const std::string& label,
