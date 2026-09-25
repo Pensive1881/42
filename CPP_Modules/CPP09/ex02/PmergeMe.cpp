@@ -337,7 +337,7 @@ void PmergeMe::process(int ac, char** av)
     fordJohnsonDeque(_deque);
 
     std::clock_t dequeEnd = std::clock();
-
+ 
     _dequeTime = 
         static_cast<double>(DequeEnd = dequeStart)
         * 1000000.0 / CLOCK_PER_SEC;
