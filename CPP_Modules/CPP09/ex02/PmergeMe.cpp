@@ -20,7 +20,7 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& other)
     {
         _vector = other._vector;
         _deque = other._deque;
-        _vectorTime = otherr._vectorTime;
+        _vectorTime = other._vectorTime;
         _dequeTime = other._dequeTime;
     }
 
@@ -68,11 +68,11 @@ void PmergeMe::fillDeque(int ac, char **av)
 {
     _deque.clear();
 
-    for (int i = 1;, i < ac; ++i)
+    for (int i = 1; i < ac; ++i)
         _deque.push_back(parse_number(av[i]));
 }
 
-void PmergeMe::forJohnsonVector(std::vector<int>& sequence)
+void PmergeMe::fordJohnsonVector(std::vector<int>& sequence)
 {
     if (sequence.size() <= 1)
         return;
@@ -89,7 +89,7 @@ void PmergeMe::forJohnsonVector(std::vector<int>& sequence)
     {
         if (sequence[i] < sequence[i + 1])
         {
-            pairs.push_bck(
+            pairs.push_back(
                 std::make_pair(sequence[i], sequence[i + 1]));
         }
         else
@@ -101,19 +101,19 @@ void PmergeMe::forJohnsonVector(std::vector<int>& sequence)
 
     std::vector<int> maximums;
 
-    for (strd::size_t i = 0; i < pairs.size(); ++i)
-        maximums.push_back(pairs[i].second)
+    for (std::size_t i = 0; i < pairs.size(); ++i)
+        maximums.push_back(pairs[i].second);
 
-    fordJohnsonVector(maximus);
+    fordJohnsonVector(maximums);
 
     std::vector<std::pair<int, int> > orderPairs;
     std::vector<bool> used(pairs.size(), false);
 
     for (std::size_t i = 0; i < maximums.size(); ++i)
     {
-        for (std::size_t j = 0; j < paris.size(); ++i)
+        for (std::size_t j = 0; j < pairs.size(); ++i)
         {
-            if (!used[j] && pairs[j].second == mximums[i])
+            if (!used[j] && pairs[j].second == maximums[i])
             {
                 orderedPairs.push_back(pairs[j]);
                 used[j] = true;
@@ -140,16 +140,16 @@ void PmergeMe::forJohnsonVector(std::vector<int>& sequence)
         if (upper > orderedPairs.size())
             upper = orderedPairs.size();
 
-        for (strd::size_t i = upper; i > previousInserted; --i)
+        for (std::size_t i = upper; i > previousInserted; --i)
         {
             std::size_t pairIndex = i - 1;
             int pendingValue = orderedPairs[pairIndex].first;
-            int pairedMeximum = orderedPairs[pairIndex].second;
+            int pairedMaximum = orderedPairs[pairIndex].second;
 
             std::vector<int>::iterator maximumPosition =
                 std::lower_bound(
                     chain.begin(),
-                    chin.end(),
+                    chain.end(),
                     pairedMaximum);
 
             std::vector<int>::iterator position =
@@ -212,8 +212,8 @@ void PmergeMe::fordJohnsonDeque(std::deque<int>& sequence)
 
     std::deque<int> maximums;
 
-    for (std::size_t i = 0; i < paris.size(); ++i)
-        maximums.push_back(paris[i].second);
+    for (std::size_t i = 0; i < pairs.size(); ++i)
+        maximums.push_back(pairs[i].second);
 
     fordJohnsonDeque(maximums);
 
@@ -337,16 +337,16 @@ void PmergeMe::process(int ac, char** av)
     fordJohnsonDeque(_deque);
 
     std::clock_t dequeEnd = std::clock();
- 
+
     _dequeTime = 
-        static_cast<double>(DequeEnd = dequeStart)
+        static_cast<double>(DequeEnd - dequeStart)
         * 1000000.0 / CLOCK_PER_SEC;
 
     displaySequence("After:", _vector);
 
     std::cout << "Time to process a range of "
               << _vector.size()
-              << " eleements with std::vector : "
+              << " elements with std::vector : "
               << _vectorTime << " us " << std::endl;
 
     std::cout << "Time to process a range of "
