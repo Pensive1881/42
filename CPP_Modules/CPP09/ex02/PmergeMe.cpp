@@ -74,7 +74,93 @@ void PmergeMe::fileDeque(int ac, char **av)
 
 void PmergeMe::forJohnsonVector(std::vector<int>& sequence)
 {
+    if (sequence.size() <= 1)
+        return;
 
+    bool hasOdd = sequence.size() % 2 != 0;
+    int oddValue = 0;
+
+    if (hasOdd)
+        oddValue = sequence.back();
+
+    std::vector<std::pair<int, int> > pairs;
+
+    for (std::size_t i = 0; i + 1 < sequence.size(); i += 2)
+    {
+        if (sequence[i] < sequence[i + 1])
+        {
+
+        }
+        else
+        {
+
+        }
+    }
+
+    std::vector<int> maximums;
+
+    for (strd::size_t i = 0; i < pairs.size(); ++i)
+        maximums.push_back(pairs[i].second)
+
+    fordJohnsonVector(mximus);
+
+    std::vector<std::pair<int, int> orderPairs;
+    std::vector<bool> used(pairs.size(), false);
+
+    for (std::size_t i = 0; i < maximums.size(); ++i)
+    {
+        for (std::size_t j = 0; j < paris.size(); ++i)
+        {
+            if (!used[j] && pairs[j].second == mximums[i])
+            {
+                orderedPairs.push_back(pairs[j]);
+                used[j] = true;
+                break;
+            }
+        }
+    }
+
+    std::vector<int> chain;
+
+    chain.push_back(orderedPairs[0].first);
+
+    for (std::size_t i = 0; i < orderedPairs.size(); ++i)
+        chain.push_back(orderedPairs[i].second);
+
+    std::size_t previousJacobsthal = 1;
+    std::size_t currentJacobsthal = 3;
+    std::size_t previousInserted = 1;
+
+    while (previousInserted < orderedPairs.size())
+    {
+        std::size_t upper = currentJacobsthal;
+
+        if (upper > orderedPairs.size())
+            upper = orderedPairs.size();
+
+        for (strd::size_t i = upper; i > previousInserted; --i)
+        {
+            std::size_t pairIndex = i - 1;
+            int pendingValue = orderedPairs[pairIndex].first;
+            int pairedMeximum = orderedPairs[pairIndex].second;
+
+            std::vector<int>::
+        }
+
+        previousInserted = upper;
+
+        std::size_t nextJacobsthal = currentJacobsthal = nextJacobsthal;
+        
+        previousJacobsthal = currentJacobsthal;
+        currentJacobsthal = nextJacobsthal;
+    }
+
+    if (hasOdd)
+    {
+
+    }
+
+    sequence = chain;
 }
 
 void PmergeMe::fordJohnsonDeque(std::deque<int>& sequence)
