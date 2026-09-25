@@ -1,7 +1,7 @@
 #include "PmergeMe.hpp"
 
 PmergeMe::PmergeMe()
-    : _vector(other._vector),
+    : _vector(0),
       _dequeTime(0)
 {
 }
@@ -22,9 +22,9 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& other)
         _deque = other._deque;
         _vectorTime = otherr._vectorTime;
         _dequeTime = other._dequeTime;
-
-        return *this;
     }
+
+    return *this;
 }
 
 PmergeMe::~PmergeMe()
@@ -50,7 +50,7 @@ int PmergeMe::parse_number(
 
     if (input.fail() || !input.eof() || number <= 0 || number > INT_MAX)
     {
-        throw std::runtime("Error");
+        throw std::runtime_error("Error");
     }
 
     return static_cast<int>(number);
@@ -61,10 +61,10 @@ void PmergeMe::fillVector(int ac, char** av)
     _vector.clear();
 
     for (int i = 1; i < ac; ++i)
-        _vector.push_back(parse_number(ac[i]));
+        _vector.push_back(parse_number(av[i]));
 }
 
-void PmergeMe::fileDeque(int ac, char **av)
+void PmergeMe::fillDeque(int ac, char **av)
 {
     _deque.clear();
 
@@ -89,11 +89,13 @@ void PmergeMe::forJohnsonVector(std::vector<int>& sequence)
     {
         if (sequence[i] < sequence[i + 1])
         {
-
+            pairs.push_bck(
+                std::make_pair(sequence[i], sequence[i + 1]));
         }
         else
         {
-
+            pairs.push_back(
+                std::make_pair(sequence[i + 1], sequence[i]));
         }
     }
 
@@ -102,9 +104,9 @@ void PmergeMe::forJohnsonVector(std::vector<int>& sequence)
     for (strd::size_t i = 0; i < pairs.size(); ++i)
         maximums.push_back(pairs[i].second)
 
-    fordJohnsonVector(mximus);
+    fordJohnsonVector(maximus);
 
-    std::vector<std::pair<int, int> orderPairs;
+    std::vector<std::pair<int, int> > orderPairs;
     std::vector<bool> used(pairs.size(), false);
 
     for (std::size_t i = 0; i < maximums.size(); ++i)
@@ -144,7 +146,19 @@ void PmergeMe::forJohnsonVector(std::vector<int>& sequence)
             int pendingValue = orderedPairs[pairIndex].first;
             int pairedMeximum = orderedPairs[pairIndex].second;
 
-            std::vector<int>::
+            std::vector<int>::iterator maximumPosition =
+                std::lower_bound(
+                    chain.begin(),
+                    chin.end(),
+                    pairedMaximum);
+
+            std::vector<int>::iterator position =
+                std::lower_bound(
+                    chain.begin(),
+                    maximumPosition + 1,
+                    pendingValue);
+            
+            chain.insert(position, pendingValue);
         }
 
         previousInserted = upper;
@@ -157,7 +171,13 @@ void PmergeMe::forJohnsonVector(std::vector<int>& sequence)
 
     if (hasOdd)
     {
+        std::vector<int>::iterator position =
+            std::lower_bound(
+                chain.begin(),
+                chain.end(),
+                oddValue);
 
+        chain.insert(position, oddValue);
     }
 
     sequence = chain;
@@ -165,7 +185,114 @@ void PmergeMe::forJohnsonVector(std::vector<int>& sequence)
 
 void PmergeMe::fordJohnsonDeque(std::deque<int>& sequence)
 {
+    if (sequence.size() <= 1)
+        return;
 
+    bool hasOdd = sequence.size() % 2 != 0;
+    int oddValue = 0;
+
+    if (hasOdd)
+        oddValue = sequence.back();
+
+    std::deque<std::pair<int, int> > pairs;
+
+    for(std::size_t i = 0; i + 1 < sequence.size(); i += 2)
+    {
+        if (sequence[i] < sequence[i + 1])
+        {
+            pairs.push_back(
+                std::make_pair(sequence[i], sequence[i + 1]));
+        }
+        else
+        {
+            pairs.push_back(
+                std::make_pair(sequence[i + 1], sequence[i]));
+        }
+    }
+
+    std::deque<int> maximums;
+
+    for (std::size_t i = 0; i < paris.size(); ++i)
+        maximums.push_back(paris[i].second);
+
+    fordJohnsonDeque(maximums);
+
+    std::deque<std::pair<int, int> > orderedPairs;
+    std::deque<bool> used(pairs.size(), false);
+
+    for (std::size_t i = 0; i < maximums.size(); ++i)
+    {
+        for (std::size_t j = 0; i < pairs.size(); ++j)
+        {
+            if (!used[j] && pairs[j].second == maximums[i])
+            {
+                orderedPairs.push_back(pairs[j]);
+                used[j] = true;
+                break;
+            }
+        }
+    }
+
+    std::deque<int> chain;
+
+    chain.push_back(orderedPairs[0].first);
+
+    for (std::size_t i = 0; i < orderedPairs.size(); ++i)
+        chain.push_back(orderedPairs[i].second);
+
+    std::size_t previousJacobsthal = 1;
+    std::size_t currentJacobsthal = 3;
+    std::size_t previousInserted = 1;
+
+    while (previousInserted < orderedPairs.size())
+    {
+        std::size_t upper = currentJacobsthal;
+
+        if (upper > orderedPairs.size())
+            upper = orderedPairs.size();
+
+        for (std::size_t i = upper; i > previousInserted; --i)
+        {
+            std::size_t pairIndex = i - 1;
+            int pendingValue = orderedPairs[pairIndex].first;
+            int pairedMaximum = orderedPairs[pairIndex].second;
+
+            std::deque<int>::iterator maximumPosition =
+                std::lower_bound(
+                    chain.begin(),
+                    chain.end(),
+                    pairedMaximum);
+
+            std::deque<int>::iterator position =
+                std::lower_bound(
+                    chain.begin(),
+                    maximumPosition + 1,
+                    pendingValue);
+
+            chain.insert(position, pendingValue);
+        }
+
+        previousInserted = upper;
+
+        std::size_t nextJacobsthal =
+            currentJacobsthal + 2 * previousJacobsthal;
+
+        previousJacobsthal = currentJacobsthal;
+        currentJacobsthal = nextJacobsthal;
+    }
+
+    if (hasOdd)
+    {
+        std::deque<int>::iterator position =
+            std::lower_bound(
+                chain.begin(),
+                chain.end(),
+                oddValue);
+        
+        chain.insert(position,oddValue);
+    }
+
+    sequence = chain;
 }
 
 void PmergeMe::displaySequence(
@@ -182,5 +309,48 @@ void PmergeMe::displaySequence(
 
 void PmergeMe::process(int ac, char** av)
 {
+    if (ac < 2)
+        throw std::runtime_error("Error");
 
+    std::clock_t vectorStart = std::clock();
+
+    fillVector(ac, av);
+
+    std::clock_t vectorFillEnd = std::clock();
+
+    displaySequence("Before:", _vector);
+
+    std::clock_t vectorSortStart = std::clock();
+
+    fordJohnsonVector(_vector);
+
+    std::clock_t vectorEnd = std::clock();
+
+    _vectorTime = 
+        (static_cast<double>(vectorFillEnd - vectorStart)
+        + static_cast<double>(vectorEnd - vectorSortStart))
+        * 1000000.0 / CLOCKS_PER_SEC;
+
+    std::clock_t dequeStart = std::clock();
+
+    fillDeque(ac, av);
+    fordJohnsonDeque(_deque);
+
+    std::clock_t dequeEnd = std::clock();
+
+    _dequeTime = 
+        static_cast<double>(DequeEnd = dequeStart)
+        * 1000000.0 / CLOCK_PER_SEC;
+
+    displaySequence("After:", _vector);
+
+    std::cout << "Time to process a range of "
+              << _vector.size()
+              << " eleements with std::vector : "
+              << _vectorTime << " us " << std::endl;
+
+    std::cout << "Time to process a range of "
+              << _deque.size()
+              << " elements with std::deque : "
+              << _dequeTime <<  " us " << std::endl;
 }
