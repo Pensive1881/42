@@ -1,5 +1,13 @@
 #include "PmergeMe.hpp"
 
+#include <algorithm>
+#include <climits>
+#include <ctime>
+#include <iostream>
+#include <sstream>
+#include <stdexcept>
+#include <utility>
+
 PmergeMe::PmergeMe()
     : _vector(0),
       _dequeTime(0)
