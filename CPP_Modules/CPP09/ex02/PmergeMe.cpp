@@ -9,7 +9,7 @@
 #include <utility>
 
 PmergeMe::PmergeMe()
-    : _vector(0),
+    : _vectorTime(0),
       _dequeTime(0)
 {
 }
@@ -114,12 +114,12 @@ void PmergeMe::fordJohnsonVector(std::vector<int>& sequence)
 
     fordJohnsonVector(maximums);
 
-    std::vector<std::pair<int, int> > orderPairs;
+    std::vector<std::pair<int, int> > orderedPairs;
     std::vector<bool> used(pairs.size(), false);
 
     for (std::size_t i = 0; i < maximums.size(); ++i)
     {
-        for (std::size_t j = 0; j < pairs.size(); ++i)
+        for (std::size_t j = 0; j < pairs.size(); ++j)
         {
             if (!used[j] && pairs[j].second == maximums[i])
             {
@@ -171,7 +171,7 @@ void PmergeMe::fordJohnsonVector(std::vector<int>& sequence)
 
         previousInserted = upper;
 
-        std::size_t nextJacobsthal = currentJacobsthal = nextJacobsthal;
+        std::size_t nextJacobsthal = currentJacobsthal + 2 * previousJacobsthal;
         
         previousJacobsthal = currentJacobsthal;
         currentJacobsthal = nextJacobsthal;
@@ -230,7 +230,7 @@ void PmergeMe::fordJohnsonDeque(std::deque<int>& sequence)
 
     for (std::size_t i = 0; i < maximums.size(); ++i)
     {
-        for (std::size_t j = 0; i < pairs.size(); ++j)
+        for (std::size_t j = 0; j < pairs.size(); ++j)
         {
             if (!used[j] && pairs[j].second == maximums[i])
             {
@@ -347,8 +347,8 @@ void PmergeMe::process(int ac, char** av)
     std::clock_t dequeEnd = std::clock();
 
     _dequeTime = 
-        static_cast<double>(DequeEnd - dequeStart)
-        * 1000000.0 / CLOCK_PER_SEC;
+        static_cast<double>(dequeEnd - dequeStart)
+        * 1000000.0 / CLOCKS_PER_SEC;
 
     displaySequence("After:", _vector);
 
