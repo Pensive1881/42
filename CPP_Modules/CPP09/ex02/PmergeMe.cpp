@@ -163,7 +163,7 @@ void PmergeMe::fordJohnsonVector(std::vector<int>& sequence)
             std::vector<int>::iterator position =
                 std::lower_bound(
                     chain.begin(),
-                    maximumPosition + 1,
+                    maximumPosition,
                     pendingValue);
             
             chain.insert(position, pendingValue);
@@ -274,7 +274,7 @@ void PmergeMe::fordJohnsonDeque(std::deque<int>& sequence)
             std::deque<int>::iterator position =
                 std::lower_bound(
                     chain.begin(),
-                    maximumPosition + 1,
+                    maximumPosition,
                     pendingValue);
 
             chain.insert(position, pendingValue);
