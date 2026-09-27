@@ -150,8 +150,8 @@ int parse_sphere(char *line, t_scene *scene)
         return (0);
     object->sp = value;
     add_object(scene, object);
-    scene->sphere = value;
-    scene->has_sphere = 1;
+    //scene->sphere = value;
+    //scene->has_sphere = 1;
     return (1);
 }
 
@@ -182,7 +182,7 @@ int parse_plane(char *line, t_scene *scene)
     if (!object)
         return (0);
     object->pl.point = point;
-    object->pl.normal = normal;
+    object->pl.normal = vec3_norm(normal);
     add_object(scene, object);
     return (1);
 }
