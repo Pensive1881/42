@@ -41,7 +41,8 @@ SRCS		= src/main.c \
 			  src/objects.c \
 			  src/sphere.c \
 			  src/vec3.c \
-			  src/plane_stub.c \
+			  src/plane.c \
+			  src/cylinder.c \
 			  src/vec3_utils.c
 
 OBJS		= $(SRCS:.c=.o)
@@ -52,7 +53,7 @@ $(NAME): $(MLX_LIB) $(LIBFT) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(LIBS) -o $(NAME)
 
 $(MLX_LIB):
-#	@true
+	@true
 	$(MAKE) -C $(MLX_DIR)
 
 $(LIBFT):
