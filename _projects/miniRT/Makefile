@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: rrajni <rrajni@student.42berlin.de>        +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2026/10/21 14:47:32 by rrajni            #+#    #+#              #
+#    Updated: 2026/10/21 14:47:34 by rrajni           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME		= miniRT
 
 CC			= cc
@@ -37,6 +49,7 @@ SRCS		= src/main.c \
 			  src/mlx_app.c \
 			  src/render.c \
 			  src/lighting.c \
+			  src/lighting_utils.c \
 			  src/camera.c \
 			  src/ray.c \
 			  src/objects.c \
