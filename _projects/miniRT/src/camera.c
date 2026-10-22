@@ -6,7 +6,7 @@
 /*   By: rrajni <rrajni@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 14:36:38 by rrajni            #+#    #+#             */
-/*   Updated: 2026/10/21 18:02:29 by rrajni           ###   ########.fr       */
+/*   Updated: 2026/10/22 14:57:10 by rrajni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,27 +27,30 @@ void	camera_init(t_camera *cam)
 	cam->up = vec3_norm(vec3_cross(cam->right, cam->direction));
 }
 
+static	t_vec3	pixel_to_dir(t_camera *cam, t_px px)
+{
+	double	half_w;
+	double	u;
+	double	v;
+	t_vec3	dir;
+	t_vec3	aa;
+
+	half_w = tan(cam->fov * M_PI / 360.0);
+	u = half_w * (2.0 * (px.x + 0.5) / px.width - 1.0);
+	v = half_w / ((double)px.width / px.height)
+		* (1.0 - 2.0 * (px.y + 0.5) / px.height);
+	aa = vec3_scale(cam->right, u);
+	dir = vec3_add(cam->direction,
+			vec3_add(aa, vec3_scale(cam->up, v)));
+	return (vec3_norm(dir));
+}
+
 //one ray per pixel, we will call it in render loop
-t_ray	get_ray(t_camera *cam, int px, int py, int width, int height)
+t_ray	get_ray(t_camera *cam, t_px px)
 {
 	t_ray	ray;
-	//field of view and viewport scaling
-	//we need angles in radians not degrees
-	double fov_rad = cam->fov * M_PI / 180.0;
-	double	half_w = tan(fov_rad / 2.0); //veiwport halfwidth
-	double	aspect = (double)width / height;//otherwise the object will appear stretched horizontally
-	//pixel to viewport coordinate mapping(u, v)
-	double	u = half_w * (2.0 * (px + 0.5) / width - 1.0);
-	double	v = half_w / aspect * (1.0 - 2.0 * (py + 0.5) / height);
-	//combine camera basis vectors to get world space direction
-	t_vec3	dir = vec3_add(cam->direction, vec3_add(vec3_scale(cam->right, u),
-				vec3_scale(cam->up, v)));
-	//ray assembly
-	//all perspective rays start at the camera's loation in space
-	ray.origin = cam->position;
-	//normalising dir rescales the direction arrow to a standard length of 1.0
-	//which is required for intersection math
-	ray.dir = vec3_norm(dir);
-	return (ray);
 
+	ray.origin = cam->position;
+	ray.dir = pixel_to_dir(cam, px);
+	return (ray);
 }
